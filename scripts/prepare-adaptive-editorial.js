@@ -25,7 +25,7 @@ function base64(s,max){
 function bindingValid(b){
  keys(b,['schema','recipientFingerprint','sourceSha','sourceTree','sourceRevision','researchDigest',
  'workflowImplementationSha','runId','runAttempt','purpose','capturedAt','payloadMembers','outcome','stage']);
- assert.equal(b.schema,'ns.editorial-private-review.v3');assert.equal(b.purpose,'editorial-private-review');
+ assert.equal(b.schema,'ns.editorial-private-review.v4');assert.equal(b.purpose,'editorial-private-review');
  for(const k of ['sourceSha','sourceTree','workflowImplementationSha'])assert(/^[a-f0-9]{40}$/.test(b[k]));
  for(const k of ['recipientFingerprint','sourceRevision','researchDigest'])assert(/^[a-f0-9]{64}$/.test(b[k]));
  assert(/^\d+$/.test(b.runId)&&/^[1-9]\d*$/.test(b.runAttempt));
@@ -34,7 +34,7 @@ function bindingValid(b){
  assert(['prepared-review-required','failed-review-required'].includes(b.outcome));
 }
 const FAILURE_STAGES=['validate-inputs','transport-self-tests','verify-shell-before','canonical-prepare-control',
-'read-authorised-controls','canonical-inventory','canonical-research','verify-shell-after','capture-source','capture-cas','return-packaging'];
+'read-authorised-controls','canonical-inventory','canonical-research','verify-shell-after','capture-source','capture-cas','return-packaging','verify-capacity-basis'];
 const FAILURE_SUBSTAGES=['preparation-failure','list-child-failure','list-json-invalid','source-revision-mismatch',
 'horizon-mismatch','target-absent','target-held','target-pending-edit','noncanonical-admission','source-capture-failure'];
 const FAILURE_SIGNALS=['SIGTERM','SIGKILL','SIGINT','SIGABRT','SIGSEGV','SIGPIPE','SIGBUS','SIGHUP','SIGQUIT'];
@@ -163,7 +163,7 @@ function open(text,privateKey,expected){
 function selfTest(){
  const opts={modulusLength:3072,publicKeyEncoding:{type:'spki',format:'pem'},privateKeyEncoding:{type:'pkcs8',format:'pem'}};
  const a=crypto.generateKeyPairSync('rsa',opts),other=crypto.generateKeyPairSync('rsa',opts);
- const b={schema:'ns.editorial-private-review.v3',recipientFingerprint:fingerprint(a.publicKey),sourceSha:'1'.repeat(40),
+ const b={schema:'ns.editorial-private-review.v4',recipientFingerprint:fingerprint(a.publicKey),sourceSha:'1'.repeat(40),
  sourceTree:'2'.repeat(40),sourceRevision:'3'.repeat(64),researchDigest:'4'.repeat(64),workflowImplementationSha:'1'.repeat(40),
  runId:'1',runAttempt:'1',purpose:'editorial-private-review',capturedAt:'2026-11-13T13:00:00.000Z',
  payloadMembers:MEMBERS,outcome:'prepared-review-required',stage:'capture-source'};
@@ -254,7 +254,27 @@ async function api(route,key,origin,body){
  const value=JSON.parse(Buffer.concat(chunks).toString('utf8'));assert(Array.isArray(value));return {value,range:r.headers.get('content-range')};
 }
 
-const CAPTURE_DIAGNOSTIC_LIMITS={entries:128,pathCharacters:240,statusBytes:64*1024,fileBytes:MAX,hashBudgetBytes:MAX,metadataBytes:128*1024};
+const CAPTURE_DIAGNOSTIC_LIMITS={entries:13418,pathCharacters:240,statusBytes:8*1024*1024,fileBytes:MAX,hashBudgetBytes:MAX,metadataBytes:16*1024*1024};
+const DIAGNOSTIC_CAPACITY_BASIS={"schemaVersion":"ns.editorial-diagnostic-capacity-basis.v1","sourceCommit":"a43d2289e06ab8b3a372f6280e0ae23d51696956","sourceTree":"1918173fdcd07c68f429d84d6ec56963e5c77d81","cardinalities":{"trackedPaths":3833,"feedRows":1855,"finalsFixtures":20,"usOpenSubEvents":957,"majorEvents":8,"codeDefinitions":38,"postingSlotsPerEventUpper":2},"bound":{"sourceItemsUpper":4695,"newImagePathsUpper":9390,"feedPagePathsUpper":94,"fixedCompanionPathsUpper":25,"codeAndSchedulePathsUpper":76,"diagnosticEntries":13418},"pins":[{"path":"scripts/update-cards.js","mode":"100644","gitBlob":"42ff6b038156ad521f50cfb508654e7caf4d0464"},{"path":"scripts/adaptive-editorial.js","mode":"100644","gitBlob":"e180f4402cd5122a759f1b31c25bac81fa6b5c00"},{"path":"scripts/weekend-editorial.js","mode":"100644","gitBlob":"765ab9e47cae5ceca32574b43940401688e375dd"},{"path":"scripts/apply-fixture-research.js","mode":"100644","gitBlob":"621b644e680710e6957df06fabec668dee6ffd8b"},{"path":"scripts/apply-editorial-narratives.js","mode":"100644","gitBlob":"c5d49e67afb613127b7a57ec40fa9786647aa33b"},{"path":"scripts/build-app-shell-runtime.js","mode":"100644","gitBlob":"e8c47aadce5e83561b58b3cbdd9f7c26fbaabb07"},{"path":"scripts/build-deferred-sports-ui.js","mode":"100644","gitBlob":"ecb73b1375debf135c4e76fd2d4c4006b1d1ec7c"},{"path":"scripts/build-paged-feed.js","mode":"100644","gitBlob":"934278e3027dd7aeecc41dec1de1f17137172241"},{"path":"scripts/build-code-inspector.js","mode":"100644","gitBlob":"c650406967e94d88dbc133036582ba939a55cb02"},{"path":"scripts/build-chat-fixture-registry.js","mode":"100644","gitBlob":"5a3af75d3f04b297723b15d43431c22bee282353"},{"path":"scripts/qa-storyline-spoilers.js","mode":"100644","gitBlob":"6d185bf6ca3855f5d71bd8d0cc3d3e6352f4c0cf"},{"path":"scripts/validate-feed.js","mode":"100644","gitBlob":"b0a8dd803d27a018e5e7e740a36e415027da1b2d"},{"path":"scripts/build-marquee-candidates.js","mode":"100644","gitBlob":"c6e0e3e70c060cf522d0dfdf4ad6e7c70fa27116"},{"path":"lib/comms-content.js","mode":"100644","gitBlob":"eb8e23266e5a488e97429d4a8ce6dd78022b15f0"},{"path":"lib/competition-fixtures.js","mode":"100644","gitBlob":"b5537384ced31e8e46e2be8093df788ff41afb4e"},{"path":"config/fixture-identity.js","mode":"100644","gitBlob":"887d3ba504bcf4cedec1b45d3c4f27f67c087283"},{"path":"config/canonical-sports-taxonomy.js","mode":"100644","gitBlob":"6242b62a87999aa66d6d76eec7bbd68811b85b6b"},{"path":"data/events.json","mode":"100644","gitBlob":"21b741aa1729a6290bbb1a3c2e25a6560c464e41"},{"path":"data/major-events.v1.json","mode":"100644","gitBlob":"a0d735ff0adea0714a2d64ad87f3f025b7c7b069"},{"path":"data/canonical/afl-nrl-finals-2026.json","mode":"100644","gitBlob":"2537710a7e14b30fd06718d981e648f515d10a20"},{"path":"data/code-inspector/manifest.json","mode":"100644","gitBlob":"f6913e7778f7a7fb02d1dada6543256f6d26d6ad"}]};
+const DIAGNOSTIC_CAPACITY_BASIS_SHA256=sha(JSON.stringify(DIAGNOSTIC_CAPACITY_BASIS));
+
+function verifyDiagnosticBasisRows(rows){
+ assert(Array.isArray(rows)&&rows.length===DIAGNOSTIC_CAPACITY_BASIS.cardinalities.trackedPaths,'Diagnostic basis changed; recompute the reviewed capacity.');
+ const byPath=new Map();for(const row of rows){
+  keys(row,['path','mode','gitBlob']);assert(typeof row.path==='string'&&row.path&&!byPath.has(row.path));
+  assert(/^[0-7]{6}$/.test(row.mode)&&/^[a-f0-9]{40}$/.test(row.gitBlob));byPath.set(row.path,row);
+ }
+ for(const pin of DIAGNOSTIC_CAPACITY_BASIS.pins){const actual=byPath.get(pin.path);assert(actual&&actual.mode===pin.mode&&actual.gitBlob===pin.gitBlob,'Diagnostic source/data basis changed; recompute before external work.');}
+ return DIAGNOSTIC_CAPACITY_BASIS_SHA256;
+}
+function verifyDiagnosticBasis(env){
+ const raw=git(['ls-tree','-r','-z','--full-tree','HEAD'],env,2*1024*1024);assert(raw.endsWith('\0'));
+ const rows=raw.slice(0,-1).split('\0').map(line=>{
+  const tab=line.indexOf('\t'),match=/^([0-7]{6}) (?:blob|commit) ([a-f0-9]{40})$/.exec(line.slice(0,tab));
+  assert(tab>0&&match,'Invalid capacity basis metadata.');return {path:line.slice(tab+1),mode:match[1],gitBlob:match[2]};
+ });return verifyDiagnosticBasisRows(rows);
+}
+
 const DIAGNOSTIC_EXTRA_PATHS=new Set(['data/chat-fixtures.v1.json','app-version.json','index.html','service-worker.js',
 'assets/js/calendar-sync-ui.js','assets/js/account-awareness-runtime.js','assets/js/match-centre-ui.js',
 'assets/js/all-sports-ui.js','assets/js/milestone-alerts-ui.js','assets/js/app-update.js','assets/js/notifications-inbox.js']);
@@ -267,16 +287,20 @@ function strictSourceEntry(row,count){
  assert([' M','??'].includes(row.slice(0,2)),'Unexpected staged, renamed or deleted source.');
  const file=row.slice(3);assert(allowed(file),'Changed source outside reviewed allowlist.');assert(count<128);return file;
 }
-function captureContext(readStatus){return {readStatus,statusAttempted:false,statusReadComplete:false,totalChangedCount:null,
- truncated:false,failureCode:null,rows:[],entries:[],hashBudgetChargedBytes:0};}
+function captureContext(readStatus,{entries=CAPTURE_DIAGNOSTIC_LIMITS.entries,statusBytes=CAPTURE_DIAGNOSTIC_LIMITS.statusBytes}={}){
+ assert(Number.isInteger(entries)&&entries>=1&&entries<=CAPTURE_DIAGNOSTIC_LIMITS.entries);
+ assert(Number.isInteger(statusBytes)&&statusBytes>=1&&statusBytes<=CAPTURE_DIAGNOSTIC_LIMITS.statusBytes);
+ return {readStatus,limits:{entries,statusBytes},statusAttempted:false,statusReadComplete:false,totalChangedCount:null,
+ truncated:false,failureCode:null,rows:[],entries:[],hashBudgetChargedBytes:0};
+}
 function captureRows(context){
  if(!context.statusAttempted){
   context.statusAttempted=true;
   try{
-   const raw=context.readStatus();assert(typeof raw==='string'&&Buffer.byteLength(raw)<=CAPTURE_DIAGNOSTIC_LIMITS.statusBytes);
+   const raw=context.readStatus();assert(typeof raw==='string'&&Buffer.byteLength(raw)<=context.limits.statusBytes);
    assert(raw===''||raw.endsWith('\0'));const tokens=raw.split('\0');tokens.pop();
    for(let index=0;index<tokens.length;index++){
-    if(context.entries.length>=CAPTURE_DIAGNOSTIC_LIMITS.entries){context.truncated=true;context.failureCode='status-limit';break;}
+    if(context.entries.length>=context.limits.entries){context.truncated=true;context.failureCode='status-limit';break;}
     const row=tokens[index],status=row.slice(0,2),file=row.slice(3);
     if(row[2]!==' '||!/^[ MADRCUTU?!]{2}$/.test(status)){context.failureCode='status-invalid';context.truncated=true;break;}
     let originalPath=null;
@@ -325,19 +349,20 @@ function captureInventory(context,observe=observeDiagnosticEntry){
    const {hashBudgetChargedBytes,...metadata}=result;Object.assign(entry,metadata);
   }catch(_){context.hashBudgetChargedBytes=CAPTURE_DIAGNOSTIC_LIMITS.hashBudgetBytes;Object.assign(entry,{afterKind:'unknown',afterBytes:null,afterSha256:null,hashStatus:'read-failed'});}
  }
- return {statusReadComplete:context.statusReadComplete,totalChangedCount:context.totalChangedCount,
+ return {capacityBasisSha256:DIAGNOSTIC_CAPACITY_BASIS_SHA256,statusReadComplete:context.statusReadComplete,totalChangedCount:context.totalChangedCount,
   returnedEntryCount:context.entries.length,truncated:context.truncated,hashBudgetChargedBytes:context.hashBudgetChargedBytes,
   entries:context.entries.map(entry=>({...entry}))};
 }
 function validateCaptureDiagnostic(value){
- keys(value,['phase','failureCode','sourceDisposition','casDisposition','statusReadComplete','totalChangedCount',
+ keys(value,['phase','failureCode','sourceDisposition','casDisposition','capacityBasisSha256','statusReadComplete','totalChangedCount',
  'returnedEntryCount','truncated','hashBudgetChargedBytes','entries','readout']);
  assert(['capture-source','capture-cas'].includes(value.phase));
  assert(['strict-source-rejection','cas-capture-rejection','status-limit','status-invalid','path-invalid','status-unavailable'].includes(value.failureCode));
  assert.equal(value.sourceDisposition,'omitted-on-capture-failure');assert.equal(value.casDisposition,'omitted-on-capture-failure');
+ assert.equal(value.capacityBasisSha256,DIAGNOSTIC_CAPACITY_BASIS_SHA256);
  assert(typeof value.statusReadComplete==='boolean'&&typeof value.truncated==='boolean');
- assert(value.totalChangedCount===null||Number.isInteger(value.totalChangedCount)&&value.totalChangedCount>=0&&value.totalChangedCount<=128);
- assert(Number.isInteger(value.returnedEntryCount)&&value.returnedEntryCount>=0&&value.returnedEntryCount<=128);
+ assert(value.totalChangedCount===null||Number.isInteger(value.totalChangedCount)&&value.totalChangedCount>=0&&value.totalChangedCount<=CAPTURE_DIAGNOSTIC_LIMITS.entries);
+ assert(Number.isInteger(value.returnedEntryCount)&&value.returnedEntryCount>=0&&value.returnedEntryCount<=CAPTURE_DIAGNOSTIC_LIMITS.entries);
  assert(Array.isArray(value.entries)&&value.entries.length===value.returnedEntryCount);
  assert(Number.isInteger(value.hashBudgetChargedBytes)&&value.hashBudgetChargedBytes>=0&&value.hashBudgetChargedBytes<=CAPTURE_DIAGNOSTIC_LIMITS.hashBudgetBytes);
  if(value.statusReadComplete){assert.equal(value.totalChangedCount,value.returnedEntryCount);assert.equal(value.truncated,false);}
@@ -432,6 +457,7 @@ async function main(){
   const pub=crypto.createPublicKey(pem);assert.equal(pub.asymmetricKeyType,'rsa');assert(pub.asymmetricKeyDetails.modulusLength>=3072);
   const env=isolatedEnvironment();assert.equal(git(['rev-parse','HEAD'],env).trim(),sourceSha);
   assert.equal(git(['status','--porcelain=v1','--untracked-files=all'],env),'');assert(!fs.existsSync(path.join(ROOT,'.vercel')));
+  stage='verify-capacity-basis';verifyDiagnosticBasis(env);stage='validate-inputs';
   const tree=git(['rev-parse','HEAD^{tree}'],env).trim();
   const source=JSON.parse(readBounded(path.join(ROOT,'data/editorial-maintenance-sources.v1.json')));
   assert.equal(source.sourceRevision,research.sourceRevision);
@@ -440,7 +466,7 @@ async function main(){
   writePrivate(path.join(dir,'owner.json'),JSON.stringify(location.owner));
   out=path.join(location.base,'editorial-preparation-return');fs.mkdirSync(out,{mode:0o700});
   stage='transport-self-tests';selfTest();
-  binding={schema:'ns.editorial-private-review.v3',recipientFingerprint:PIN,sourceSha,sourceTree:tree,
+  binding={schema:'ns.editorial-private-review.v4',recipientFingerprint:PIN,sourceSha,sourceTree:tree,
   sourceRevision:source.sourceRevision,researchDigest:digest,workflowImplementationSha:process.env.EXPECTED_WORKFLOW_SHA,
   runId:process.env.PREP_RUN_ID,runAttempt:process.env.PREP_RUN_ATTEMPT,purpose:'editorial-private-review',
   capturedAt:new Date().toISOString(),payloadMembers:MEMBERS,outcome:'failed-review-required',stage};bindingValid(binding);
@@ -533,4 +559,4 @@ async function main(){
  else console.log('Editorial preparation complete; encrypted private review required. No database write or release performed.');
 }
 if(require.main===module)main().catch(()=>{console.error('Editorial preparation failed safely.');process.exitCode=1;});
-module.exports={seal,open,selfTest,privateLocation,cleanupPrivate,canonicalAdmissionIssue,privateFailure,validatePrivateFailure,validatePrivatePayload:payloadValid,strictSourceEntry,captureContext,captureRows,captureInventory,observeDiagnosticEntry,composeReviewReturn};
+module.exports={seal,open,selfTest,privateLocation,cleanupPrivate,canonicalAdmissionIssue,privateFailure,validatePrivateFailure,validatePrivatePayload:payloadValid,strictSourceEntry,captureContext,captureRows,captureInventory,observeDiagnosticEntry,composeReviewReturn,diagnosticCapacityBasis:DIAGNOSTIC_CAPACITY_BASIS,diagnosticCapacityLimits:CAPTURE_DIAGNOSTIC_LIMITS,verifyDiagnosticBasisRows};

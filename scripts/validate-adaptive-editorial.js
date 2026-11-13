@@ -201,9 +201,9 @@ assert(!display.needsDisplayCopy(completedFixture,now));assert(!display.displayC
   const expectedRevision='d'.repeat(64),flags={listParsed:true,selectedCount:2,sourceRevisionMatches:true,horizonMatches:true};
   const base={casReport:{sourceRevision:expectedRevision,operations:[]},casSql:'',selection:[],shellIdentity:{before:null,after:null}};
   const digest='c'.repeat(64),seen=()=>({afterKind:'regular',afterBytes:7,afterSha256:digest,hashStatus:'verified',hashBudgetChargedBytes:7});
-  const run=(raw,{primary=null,observe=seen,sourceResult=null,casFailure=false}={})=>{
+  const run=(raw,{primary=null,observe=seen,sourceResult=null,casFailure=false,diagnosticLimits={}}={})=>{
    let statusReads=0,sourceCalls=0,casCalls=0;
-   const context=helper.captureContext(()=>{statusReads++;return raw;});
+   const context=helper.captureContext(()=>{statusReads++;return raw;},diagnosticLimits);
    const payload=helper.composeReviewReturn(base,{primary,flags,context,report:null,mode:'research',observe,
     captureSource:()=>{sourceCalls++;for(const [index,row] of helper.captureRows(context).entries())helper.strictSourceEntry(row,index);
      return sourceResult||{sourcePatch:'synthetic allowed patch',newFiles:[],sourceChanges:[]};},
@@ -250,7 +250,7 @@ assert(!display.needsDisplayCopy(completedFixture,now));assert(!display.displayC
   const unknown=run(' M data/chat-fixtures.v1.json');
   assert.equal(unknown.payload.failure.returnCapture.statusReadComplete,false);
   assert.equal(unknown.payload.failure.returnCapture.totalChangedCount,null);assert.equal(unknown.payload.failure.returnCapture.truncated,true);
-  const limited=run(Array.from({length:129},(_,index)=>' M data/feed/page-'+index+'.json\0').join(''));
+  const limited=run(Array.from({length:129},(_,index)=>' M data/feed/page-'+index+'.json\0').join(''),{diagnosticLimits:{entries:128}});
   assert.equal(limited.statusReads,1);assert.equal(limited.payload.failure.returnCapture.returnedEntryCount,128);
   assert.equal(limited.payload.failure.returnCapture.totalChangedCount,null);assert.equal(limited.payload.failure.returnCapture.truncated,true);
   const readFailed=run(' M data/chat-fixtures.v1.json\0',{observe:()=>{throw Error('PRIVATE_READ_SENTINEL');}});
@@ -275,6 +275,67 @@ assert(!display.needsDisplayCopy(completedFixture,now));assert(!display.displayC
   Object.assign(cached.entries[0],{beforeBlob:'e'.repeat(40),afterKind:'regular',afterBytes:7,afterSha256:digest,hashStatus:'verified'});
   let rehashes=0;const reused=helper.captureInventory(cached,()=>{rehashes++;return seen();});
   assert.equal(rehashes,0);assert.equal(reused.entries[0].beforeBlob,'e'.repeat(40));assert.equal(reused.hashBudgetChargedBytes,0);
+
+ // Diagnostic capacity is separate from the unchanged publication/body limits.
+ {
+  const limits=helper.diagnosticCapacityLimits,basis=helper.diagnosticCapacityBasis;
+  assert.deepEqual(basis.cardinalities,{trackedPaths:3833,feedRows:1855,finalsFixtures:20,usOpenSubEvents:957,majorEvents:8,codeDefinitions:38,postingSlotsPerEventUpper:2});
+  assert.equal(basis.bound.sourceItemsUpper,2*1855+20+957+8);
+  assert.equal(basis.bound.newImagePathsUpper,2*basis.bound.sourceItemsUpper);
+  assert.equal(basis.bound.feedPagePathsUpper,1+Math.ceil((1855-1)/20));
+  assert.equal(limits.entries,3833+9390+94+25+2*38);assert.equal(limits.entries,13418);
+  assert.equal(limits.statusBytes,8*1024*1024);assert.equal(limits.metadataBytes,16*1024*1024);
+  assert.equal(limits.pathCharacters,240);assert.equal(limits.hashBudgetBytes,32*1024*1024);assert.equal(limits.fileBytes,32*1024*1024);
+  assert(13418*485<=limits.statusBytes,'complete two-path status sizing is bounded independently of hashes');
+  assert(13418*744+128*1024+4096<=limits.metadataBytes,'compact worst-case entry, readout and header fit the private diagnostic bound');
+  const full=run(Array.from({length:129},(_,index)=>' M data/feed/page-'+index+'.json\0').join(''));
+  assert.equal(full.statusReads,1);assert.equal(full.sourceCalls,1);assert.equal(full.casCalls,0);
+  const inventory=full.payload.failure.returnCapture;
+  assert.equal(inventory.totalChangedCount,129);assert.equal(inventory.returnedEntryCount,129);
+  assert.equal(inventory.statusReadComplete,true);assert.equal(inventory.truncated,false);
+  assert.equal(inventory.sourceDisposition,'omitted-on-capture-failure');
+  helper.validatePrivatePayload(full.payload,{...failedBinding,stage:full.payload.failure.stage});
+  assert.equal(helper.strictSourceEntry(' M data/events.json',127),'data/events.json');
+  assert.throws(()=>helper.strictSourceEntry(' M data/events.json',128),'publication129 is still forbidden');
+  const normalBase={casReport:{sourceRevision:expectedRevision,operations:[]},casSql:'',selection:[],shellIdentity:{before:null,after:null},sourcePatch:'',newFiles:[],sourceChanges:[],failure:null};
+  const preparedBinding={sourceRevision:expectedRevision,outcome:'prepared-review-required',stage:'capture-source'};
+  assert.throws(()=>helper.validatePrivatePayload({...normalBase,sourceChanges:Array(129).fill({})},preparedBinding));
+  assert.throws(()=>helper.validatePrivatePayload({...normalBase,newFiles:Array(129).fill({})},preparedBinding));
+  let boundaryReads=0;
+  const exact=helper.captureContext(()=>{boundaryReads++;return ' M data/feed/page-1.json\0 M data/feed/page-2.json\0';},{entries:2});
+  assert.equal(helper.captureRows(exact).length,2);helper.captureInventory(exact,seen);assert.equal(boundaryReads,1);assert.equal(exact.totalChangedCount,2);
+  const over=helper.captureContext(()=> ' M data/feed/page-1.json\0 M data/feed/page-2.json\0 M data/feed/page-3.json\0',{entries:2});
+  assert.throws(()=>helper.captureRows(over));const partial=helper.captureInventory(over,seen);
+  assert.equal(partial.totalChangedCount,null);assert.equal(partial.returnedEntryCount,2);assert.equal(partial.truncated,true);
+  const twoPath='R  '+'n'.repeat(240)+'\0'+'o'.repeat(240)+'\0';assert.equal(Buffer.byteLength(twoPath),485);
+  const exactBytes=helper.captureContext(()=>twoPath,{entries:1,statusBytes:485});helper.captureRows(exactBytes);
+  assert.equal(exactBytes.entries[0].path,'n'.repeat(240));assert.equal(exactBytes.entries[0].originalPath,'o'.repeat(240));
+  const overBytes=helper.captureContext(()=>twoPath,{entries:1,statusBytes:484});assert.throws(()=>helper.captureRows(overBytes));
+  assert.equal(overBytes.totalChangedCount,null);assert.equal(overBytes.truncated,true);
+  assert.throws(()=>helper.captureContext(()=>'',{entries:limits.entries+1}));
+  assert.throws(()=>helper.captureContext(()=>'',{statusBytes:limits.statusBytes+1}));
+  const spent=run(' M data/chat-fixtures.v1.json\0 M data/feed/page-1.json\0 M data/feed/page-2.json\0',{
+   observe:(_entry,remaining)=>remaining===limits.hashBudgetBytes?
+    {afterKind:'regular',afterBytes:limits.hashBudgetBytes,afterSha256:digest,hashStatus:'verified',hashBudgetChargedBytes:limits.hashBudgetBytes}:
+    {afterKind:'regular',afterBytes:1,afterSha256:null,hashStatus:'budget-exceeded',hashBudgetChargedBytes:0}});
+  assert.equal(spent.payload.failure.returnCapture.totalChangedCount,3);
+  assert.equal(spent.payload.failure.returnCapture.statusReadComplete,true);
+  assert.equal(spent.payload.failure.returnCapture.truncated,false);
+  assert.equal(spent.payload.failure.returnCapture.hashBudgetChargedBytes,32*1024*1024);
+  assert.deepEqual(spent.payload.failure.returnCapture.entries.map(row=>row.hashStatus),['verified','budget-exceeded','budget-exceeded']);
+  helper.validatePrivatePayload(spent.payload,{...failedBinding,stage:spent.payload.failure.stage});
+  const metadata=basis.pins.map(pin=>({...pin}));
+  while(metadata.length<basis.cardinalities.trackedPaths)metadata.push({path:'synthetic-basis/'+metadata.length,mode:'100644',gitBlob:'0'.repeat(40)});
+  const capacityDigest=helper.verifyDiagnosticBasisRows(metadata);
+  assert.equal(inventory.capacityBasisSha256,capacityDigest);
+  assert.throws(()=>helper.verifyDiagnosticBasisRows(metadata.slice(1)),'tracked cardinality drift invalidates the basis');
+  const wrongData=metadata.map(row=>row.path==='data/major-events.v1.json'?{...row,gitBlob:'0'.repeat(40)}:row);
+  assert.throws(()=>helper.verifyDiagnosticBasisRows(wrongData),'changed input data requires reviewed recomputation');
+  const missingWriter=metadata.map(row=>row.path==='scripts/build-marquee-candidates.js'?{...row,path:'synthetic-missing-writer'}:row);
+  assert.throws(()=>helper.verifyDiagnosticBasisRows(missingWriter),'changed writer closure cannot reuse an old capacity');
+  assert.throws(()=>helper.validatePrivatePayload({...full.payload,failure:{...full.payload.failure,returnCapture:{...inventory,capacityBasisSha256:'0'.repeat(64)}}},{...failedBinding,stage:full.payload.failure.stage}));
+ }
+
   for(const result of [casRejected,deletion,renamed,unknown,limited,readFailed,exceeded,unsafe])
    helper.validatePrivatePayload(result.payload,{...failedBinding,stage:result.payload.failure.stage});
   for(const change of [{totalChangedCount:0},{returnedEntryCount:129},{sourceDisposition:'complete'},
