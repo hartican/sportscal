@@ -1529,11 +1529,12 @@ jobs:
            const at=clock.nowNs(),softEnd=at+BigInt(soft)*1000000n,hardEnd=softEnd+3000000000n;
            assert(hardEnd<=clock.endNs-3000000000n,'Child and closure subordinate to original focused deadline');
            const token=crypto.randomBytes(32).toString('hex'),tracker=S.normal613FocusedOwnedProcesses(token,clock,hardEnd);
+           assert(tracker.holds.length===0,'Complete pre-spawn kernel metadata required before child creation');
            const owner={name,tracker,child:null,exitObserved:false,closeObserved:false,cleanupClosed:false,code:null,signal:null};owners.push(owner);
            const local={stdout:[],stderr:[]};let reason=null,poll=null,softTimer=null,settle;
            const gate=new Promise(r=>{settle=r;}),stop=why=>{reason=reason||why;try{tracker.signalOwned('SIGTERM');}catch(e){tracker.note('STOP_CLEANUP_HOLD '+e.message);}settle();};
            try{
-            workCheck();owner.child=cp.spawn(process.execPath,['--max-old-space-size=512','scripts/'+name],{cwd:process.cwd(),env:{...process.env,
+            workCheck();clock.remaining(softEnd);owner.child=cp.spawn(process.execPath,['--max-old-space-size=512','scripts/'+name],{cwd:process.cwd(),env:{...process.env,
              NS_FOCUSED_CLOUD_ONLY:'1',NS_TEST_RESERVATION_PATH:reservationPath,NS_FOCUSED_OWNER_TOKEN:token,
              NS_FOCUSED_ENTRY_MONOTONIC_NS:clock.entryNs.toString(),NS_FOCUSED_AGGREGATE_DEADLINE_NS:clock.endNs.toString(),
              NS_FOCUSED_CHILD_SOFT_DEADLINE_NS:softEnd.toString(),NS_FOCUSED_CHILD_HARD_DEADLINE_NS:hardEnd.toString(),
@@ -1561,12 +1562,13 @@ jobs:
            }
            const stdout=Buffer.concat(local.stdout),stderr=Buffer.concat(local.stderr);let holds=[];
            try{holds=roots();}catch(e){reason=reason||e.message;}
+           let ownershipScope=null;try{proofCheck();ownershipScope=tracker.scope();}catch(e){reason=reason||e.message;tracker.note('OWNERSHIP_SCOPE_HOLD '+e.message);}
            const cleanupHold=!owner.cleanupClosed||tracker.holds.length>0||/CLEANUP_HOLD/.test(stdout.toString())||/CLEANUP_HOLD/.test(stderr.toString())||holds.length>0;
            const reports=stdout.toString('utf8').split('\n').flatMap(line=>{try{const v=JSON.parse(line);return v.schemaVersion===format?[v]:[];}catch{return [];}});
            const reportOk=reports.length===1&&typeof reports[0].status==='string'&&reports[0].status.startsWith('PASS')&&(reports[0].releaseAcceptance===false||reports[0].productReleaseAcceptance===false);
            const row={path:'scripts/'+name,softTimeoutMs:soft,killGraceMs:1000,closeObservationReserveMs:2000,status:owner.code,signal:owner.signal,reason,
             childPid:owner.child?.pid||null,childClosed:owner.closeObserved&&owner.exitObserved,topLevelGroupClosed:owner.cleanupClosed,
-            ownedCleanupObserved:owner.cleanupClosed,ownedProcessIdentities:tracker.records(),ownershipHolds:tracker.holds,
+            ownedCleanupObserved:owner.cleanupClosed,ownedProcessIdentities:tracker.records(),ownershipHolds:tracker.holds,ownershipScope,
             cleanupHold,newScratchRoots:holds,childReportAccepted:reportOk,stdoutBytes:stdout.length,stdoutSha256:hash(stdout),stderrBytes:stderr.length,stderrSha256:hash(stderr),
             childSoftDeadlineNs:softEnd.toString(),childHardDeadlineNs:hardEnd.toString(),elapsedMs:Number(clock.nowNs()-at)/1e6};
            rows.push(row);

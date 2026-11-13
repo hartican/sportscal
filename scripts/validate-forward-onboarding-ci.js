@@ -40,7 +40,22 @@ function restoreFocusedCorrection(text){
  for(const e of edits){assert.equal(restored.split(e.after).length-1,1);restored=restored.replace(e.after,()=>e.before);}
  assert.equal(hash(Buffer.from(restored)),a.beforeSha256);return {text:restored,edits:1};
 }
+
+// Exact ownership-domain metadata amendment; prior accepted restoration remains intact.
+const FOCUSED_OWNERSHIP_AMENDMENT=Object.freeze({"beforeSha256":"3cf1ddd91e1ad8c783be68ea8e011585bdbf03c8cd988e1e5f8c7fdd70b4b360","afterSha256":"cef2bfa7320fb7d0a426dbd19f37307c8e8ad7b3a8e0c678c1ecf8ad1b1dc822","packedBytes":6065,"packedSha256":"10628e6bae99c329b9e52bcc2e5ed55777ac8d34a6cbea52585c0c2596a921c7","rawBytes":36139,"rawSha256":"cf1cc6465a8b68b917bf3589a31c24b42629d525042a0af124f089faeeca8581","base64":"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"});
+function restoreFocusedOwnership(text){
+ const a=FOCUSED_OWNERSHIP_AMENDMENT;if(hash(Buffer.from(text))!==a.afterSha256)return {text,edits:0};
+ const p=Buffer.from(a.base64,'base64');assert.equal(p.length,a.packedBytes);assert.equal(p.toString('base64'),a.base64);assert.equal(hash(p),a.packedSha256);
+ const raw=require('node:zlib').inflateRawSync(p,{maxOutputLength:a.rawBytes+1});assert.equal(raw.length,a.rawBytes);assert.equal(hash(raw),a.rawSha256);
+ const edits=JSON.parse(raw.toString('utf8'));assert.equal(edits.length,1);let restored=text;
+ for(const e of edits){assert.equal(restored.split(e.after).length-1,1);restored=restored.replace(e.after,()=>e.before);}
+ assert.equal(hash(Buffer.from(restored)),a.beforeSha256);return {text:restored,edits:1};
+}
 function restoreFocusedGate(text){
+ const ownership=restoreFocusedOwnership(text),prior=restoreFocusedGateBeforeOwnership(ownership.text);
+ return {text:prior.text,edits:ownership.edits+prior.edits};
+}
+function restoreFocusedGateBeforeOwnership(text){
  const correction=restoreFocusedCorrection(text),prior=restoreFocusedGateV2(correction.text);
  return {text:prior.text,edits:correction.edits+prior.edits};
 }
@@ -365,56 +380,143 @@ function normal613FocusedClock(context,entryNs,inheritedEndNs=null){
 }
 function normal613FocusedOwnedProcesses(token,clock,until){
  assert(/^[a-f0-9]{64}$/.test(token),'Private per-child ownership marker');
- const selfPid=process.pid,known=new Map(),groups=new Set(),holds=[];let root=null,rootObserved=false;
+ const selfPid=process.pid,selfUid=process.getuid(),known=new Map(),groups=new Set(),sessions=new Set(),holds=[];
+ const fields=['pid','uid','startTicks','parentPid','pgid','sessionId'];
+ let root=null,rootIdentity=null,rootObserved=false,rootAt=null,lastScope=null;
  const note=s=>{if(!holds.includes(s))holds.push(s);};
- const check=()=>clock.remaining(until);
+ const check=()=>clock.remaining(until),same=(a,b)=>!!a&&!!b&&fields.every(k=>a[k]===b[k]);
+ const sameOwned=(a,b)=>!!a&&!!b&&fields.filter(k=>k!=='parentPid').every(k=>a[k]===b[k]);
+ const core=p=>Object.fromEntries(fields.map(k=>[k,p[k]]));
  function bounded(file,max){
   check();const fd=fs.openSync(file,fs.constants.O_RDONLY|fs.constants.O_NOFOLLOW);
   try{const chunks=[],b=Buffer.alloc(4096);let total=0;for(;;){check();const n=fs.readSync(fd,b,0,Math.min(b.length,max-total+1),null);if(!n)break;total+=n;assert(total<=max,'Bounded proc observation');chunks.push(Buffer.from(b.subarray(0,n)));}return Buffer.concat(chunks);}
   finally{fs.closeSync(fd);}
  }
- function identity(pid){
-  check();const dir='/proc/'+pid,st=fs.lstatSync(dir);assert(st.isDirectory()&&!st.isSymbolicLink(),'Actual proc directory');
-  if(st.uid!==process.getuid())return null;
-  const raw=bounded(dir+'/stat',16384).toString('utf8'),end=raw.lastIndexOf(')'),fields=raw.slice(end+2).trim().split(/\s+/);
-  assert(raw.startsWith(String(pid)+' (')&&end>0&&fields.length>=20&&/^\d+$/.test(fields[19]),'Actual process identity');
-  return {pid,uid:st.uid,startTicks:fields[19],parentPid:Number(fields[1]),pgid:Number(fields[2]),sessionId:Number(fields[3]),state:fields[0]};
+ function parsed(pid,uid,raw){
+  const end=raw.lastIndexOf(')'),v=raw.slice(end+2).trim().split(/\s+/);
+  assert(raw.startsWith(String(pid)+' (')&&end>0&&v.length>=20&&/^\d+$/.test(v[19]),'Actual process identity');
+  const p={pid,uid,startTicks:v[19],parentPid:Number(v[1]),pgid:Number(v[2]),sessionId:Number(v[3]),state:v[0]};
+  for(const k of ['pid','uid','parentPid','pgid','sessionId'])assert(Number.isSafeInteger(p[k])&&p[k]>=0,'Finite kernel process metadata');
+  return p;
  }
- const same=(a,b)=>!!a&&!!b&&['pid','uid','startTicks','pgid','sessionId'].every(k=>a[k]===b[k]);
+ function identity(pid){
+  check();const dir='/proc/'+pid,before=fs.lstatSync(dir);assert(before.isDirectory()&&!before.isSymbolicLink(),'Actual proc directory');
+  const a=parsed(pid,before.uid,bounded(dir+'/stat',16384).toString('utf8'));
+  const b=parsed(pid,before.uid,bounded(dir+'/stat',16384).toString('utf8'));
+  check();const after=fs.lstatSync(dir);for(const k of ['dev','ino','uid'])assert.equal(after[k],before[k],'Kernel directory identity changed');
+  assert(known.has(pid)?sameOwned(a,b):same(a,b),'Kernel process metadata changed during observation');return b;
+ }
+ function metadata(){
+  check();const names=fs.readdirSync('/proc').filter(n=>/^[1-9]\d*$/.test(n)).map(Number).sort((a,b)=>a-b);
+  assert(names.length<=4096,'Proc inventory bound');const seen=new Map();
+  for(const pid of names){check();if(pid===selfPid)continue;
+   try{seen.set(pid,identity(pid));}
+   catch(e){if(e.code==='ENOENT'||e.code==='ESRCH')continue;note('UNKNOWN_KERNEL_METADATA '+pid+': '+e.message);}
+  }
+  return {seen,digest:hash(Buffer.from(JSON.stringify([...seen.values()].map(core))))};
+ }
  function marked(p){
   const bytes=bounded('/proc/'+p.pid+'/environ',65536),again=identity(p.pid);
-  assert(same(p,again),'Process changed during ownership observation');
+  assert(known.has(p.pid)?sameOwned(p,again):same(p,again),'Process changed during ownership observation');
   return bytes.toString('utf8').split('\0').includes('NS_FOCUSED_OWNER_TOKEN='+token);
  }
- function observe(){
-  check();const names=fs.readdirSync('/proc').filter(n=>/^[1-9]\d*$/.test(n));assert(names.length<=4096,'Proc inventory bound');
-  const active=[],groupMembers=[],seen=new Map();
-  for(const name of names){
-   check();const pid=Number(name);if(pid===selfPid)continue;let p,owned=false;
-   try{p=identity(pid);if(!p)continue;seen.set(pid,p);if(p.state!=='Z')owned=marked(p);}
-   catch(e){if(e.code==='ENOENT'||e.code==='ESRCH')continue;note('UNOBSERVABLE_PROCESS '+pid+': '+e.message);continue;}
-   const old=known.get(pid);
-   if(old&&!same(old,p)){note('PID_IDENTITY_CHANGED '+pid);continue;}
-   if(owned){known.set(pid,p);groups.add(p.pgid);active.push(p);if(pid===root)rootObserved=true;}
-   else if(old){active.push(p);if(p.state!=='Z')note('OWNERSHIP_MARKER_LOST '+pid);}
+ // The actual wrapper constructs this tracker before its fresh-marker detached spawn.
+ // No environment reads, namespace/proof creation or child operation precedes this snapshot.
+ const snapshotStartedNs=clock.nowNs().toString(),baseline=metadata(),snapshotCompletedNs=clock.nowNs().toString();
+ function ancestry(p,seen){
+  const chain=[],visited=new Set();let parent=p.parentPid;
+  while(parent>0&&parent!==selfPid){
+   check();if(parent===root||known.has(parent))return {owned:true,complete:true,chain};
+   if(visited.has(parent))return {owned:false,complete:false,chain};
+   visited.add(parent);assert(visited.size<=4096,'Finite ancestry bound');chain.push(parent);
+   const next=seen.get(parent);if(!next)return {owned:false,complete:false,chain};parent=next.parentPid;
   }
-  for(const p of seen.values())if(groups.has(p.pgid))groupMembers.push(p);
-  for(const p of groupMembers)if(!known.has(p.pid))note('UNOWNED_MEMBER_OF_OBSERVED_GROUP '+p.pid);
-  return {active,groupMembers,closed:rootObserved&&active.length===0&&groupMembers.length===0&&holds.length===0};
+  return {owned:false,complete:true,chain};
+ }
+ function domain(p,seen){
+  const lineage=ancestry(p,seen);
+  return {candidate:p.pid===root||known.has(p.pid)||groups.has(p.pgid)||sessions.has(p.sessionId)||lineage.owned,lineage};
+ }
+ function observe(){
+  check();if(root===null){note('OWNED_ROOT_NOT_SET');return {active:[],groupMembers:[],sessionMembers:[],closed:false};}
+  const current=metadata(),seen=current.seen,checked=new Set(),active=new Map(),excluded=new Map();
+  let expanded=true;
+  while(expanded){
+   expanded=false;
+   for(const p of seen.values()){
+    check();if(checked.has(p.pid))continue;
+    const old=known.get(p.pid),pre=baseline.seen.get(p.pid),d=domain(p,seen);
+    // Domain membership has priority over a matching pre-spawn identity.
+    if(pre&&same(pre,p)&&!d.candidate&&d.lineage.complete)continue;
+    checked.add(p.pid);
+    if(old&&!sameOwned(old,p)){note('OWNED_IDENTITY_CHANGED '+p.pid);active.set(p.pid,p);continue;}
+    if(pre&&!same(pre,p)){note('PREEXISTING_IDENTITY_CHANGED '+p.pid);active.set(p.pid,p);continue;}
+    if(pre&&!d.candidate&&!d.lineage.complete){note('UNKNOWN_ANCESTRY '+p.pid);active.set(p.pid,p);continue;}
+    if(p.uid!==selfUid){note('POSSIBLY_OWNED_UID_CHANGED_OR_UNCONFIRMED '+p.pid);active.set(p.pid,p);continue;}
+    if(p.state==='Z'){
+     active.set(p.pid,p);if(!old)note('UNCONFIRMED_OWNED_ZOMBIE '+p.pid);continue;
+    }
+    let owned=false;
+    try{owned=marked(p);}
+    catch(e){if(e.code==='ENOENT'||e.code==='ESRCH')continue;note('UNOBSERVABLE_OWNED_CANDIDATE '+p.pid+': '+e.message);active.set(p.pid,p);continue;}
+    if(!owned){
+     note((old?'OWNERSHIP_MARKER_LOST ':d.candidate?'UNOWNED_MEMBER_OF_OWNED_DOMAIN ':'POSSIBLY_OWNED_NEW_IDENTITY ')+p.pid);
+     active.set(p.pid,p);continue;
+    }
+    if(!old){groups.add(p.pgid);sessions.add(p.sessionId);expanded=true;}known.set(p.pid,p);
+    active.set(p.pid,p);if(p.pid===root)rootObserved=true;
+   }
+  }
+  const groupMembers=[],sessionMembers=[];
+  for(const p of seen.values()){
+   check();if(groups.has(p.pgid))groupMembers.push(p);if(sessions.has(p.sessionId))sessionMembers.push(p);
+   const pre=baseline.seen.get(p.pid),d=domain(p,seen);
+   if(!checked.has(p.pid)&&pre&&same(pre,p)&&!d.candidate&&d.lineage.complete){
+    excluded.set(p.pid,{before:core(pre),observed:core(p),ancestryChain:d.lineage.chain,ancestryEndpoint:'ZERO_OR_ACTUAL_CALLER',reason:'UNCHANGED_PRESPAWN_OUTSIDE_OWNED_DOMAIN'});
+   }
+   if((groups.has(p.pgid)||sessions.has(p.sessionId))&&!known.has(p.pid))note('UNOWNED_MEMBER_OF_OBSERVED_GROUP_OR_SESSION '+p.pid);
+  }
+  let stableClosureInventory=false;
+  if(rootObserved&&active.size===0&&groupMembers.length===0&&sessionMembers.length===0&&holds.length===0){
+   // A fork/exit while the inventory was read cannot turn a partial scan into closure.
+   const final=metadata();stableClosureInventory=final.digest===current.digest;
+  }
+  lastScope={callerPid:selfPid,callerUid:selfUid,snapshotStartedNs,snapshotCompletedNs,preSpawnIdentityCount:baseline.seen.size,preSpawnMetadataSha256:baseline.digest,
+   rootIdentity:rootIdentity?core(rootIdentity):null,rootObservedAtNs:rootAt,lastMetadataSha256:current.digest,
+   actualRootAfterSnapshot:rootAt!==null&&BigInt(rootAt)>=BigInt(snapshotCompletedNs),
+   excludedPreExisting:[...excluded.values()],stableClosureInventory,unknownOrOwnershipHolds:[...holds]};
+  return {active:[...active.values()],groupMembers,sessionMembers,closed:rootObserved&&active.size===0&&groupMembers.length===0&&sessionMembers.length===0&&holds.length===0&&stableClosureInventory};
  }
  function signalOwned(signal){
   const observation=observe();
   for(const p of observation.active){
-   check();try{const current=identity(p.pid);if(!same(p,current)){note('SIGNAL_IDENTITY_UNCONFIRMED '+p.pid);continue;}
-    if(p.state==='Z')continue;
+   check();const expected=known.get(p.pid);
+   if(!expected||!sameOwned(expected,p)){note('SIGNAL_IDENTITY_UNCONFIRMED '+p.pid);continue;}
+   try{const current=identity(p.pid);if(current.uid!==selfUid||!sameOwned(expected,current)){note('SIGNAL_IDENTITY_UNCONFIRMED '+p.pid);continue;}
+    if(current.state==='Z')continue;
     if(!marked(current)){note('SIGNAL_OWNERSHIP_UNCONFIRMED '+p.pid);continue;}
-    check();process.kill(p.pid,signal);
+    check();process.kill(current.pid,signal);
    }catch(e){if(e.code!=='ESRCH'&&e.code!=='ENOENT')note('SIGNAL_UNCONFIRMED '+p.pid+': '+e.message);}
   }
   return observation;
  }
- return {setRoot(pid){assert(root===null&&Number.isSafeInteger(pid)&&pid>1&&pid!==selfPid,'Calling reporter is not its own owned root');root=pid;observe();if(!rootObserved)note('ROOT_IDENTITY_NOT_OBSERVED '+pid);},
-  observe,signalOwned,note,holds,records:()=>[...known.values()],get rootObserved(){return rootObserved;}};
+ return {setRoot(pid){
+   assert(root===null&&Number.isSafeInteger(pid)&&pid>1&&pid!==selfPid,'Calling reporter is not its own owned root');
+   root=pid;
+   try{
+    check();const p=identity(pid);rootIdentity=p;rootAt=clock.nowNs().toString();
+    assert(!baseline.seen.has(pid),'Root PID must not reuse a pre-spawn identity');
+    assert(p.uid===selfUid&&p.parentPid===selfPid&&p.pgid===pid&&p.sessionId===pid,'Actual fresh detached child provenance');
+    groups.add(p.pgid);sessions.add(p.sessionId);
+    assert(marked(p),'Actual fresh child inherited the private marker');known.set(pid,p);rootObserved=true;
+   }catch(e){note('ROOT_PROVENANCE_HOLD '+e.message);}
+   observe();if(!rootObserved)note('ROOT_IDENTITY_NOT_OBSERVED '+pid);
+  },observe,signalOwned,note,holds,records:()=>[...known.values()],
+  scope(){
+   clock.remaining(clock.endNs-1500000000n);
+   const value=lastScope||{callerPid:selfPid,snapshotStartedNs,snapshotCompletedNs,preSpawnIdentityCount:baseline.seen.size,preSpawnMetadataSha256:baseline.digest,rootIdentity:null,rootObservedAtNs:null,actualRootAfterSnapshot:false,excludedPreExisting:[],stableClosureInventory:false,unknownOrOwnershipHolds:[...holds]};
+   assert(Buffer.byteLength(JSON.stringify(value))<=524288,'Bounded per-child ownership scope proof');return value;
+  },get rootObserved(){return rootObserved;}};
 }
 
 async function normal613Intake(revalidateStage=null){

@@ -22,7 +22,7 @@ function NSB_BOOT_READ(file,max){
  }finally{NSB_RAW_FS.closeSync(fd);}
 }
 const NSB_TEMP=NSB_RAW_FS.realpathSync(process.env.RUNNER_TEMP),NSB_GUARD_PATH=NSB_PATH.join(__dirname,'validate-forward-onboarding-ci.js');
-const NSB_GUARD_BYTES=NSB_BOOT_READ(NSB_GUARD_PATH,160425);NSB_ASSERT.equal(NSB_GUARD_BYTES.length,160425);NSB_ASSERT.equal(NSB_CRYPTO.createHash('sha256').update(NSB_GUARD_BYTES).digest('hex'),'a2e3389d3d34897e63ed8fc9b903652cb9552aef92618a2287db71805425c6c3');
+const NSB_GUARD_BYTES=NSB_BOOT_READ(NSB_GUARD_PATH,175751);NSB_ASSERT.equal(NSB_GUARD_BYTES.length,175751);NSB_ASSERT.equal(NSB_CRYPTO.createHash('sha256').update(NSB_GUARD_BYTES).digest('hex'),'899fc85621e4ec1dfe27d145cd08de775a3d5c63a7857b07ee706332100eeee1');
 const NSB_S=require('./validate-forward-onboarding-ci').normal613FocusedControls;
 const NSB_CONTEXT_PATH=NSB_PATH.join(NSB_TEMP,'ns-normal-613-admission','normal613-context.json');
 NSB_ASSERT(NSB_NATIVE_MONO()<NSB_SOFT,'Context bootstrap remains charged');
@@ -81,8 +81,8 @@ const path=require('node:path');
 const os=require('node:os');
 const crypto=require('node:crypto');
 const sha=b=>crypto.createHash('sha256').update(b).digest('hex');
-assert.equal(sha(fs.readFileSync(path.join(__dirname,'validate-forward-onboarding-ci.js'))),'a2e3389d3d34897e63ed8fc9b903652cb9552aef92618a2287db71805425c6c3','Exact reviewed R3 with proposed export-only seam');
-assert.equal(sha(fs.readFileSync(path.resolve('.github/workflows/installed-upgrade-tests.yml'))),'3cf1ddd91e1ad8c783be68ea8e011585bdbf03c8cd988e1e5f8c7fdd70b4b360','Exact R3 workflow');
+assert.equal(sha(fs.readFileSync(path.join(__dirname,'validate-forward-onboarding-ci.js'))),'899fc85621e4ec1dfe27d145cd08de775a3d5c63a7857b07ee706332100eeee1','Exact reviewed R3 with proposed export-only seam');
+assert.equal(sha(fs.readFileSync(path.resolve('.github/workflows/installed-upgrade-tests.yml'))),'cef2bfa7320fb7d0a426dbd19f37307c8e8ad7b3a8e0c678c1ecf8ad1b1dc822','Exact R3 workflow');
 const guard=require('./validate-forward-onboarding-ci');
 const S=guard.normal613FocusedControls;
 assert(S&&S.version==='normal613-focused-controls.v1','Reviewed export-only seam required');
@@ -123,10 +123,113 @@ function runStaticInputBindings(){
  const files=[['scripts/validate-sync-current-forward.js',101617,'a54983351de787e957658f92efedf1e10b470cbb06af252070eb1661228a970f'],['scripts/fixtures/sync-normal-613-20261112.json',53227,'744ddb4c83e97810bdd9f6778de0f50a5033695f24739d642c9179822c58a5d2']];
  run('frozen-r1-inputs',()=>{for(const [name,size,h]of files){const b=fs.readFileSync(path.resolve(name));assert.equal(b.length,size);assert.equal(sha(b),h);}});
 }
+
+// New ownership-domain controls use only mocked kernel records and mocked signals.
+// They are not Linux process observations or OS closure proof.
+function ownershipDomainTests(){
+ const token='d'.repeat(64),uid=process.getuid(),self=process.pid,host=self+10001,root=self+10002,child=self+10003,peer=self+10004;
+ function fake(fn){
+  const methods=['lstatSync','openSync','readSync','closeSync','readdirSync'],saved=Object.fromEntries(methods.map(n=>[n,fs[n]])),oldKill=process.kill;
+  const procs=new Map(),fds=new Map(),signals=[],envReads=[],faults=new Map();let nextFd=1000000;
+  const record=(pid,values={})=>({pid,uid,startTicks:String(pid+100),parentPid:1,pgid:pid,sessionId:pid,state:'S',marker:false,...values});
+  const gone=()=>{const e=Error('synthetic missing proc');e.code='ENOENT';return e;};
+  const statBytes=p=>{const f=Array(40).fill('0');f[0]=p.state;f[1]=String(p.parentPid);f[2]=String(p.pgid);f[3]=String(p.sessionId);f[19]=p.startTicks;return Buffer.from(String(p.pid)+' (synthetic) '+f.join(' ')+'\n');};
+  procs.set(1,record(1,{uid:0,parentPid:0}));procs.set(host,record(host,{denyEnvironment:true}));
+  fs.lstatSync=file=>{
+   NSB_CHECK();const m=/^\/proc\/([1-9]\d*)$/.exec(String(file));assert(m,'Mock only proc directories');const pid=Number(m[1]),p=procs.get(pid);if(!p)throw gone();
+   if(faults.has(pid))throw faults.get(pid);
+   return {uid:p.uid,dev:1,ino:pid,isDirectory:()=>true,isSymbolicLink:()=>false};
+  };
+  fs.readdirSync=file=>{NSB_CHECK();assert.equal(file,'/proc');return [...procs.keys()].map(String);};
+  fs.openSync=file=>{
+   NSB_CHECK();const m=/^\/proc\/([1-9]\d*)\/(stat|environ)$/.exec(String(file));assert(m,'Mock only proc metadata/environment');const p=procs.get(Number(m[1]));if(!p)throw gone();
+   if(m[2]==='environ'){envReads.push(p.pid);if(p.denyEnvironment){const e=Error('synthetic candidate environment denied');e.code='EACCES';throw e;}}
+   const bytes=m[2]==='stat'?statBytes(p):Buffer.from(p.marker?'NS_FOCUSED_OWNER_TOKEN='+token+'\0':'OTHER=synthetic\0');
+   const fd=nextFd++;fds.set(fd,{bytes,offset:0});return fd;
+  };
+  fs.readSync=(fd,b,off,n)=>{NSB_CHECK();const f=fds.get(fd);assert(f);const count=Math.min(n,f.bytes.length-f.offset);f.bytes.copy(b,off,f.offset,f.offset+count);f.offset+=count;return count;};
+  fs.closeSync=fd=>{assert(fds.delete(fd),'Every mocked descriptor closes');};
+  process.kill=(pid,signal)=>{NSB_CHECK();assert(pid>0&&pid!==self,'No bare group or caller signal');signals.push({pid,signal});};
+  const make=()=>S.normal613FocusedOwnedProcesses(token,NSB_CLOCK,NSB_SOFT);
+  const start=t=>{procs.set(root,record(root,{parentPid:self,pgid:root,sessionId:root,marker:true}));t.setRoot(root);return t;};
+  try{fn({procs,record,signals,envReads,faults,make,start});assert.equal(fds.size,0,'Mock descriptors closed');}
+  finally{for(const n of methods)fs[n]=saved[n];process.kill=oldKill;}
+ }
+ run('ownership-preexisting-denied-positive-exclusion',()=>fake(({make,start,envReads,signals})=>{
+  const t=start(make());assert.equal(t.holds.length,0);assert(!envReads.includes(host));const scope=t.scope();
+  assert(scope.actualRootAfterSnapshot);assert(scope.excludedPreExisting.some(p=>p.before.pid===host&&JSON.stringify(p.before)===JSON.stringify(p.observed)));
+  t.signalOwned('SIGTERM');assert(signals.some(x=>x.pid===root));assert(!signals.some(x=>x.pid===host));
+ }));
+ run('ownership-root-exit-not-live-child-closure',()=>fake(({make,start,procs,record})=>{
+  const t=start(make());procs.set(child,record(child,{parentPid:root,pgid:root,sessionId:root,marker:true}));t.observe();procs.delete(root);assert.equal(t.observe().closed,false);
+ }));
+ run('ownership-verified-all-exits-can-close',()=>fake(({make,start,procs})=>{
+  const t=start(make());procs.delete(root);assert.equal(t.observe().closed,true);assert.equal(t.holds.length,0);
+ }));
+ run('ownership-owned-environment-denial-hard-hold',()=>fake(({make,start,procs,signals})=>{
+  const t=start(make());procs.get(root).denyEnvironment=true;t.signalOwned('SIGTERM');assert(t.holds.some(x=>x.includes('UNOBSERVABLE_OWNED_CANDIDATE')));assert.equal(signals.length,0);procs.delete(root);assert.equal(t.observe().closed,false);
+ }));
+ run('ownership-new-unknown-denied-hard-hold',()=>fake(({make,start,procs,record,signals})=>{
+  const t=start(make());procs.set(child,record(child,{denyEnvironment:true}));t.signalOwned('SIGTERM');assert(t.holds.some(x=>x.includes('UNOBSERVABLE_OWNED_CANDIDATE')));assert(!signals.some(x=>x.pid===child));
+ }));
+ run('ownership-metadata-unobservable-hard-hold',()=>fake(({make,start,procs,record,faults})=>{
+  const t=start(make());procs.set(child,record(child));const e=Error('synthetic metadata denied');e.code='EACCES';faults.set(child,e);assert.equal(t.observe().closed,false);assert(t.holds.some(x=>x.includes('UNKNOWN_KERNEL_METADATA')));
+ }));
+ run('ownership-owned-uid-change-not-silently-filtered',()=>fake(({make,start,procs,signals})=>{
+  const t=start(make());procs.get(root).uid=uid+1;t.signalOwned('SIGTERM');assert(t.holds.some(x=>x.includes('OWNED_IDENTITY_CHANGED')));assert.equal(signals.length,0);
+ }));
+ run('ownership-owned-pid-reuse-no-signal-or-false-closure',()=>fake(({make,start,procs,signals})=>{
+  const t=start(make());procs.get(root).startTicks='999999999';t.signalOwned('SIGTERM');assert(t.holds.some(x=>x.includes('OWNED_IDENTITY_CHANGED')));assert.equal(signals.length,0);procs.delete(root);assert.equal(t.observe().closed,false);
+ }));
+ run('ownership-preexisting-pid-change-not-excluded',()=>fake(({make,start,procs,signals})=>{
+  const t=start(make());procs.get(host).startTicks='999999998';t.signalOwned('SIGTERM');assert(t.holds.some(x=>x.includes('PREEXISTING_IDENTITY_CHANGED')));assert(!signals.some(x=>x.pid===host));
+ }));
+ run('ownership-marker-loss-hard-hold-no-signal',()=>fake(({make,start,procs,signals})=>{
+  const t=start(make());procs.get(root).marker=false;t.signalOwned('SIGTERM');assert(t.holds.some(x=>x.includes('OWNERSHIP_MARKER_LOST')));assert.equal(signals.length,0);
+ }));
+ run('ownership-unowned-group-member-not-excluded',()=>fake(({make,start,procs,record,signals})=>{
+  const t=start(make());procs.set(child,record(child,{parentPid:root,pgid:root,sessionId:root}));t.signalOwned('SIGTERM');assert(t.holds.some(x=>x.includes('UNOWNED_MEMBER_OF_OWNED_DOMAIN')));assert(!signals.some(x=>x.pid===child));
+ }));
+ run('ownership-unowned-session-peer-hard-hold',()=>fake(({make,start,procs,record})=>{
+  const t=start(make());procs.set(child,record(child,{sessionId:root}));assert.equal(t.observe().closed,false);assert(t.holds.some(x=>x.includes('UNOWNED_MEMBER_OF_OWNED_DOMAIN')));
+ }));
+ run('ownership-session-escaped-denied-descendant-hard-hold',()=>fake(({make,start,procs,record,signals})=>{
+  const t=start(make());procs.set(child,record(child,{parentPid:root,denyEnvironment:true}));t.signalOwned('SIGTERM');assert(t.holds.some(x=>x.includes('UNOBSERVABLE_OWNED_CANDIDATE')));assert(!signals.some(x=>x.pid===child));
+ }));
+ run('ownership-session-escaped-marked-descendant-remains-active',()=>fake(({make,start,procs,record,signals})=>{
+  const t=start(make());procs.set(child,record(child,{parentPid:root,marker:true}));assert.equal(t.observe().closed,false);t.signalOwned('SIGTERM');assert(signals.some(x=>x.pid===child));assert(t.records().some(x=>x.pid===child));
+ }));
+ run('ownership-preexisting-domain-change-has-priority',()=>fake(({make,start,procs,signals})=>{
+  const t=start(make());procs.get(host).pgid=root;procs.get(host).sessionId=root;t.signalOwned('SIGTERM');assert(t.holds.some(x=>x.includes('PREEXISTING_IDENTITY_CHANGED')));assert(!signals.some(x=>x.pid===host));
+ }));
+ run('ownership-caller-remains-excluded-and-cannot-be-root',()=>fake(({make,procs,record,envReads})=>{
+  procs.set(self,record(self,{marker:true,denyEnvironment:true}));const t=make();assert.throws(()=>t.setRoot(self),/Calling reporter/);assert(!envReads.includes(self));
+ }));
+ run('ownership-preexisting-root-reuse-rejected',()=>fake(({make,start,procs,record})=>{
+  procs.set(root,record(root));const t=start(make());assert(t.holds.some(x=>x.includes('ROOT_PROVENANCE_HOLD')));assert.equal(t.observe().closed,false);
+ }));
+ run('ownership-new-markerless-orphan-remains-unknown',()=>fake(({make,start,procs,record})=>{
+  const t=start(make());procs.set(child,record(child,{parentPid:1}));procs.delete(root);assert.equal(t.observe().closed,false);assert(t.holds.some(x=>x.includes('POSSIBLY_OWNED_NEW_IDENTITY')));
+ }));
+ run('ownership-known-reparented-descendant-retains-safe-cleanup-and-blocks-closure',()=>fake(({make,start,procs,record,signals})=>{
+  const t=start(make());procs.set(child,record(child,{parentPid:root,pgid:root,sessionId:root,marker:true}));
+  assert.equal(t.observe().closed,false);assert(t.records().some(p=>p.pid===child));
+  procs.delete(root);procs.get(child).parentPid=1;
+  const orphan=t.observe();assert.equal(orphan.closed,false);assert.equal(t.holds.length,0);
+  assert(t.records().some(p=>p.pid===child&&p.parentPid===1));
+  t.signalOwned('SIGTERM');assert(signals.some(p=>p.pid===child));assert(!signals.some(p=>p.pid===host||p.pid===self));
+  assert.equal(t.observe().closed,false,'A signal or leader exit is not observed descendant closure');
+  procs.delete(child);assert.equal(t.observe().closed,true);assert.equal(t.holds.length,0);
+ }));
+ run('ownership-unchanged-preexisting-other-uid-needs-no-environment',()=>fake(({make,start,procs,envReads})=>{
+  procs.get(host).uid=uid+1;const t=start(make());assert.equal(t.holds.length,0);assert(!envReads.includes(host));
+ }));
+}
+
 function main(){NSB_CHECK();
  assert.equal(process.platform,'linux');assert.equal(process.arch,'x64');assert.equal(process.version,'v24.21.0');assert.equal(process.env.NS_FOCUSED_CLOUD_ONLY,'1','Explicit test-lane marker; never real authority');
  assert(process.env.RUNNER_TEMP,'Owned RUNNER_TEMP required');const parent=fs.realpathSync(process.env.RUNNER_TEMP),root=fs.mkdtempSync(path.join(parent,'ns-normal613-focused-'));fs.chmodSync(root,0o700);let cleanup=false;
- try{runStaticInputBindings();clockTests();proofTests(root);dataTests();}finally{fs.rmSync(root,{recursive:true,force:false});cleanup=!fs.existsSync(root);assert(cleanup,'Owned focused test root not removed');}
- console.log(JSON.stringify({schemaVersion:'normal613-focused-helper-controls.v1',status:'PASS_FOCUSED_HELPER_SUBSET_ONLY',cases:rows,ownedRootClosed:cleanup,realAuthority:false,networkRequests:0,productReleaseAcceptance:false,notCovered:['actual intake Git/request timing','revalidation entry','engine entry','owned command closure','full seal','51-arm','four paired','Chromium','WebKit']}));
+ try{runStaticInputBindings();clockTests();proofTests(root);dataTests();ownershipDomainTests();}finally{fs.rmSync(root,{recursive:true,force:false});cleanup=!fs.existsSync(root);assert(cleanup,'Owned focused test root not removed');}
+ console.log(JSON.stringify({schemaVersion:'normal613-focused-helper-controls.v1',status:'PASS_FOCUSED_HELPER_SUBSET_ONLY',cases:rows,syntheticOwnershipDomainCases:20,newOwnershipKernelObservations:0,ownedRootClosed:cleanup,realAuthority:false,networkRequests:0,productReleaseAcceptance:false,notCovered:['actual intake Git/request timing','revalidation entry','engine entry','owned command closure','full seal','51-arm','four paired','Chromium','WebKit']}));
 }
 NSB_RUN(main,e=>{console.error(JSON.stringify({schemaVersion:'normal613-focused-helper-controls.v1',status:'FAIL_OR_UNKNOWN',cases:rows,error:String(e.stack||e).slice(0,4096),productReleaseAcceptance:false}));process.exitCode=1;});
