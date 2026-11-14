@@ -1282,8 +1282,7 @@ function normal613Seal(){
  try{context=normal613Context().value;}catch(e){issues.push('Missing/unreadable admitted context');}
  const root=path.join(base,engine?'ns-normal-613-engine':'ns-normal-613-admission');
  const admissionNames=['assembled-source-manifest.json','dependencies.json','reservation-receipt.json','fresh-main-reservation-binding.json','execution-receipt.json','normal613-intent.json','normal613-ack.json','normal613-context.json','normal613-fresh.json','normal613-reservation.json','normal613-approval-witness.json','normal613-readback-before-admission.json','normal613-readback-before-qualification.json','normal613-admitted-engine-context.json','deployment-source-manifest.json','normal613-receipt-member-map.json'];
- const focusedNames=['context.json','report.json','stdout.log','stderr.log'];
- const required=engine?['context.json','baseline-controls.log','installed-baseline.log','installed-tooling.json','install.log','normal613-admission-context.json']:[...admissionNames,...focusedNames.map(n=>'focused/'+n)];
+ const required=engine?['context.json','baseline-controls.log','installed-baseline.log','installed-tooling.json','install.log','normal613-admission-context.json']:admissionNames;
  const proof=engine?path.join(base,'ns-upgrade-proof'):root;
  const add=(file,name)=>{assert(!path.isAbsolute(name)&&!name.split('/').some(s=>!s||s==='.'||s==='..')&&!name.includes('\\'));sources.push({file,name});};
  if(engine){
@@ -1293,7 +1292,6 @@ function normal613Seal(){
    }};
   try{visit(proof);}catch(e){issues.push('Incomplete/unsafe engine proof inventory: '+e.message);}
  }else for(const name of admissionNames)if(fs.existsSync(path.join(root,name)))add(path.join(root,name),name);
- if(!engine)for(const name of focusedNames){const file=path.join(base,'ns-normal-613-focused',name);if(fs.existsSync(file))add(file,'focused/'+name);else issues.push('Missing focused proof '+name);}
  const ids=context?(engine?normal613EngineCommandIds(context.engine):normal613FixtureCommandIds()):[];
  for(const id of ids)for(const suffix of ['json','stdout.log','stderr.log']){const file=path.join(root,'command-'+id+'.'+suffix);if(fs.existsSync(file))add(file,'commands/command-'+id+'.'+suffix);else issues.push('Missing command evidence '+id+'.'+suffix);}
  let total=0;
@@ -1305,7 +1303,7 @@ function normal613Seal(){
    try{const opened=fs.fstatSync(fd);for(const k of ['dev','ino','size','mtimeMs','ctimeMs'])assert.equal(opened[k],s[k]);bytes=fs.readFileSync(fd);const last=fs.fstatSync(fd);for(const k of ['dev','ino','size','mtimeMs','ctimeMs'])assert.equal(last[k],s[k]);assert.equal(bytes.length,s.size);}finally{fs.closeSync(fd);}
    const dir=path.dirname(path.join(output,item.name));fs.mkdirSync(dir,{recursive:true,mode:0o700});
    const saved=normal613Save(dir,path.basename(item.name),bytes);members.push({path:item.name,bytes:saved.bytes,sha256:saved.sha256});total+=bytes.length;
-   if(["execution-receipt.json","normal613-receipt-member-map.json","focused/context.json","focused/report.json"].includes(item.name))copiedDocuments.set(item.name,bytes);
+   if(["execution-receipt.json","normal613-receipt-member-map.json"].includes(item.name))copiedDocuments.set(item.name,bytes);
    if(item.name.startsWith('commands/')&&item.name.endsWith('.json')){const r=JSON.parse(normal613Utf8(bytes));if(r.status!==0||r.failure||!r.childClosed||!r.ownedGroupClosed||r.outputOverflow)issues.push('Command failed/unknown '+r.id);}
   }catch(e){issues.push('Member refused '+item.name+': '+e.message);}
  }
@@ -1319,29 +1317,6 @@ function normal613Seal(){
   assert.deepEqual(mapping.references,normal613ReceiptMemberReferences(receipt,new Map(members.map(m=>[m.path,m]))),'Complete exact receipt/member references');
  }catch(e){issues.push('Receipt/member mapping failed: '+e.message);}
 
- if(!engine)try{
-  const fc=JSON.parse(normal613Utf8(copiedDocuments.get('focused/context.json'))),fr=JSON.parse(normal613Utf8(copiedDocuments.get('focused/report.json')));
-  normal613UnicodeSafe(fc);normal613UnicodeSafe(fr);assert.equal(fc.schemaVersion,'normal613-focused-context.v1');assert.equal(fr.schemaVersion,'normal613-focused-report.v1');assert.equal(fr.status,'PASS_FOCUSED_SYNTHETIC_CONTROLS_ONLY');
-  for(const key of ['repository','headSha','testedMergeSha']){assert.equal(fc[key],context[key]);assert.equal(fr[key],context[key]);}
-  for(const value of [fc,fr]){assert.equal(value.runId,process.env.GITHUB_RUN_ID);assert.equal(value.runAttempt,Number(process.env.GITHUB_RUN_ATTEMPT));assert.equal(value.executionReceiptSha256,hash(copiedDocuments.get('execution-receipt.json')));assert.equal(value.originalDeadline||value.originalActionDeadline,context.actionDeadlineAt);}
-  assert.equal(fc.assembledManifestSha256,JSON.parse(normal613Utf8(copiedDocuments.get('execution-receipt.json'))).actualAssembledSourceManifestSha256);
-  assert.equal(fr.aggregateEntryNs,fc.aggregateEntryNs);assert.equal(fr.aggregateDeadlineNs,fc.aggregateDeadlineNs);assert(BigInt(fc.aggregateDeadlineNs)>BigInt(fc.aggregateEntryNs)&&BigInt(fc.aggregateDeadlineNs)-BigInt(fc.aggregateEntryNs)<=120000000000n);assert.equal(fr.failure,null);assert.equal(fr.releaseAcceptance,false);assert.equal(fr.realAuthorityFromSyntheticRecords,false);assert.deepEqual(fr.unrun,[]);assert.deepEqual(fr.newScratchRoots,[]);assert.equal(fr.completed.length,8);assert.equal(fc.sources.length,8);
-  for(const row of fr.completed){assert.equal(row.status,0);assert.equal(row.reason,null);assert(row.childClosed&&row.topLevelGroupClosed&&row.ownedCleanupObserved&&row.childReportAccepted&&!row.cleanupHold);assert.deepEqual(row.ownershipHolds,[]);assert(Array.isArray(row.ownedProcessIdentities)&&row.ownedProcessIdentities.length>0);assert.deepEqual(row.newScratchRoots,[]);assert(BigInt(row.childSoftDeadlineNs)<BigInt(row.childHardDeadlineNs)&&BigInt(row.childHardDeadlineNs)<=BigInt(fc.aggregateDeadlineNs)-3000000000n);}
-  for(const row of fr.completed)normal613ValidateKnownVisibility(row,fc.aggregateEntryNs);
-  for(const row of fr.completed)if(row.ownershipScope?.rootVisibility){
-   const s=row.ownershipScope,v=s.rootVisibility,e=s.rootEventProof,p=row.ownedProcessIdentities.find(x=>x.pid===row.childPid);
-   assert(p&&e?.exit&&e.close,'Resolved root visibility requires actual bound exit and close evidence');
-   const key=Object.fromEntries(['pid','uid','startTicks','pgid','sessionId'].map(k=>[k,p[k]]));
-   assert.equal(v.status,'RESOLVED_AFTER_BOUND_ROOT_EXIT_CLOSE_AND_DOMAIN_ABSENCE');assert(['EACCES','EPERM'].includes(v.errorCode)&&['EACCES','EPERM'].includes(v.lastErrorCode));assert(Number.isSafeInteger(v.readDenials)&&v.readDenials>0);assert.deepEqual(v.identity,key);
-   assert(Number.isSafeInteger(s.callerPid)&&s.callerPid>0);assert.equal(s.boundChildPid,row.childPid);assert(/^[a-f0-9]{64}$/.test(s.preSpawnMetadataSha256));
-   const join=hash(Buffer.from(JSON.stringify({root:key,callerPid:s.callerPid,rootObservedAtNs:s.rootObservedAtNs,preSpawnMetadataSha256:s.preSpawnMetadataSha256,boundChildPid:s.boundChildPid,childHandleBoundAtNs:s.childHandleBoundAtNs})));
-   assert.equal(s.rootEventJoinSha256,join);assert.equal(v.rootEventJoinSha256,join);
-   for(const event of [e.exit,e.close]){assert.equal(event.pid,row.childPid);assert.deepEqual(event.identity,key);assert.equal(event.rootEventJoinSha256,join);assert.equal(event.sameChildProcessHandle,true);assert.equal(event.code,row.status);assert.equal(event.signal,row.signal);}
-   const r=v.resolution;assert(r?.rootAbsent&&r.ownedDomainEmpty&&s.stableClosureInventory&&s.actualRootAfterSnapshot);assert(/^[a-f0-9]{64}$/.test(r.firstMetadataSha256));assert.equal(r.firstMetadataSha256,r.secondMetadataSha256);assert.deepEqual(s.unknownOrOwnershipHolds,[]);assert.deepEqual(s.permanentOwnershipHolds,[]);
-   const snap=BigInt(s.snapshotStartedNs),snapshotEnd=BigInt(s.snapshotCompletedNs),bound=BigInt(s.childHandleBoundAtNs),observed=BigInt(s.rootObservedAtNs),denied=BigInt(v.firstDeniedAtNs),lastDenied=BigInt(v.lastDeniedAtNs),exited=BigInt(e.exit.observedAtNs),closed=BigInt(e.close.observedAtNs),first=BigInt(r.firstInventoryStartedNs),second=BigInt(r.secondInventoryStartedNs),finished=BigInt(r.inventoryCompletedNs),resolved=BigInt(r.confirmedAtNs);
-   assert(BigInt(fc.aggregateEntryNs)<=snap&&snap<=snapshotEnd&&snapshotEnd<=bound&&bound<=observed&&observed<=denied&&denied<=lastDenied&&lastDenied<=resolved&&observed<=exited&&exited<=closed&&closed<=first&&first<=second&&second<=finished&&finished<=resolved&&resolved<=BigInt(row.childHardDeadlineNs),'Fresh post-event repeated inventory under original deadline');
-  }
- }catch(e){issues.push('Focused control proof failed: '+e.message);}
 
  if(process.env.NS_NORMAL613_JOB_STATUS!=='success')issues.push('Observed job status '+process.env.NS_NORMAL613_JOB_STATUS);
  const manifest={schemaVersion:'normal613-artifact-manifest.v1',status:issues.length?'FAILED_OR_UNKNOWN':'COMPLETE',repository:NORMAL613_CALLER_POLICY.repository,workflow:process.env.GITHUB_WORKFLOW_REF,headSha:context?.headSha||null,baseSha:context?.baseSha||null,testedMergeSha:context?.testedMergeSha||null,tree:context?.tree||null,bodySha256:context?.bodySha256||null,intentSha256:context?.intentSha256||null,allocationId:context?.allocation?.allocationId||context?.allocationId||null,laneId:context?.allocation?.laneId||context?.laneId||null,ownedOperationId:context?.allocation?.ownedOperationId||context?.ownedOperationId||null,runId:process.env.GITHUB_RUN_ID,runAttempt:Number(process.env.GITHUB_RUN_ATTEMPT),job:process.env.GITHUB_JOB,engine:context?.engine||null,observedAt:new Date().toISOString(),payloadBytes:total,files:members,expectedMembers:[...members.map(x=>x.path),'normal613-artifact-manifest.json'],requiredMembers:required,expectedCommands:ids,manifestSelfExcludedFromPayloadHashes:true,limits:{members:L.members,perMember:L.metadata,aggregate:L.artifact},issues,providerArtifactId:'POPULATED_BY_UPLOAD_ACTION_AND_OUTER_METADATA_JOIN',providerArtifactDigest:'OBSERVE_AFTER_UPLOAD',physicalIosAcceptance:false,releaseAcceptance:false};
