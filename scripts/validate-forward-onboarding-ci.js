@@ -654,7 +654,7 @@ function normal613FocusedOwnedProcesses(token,clock,until){
   },get rootObserved(){return rootObserved;}};
 }
 
-async function normal613Intake(revalidateStage=null){
+async function normal613Intake(revalidateStage=null,httpFailure=null){
  const entryWall=Date.now(),entryMonotonic=process.hrtime.bigint();
  const p=NORMAL613_CALLER_POLICY,L=p.limits,cp=require('node:child_process'),{TextDecoder}=require('node:util');
  assert.equal(process.version,'v24.21.0');assert.equal(process.platform,'linux');assert.equal(process.arch,'x64');
@@ -682,12 +682,43 @@ async function normal613Intake(revalidateStage=null){
  const priorWitness=prior?JSON.parse(normal613Utf8(normal613Read(prior.root,revalidateStage==='qualification'?'normal613-readback-before-admission.json':'normal613-approval-witness.json',L.metadata))):null;
  const namespace=hash(Buffer.from(JSON.stringify({schemaVersion:'normal613-action-namespace.v1',repository:p.repository,pullRequest:event.number,phase:'qualification',purpose:b.actionIntent.purpose,headSha:H,baseSha:B,intentSha256:b.actionIntent.intentSha256,bodySha256:parsed.bodySha256,allocationId:b.actionIntent.allocationId,laneId:b.actionIntent.laneId,ownedOperationId:b.actionIntent.ownedOperationId})));
  const marker='NS_NORMAL613_V1 '+namespace,policySha256=hash(Buffer.from(JSON.stringify(p))),trace=[],passes=[];let consumed=priorWitness?priorWitness.consumedBytes:0,requests=priorWitness?priorWitness.requests:0;
- async function get(url){
+ // CLI-only best-effort metadata; no body, authority, retry, clock or output reservation.
+ function captureHttpFailure(response,u,commentId){
+  try{
+   if(!httpFailure)return;
+   const status=response.status;
+   if(!Number.isInteger(status)||status<100||status>599||status===200)return;
+   const repo='/repos/'+p.repository;let endpointTemplate;
+   if(u.pathname===repo+'/pulls/'+event.number)endpointTemplate='/repos/{owner}/{repo}/pulls/{number}';
+   else if(u.pathname===repo+'/issues/'+event.number+'/comments')endpointTemplate='/repos/{owner}/{repo}/issues/{number}/comments';
+   else if(Number.isSafeInteger(commentId)&&commentId>0&&u.pathname===repo+'/issues/comments/'+commentId)endpointTemplate='/repos/{owner}/{repo}/issues/comments/{id}';
+   else return;
+   const headers={};
+   for(const name of ['x-github-request-id','x-ratelimit-remaining','x-ratelimit-limit','x-ratelimit-reset','retry-after']){
+    const value=response.headers.get(name);if(typeof value!=='string')continue;
+    if(name==='x-github-request-id'){
+     if(value.length<=96&&/^[0-9A-F]{1,16}(?::[0-9A-F]{1,16}){1,5}(?![\s\S])/.test(value))headers[name]=value;
+    }else if(name==='x-ratelimit-remaining'||name==='x-ratelimit-limit'){
+     if(value.length<=7&&/^(0|[1-9][0-9]{0,6})(?![\s\S])/.test(value)&&Number(value)<=1000000)headers[name]=value;
+    }else if(name==='x-ratelimit-reset'){
+     if(value.length<=10&&/^(0|[1-9][0-9]{0,9})(?![\s\S])/.test(value)&&Number(value)<=9999999999)headers[name]=value;
+    }else if(value.length<=5&&/^(0|[1-9][0-9]{0,4})(?![\s\S])/.test(value)&&Number(value)<=86400)headers[name]=value;
+   }
+   if(headers['x-ratelimit-remaining']!==undefined&&headers['x-ratelimit-limit']!==undefined&&Number(headers['x-ratelimit-remaining'])>Number(headers['x-ratelimit-limit'])){
+    delete headers['x-ratelimit-remaining'];delete headers['x-ratelimit-limit'];
+   }
+   const record=JSON.stringify({method:'GET',status,endpointTemplate,headers});
+   if(record.length>1023||Buffer.byteLength(record+'\n','utf8')>1024||!/^[\x20-\x7e]+(?![\s\S])/.test(record))return;
+   httpFailure.status=status;httpFailure.record=record;
+  }catch{} // Diagnostic construction must not replace the original status assertion.
+ }
+ async function get(url,commentId=null){
   remaining();
   assert(++requests<=L.requests,'Request bound');const u=new URL(url);assert.equal(u.origin,p.api);assert.equal(u.username,'');assert.equal(u.password,'');assert.equal(u.hash,'');
   const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),Math.min(L.requestMs,remaining()));let reader,bytes=0;
   try{
    remaining();const response=await fetch(u,{method:'GET',headers:{Accept:'application/vnd.github+json','X-GitHub-Api-Version':'2022-11-28'},redirect:'error',credentials:'omit',cache:'no-store',signal:controller.signal});
+   captureHttpFailure(response,u,commentId);
    assert.equal(response.status,200,'Public GitHub response; no alternate route');assert.equal(new URL(response.url).origin,p.api);
    const length=response.headers.get('content-length');if(length!==null)assert(/^(0|[1-9][0-9]*)$/.test(length)&&Number(length)<=L.response,'Response length');
    assert(/^application\/json\b/.test(response.headers.get('content-type')||''),'JSON provider representation');assert(response.body,'Response stream');
@@ -768,7 +799,7 @@ async function normal613Intake(revalidateStage=null){
  assert.deepEqual(w.comments,approvals.map(x=>({id:x.comment.id,bodySha256:x.comment.bodySha256,authorId:x.comment.authorId,createdAt:x.comment.createdAt,updatedAt:x.comment.updatedAt})).sort((a,z)=>a.id-z.id));
  for(const x of approvals)assert(normal613ApiTime(x.comment.createdAt,'Role publication')<=witnessed);
  const second=await scan();assert.deepEqual(second,first,'Complete action namespace unchanged');
- for(const x of second){const r=await get(p.api+'/repos/'+p.repository+'/issues/comments/'+x.comment.id);assert.deepEqual(comment(r.value),x.comment,'Selected comment final readback unchanged');}
+ for(const x of second){const r=await get(p.api+'/repos/'+p.repository+'/issues/comments/'+x.comment.id,x.comment.id);assert.deepEqual(comment(r.value),x.comment,'Selected comment final readback unchanged');}
  const finalPR=await observePR();remaining();
  const ackBytes=normal613Decode(payload.ackBase64,payload.ackSha256,'ACK'),ack=normal613Canonical(ackBytes,'ACK');
  const startedAt=prior?prior.value.startedAt:new Date(entryWall).toISOString(),startMonotonicNs=prior?prior.value.startMonotonicNs:entryMonotonic.toString();
@@ -793,11 +824,11 @@ async function normal613Intake(revalidateStage=null){
 }
 // NORMAL613_INTAKE_END
 
-async function normal613Admission(){
+async function normal613Admission(httpFailure=null){
  'use strict';
  const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto'),cp=require('node:child_process'),{TextDecoder}=require('node:util');
  const hash=bytes=>crypto.createHash('sha256').update(bytes).digest('hex');
- await normal613Intake('admission');
+ await normal613Intake('admission',httpFailure);
  const nsContext=normal613Context(),nsIntentBytes=normal613Read(nsContext.root,'normal613-intent.json'),nsAckBytes=normal613Read(nsContext.root,'normal613-ack.json'),nsFreshBytes=normal613Read(nsContext.root,'normal613-fresh.json');
  normal613Remaining(nsContext.value,120000);
  // NS_E610_PURE_BEGIN
@@ -1392,11 +1423,11 @@ function normal613CallerSourceControls(text){
 }
 
 // No network/process dispatch occurs on import or on the unchanged legacy default.
-async function normal613Main(argv){
+async function normal613Main(argv,httpFailure=null){
  const mode=argv[0];
- if(mode==='--normal613-intake'){assert.equal(argv.length,1);return normal613Intake();}
- if(mode==='--normal613-admission'){assert.equal(argv.length,1);return normal613Admission();}
- if(mode==='--normal613-verify-current'){assert.equal(argv.length,1);return normal613Intake('qualification');}
+ if(mode==='--normal613-intake'){assert.equal(argv.length,1);return normal613Intake(null,httpFailure);}
+ if(mode==='--normal613-admission'){assert.equal(argv.length,1);return normal613Admission(httpFailure);}
+ if(mode==='--normal613-verify-current'){assert.equal(argv.length,1);return normal613Intake('qualification',httpFailure);}
  if(mode==='--normal613-engine-context'){assert.equal(argv.length,1);return normal613EngineContext();}
  if(mode==='--normal613-seal'){assert.equal(argv.length,1);return normal613Seal();}
  if(mode==='--normal613-run'){assert(argv.length>=5&&argv[2]==='--');return normal613OwnedRun(argv[1],argv[3],argv.slice(4));}
@@ -1406,7 +1437,27 @@ async function normal613Main(argv){
 
 if(require.main===module){
  const argv=process.argv.slice(2);
- if(argv[0]?.startsWith('--normal613-'))normal613Main(argv).catch(error=>{console.error('NORMAL613_FAILED '+String(error.message).slice(0,1000));process.exitCode=1;});
+ if(argv[0]?.startsWith('--normal613-')){
+  const httpFailure={record:null,status:null};
+  normal613Main(argv,httpFailure).catch(error=>{
+   process.exitCode=1;
+   try{
+    const original=String(error.message).slice(0,1000);let text=original;
+    try{
+     // Only this invocation's unchanged status assertion may carry its response metadata.
+     if(error instanceof assert.AssertionError&&error.code==='ERR_ASSERTION'&&error.operator==='strictEqual'&&error.generatedMessage===false&&error.expected===200&&error.actual===httpFailure.status&&original.startsWith('Public GitHub response; no alternate route')){
+      const record=httpFailure.record;
+      if(typeof record==='string'&&record.length<=1023&&Buffer.byteLength(record+'\n','utf8')<=1024&&/^[\x20-\x7e]+(?![\s\S])/.test(record)){
+       const candidate=original+'\n'+record;
+       // Same single 1000-UTF16-unit slot: prefix17 + worst-case UTF8(1000 units)3000 + LF1.
+       if(candidate.length<=1000&&Buffer.byteLength('NORMAL613_FAILED '+candidate+'\n','utf8')<=3018)text=candidate;
+      }
+     }
+    }catch{} // Keep the exact original limited text if optional formatting cannot complete.
+    console.error('NORMAL613_FAILED '+text);
+   }catch{} // Exit1 is already established; no fallback write or new stream handler.
+  });
+ }
  else console.log(JSON.stringify(sourceControls(boundedRegularRead(path.resolve('.github/workflows/installed-upgrade-tests.yml'),256*1024*1024,sourceReadLedger).toString('utf8'))));
 }
 module.exports={normaliseForwardWorkflow,sourceControls,boundVersionPlanControls,boundedReaderControls,restoreNormal613Caller,normal613CallerSourceControls,normal613Body,normal613ValidateFresh,normal613ExpectedIntent,normal613Intake,normal613Main,normal613FocusedControls:Object.freeze({normal613FocusedClock,normal613FocusedOwnedProcesses,normal613ValidateKnownVisibility,version:'normal613-focused-controls.v1',NORMAL613_CALLER_POLICY,normal613Remaining,normal613OwnedRoot,normal613Save,normal613UnicodeSafe,normal613Canonical,normal613ReceiptMemberReferences,normal613FixtureCommandIds,normal613EngineCommandIds})};
