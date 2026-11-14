@@ -22,7 +22,7 @@ function NSB_BOOT_READ(file,max){
  }finally{NSB_RAW_FS.closeSync(fd);}
 }
 const NSB_TEMP=NSB_RAW_FS.realpathSync(process.env.RUNNER_TEMP),NSB_GUARD_PATH=NSB_PATH.join(__dirname,'validate-forward-onboarding-ci.js');
-const NSB_GUARD_BYTES=NSB_BOOT_READ(NSB_GUARD_PATH,193605);NSB_ASSERT.equal(NSB_GUARD_BYTES.length,193605);NSB_ASSERT.equal(NSB_CRYPTO.createHash('sha256').update(NSB_GUARD_BYTES).digest('hex'),'a78201621fc5bb972bc130e93f1e4730c3f543859dffb5770a945ac2763ea164');
+const NSB_GUARD_BYTES=NSB_BOOT_READ(NSB_GUARD_PATH,215519);NSB_ASSERT.equal(NSB_GUARD_BYTES.length,215519);NSB_ASSERT.equal(NSB_CRYPTO.createHash('sha256').update(NSB_GUARD_BYTES).digest('hex'),'1b6b20f27467a59e15fa42cf2949aef3528527081f3dc94920a11b71acb06102');
 const NSB_S=require('./validate-forward-onboarding-ci').normal613FocusedControls;
 const NSB_CONTEXT_PATH=NSB_PATH.join(NSB_TEMP,'ns-normal-613-admission','normal613-context.json');
 NSB_ASSERT(NSB_NATIVE_MONO()<NSB_SOFT,'Context bootstrap remains charged');
@@ -76,7 +76,7 @@ async function NSB_RUN(fn,onError){
 function NSB_LEGACY_MAIN(){
 // SOURCE PROPOSAL ONLY: exercise actual workflow restoration controls in allocated CI.
 const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto');
-const sha=b=>crypto.createHash('sha256').update(b).digest('hex');const guard=path.join(__dirname,'validate-forward-onboarding-ci.js');assert.equal(sha(fs.readFileSync(guard)),'a78201621fc5bb972bc130e93f1e4730c3f543859dffb5770a945ac2763ea164');
+const sha=b=>crypto.createHash('sha256').update(b).digest('hex');const guard=path.join(__dirname,'validate-forward-onboarding-ci.js');assert.equal(sha(fs.readFileSync(guard)),'1b6b20f27467a59e15fa42cf2949aef3528527081f3dc94920a11b71acb06102');
 const {restoreNormal613Caller,normal613CallerSourceControls}=require('./validate-forward-onboarding-ci');assert.equal(process.platform,'linux');assert.equal(process.arch,'x64');assert.equal(process.version,'v24.21.0');assert.equal(process.env.NS_FOCUSED_CLOUD_ONLY,'1');
 const text=fs.readFileSync('.github/workflows/installed-upgrade-tests.yml','utf8');assert.equal(sha(Buffer.from(text)),'27fa852a067915ff9b4039a51a53eff606d222fb868a64144ecca82a46d6b3c9');
 const restored=restoreNormal613Caller(text);assert(restored.edits>0);assert.equal(sha(Buffer.from(restored.text)),'922a7c33dbd5adf61260330292bc11eea0aa2c7587b872d27a044e0551f785b0');

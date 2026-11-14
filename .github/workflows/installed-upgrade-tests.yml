@@ -78,6 +78,9 @@ concurrency:
 
 jobs:
   fixture-activation:
+    permissions:
+      contents: read
+      pull-requests: read
     name: Fixture activation / remaining three checks
     if: github.event.pull_request.draft == false || (github.event.pull_request.draft == true && github.event.pull_request.head.repo.full_name == github.repository && startsWith(github.event.pull_request.head.ref, 'codex/baseline-capture-')) || (github.event.pull_request.draft == true && github.event.pull_request.head.repo.full_name == github.repository && startsWith(github.event.pull_request.head.ref, 'codex/source-qualification-') && startsWith(github.event.pull_request.body, '{"schemaVersion":"ns-release-handover.forward.v1",'))
     runs-on: ubuntu-24.04
@@ -98,6 +101,8 @@ jobs:
       - name: Bind genuine external normal613 decisions before application checks
         if: github.event.pull_request.draft == false && startsWith(github.event.pull_request.body, '{"schemaVersion":"ns-release-handover.normal613.v1",')
         timeout-minutes: 1
+        env:
+          NS_NORMAL613_METADATA_TOKEN: ${{ github.token }}
         run: timeout --signal=TERM --kill-after=5s 60s node scripts/validate-forward-onboarding-ci.js --normal613-intake
       # NS_NORMAL613_INTAKE_END
       - name: Record exact source and runtime in job log
@@ -167,11 +172,11 @@ jobs:
            const request=JSON.parse(utf8Text(raw));unicodeSafe(request);
            const version=request?.captureFacts?.baselineVersion;
            if(version==='612'){
-            assert.equal(implementationSha256,'0c50daf81a2b7bed72ba24a33fc453040480e91cc41923a92e8e1570426cbcde','Exact reviewed deployed612 collector');
+            assert(['0c50daf81a2b7bed72ba24a33fc453040480e91cc41923a92e8e1570426cbcde','79e55a3d30442984899fed99b0c6d5cd480ce23bdd59f3820a4de27c09f07c00'].includes(implementationSha256),'Exact reviewed deployed612 collector');
             return {baselineVersion:'612',bindingSchema:'primary-baseline-capture-binding.612.v1',validator:'validateCaptureBindingForProfile'};
            }
            assert.equal(version,'611','Only explicit reviewed611/612 capture profiles');
-           assert(['cd9f08b8fafad5ada96460043520b9293c65b91fb3f0cfc6db617c8db343b824','0c50daf81a2b7bed72ba24a33fc453040480e91cc41923a92e8e1570426cbcde'].includes(implementationSha256),'Exact reviewed legacy611-compatible collector');
+           assert(['cd9f08b8fafad5ada96460043520b9293c65b91fb3f0cfc6db617c8db343b824','0c50daf81a2b7bed72ba24a33fc453040480e91cc41923a92e8e1570426cbcde','79e55a3d30442984899fed99b0c6d5cd480ce23bdd59f3820a4de27c09f07c00'].includes(implementationSha256),'Exact reviewed legacy611-compatible collector');
            return {baselineVersion:'611',bindingSchema:'primary-baseline-capture-binding.v1',validator:'validateCaptureBinding'};
           }
           function primaryCaptureRequest(raw,event,env,observed,wall,validate,bindingSchema='primary-baseline-capture-binding.v1'){
@@ -1445,185 +1450,17 @@ jobs:
         if: github.event.pull_request.draft == false && startsWith(github.event.pull_request.body, '{"schemaVersion":"ns-release-handover.normal613.v1",')
         id: normal613_source_admission
         timeout-minutes: 2
-        run: |
-          ns_normal613_command=(bash -e)
-          if [ "${{ startsWith(github.event.pull_request.body, '{"schemaVersion":"ns-release-handover.normal613.v1",') }}" = "true" ]; then
-            ns_normal613_command=(node scripts/validate-forward-onboarding-ci.js --normal613-run admission -- bash -Eeuo pipefail)
-          fi
-          "${ns_normal613_command[@]}" <<'NS_NORMAL613_RUN_fixture_admission'
-          timeout --signal=TERM --kill-after=5s 120s node scripts/validate-forward-onboarding-ci.js --normal613-admission
-          NS_NORMAL613_RUN_fixture_admission
-      # NS_NORMAL613_ADMISSION_END
-      # NS_NORMAL613_FOCUSED_GATE_BEGIN
-      - name: Verify focused normal613 controls in the existing fixture lane
-        if: github.event.pull_request.draft == false && startsWith(github.event.pull_request.body, '{"schemaVersion":"ns-release-handover.normal613.v1",')
-        timeout-minutes: 3
         env:
-          NS_FOCUSED_RECEIPT_SHA256: ${{ steps.normal613_source_admission.outputs.executionReceiptSha256 }}
-        run: |
-          IFS=' ' read -r NS_FOCUSED_ENTRY_UPTIME ignored < /proc/uptime
-          export NS_FOCUSED_ENTRY_UPTIME
-          set -Eeuo pipefail
-          timeout --signal=TERM --kill-after=1s 119s node <<'NS_FOCUSED_SUITE'
-          'use strict';
-          // This conservative Linux boot-clock observation precedes setup.
-          const nativeMono=process.hrtime.bigint.bind(process.hrtime),entryNow=nativeMono();
-          const entrySeconds=process.env.NS_FOCUSED_ENTRY_UPTIME;
-          if(!/^\d+[.]\d{2}$/.test(entrySeconds||''))throw Error('Missing real pre-setup clock');
-          const entryNs=BigInt(entrySeconds.replace('.',''))*10000000n;
-          if(entryNs>entryNow||entryNow-entryNs>1000000000n)throw Error('Pre-setup clock join failed');
-          const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto'),cp=require('node:child_process');
-          const {normal613FocusedControls:S}=require('./scripts/validate-forward-onboarding-ci');
-          const hash=b=>crypto.createHash('sha256').update(b).digest('hex'),meta=[],rows=[],owners=[],out={stdout:[],stderr:[]};
-          let clock=null,proof=null,context=null,contextBytes=null,receiptBytes=null,manifestBytes=null,reservation=null,reservationPath=null,admission=null,temp=null;
-          let used=0,failure=null,interrupted=false,watchdog=null,scratchBefore=null;
-          const cases=[
-           ['validate-normal613-focused-controls.js',4000,'normal613-focused-helper-controls.v1'],
-           ['validate-normal613-intake-negative.js',4000,'normal613-intake-negative-controls.v1'],
-           ['validate-normal613-engine-joins.js',4000,'normal613-engine-join-controls.v1'],
-           ['validate-normal613-authority-controls.js',8000,'normal613-authority-synthetic-controls.v1'],
-           ['validate-normal613-seal-controls.js',4000,'normal613-seal-synthetic-controls.v1'],
-           ['validate-normal613-legacy-controls.js',3000,'normal613-legacy-restoration-controls.v1'],
-           ['validate-normal613-owned-command-negative.js',32000,'normal613-owned-negative-controls.v1'],
-           ['validate-normal613-r1-receipt-negatives.js',28000,'normal613-r1-receipt-negative-controls.v1']
-          ];
-          const scratch=/^(?:ns-normal613-focused-|ns613-(?:intake-negative|engine-negative|engine-join|authority|seal|owned-negative|r1-negative|r1-traversal)-)/;
-          const fail=e=>{failure=failure||String(e?.stack||e).slice(0,4096);process.exitCode=1;};
-          const proofCheck=()=>clock.remaining(clock.endNs-1500000000n);
-          const workCheck=()=>{assert(!interrupted,'Focused owner interrupted');return clock.remaining(clock.endNs-3000000000n);};
-          function read(file,max,checkpoint){
-           checkpoint();const before=fs.lstatSync(file);assert(before.isFile()&&!before.isSymbolicLink()&&before.uid===process.getuid()&&before.size<=max);
-           checkpoint();const fd=fs.openSync(file,fs.constants.O_RDONLY|fs.constants.O_NOFOLLOW);
-           try{const a=fs.fstatSync(fd);for(const k of ['dev','ino','size','mtimeMs','ctimeMs'])assert.equal(a[k],before[k]);
-            const chunks=[],buffer=Buffer.alloc(65536);let total=0;for(;;){checkpoint();const n=fs.readSync(fd,buffer,0,Math.min(buffer.length,max-total+1),null);if(!n)break;total+=n;assert(total<=max);chunks.push(Buffer.from(buffer.subarray(0,n)));}
-            checkpoint();const z=fs.fstatSync(fd);for(const k of ['dev','ino','size','mtimeMs','ctimeMs'])assert.equal(z[k],a[k]);assert.equal(total,before.size);return Buffer.concat(chunks);
-           }finally{fs.closeSync(fd);}
-          }
-          function roots(){
-           proofCheck();return fs.readdirSync(temp).filter(n=>scratch.test(n)&&!scratchBefore.has(n));
-          }
-          const sleep=async(ms,until)=>{const n=clock.remaining(until);await new Promise(r=>setTimeout(r,Math.min(ms,n)));};
-          async function cleanup(owner,until){
-           let closed=false;const begun=clock.nowNs(),termAt=begun+1000000000n;
-           try{
-            // Always enter, even after an immediate-child close or setup error.
-            for(;;){
-             clock.remaining(until);const observation=owner.tracker.observe();
-             if(observation.closed&&owner.exitObserved&&owner.closeObserved){closed=true;break;}
-             owner.tracker.signalOwned(clock.nowNs()<termAt?'SIGTERM':'SIGKILL');
-             await sleep(25,until);
-            }
-           }catch(e){owner.tracker.note('CLEANUP_HOLD '+e.message);}
-           finally{
-            for(const stream of [owner.child?.stdin,owner.child?.stdout,owner.child?.stderr])try{stream?.destroy();}catch(e){owner.tracker.note('DESCRIPTOR_CLOSE_HOLD '+e.message);}
-            if(!closed)try{owner.child?.unref();}catch(e){owner.tracker.note('CHILD_UNREF_HOLD '+e.message);}
-           }
-           owner.cleanupClosed=closed&&owner.tracker.holds.length===0;return owner.cleanupClosed;
-          }
-          const interrupt=()=>{interrupted=true;fail('Focused owner interrupted');for(const owner of owners)try{owner.tracker.signalOwned('SIGTERM');}catch(e){owner.tracker.note('INTERRUPT_CLEANUP_HOLD '+e.message);}};
-          process.on('SIGTERM',interrupt);process.on('SIGINT',interrupt);
-          const outputError=e=>{fail(e);interrupt();};process.stdout.on('error',outputError);process.stderr.on('error',outputError);
-          async function one(name,soft,format,index){
-           workCheck();const future=cases.slice(index+1).reduce((n,c)=>n+c[1]+3000,0);
-           assert(workCheck()>=soft+3000+future,'Do not start without closure and remaining-case reserves');
-           const at=clock.nowNs(),softEnd=at+BigInt(soft)*1000000n,hardEnd=softEnd+3000000000n;
-           assert(hardEnd<=clock.endNs-3000000000n,'Child and closure subordinate to original focused deadline');
-           const token=crypto.randomBytes(32).toString('hex'),tracker=S.normal613FocusedOwnedProcesses(token,clock,hardEnd);
-           assert(tracker.holds.length===0,'Complete pre-spawn kernel metadata required before child creation');
-           const owner={name,tracker,child:null,exitObserved:false,closeObserved:false,cleanupClosed:false,code:null,signal:null};owners.push(owner);
-           const local={stdout:[],stderr:[]};let reason=null,poll=null,softTimer=null,settle;
-           const gate=new Promise(r=>{settle=r;}),stop=why=>{reason=reason||why;try{tracker.signalOwned('SIGTERM');}catch(e){tracker.note('STOP_CLEANUP_HOLD '+e.message);}settle();};
-           try{
-            workCheck();clock.remaining(softEnd);owner.child=cp.spawn(process.execPath,['--max-old-space-size=512','scripts/'+name],{cwd:process.cwd(),env:{...process.env,
-             NS_FOCUSED_CLOUD_ONLY:'1',NS_TEST_RESERVATION_PATH:reservationPath,NS_FOCUSED_OWNER_TOKEN:token,
-             NS_FOCUSED_ENTRY_MONOTONIC_NS:clock.entryNs.toString(),NS_FOCUSED_AGGREGATE_DEADLINE_NS:clock.endNs.toString(),
-             NS_FOCUSED_CHILD_SOFT_DEADLINE_NS:softEnd.toString(),NS_FOCUSED_CHILD_HARD_DEADLINE_NS:hardEnd.toString(),
-             NS_FOCUSED_CHILD_SOFT_MS:String(soft),NS_FOCUSED_CLOSURE_RESERVE_MS:'3000',
-             NS_FOCUSED_R1_EARLY_TOTAL_MS:'1000',NS_FOCUSED_R1_TRAVERSAL_TOTAL_MS:'7000'
-            },detached:true,stdio:['ignore','pipe','pipe']});
-            const child=owner.child;
-            child.once('error',e=>stop('Child error: '+e.message));
-            child.once('exit',(code,signal)=>{owner.exitObserved=true;owner.code=code;owner.signal=signal;try{tracker.recordRootExit(child,code,signal);}catch(e){stop('Root exit evidence failed: '+e.message);}});
-            child.once('close',(code,signal)=>{owner.closeObserved=true;try{tracker.recordRootClose(child,code,signal);}catch(e){stop('Root close evidence failed: '+e.message);}settle();});
-            tracker.bindChild(child);
-            for(const stream of ['stdout','stderr']){
-             child[stream].on('error',e=>stop('Child stream error: '+e.message));
-             child[stream].on('data',b=>{try{workCheck();used+=b.length;if(used>4194304){stop('Focused aggregate output overflow');return;}
-              out[stream].push(Buffer.from(b));local[stream].push(Buffer.from(b));process[stream].write(b);
-             }catch(e){stop(e.message);}});
-            }
-            tracker.setRoot(child.pid);
-            poll=setInterval(()=>{try{workCheck();tracker.observe();if(tracker.holds.length&&!tracker.waitingForRootExit)stop('Owned process observation held');}catch(e){stop(e.message);}},25);
-            softTimer=setTimeout(()=>stop('Focused child soft deadline'),clock.remaining(softEnd));
-            await gate;
-           }catch(e){reason=reason||String(e.stack||e).slice(0,4096);}
-           finally{
-            clearInterval(poll);clearTimeout(softTimer);
-            await cleanup(owner,hardEnd);
-           }
-           const stdout=Buffer.concat(local.stdout),stderr=Buffer.concat(local.stderr);let holds=[];
-           try{holds=roots();}catch(e){reason=reason||e.message;}
-           let ownershipScope=null;try{proofCheck();ownershipScope=tracker.scope();}catch(e){reason=reason||e.message;tracker.note('OWNERSHIP_SCOPE_HOLD '+e.message);}
-           const cleanupHold=!owner.cleanupClosed||tracker.holds.length>0||/CLEANUP_HOLD/.test(stdout.toString())||/CLEANUP_HOLD/.test(stderr.toString())||holds.length>0;
-           const reports=stdout.toString('utf8').split('\n').flatMap(line=>{try{const v=JSON.parse(line);return v.schemaVersion===format?[v]:[];}catch{return [];}});
-           const reportOk=reports.length===1&&typeof reports[0].status==='string'&&reports[0].status.startsWith('PASS')&&(reports[0].releaseAcceptance===false||reports[0].productReleaseAcceptance===false);
-           const row={path:'scripts/'+name,softTimeoutMs:soft,killGraceMs:1000,closeObservationReserveMs:2000,status:owner.code,signal:owner.signal,reason,
-            childPid:owner.child?.pid||null,childClosed:owner.closeObserved&&owner.exitObserved,topLevelGroupClosed:owner.cleanupClosed,
-            ownedCleanupObserved:owner.cleanupClosed,ownedProcessIdentities:tracker.records(),ownershipHolds:tracker.holds,ownershipScope,
-            cleanupHold,newScratchRoots:holds,childReportAccepted:reportOk,stdoutBytes:stdout.length,stdoutSha256:hash(stdout),stderrBytes:stderr.length,stderrSha256:hash(stderr),
-            childSoftDeadlineNs:softEnd.toString(),childHardDeadlineNs:hardEnd.toString(),elapsedMs:Number(clock.nowNs()-at)/1e6};
-           rows.push(row);
-           assert(owner.code===0&&!reason&&row.childClosed&&owner.cleanupClosed&&!cleanupHold&&reportOk&&used<=4194304,'Focused child failed/unknown: '+name);
-          }
-          (async()=>{
-           try{
-            assert.equal(process.env.GITHUB_ACTIONS,'true');assert.equal(process.env.GITHUB_JOB,'fixture-activation');assert.equal(process.version,'v24.21.0');assert.equal(process.platform,'linux');assert.equal(process.arch,'x64');
-            // Only bounded original-context bootstrap precedes original-deadline validation.
-            const bootstrapCheck=()=>assert(nativeMono()<entryNs+120000000000n,'Pre-setup focused deadline');
-            bootstrapCheck();admission=S.normal613OwnedRoot('ns-normal-613-admission');
-            contextBytes=read(path.join(admission,'normal613-context.json'),65536,bootstrapCheck);context=JSON.parse(contextBytes);S.normal613UnicodeSafe(context);
-            clock=S.normal613FocusedClock(context,entryNs);workCheck();
-            watchdog=setTimeout(interrupt,clock.remaining(clock.endNs-3000000000n));
-            workCheck();temp=fs.realpathSync(process.env.RUNNER_TEMP);workCheck();scratchBefore=new Set(fs.readdirSync(temp).filter(n=>scratch.test(n)));
-            receiptBytes=read(path.join(admission,'execution-receipt.json'),16384,workCheck);const receipt=S.normal613Canonical(receiptBytes,'Genuine caller receipt');
-            assert.equal(hash(receiptBytes),process.env.NS_FOCUSED_RECEIPT_SHA256);
-            assert.equal(receipt.schemaVersion,'normal613-qualification-execution-receipt.v1');assert.equal(receipt.admissionGranted,true);assert.equal(receipt.actualCloudJobKey,'fixture-activation');assert.equal(receipt.publisherHeadSha,context.headSha);assert.equal(receipt.actualTestedMergeSha,context.testedMergeSha);assert.equal(receipt.eventBodySha256,context.bodySha256);assert.equal(receipt.actualCloudRunId,process.env.GITHUB_RUN_ID);assert.equal(String(receipt.actualCloudRunAttempt),process.env.GITHUB_RUN_ATTEMPT);
-            const manifestPath=path.join(admission,'assembled-source-manifest.json');manifestBytes=read(manifestPath,16777216,workCheck);
-            assert.equal(manifestPath,receipt.actualAssembledSourceManifestPath);workCheck();assert.equal(hash(manifestBytes),receipt.actualAssembledSourceManifestSha256);
-            const manifest=JSON.parse(manifestBytes);assert.equal(manifest.revision,context.headSha);assert.equal(manifest.tree,context.tree);const byPath=new Map(manifest.files.map(x=>[x.path,x]));
-            reservationPath=path.join(admission,'normal613-reservation.json');reservation=read(reservationPath,1362,workCheck);assert.equal(reservation.length,1362);assert.equal(hash(reservation),S.NORMAL613_CALLER_POLICY.reservationSha256);
-            for(const [name]of cases){workCheck();const relative='scripts/'+name,d=byPath.get(relative);assert(d&&d.mode==='100644'&&d.type==='blob','Actual admitted focused source '+relative);
-             const bytes=read(path.resolve(relative),Math.min(16777216,d.bytes),workCheck);assert.equal(bytes.length,d.bytes);workCheck();assert.equal(hash(bytes),d.sha256);assert.equal(crypto.createHash('sha1').update('blob '+bytes.length+'\0').update(bytes).digest('hex'),d.gitBlob);meta.push({path:relative,bytes:d.bytes,sha256:d.sha256,gitBlob:d.gitBlob});}
-            assert(workCheck()>=111000,'Setup charged before 87s child caps plus eight 3s closure reserves');
-            proof=S.normal613OwnedRoot('ns-normal-613-focused',true,proofCheck);
-            S.normal613Save(proof,'context.json',{schemaVersion:'normal613-focused-context.v1',repository:context.repository,headSha:context.headSha,baseSha:context.baseSha,testedMergeSha:context.testedMergeSha,tree:context.tree,runId:process.env.GITHUB_RUN_ID,runAttempt:Number(process.env.GITHUB_RUN_ATTEMPT),bodySha256:context.bodySha256,intentSha256:context.intentSha256,allocationId:context.allocation.allocationId,executionReceiptSha256:hash(receiptBytes),assembledManifestSha256:hash(manifestBytes),reservationSha256:hash(reservation),sources:meta,originalDeadline:context.actionDeadlineAt,aggregateBudgetMs:Number(clock.endNs-clock.entryNs)/1e6,aggregateEntryNs:clock.entryNs.toString(),aggregateDeadlineNs:clock.endNs.toString(),startedAt:new Date(clock.nowMs()-Number(clock.nowNs()-clock.entryNs)/1e6).toISOString(),realActionAuthorityFromTests:false},proofCheck);
-            for(let i=0;i<cases.length;i++)await one(...cases[i],i);
-            workCheck();for(const m of meta){const b=read(path.resolve(m.path),m.bytes,workCheck);assert.equal(b.length,m.bytes);workCheck();assert.equal(hash(b),m.sha256);}
-            assert(read(path.join(admission,'normal613-context.json'),65536,workCheck).equals(contextBytes),'Genuine admission context unchanged by focused children');
-           }catch(e){fail(e);}
-           finally{
-            // Setup/proof/reporting exceptions cannot bypass ownership cleanup.
-            if(clock)for(const owner of owners)if(!owner.cleanupClosed)await cleanup(owner,clock.endNs-1500000000n);
-            if(owners.some(o=>!o.cleanupClosed))fail('CLEANUP_HOLD unresolved owned processes; retain every scratch root');
-            if(proof&&clock){
-             let newRoots=[];try{newRoots=roots();if(newRoots.length)fail('CLEANUP_HOLD scratch roots retained');}catch(e){fail(e);}
-             const report={schemaVersion:'normal613-focused-report.v1',status:failure?'FAILED_OR_UNKNOWN':'PASS_FOCUSED_SYNTHETIC_CONTROLS_ONLY',repository:context.repository,headSha:context.headSha,testedMergeSha:context.testedMergeSha,runId:process.env.GITHUB_RUN_ID,runAttempt:Number(process.env.GITHUB_RUN_ATTEMPT),executionReceiptSha256:hash(receiptBytes),assembledManifestSha256:hash(manifestBytes),completed:rows,unrun:cases.slice(rows.length).map(x=>'scripts/'+x[0]),failure,outputObservedBytes:used,newScratchRoots:newRoots,originalDeadline:context.actionDeadlineAt,aggregateEntryNs:clock.entryNs.toString(),aggregateDeadlineNs:clock.endNs.toString(),elapsedMs:Number(clock.nowNs()-clock.entryNs)/1e6,actualR1PositiveAdmission:'NOT_CLAIMED_HERE_USE_GENUINE_QUALIFIER_FLOW',detachedInnerGroups:'Owned inherited-marker processes and observed groups checked; unobservable/lost ownership is HOLD, not arithmetic closure. Outer SIGKILL cannot emit closure proof.',realAuthorityFromSyntheticRecords:false,releaseAcceptance:false};
-             try{S.normal613Save(proof,'stdout.log',Buffer.concat(out.stdout),proofCheck);S.normal613Save(proof,'stderr.log',Buffer.concat(out.stderr),proofCheck);S.normal613Save(proof,'report.json',report,proofCheck);}
-             catch(e){fail('FOCUSED_PROOF_INCOMPLETE '+e.message);}
-            }else fail('FOCUSED_PROOF_INCOMPLETE setup/admission');
-            clearTimeout(watchdog);process.removeListener('SIGTERM',interrupt);process.removeListener('SIGINT',interrupt);
-            try{console.log(JSON.stringify({schemaVersion:'normal613-focused-report.v1',status:failure?'FAILED_OR_UNKNOWN':'PASS_FOCUSED_SYNTHETIC_CONTROLS_ONLY',completed:rows.length,unrun:cases.slice(rows.length).map(x=>'scripts/'+x[0]),failure,releaseAcceptance:false}));}catch(e){fail(e);}
-            process.stdout.removeListener('error',outputError);process.stderr.removeListener('error',outputError);
-           }
-          })().catch(e=>{fail(e);console.error('FOCUSED_FAILED '+String(e.stack||e).slice(0,4096));});
-          NS_FOCUSED_SUITE
-      # NS_NORMAL613_FOCUSED_GATE_END
+          NS_NORMAL613_METADATA_TOKEN: ${{ github.token }}
+        run: node scripts/validate-forward-onboarding-ci.js --normal613-run admission -- node scripts/validate-forward-onboarding-ci.js --normal613-admission < /dev/null
+      # NS_NORMAL613_ADMISSION_END
       - name: Verify full SYNC source and generated qualification
         if: github.event.pull_request.draft == false
         timeout-minutes: 3
         env:
           NS_SYNC_EXECUTION_RECEIPT: ${{ steps.normal613_source_admission.outputs.executionReceiptPath || steps.forward_source_admission.outputs.executionReceiptPath || steps.e610_source_admission.outputs.executionReceiptPath }}
           NS_SYNC_EXECUTION_RECEIPT_SHA256: ${{ steps.normal613_source_admission.outputs.executionReceiptSha256 || steps.forward_source_admission.outputs.executionReceiptSha256 || steps.e610_source_admission.outputs.executionReceiptSha256 }}
+          NS_NORMAL613_METADATA_TOKEN: ${{ startsWith(github.event.pull_request.body, '{"schemaVersion":"ns-release-handover.normal613.v1",') && github.token || '' }}
         run: |
           ns_normal613_command=(bash -e)
           if [ "${{ startsWith(github.event.pull_request.body, '{"schemaVersion":"ns-release-handover.normal613.v1",') }}" = "true" ]; then
@@ -1631,7 +1468,7 @@ jobs:
           fi
           "${ns_normal613_command[@]}" <<'NS_NORMAL613_RUN_fixture_qualifier'
           if [ "${{ startsWith(github.event.pull_request.body, '{"schemaVersion":"ns-release-handover.normal613.v1",') }}" = "true" ]; then
-            node scripts/validate-forward-onboarding-ci.js --normal613-verify-current
+            unset NS_NORMAL613_METADATA_TOKEN
             script=scripts/validate-sync-current-forward.js
             timeout --signal=TERM --kill-after=5s 120s node "$script" --normal613-full --execution-receipt "$NS_SYNC_EXECUTION_RECEIPT" --execution-receipt-sha256 "$NS_SYNC_EXECUTION_RECEIPT_SHA256"
           else

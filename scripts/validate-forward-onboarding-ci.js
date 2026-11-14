@@ -20,11 +20,17 @@ const NORMAL613_CALLER_AMENDMENT=Object.freeze({"schemaVersion":"normal613-calle
 
 // Exact additive deployed612 binder only; accepted R3/P2/legacy restoration remains mandatory.
 const BASELINE612_BINDER_AMENDMENT=Object.freeze({"schemaVersion":"normal613-additive-612-baseline-binder.v1","beforeSha256":"f79d93c6f6811191e8f6dd3fb3cad52ff0637641a2d448b6ad611a1e6980e7d2","afterSha256":"ab11e8024aa3dd599c81e9e962926fd2f7c3e02997852ac6815f3b6333be7c30","edits":[{"before":"          function primaryCaptureRequest(raw,event,env,observed,wall,validate){","after":"          function primaryCaptureProfile(raw,implementationSha256){\n           const request=JSON.parse(utf8Text(raw));unicodeSafe(request);\n           const version=request?.captureFacts?.baselineVersion;\n           if(version==='612'){\n            assert.equal(implementationSha256,'0c50daf81a2b7bed72ba24a33fc453040480e91cc41923a92e8e1570426cbcde','Exact reviewed deployed612 collector');\n            return {baselineVersion:'612',bindingSchema:'primary-baseline-capture-binding.612.v1',validator:'validateCaptureBindingForProfile'};\n           }\n           assert.equal(version,'611','Only explicit reviewed611/612 capture profiles');\n           assert(['cd9f08b8fafad5ada96460043520b9293c65b91fb3f0cfc6db617c8db343b824','0c50daf81a2b7bed72ba24a33fc453040480e91cc41923a92e8e1570426cbcde'].includes(implementationSha256),'Exact reviewed legacy611-compatible collector');\n           return {baselineVersion:'611',bindingSchema:'primary-baseline-capture-binding.v1',validator:'validateCaptureBinding'};\n          }\n          function primaryCaptureRequest(raw,event,env,observed,wall,validate,bindingSchema='primary-baseline-capture-binding.v1'){"},{"before":"           exactKeys(body.captureFacts,['baselineSha','baselineVersion','deployment','alias','publisherWindow'],'Capture facts');","after":"           exactKeys(body.captureFacts,['baselineSha','baselineVersion','deployment','alias','publisherWindow'],'Capture facts');\n           assert.equal(bindingSchema,body.captureFacts.baselineVersion==='612'?'primary-baseline-capture-binding.612.v1':'primary-baseline-capture-binding.v1','Exact selected binding schema');"},{"before":"const binding={schemaVersion:'primary-baseline-capture-binding.v1',baselineSha:body.captureFacts.baselineSha","after":"const binding={schemaVersion:bindingSchema,baselineSha:body.captureFacts.baselineSha"},{"before":"          assert.equal(hash(collectorBytes),'cd9f08b8fafad5ada96460043520b9293c65b91fb3f0cfc6db617c8db343b824','Exact reviewed fixed611 collector only');","after":"          const profile=primaryCaptureProfile(requestBytes,hash(collectorBytes));"},{"before":"          const selected=primaryCaptureRequest(requestBytes,event,process.env,observed,Date.now(),collector.validateCaptureBinding);","after":"          const selected=primaryCaptureRequest(requestBytes,event,process.env,observed,Date.now(),collector[profile.validator],profile.bindingSchema);"}]});
+const CURRENT_BASE612_CAPTURE_BINDER_AMENDMENT=Object.freeze({"beforeSha256":"ab11e8024aa3dd599c81e9e962926fd2f7c3e02997852ac6815f3b6333be7c30","afterSha256":"10750241b6220258c755ee764a793fe0e184c21e01ba7f668f413acb550c53a7","edits":[{"before":"            assert.equal(implementationSha256,'0c50daf81a2b7bed72ba24a33fc453040480e91cc41923a92e8e1570426cbcde','Exact reviewed deployed612 collector');","after":"            assert(['0c50daf81a2b7bed72ba24a33fc453040480e91cc41923a92e8e1570426cbcde','79e55a3d30442984899fed99b0c6d5cd480ce23bdd59f3820a4de27c09f07c00'].includes(implementationSha256),'Exact reviewed deployed612 collector');"},{"before":"           assert(['cd9f08b8fafad5ada96460043520b9293c65b91fb3f0cfc6db617c8db343b824','0c50daf81a2b7bed72ba24a33fc453040480e91cc41923a92e8e1570426cbcde'].includes(implementationSha256),'Exact reviewed legacy611-compatible collector');","after":"           assert(['cd9f08b8fafad5ada96460043520b9293c65b91fb3f0cfc6db617c8db343b824','0c50daf81a2b7bed72ba24a33fc453040480e91cc41923a92e8e1570426cbcde','79e55a3d30442984899fed99b0c6d5cd480ce23bdd59f3820a4de27c09f07c00'].includes(implementationSha256),'Exact reviewed legacy611-compatible collector');"}]});
 function restoreBaseline612Binder(text){
+ const current=CURRENT_BASE612_CAPTURE_BINDER_AMENDMENT;let currentEdits=0;
+ if(hash(Buffer.from(text))===current.afterSha256){
+  for(const edit of [...current.edits].reverse()){assert.equal(text.split(edit.after).length-1,1,'one exact current-base612 collector pin edit');text=text.replace(edit.after,()=>edit.before);}
+  assert.equal(hash(Buffer.from(text)),current.beforeSha256,'entire retained612 binder workflow restored');currentEdits=current.edits.length;
+ }
  const a=BASELINE612_BINDER_AMENDMENT;
  if(hash(Buffer.from(text))!==a.afterSha256)return {text,edits:0};
  let restored=text;for(const edit of [...a.edits].reverse()){assert.equal(restored.split(edit.after).length-1,1,"one exact deployed612 binder edit");restored=restored.replace(edit.after,()=>edit.before);}
- assert.equal(hash(Buffer.from(restored)),a.beforeSha256,"entire accepted R3 workflow restored");return {text:restored,edits:a.edits.length};
+ assert.equal(hash(Buffer.from(restored)),a.beforeSha256,"entire accepted R3 workflow restored");return {text:restored,edits:a.edits.length+currentEdits};
 }
 
 // Exact focused gate addition; does not add an R1 command identity.
@@ -81,10 +87,13 @@ function restoreFocusedGateV2(text){
  const edits=JSON.parse(raw.toString("utf8"));assert.equal(edits.length,1);let restored=text;for(const e of edits){assert.equal(restored.split(e.after).length-1,1);restored=restored.replace(e.after,()=>e.before);}
  assert.equal(hash(Buffer.from(restored)),a.beforeSha256);return {text:restored,edits:1};
 }
+const NORMAL613_READONLY_AUTH_WORKFLOW_AMENDMENT=Object.freeze({"beforeSha256":"10750241b6220258c755ee764a793fe0e184c21e01ba7f668f413acb550c53a7","afterSha256":"3c6d09eae088d63ee7dd7ffbe367c138c4047401a87e387bc3d704fdf30c4f6a","edits":[{"before":"  fixture-activation:\n    name:","after":"  fixture-activation:\n    permissions:\n      contents: read\n      pull-requests: read\n    name:"},{"before":"        timeout-minutes: 1\n        run: timeout --signal=TERM --kill-after=5s 60s node scripts/validate-forward-onboarding-ci.js --normal613-intake","after":"        timeout-minutes: 1\n        env:\n          NS_NORMAL613_METADATA_TOKEN: ${{ github.token }}\n        run: timeout --signal=TERM --kill-after=5s 60s node scripts/validate-forward-onboarding-ci.js --normal613-intake"},{"before":"      - name: Bind reviewed normal613 source qualification receipt\n        if: github.event.pull_request.draft == false && startsWith(github.event.pull_request.body, '{\"schemaVersion\":\"ns-release-handover.normal613.v1\",')\n        id: normal613_source_admission\n        timeout-minutes: 2\n        run: |\n          ns_normal613_command=(bash -e)\n          if [ \"${{ startsWith(github.event.pull_request.body, '{\"schemaVersion\":\"ns-release-handover.normal613.v1\",') }}\" = \"true\" ]; then\n            ns_normal613_command=(node scripts/validate-forward-onboarding-ci.js --normal613-run admission -- bash -Eeuo pipefail)\n          fi\n          \"${ns_normal613_command[@]}\" <<'NS_NORMAL613_RUN_fixture_admission'\n          timeout --signal=TERM --kill-after=5s 120s node scripts/validate-forward-onboarding-ci.js --normal613-admission\n          NS_NORMAL613_RUN_fixture_admission\n","after":"      - name: Bind reviewed normal613 source qualification receipt\n        if: github.event.pull_request.draft == false && startsWith(github.event.pull_request.body, '{\"schemaVersion\":\"ns-release-handover.normal613.v1\",')\n        id: normal613_source_admission\n        timeout-minutes: 2\n        env:\n          NS_NORMAL613_METADATA_TOKEN: ${{ github.token }}\n        run: node scripts/validate-forward-onboarding-ci.js --normal613-run admission -- node scripts/validate-forward-onboarding-ci.js --normal613-admission < /dev/null\n"},{"before":"      - name: Verify full SYNC source and generated qualification\n        if: github.event.pull_request.draft == false\n        timeout-minutes: 3\n        env:\n          NS_SYNC_EXECUTION_RECEIPT: ${{ steps.normal613_source_admission.outputs.executionReceiptPath || steps.forward_source_admission.outputs.executionReceiptPath || steps.e610_source_admission.outputs.executionReceiptPath }}\n          NS_SYNC_EXECUTION_RECEIPT_SHA256: ${{ steps.normal613_source_admission.outputs.executionReceiptSha256 || steps.forward_source_admission.outputs.executionReceiptSha256 || steps.e610_source_admission.outputs.executionReceiptSha256 }}\n        run: |\n          ns_normal613_command=(bash -e)\n          if [ \"${{ startsWith(github.event.pull_request.body, '{\"schemaVersion\":\"ns-release-handover.normal613.v1\",') }}\" = \"true\" ]; then\n            ns_normal613_command=(node scripts/validate-forward-onboarding-ci.js --normal613-run qualifier -- bash -Eeuo pipefail)\n          fi\n          \"${ns_normal613_command[@]}\" <<'NS_NORMAL613_RUN_fixture_qualifier'\n          if [ \"${{ startsWith(github.event.pull_request.body, '{\"schemaVersion\":\"ns-release-handover.normal613.v1\",') }}\" = \"true\" ]; then\n            node scripts/validate-forward-onboarding-ci.js --normal613-verify-current\n            script=scripts/validate-sync-current-forward.js\n            timeout --signal=TERM --kill-after=5s 120s node \"$script\" --normal613-full --execution-receipt \"$NS_SYNC_EXECUTION_RECEIPT\" --execution-receipt-sha256 \"$NS_SYNC_EXECUTION_RECEIPT_SHA256\"\n          else\n          script=scripts/validate-sync608-reported-hold.js\n          if [ \"${{ startsWith(github.event.pull_request.body, '{\"schemaVersion\":\"ns-release-handover.forward.v1\",') }}\" = \"true\" ]; then script=scripts/validate-sync-current-forward.js; fi\n          timeout --signal=TERM --kill-after=5s 120s node \"$script\" --full --execution-receipt \"$NS_SYNC_EXECUTION_RECEIPT\" --execution-receipt-sha256 \"$NS_SYNC_EXECUTION_RECEIPT_SHA256\"\n          fi\n          NS_NORMAL613_RUN_fixture_qualifier\n","after":"      - name: Verify full SYNC source and generated qualification\n        if: github.event.pull_request.draft == false\n        timeout-minutes: 3\n        env:\n          NS_SYNC_EXECUTION_RECEIPT: ${{ steps.normal613_source_admission.outputs.executionReceiptPath || steps.forward_source_admission.outputs.executionReceiptPath || steps.e610_source_admission.outputs.executionReceiptPath }}\n          NS_SYNC_EXECUTION_RECEIPT_SHA256: ${{ steps.normal613_source_admission.outputs.executionReceiptSha256 || steps.forward_source_admission.outputs.executionReceiptSha256 || steps.e610_source_admission.outputs.executionReceiptSha256 }}\n          NS_NORMAL613_METADATA_TOKEN: ${{ startsWith(github.event.pull_request.body, '{\"schemaVersion\":\"ns-release-handover.normal613.v1\",') && github.token || '' }}\n        run: |\n          ns_normal613_command=(bash -e)\n          if [ \"${{ startsWith(github.event.pull_request.body, '{\"schemaVersion\":\"ns-release-handover.normal613.v1\",') }}\" = \"true\" ]; then\n            ns_normal613_command=(node scripts/validate-forward-onboarding-ci.js --normal613-run qualifier -- bash -Eeuo pipefail)\n          fi\n          \"${ns_normal613_command[@]}\" <<'NS_NORMAL613_RUN_fixture_qualifier'\n          if [ \"${{ startsWith(github.event.pull_request.body, '{\"schemaVersion\":\"ns-release-handover.normal613.v1\",') }}\" = \"true\" ]; then\n            unset NS_NORMAL613_METADATA_TOKEN\n            script=scripts/validate-sync-current-forward.js\n            timeout --signal=TERM --kill-after=5s 120s node \"$script\" --normal613-full --execution-receipt \"$NS_SYNC_EXECUTION_RECEIPT\" --execution-receipt-sha256 \"$NS_SYNC_EXECUTION_RECEIPT_SHA256\"\n          else\n          script=scripts/validate-sync608-reported-hold.js\n          if [ \"${{ startsWith(github.event.pull_request.body, '{\"schemaVersion\":\"ns-release-handover.forward.v1\",') }}\" = \"true\" ]; then script=scripts/validate-sync-current-forward.js; fi\n          timeout --signal=TERM --kill-after=5s 120s node \"$script\" --full --execution-receipt \"$NS_SYNC_EXECUTION_RECEIPT\" --execution-receipt-sha256 \"$NS_SYNC_EXECUTION_RECEIPT_SHA256\"\n          fi\n          NS_NORMAL613_RUN_fixture_qualifier\n"}]});
 function restoreNormal613Caller(text){
+ const auth=NORMAL613_READONLY_AUTH_WORKFLOW_AMENDMENT;let authEdits=0;
+ if(hash(Buffer.from(text))===auth.afterSha256){for(const edit of [...auth.edits].reverse()){assert.equal(text.split(edit.after).length-1,1,'one exact readonly metadata-auth amendment');text=text.replace(edit.after,()=>edit.before);}assert.equal(hash(Buffer.from(text)),auth.beforeSha256,'exact previous normal613 workflow restored');authEdits=auth.edits.length;}
  const focused=restoreFocusedGate(text),baseline612=restoreBaseline612Binder(focused.text);text=baseline612.text;
  const digest=hash(Buffer.from(text)),amendment=NORMAL613_CALLER_AMENDMENT;
- if(digest!==amendment.afterSha256){assert([amendment.beforeSha256,INSTALLED_TOOLING_AMENDMENT.beforeSha256].includes(digest),'exact reviewed normal613/P2 workflow only');return {text,edits:baseline612.edits+focused.edits};}
+ if(digest!==amendment.afterSha256){assert([amendment.beforeSha256,INSTALLED_TOOLING_AMENDMENT.beforeSha256].includes(digest),'exact reviewed normal613/P2 workflow only');return {text,edits:baseline612.edits+focused.edits+authEdits};}
  const d=amendment.restoration,packed=Buffer.from(d.base64,'base64');
  assert.equal(packed.toString('base64'),d.base64);assert.equal(packed.length,d.packedBytes);assert.equal(hash(packed),d.packedSha256);
  const raw=require('node:zlib').inflateRawSync(packed,{maxOutputLength:d.rawBytes+1});
@@ -93,7 +102,7 @@ function restoreNormal613Caller(text){
  assert(Buffer.from(JSON.stringify(edits)).equals(raw),'canonical restoration edit encoding');
  let restored=text;
  for(const edit of [...edits].reverse()){normal613Keys(edit,'before after','Restoration edit');assert(typeof edit.before==='string'&&typeof edit.after==='string'&&edit.after.length>0);assert.equal(restored.split(edit.after).length-1,1,'one exact normal613 amendment');restored=restored.replace(edit.after,()=>edit.before);}
- assert.equal(hash(Buffer.from(restored)),amendment.beforeSha256,'all accepted P2 workflow bytes restored');return {text:restored,edits:edits.length+baseline612.edits+focused.edits};
+ assert.equal(hash(Buffer.from(restored)),amendment.beforeSha256,'all accepted P2 workflow bytes restored');return {text:restored,edits:edits.length+baseline612.edits+focused.edits+authEdits};
 }
 function normaliseForwardWorkflow(text){
  const normal613=restoreNormal613Caller(text),amendment=restoreInstalledToolingAmendment(normal613.text);
@@ -258,9 +267,9 @@ const NORMAL613_CALLER_POLICY=Object.freeze({
  relayUserId:269614001,relayLoginInformational:'hartican',
  owners:{RELEASE:'01a16141-8d23-7a02-bb05-51e2197a1119',PUBLISH:'01a0d5ba-943d-74e0-af7f-dab4fb2bdda4'},
  provenance:{nativePublishTurn:'01a1d264-6d9c-7962-8472-f30a93faadbd',historicalActorSha256:'4d853a24a60d2a2ec230aab522d8f36a82bb6804b061acba7bec0cafd90649d7',historicalActorIssuedAt:'2026-11-07T22:43:16.000Z',currentTokenValidity:'NOT_OBSERVED'},
- base:'9f20813c9855e30d4ca32e721862f739b6d696ba',product:'491d0ebcb2210b29a1ae6164c0c4deef1b04f2ec',productTree:'b69736ee739e7b31eebe58108c14889a333a756c',
- qualifier:{path:'scripts/validate-sync-current-forward.js',bytes:101617,sha256:'a54983351de787e957658f92efedf1e10b470cbb06af252070eb1661228a970f',gitBlob:'dece0f0ecffeb0435f7970bab922a0a37b2f10b9',mode:'100644'},
- fixture:{path:'scripts/fixtures/sync-normal-613-20261112.json',bytes:53227,sha256:'744ddb4c83e97810bdd9f6778de0f50a5033695f24739d642c9179822c58a5d2',gitBlob:'4901efd92c8b1d8ef255a06629b8c8bcc5038780',mode:'100644'},
+ base:'2e92211c700c40b2b508fc636a002868c61a7579',product:'491d0ebcb2210b29a1ae6164c0c4deef1b04f2ec',productTree:'b69736ee739e7b31eebe58108c14889a333a756c',
+ qualifier:{path:'scripts/validate-sync-current-forward.js',bytes:101815,sha256:'c469cb2dcd2c029a0b5b1f6112b0396fe4fc65162e196ca085de6d32a9c8d125',gitBlob:'3e29b9cbb23cc77a485ffac2e28a71e37430af89',mode:'100644'},
+ fixture:{path:'scripts/fixtures/sync-normal-613-20261112.json',bytes:53227,sha256:'135f90f7ec129c0274f16f1208e55d5344eb22e235991cb6beed1df0c1088527',gitBlob:'dced71ab2dee8df74705de82c41b86a161c38972',mode:'100644'},
  reservationId:'ns-app-version-613-sportsyurt-20261112',reservationSha256:'daa00a480a28b0cca1d2f9922c82fc9394a5460b0d45f87c3566e42b58a473d7',
  limits:{record:65536,event:4194304,pages:10,comments:1000,requests:32,response:2097152,network:16777216,intakeMs:30000,requestMs:5000,jobMs:900000,metadata:16777216,members:256,artifact:67108864,commandOutput:4194304},
  transportLimit:'Application-consumed bytes/deadlines; not a claim about transport internals or atomic replay prevention.'
@@ -395,10 +404,11 @@ function normal613FocusedClock(context,entryNs,inheritedEndNs=null){
 }
 function normal613FocusedOwnedProcesses(token,clock,until){
  assert(/^[a-f0-9]{64}$/.test(token),'Private per-child ownership marker');
- const selfPid=process.pid,selfUid=process.getuid(),known=new Map(),groups=new Set(),sessions=new Set(),holds=[],permanentHolds=new Set();
+ const selfPid=process.pid,selfUid=process.getuid(),known=new Map(),knownPositive=new Map(),knownVisibility=new Map(),groups=new Set(),sessions=new Set(),holds=[],permanentHolds=new Set();
  const fields=['pid','uid','startTicks','parentPid','pgid','sessionId'];
- let root=null,rootIdentity=null,rootObserved=false,rootAt=null,lastScope=null,rootExit=null,rootClose=null,rootVisibility=null,boundChild=null,boundPid=null,boundAt=null,rootEventJoinSha256=null;
+ let root=null,rootIdentity=null,rootObserved=false,rootAt=null,lastScope=null,rootExit=null,rootClose=null,rootVisibility=null,boundChild=null,boundPid=null,boundAt=null,rootEventJoinSha256=null,lastInventory=null;
  const rootVisibilityHold=()=>'UNOBSERVABLE_OWNED_CANDIDATE '+root+': typed environ permission denial (pending bound root exit/close and domain closure)';
+ const knownVisibilityHold=pid=>'UNOBSERVABLE_KNOWN_DESCENDANT '+pid+': typed environ permission denial (pending bound root exit/close and domain closure)';
  const ownedKey=p=>Object.fromEntries(fields.filter(k=>k!=='parentPid').map(k=>[k,p[k]]));
  const note=s=>{permanentHolds.add(s);if(!holds.includes(s))holds.push(s);};
  const check=()=>clock.remaining(until),same=(a,b)=>!!a&&!!b&&fields.every(k=>a[k]===b[k]);
@@ -416,24 +426,27 @@ function normal613FocusedOwnedProcesses(token,clock,until){
   for(const k of ['pid','uid','parentPid','pgid','sessionId'])assert(Number.isSafeInteger(p[k])&&p[k]>=0,'Finite kernel process metadata');
   return p;
  }
- function identity(pid){
-  check();const dir='/proc/'+pid,before=fs.lstatSync(dir);assert(before.isDirectory()&&!before.isSymbolicLink(),'Actual proc directory');
+ function identity(pid,witnesses=null){
+  check();const startedAtNs=clock.nowNs().toString(),dir='/proc/'+pid,before=fs.lstatSync(dir);assert(before.isDirectory()&&!before.isSymbolicLink(),'Actual proc directory');
   const a=parsed(pid,before.uid,bounded(dir+'/stat',16384).toString('utf8'));
   const b=parsed(pid,before.uid,bounded(dir+'/stat',16384).toString('utf8'));
   check();const after=fs.lstatSync(dir);for(const k of ['dev','ino','uid'])assert.equal(after[k],before[k],'Kernel directory identity changed');
-  assert(known.has(pid)?sameOwned(a,b):same(a,b),'Kernel process metadata changed during observation');return b;
+  assert(known.has(pid)?sameOwned(a,b):same(a,b),'Kernel process metadata changed during observation');
+  if(witnesses)witnesses.set(pid,{identity:ownedKey(b),parentPid:b.parentPid,directory:{dev:before.dev,ino:before.ino,uid:before.uid},startedAtNs,completedAtNs:clock.nowNs().toString(),stableStatPair:true,stableDirectory:true});return b;
  }
  function metadata(){
-  check();const names=fs.readdirSync('/proc').filter(n=>/^[1-9]\d*$/.test(n)).map(Number).sort((a,b)=>a-b);
-  assert(names.length<=4096,'Proc inventory bound');const seen=new Map();
+  check();const startedAtNs=clock.nowNs().toString(),names=fs.readdirSync('/proc').filter(n=>/^[1-9]\d*$/.test(n)).map(Number).sort((a,b)=>a-b);
+  assert(names.length<=4096,'Proc inventory bound');const seen=new Map(),observations=new Map();let complete=true;
   for(const pid of names){check();if(pid===selfPid)continue;
-   try{seen.set(pid,identity(pid));}
-   catch(e){if(e.code==='ENOENT'||e.code==='ESRCH')continue;note('UNKNOWN_KERNEL_METADATA '+pid+': '+e.message);}
+   try{seen.set(pid,identity(pid,observations));}
+   catch(e){if(e.code==='ENOENT'||e.code==='ESRCH')continue;complete=false;note('UNKNOWN_KERNEL_METADATA '+pid+': '+e.message);}
   }
-  return {seen,digest:hash(Buffer.from(JSON.stringify([...seen.values()].map(core))))};
+  return {seen,observations,complete,startedAtNs,completedAtNs:clock.nowNs().toString(),digest:hash(Buffer.from(JSON.stringify([...seen.values()].map(core))))};
  }
  function marked(p){
-  let bytes;try{bytes=bounded('/proc/'+p.pid+'/environ',65536);}catch(e){if(e.code==='EACCES'||e.code==='EPERM')e.normal613EnvironmentDenied=true;throw e;}
+  const startedAtNs=clock.nowNs().toString();let bytes;
+  try{bytes=bounded('/proc/'+p.pid+'/environ',65536);}
+  catch(e){if(e.code==='EACCES'||e.code==='EPERM'){e.normal613EnvironmentDenied=true;e.normal613PermissionDenial={operation:'boundedProcEnvironRead',target:'PROC_ENVIRON',pid:p.pid,path:'/proc/'+p.pid+'/environ',errorCode:e.code,startedAtNs,failedAtNs:clock.nowNs().toString()};}throw e;}
   const again=identity(p.pid);
   assert(known.has(p.pid)?sameOwned(p,again):same(p,again),'Process changed during ownership observation');
   return bytes.toString('utf8').split('\0').includes('NS_FOCUSED_OWNER_TOKEN='+token);
@@ -468,6 +481,64 @@ function normal613FocusedOwnedProcesses(token,clock,until){
    rootVisibility.lastDeniedAtNs=at;rootVisibility.lastErrorCode=error.code;rootVisibility.readDenials++;if(!holds.includes(rootVisibilityHold()))holds.push(rootVisibilityHold());return true;
   }catch(e){note('ROOT_DENIAL_CHECK_HOLD '+e.message);return false;}
  }
+ function rememberKnownPositive(p,seen){
+  if(p.pid===root||baseline.seen.has(p.pid)||!rootEventJoinSha256||!rootObserved)return;
+  const anchor=known.get(p.parentPid)||[...known.values()].find(q=>q.pgid===p.pgid||q.sessionId===p.sessionId);
+  if(!anchor||anchor.pid===p.pid||!sameOwned(anchor,seen.get(anchor.pid)))return;
+  const anchorAt=anchor.pid===root?rootAt:knownPositive.get(anchor.pid)?.proof.observedAtNs;
+  if(anchorAt===undefined||anchorAt===null)return;
+  const proof={identity:ownedKey(p),rootIdentity:ownedKey(rootIdentity),rootEventJoinSha256,observedAtNs:clock.nowNs().toString(),parentPid:p.parentPid,anchorIdentity:ownedKey(anchor),anchorObservedAtNs:anchorAt,positiveMarkerConfirmed:true,ownedDomainConfirmed:true,baselineAbsent:true};
+  knownPositive.set(p.pid,{proof,sha256:hash(Buffer.from(JSON.stringify(proof)))});
+ }
+ function preDenialObservation(p,inventory,witness,denial){
+  const original=inventory?.observations.get(p.pid),observed=witness||original;
+  assert(inventory?.complete===true&&permanentHolds.size===0&&original&&observed,'Complete fresh pre-denial metadata required');
+  assert(sameOwned(original.identity,p)&&sameOwned(observed.identity,p)&&observed.stableStatPair&&observed.stableDirectory,'Pre-denial stable identity must match prior positive key');
+  assert(BigInt(observed.completedAtNs)<=BigInt(denial.startedAtNs)&&BigInt(inventory.completedAtNs)<=BigInt(denial.startedAtNs),'Pre-denial observations precede denied read');
+  return {identity:ownedKey(p),identityObservation:observed,inventory:{identity:ownedKey(inventory.seen.get(p.pid)),complete:true,sha256:inventory.digest,startedAtNs:inventory.startedAtNs,completedAtNs:inventory.completedAtNs}};
+ }
+ function repeatedPidAbsence(pid){
+  const path='/proc/'+pid,samples=[];
+  for(let ordinal=1;ordinal<=2;ordinal++){
+   check();const startedAtNs=clock.nowNs().toString();
+   try{fs.lstatSync(path);}
+   catch(e){if(e.code!=='ENOENT'||e.syscall!=='lstat'||e.path!==path)throw e;samples.push({ordinal,operation:'lstatSync',target:'PID_DIRECTORY',path,syscall:e.syscall,errorCode:e.code,noSymlinkFollow:true,startedAtNs,completedAtNs:clock.nowNs().toString()});continue;}
+   throw Error('KNOWN_ABSENCE_PID_PRESENT '+pid);
+  }
+  return samples;
+ }
+ function rememberKnownVisibility(p,error,inventory=null,witness=null){
+  if(error.normal613EnvironmentDenied!==true||!['EACCES','EPERM'].includes(error.code)||p.pid===root||!rootObserved||!boundChild||boundPid!==root||!rootEventJoinSha256)return false;
+  const expected=known.get(p.pid),positive=knownPositive.get(p.pid);
+  if(!expected||!positive||!sameOwned(expected,p)||!sameOwned(positive.proof.identity,p)||positive.proof.rootEventJoinSha256!==rootEventJoinSha256)return false;
+  try{
+   check();const previous=knownVisibility.get(p.pid),denial=error.normal613PermissionDenial;
+   assert(denial&&denial.pid===p.pid&&denial.path==='/proc/'+p.pid+'/environ'&&denial.errorCode===error.code,'Actual typed denied read required');
+   if(previous&&(previous.status!=='PENDING_BOUND_ROOT_EXIT_CLOSE_AND_DOMAIN_CLOSURE'||previous.verificationMode==='ABSENT_PID')){note('KNOWN_DENIAL_AFTER_RESOLUTION_OR_ABSENCE '+p.pid);return false;}
+   let current=null,absenceProof=null;
+   try{current=identity(p.pid);}
+   catch(e){
+    if(e.code!=='ENOENT'||e.syscall!=='lstat'||e.path!=='/proc/'+p.pid)throw e;
+    const trigger={operation:'lstatSync',target:'PID_DIRECTORY',path:e.path,syscall:e.syscall,errorCode:e.code,observedAtNs:clock.nowNs().toString()},preDenial=preDenialObservation(p,inventory,witness,denial);
+    assert(BigInt(positive.proof.observedAtNs)<=BigInt(preDenial.identityObservation.startedAtNs),'Prior positive proof precedes fresh pre-denial identity');
+    absenceProof={preDenial,permissionDenial:denial,trigger,samples:repeatedPidAbsence(p.pid)};
+   }
+   if(current&&!sameOwned(expected,current)){note('KNOWN_DENIAL_IDENTITY_CHANGED '+p.pid);return false;}
+   const at=clock.nowNs().toString();assert(BigInt(positive.proof.observedAtNs)<=BigInt(denial.failedAtNs),'Positive ownership precedes known visibility debt');
+   const value=previous||{identity:ownedKey(expected),rootEventJoinSha256,positiveProof:positive.proof,positiveProofSha256:positive.sha256,status:'PENDING_BOUND_ROOT_EXIT_CLOSE_AND_DOMAIN_CLOSURE',errorCode:error.code,lastErrorCode:error.code,firstDeniedAtNs:denial.failedAtNs,lastDeniedAtNs:denial.failedAtNs,firstPermissionDenial:denial,readDenials:0,resolution:null};
+   value.lastDeniedAtNs=denial.failedAtNs;value.permissionDenial=denial;value.lastErrorCode=error.code;value.readDenials++;
+   if(absenceProof){value.verificationMode='ABSENT_PID';value.absenceProof=absenceProof;}
+   else{value.verificationMode='LIVE_IDENTITY';value.lastIdentityCheckedAtNs=at;value.stableIdentityEvidence={identity:ownedKey(current),checkedAtNs:at};}
+   knownVisibility.set(p.pid,value);const hold=knownVisibilityHold(p.pid);if(!holds.includes(hold))holds.push(hold);return true;
+  }catch(e){note('KNOWN_DENIAL_CHECK_HOLD '+p.pid+': '+e.message);return false;}
+ }
+ function visibilityBoundaryNs(){
+  let last=rootClose?BigInt(rootClose.observedAtNs):0n;
+  const add=value=>{if(value!==undefined&&value!==null){const at=BigInt(value);if(at>last)last=at;}};
+  add(rootVisibility?.lastDeniedAtNs);
+  for(const v of knownVisibility.values()){add(v.lastDeniedAtNs);if(v.verificationMode==='ABSENT_PID')add(v.absenceProof.samples[1].completedAtNs);else add(v.lastIdentityCheckedAtNs);}
+  return last;
+ }
  function rootEvent(kind,child,code,signal){
   try{
    check();assert(rootObserved&&boundChild&&child===boundChild&&child.pid===boundPid&&boundPid===root&&rootEventJoinSha256,'Bound actual ChildProcess handle and root identity');const pid=boundPid;
@@ -479,12 +550,17 @@ function normal613FocusedOwnedProcesses(token,clock,until){
    else{assert(kind==='close'&&rootExit&&rootClose===null,'Exit must precede close');assert.equal(code,rootExit.code);assert.equal(signal,rootExit.signal);assert(BigInt(at)>=BigInt(rootExit.observedAtNs),'Ordered root close');rootClose=record;}
   }catch(e){note('ROOT_EVENT_JOIN_HOLD '+e.message);throw e;}
  }
- const waitingForRootExit=()=>!!rootVisibility&&rootVisibility.status==='PENDING_BOUND_ROOT_EXIT_CLOSE_AND_DOMAIN_CLOSURE'&&permanentHolds.size===0&&holds.length===1&&holds[0]===rootVisibilityHold();
+ const pendingVisibilityHolds=()=>[
+  ...(rootVisibility?.status==='PENDING_BOUND_ROOT_EXIT_CLOSE_AND_DOMAIN_CLOSURE'?[rootVisibilityHold()]:[]),
+  ...[...knownVisibility.values()].filter(v=>v.status==='PENDING_BOUND_ROOT_EXIT_CLOSE_AND_DOMAIN_CLOSURE').map(v=>knownVisibilityHold(v.identity.pid))
+ ];
+ const waitingForRootExit=()=>{const pending=pendingVisibilityHolds();return pending.length>0&&permanentHolds.size===0&&holds.length===pending.length&&pending.every(h=>holds.includes(h));};
  function observe(){
   check();if(root===null){note('OWNED_ROOT_NOT_SET');return {active:[],groupMembers:[],sessionMembers:[],closed:false};}
-  const inventoryStartedNs=clock.nowNs().toString(),current=metadata(),seen=current.seen,checked=new Set(),active=new Map(),excluded=new Map();
+  const inventoryStartedNs=clock.nowNs().toString(),current=metadata(),seen=current.seen,checked=new Set(),active=new Map(),excluded=new Map();lastInventory=current;
   if(rootVisibility?.status==='RESOLVED_AFTER_BOUND_ROOT_EXIT_CLOSE_AND_DOMAIN_ABSENCE'&&seen.has(root))note('ROOT_REAPPEARED_AFTER_RESOLUTION '+root);
   if(rootExit&&rootClose&&seen.has(root))note('ROOT_PRESENT_AFTER_BOUND_EXIT_CLOSE '+root);
+  for(const value of knownVisibility.values())if(seen.has(value.identity.pid)&&(value.status==='RESOLVED_AFTER_BOUND_ROOT_EXIT_CLOSE_AND_DOMAIN_ABSENCE'||value.verificationMode==='ABSENT_PID'))note('KNOWN_REAPPEARED_AFTER_RESOLUTION_OR_ABSENCE '+value.identity.pid);
   let expanded=true;
   while(expanded){
    expanded=false;
@@ -503,12 +579,12 @@ function normal613FocusedOwnedProcesses(token,clock,until){
     }
     let owned=false;
     try{owned=marked(p);}
-    catch(e){if(e.code==='ENOENT'||e.code==='ESRCH')continue;if(!rememberRootVisibility(p,e))note('UNOBSERVABLE_OWNED_CANDIDATE '+p.pid+': '+e.message);active.set(p.pid,p);continue;}
+    catch(e){if(e.code==='ENOENT'||e.code==='ESRCH')continue;if(!rememberRootVisibility(p,e)&&!rememberKnownVisibility(p,e,current))note('UNOBSERVABLE_OWNED_CANDIDATE '+p.pid+': '+e.message);active.set(p.pid,p);continue;}
     if(!owned){
      note((old?'OWNERSHIP_MARKER_LOST ':d.candidate?'UNOWNED_MEMBER_OF_OWNED_DOMAIN ':'POSSIBLY_OWNED_NEW_IDENTITY ')+p.pid);
      active.set(p.pid,p);continue;
     }
-    if(!old){groups.add(p.pgid);sessions.add(p.sessionId);expanded=true;}known.set(p.pid,p);
+    if(!old){rememberKnownPositive(p,seen);groups.add(p.pgid);sessions.add(p.sessionId);expanded=true;}known.set(p.pid,p);
     active.set(p.pid,p);if(p.pid===root)rootObserved=true;
    }
   }
@@ -523,15 +599,23 @@ function normal613FocusedOwnedProcesses(token,clock,until){
   }
   let stableClosureInventory=false;
   const emptyDomain=rootObserved&&!seen.has(root)&&active.size===0&&groupMembers.length===0&&sessionMembers.length===0;
-  const pendingCanResolve=waitingForRootExit()&&rootExit!==null&&rootClose!==null&&BigInt(inventoryStartedNs)>=BigInt(rootClose.observedAtNs);
+  const pendingCanResolve=waitingForRootExit()&&rootExit!==null&&rootClose!==null&&BigInt(inventoryStartedNs)>=visibilityBoundaryNs();
   if(emptyDomain&&(holds.length===0||pendingCanResolve)){
    // Unknown metadata still adds a permanent hold; neither time nor PASS output resolves it.
    const secondInventoryStartedNs=clock.nowNs().toString(),final=metadata(),inventoryCompletedNs=clock.nowNs().toString();stableClosureInventory=final.digest===current.digest;
-   if(stableClosureInventory&&!final.seen.has(root)&&pendingCanResolve&&waitingForRootExit()){
-    const index=holds.indexOf(rootVisibilityHold());assert(index>=0&&holds.length===1);
-    rootVisibility.status='RESOLVED_AFTER_BOUND_ROOT_EXIT_CLOSE_AND_DOMAIN_ABSENCE';
-    rootVisibility.resolution={rootAbsent:true,ownedDomainEmpty:true,firstMetadataSha256:current.digest,secondMetadataSha256:final.digest,firstInventoryStartedNs:inventoryStartedNs,secondInventoryStartedNs,inventoryCompletedNs,confirmedAtNs:clock.nowNs().toString()};
-    holds.splice(index,1);
+   if(stableClosureInventory&&current.complete&&final.complete&&!final.seen.has(root)&&pendingCanResolve&&waitingForRootExit()){
+    const pendingKnown=[...knownVisibility.values()].filter(v=>v.status==='PENDING_BOUND_ROOT_EXIT_CLOSE_AND_DOMAIN_CLOSURE');
+    assert(pendingKnown.every(v=>!seen.has(v.identity.pid)&&!final.seen.has(v.identity.pid)),'Every denied known identity absent in both complete inventories');
+    const resolution={rootAbsent:true,ownedDomainEmpty:true,lastVisibilityObservationAtNs:visibilityBoundaryNs().toString(),firstInventoryComplete:current.complete,secondInventoryComplete:final.complete,firstMetadataSha256:current.digest,secondMetadataSha256:final.digest,firstInventoryStartedNs:inventoryStartedNs,secondInventoryStartedNs,inventoryCompletedNs,confirmedAtNs:clock.nowNs().toString()};
+    if(rootVisibility?.status==='PENDING_BOUND_ROOT_EXIT_CLOSE_AND_DOMAIN_CLOSURE'){
+     const index=holds.indexOf(rootVisibilityHold());assert(index>=0);
+     rootVisibility.status='RESOLVED_AFTER_BOUND_ROOT_EXIT_CLOSE_AND_DOMAIN_ABSENCE';rootVisibility.resolution={...resolution};holds.splice(index,1);
+    }
+    for(const value of pendingKnown){
+     const index=holds.indexOf(knownVisibilityHold(value.identity.pid));assert(index>=0);
+     value.status='RESOLVED_AFTER_BOUND_ROOT_EXIT_CLOSE_AND_DOMAIN_ABSENCE';
+     value.resolution={...resolution,deniedIdentityAbsent:true,deniedIdentity:{...value.identity}};holds.splice(index,1);
+    }
    }
   }
   lastScope={callerPid:selfPid,callerUid:selfUid,snapshotStartedNs,snapshotCompletedNs,preSpawnIdentityCount:baseline.seen.size,preSpawnMetadataSha256:baseline.digest,
@@ -541,15 +625,17 @@ function normal613FocusedOwnedProcesses(token,clock,until){
   return {active:[...active.values()],groupMembers,sessionMembers,closed:rootObserved&&active.size===0&&groupMembers.length===0&&sessionMembers.length===0&&holds.length===0&&stableClosureInventory};
  }
  function signalOwned(signal){
-  const observation=observe();
+  const observation=observe(),inventory=lastInventory;
   for(const p of observation.active){
    check();const expected=known.get(p.pid);
    if(!expected||!sameOwned(expected,p)){note('SIGNAL_IDENTITY_UNCONFIRMED '+p.pid);continue;}
-   try{const current=identity(p.pid);if(current.uid!==selfUid||!sameOwned(expected,current)){note('SIGNAL_IDENTITY_UNCONFIRMED '+p.pid);continue;}
+   if(knownVisibility.get(p.pid)?.status==='PENDING_BOUND_ROOT_EXIT_CLOSE_AND_DOMAIN_CLOSURE')continue;
+   let preWitness=null;
+   try{const witnesses=new Map(),current=identity(p.pid,witnesses);preWitness=witnesses.get(p.pid);if(current.uid!==selfUid||!sameOwned(expected,current)){note('SIGNAL_IDENTITY_UNCONFIRMED '+p.pid);continue;}
     if(current.state==='Z')continue;
     if(!marked(current)){note('SIGNAL_OWNERSHIP_UNCONFIRMED '+p.pid);continue;}
     check();process.kill(current.pid,signal);
-   }catch(e){if(e.code!=='ESRCH'&&e.code!=='ENOENT'&&!rememberRootVisibility(p,e))note('SIGNAL_UNCONFIRMED '+p.pid+': '+e.message);}
+   }catch(e){if(e.code!=='ESRCH'&&e.code!=='ENOENT'&&!rememberRootVisibility(p,e)&&!rememberKnownVisibility(p,e,inventory,preWitness))note('SIGNAL_UNCONFIRMED '+p.pid+': '+e.message);}
   }
   return observation;
  }
@@ -572,13 +658,16 @@ function normal613FocusedOwnedProcesses(token,clock,until){
   scope(){
    clock.remaining(clock.endNs-1500000000n);
    const value=lastScope||{callerPid:selfPid,snapshotStartedNs,snapshotCompletedNs,preSpawnIdentityCount:baseline.seen.size,preSpawnMetadataSha256:baseline.digest,rootIdentity:null,rootObservedAtNs:null,actualRootAfterSnapshot:false,excludedPreExisting:[],stableClosureInventory:false,unknownOrOwnershipHolds:[...holds]};
-   const proof={...value,unknownOrOwnershipHolds:[...holds],permanentOwnershipHolds:[...permanentHolds],childHandleBoundAtNs:boundAt,boundChildPid:boundPid,rootEventJoinSha256,rootVisibility,rootEventProof:{exit:rootExit,close:rootClose}};
+   const proof={...value,unknownOrOwnershipHolds:[...holds],permanentOwnershipHolds:[...permanentHolds],childHandleBoundAtNs:boundAt,boundChildPid:boundPid,rootEventJoinSha256,rootVisibility,knownVisibility:[...knownVisibility.values()],rootEventProof:{exit:rootExit,close:rootClose}};
    assert(Buffer.byteLength(JSON.stringify(proof))<=524288,'Bounded per-child ownership scope proof');return proof;
   },get rootObserved(){return rootObserved;}};
 }
 
-async function normal613Intake(revalidateStage=null){
+function normal613MetadataCredential(value){assert(typeof value==='string'&&value.length>0&&value.length<=4096&&!/[^\x21-\x7e]/.test(value),'Step-local built-in GitHub metadata token required');return value;}
+function normal613MetadataChildEnvironment(){const env={...process.env};delete env.NS_NORMAL613_METADATA_TOKEN;return env;}
+async function normal613Intake(revalidateStage=null,httpFailure=null,metadataToken,metadataOwner=null){
  const entryWall=Date.now(),entryMonotonic=process.hrtime.bigint();
+ delete process.env.NS_NORMAL613_METADATA_TOKEN;normal613MetadataCredential(metadataToken);
  const p=NORMAL613_CALLER_POLICY,L=p.limits,cp=require('node:child_process'),{TextDecoder}=require('node:util');
  assert.equal(process.version,'v24.21.0');assert.equal(process.platform,'linux');assert.equal(process.arch,'x64');
  assert.equal(process.env.GITHUB_ACTIONS,'true');assert.equal(process.env.GITHUB_EVENT_NAME,'pull_request');assert.equal(process.env.GITHUB_REPOSITORY,p.repository);assert.equal(process.env.GITHUB_JOB,'fixture-activation');assert.equal(process.env.GITHUB_RUN_ATTEMPT,'1');
@@ -595,30 +684,72 @@ async function normal613Intake(revalidateStage=null){
  if(prior){assert.equal(prior.value.bodySha256,parsed.bodySha256);assert.equal(prior.value.headSha,H);assert.equal(prior.value.validUntil,b.actionIntent.validUntil);assert.equal(prior.value.maxWallMs,b.actionIntent.maxWallMs);}
  function remaining(){
   const elapsed=Number(process.hrtime.bigint()-entryMonotonic)/1e6;assert(Math.abs(Date.now()-entryWall-elapsed)<=1000,'Intake clock');
-  const n=Math.floor(Math.min(L.intakeMs-elapsed,normal613Remaining(actionClock,L.intakeMs)));
+  const owned=metadataOwner?metadataOwner.remaining():Infinity;
+  if(metadataOwner)assert(!metadataOwner.signal.aborted,'Owned metadata stage interrupted');
+  assert(owned===Infinity||Number.isFinite(owned)&&owned>0,'Owned metadata stage deadline');
+  const n=Math.floor(Math.min(L.intakeMs-elapsed,normal613Remaining(actionClock,L.intakeMs),owned));
   assert(n>0,'Intake deadline');return n;
  }
  remaining();
- const git=(...args)=>cp.execFileSync('git',args,{encoding:'utf8',timeout:Math.min(5000,remaining()),killSignal:'SIGKILL',maxBuffer:4194304}).trim();
+ const git=(...args)=>{const value=cp.execFileSync('git',args,{encoding:'utf8',env:normal613MetadataChildEnvironment(),timeout:Math.min(5000,remaining()),killSignal:'SIGKILL',maxBuffer:4194304});remaining();return value.trim();};
  assert.equal(git('rev-parse','HEAD'),T);assert.deepEqual(git('show','-s','--format=%P',T).split(' '),[B,H]);assert.equal(git('rev-parse',H+'^{tree}'),b.expectedPublisherTreeSha);assert.equal(git('rev-parse',T+'^{tree}'),b.expectedPublisherTreeSha);
  const readyAt=normal613ApiTime(pr.updated_at,'Frozen Ready event update');assert(readyAt<=entryWall&&entryWall-readyAt<=86400000);
  const priorWitness=prior?JSON.parse(normal613Utf8(normal613Read(prior.root,revalidateStage==='qualification'?'normal613-readback-before-admission.json':'normal613-approval-witness.json',L.metadata))):null;
  const namespace=hash(Buffer.from(JSON.stringify({schemaVersion:'normal613-action-namespace.v1',repository:p.repository,pullRequest:event.number,phase:'qualification',purpose:b.actionIntent.purpose,headSha:H,baseSha:B,intentSha256:b.actionIntent.intentSha256,bodySha256:parsed.bodySha256,allocationId:b.actionIntent.allocationId,laneId:b.actionIntent.laneId,ownedOperationId:b.actionIntent.ownedOperationId})));
  const marker='NS_NORMAL613_V1 '+namespace,policySha256=hash(Buffer.from(JSON.stringify(p))),trace=[],passes=[];let consumed=priorWitness?priorWitness.consumedBytes:0,requests=priorWitness?priorWitness.requests:0;
- async function get(url){
+ // CLI-only best-effort metadata; no body, authority, retry, clock or output reservation.
+ function captureHttpFailure(response,u,commentId){
+  try{
+   if(!httpFailure)return;
+   const status=response.status;
+   if(!Number.isInteger(status)||status<100||status>599||status===200)return;
+   const repo='/repos/'+p.repository;let endpointTemplate;
+   if(u.pathname===repo+'/pulls/'+event.number)endpointTemplate='/repos/{owner}/{repo}/pulls/{number}';
+   else if(u.pathname===repo+'/issues/'+event.number+'/comments')endpointTemplate='/repos/{owner}/{repo}/issues/{number}/comments';
+   else if(Number.isSafeInteger(commentId)&&commentId>0&&u.pathname===repo+'/issues/comments/'+commentId)endpointTemplate='/repos/{owner}/{repo}/issues/comments/{id}';
+   else return;
+   const headers={};
+   for(const name of ['x-github-request-id','x-ratelimit-remaining','x-ratelimit-limit','x-ratelimit-reset','retry-after']){
+    const value=response.headers.get(name);if(typeof value!=='string')continue;
+    if(name==='x-github-request-id'){
+     if(value.length<=96&&/^[0-9A-F]{1,16}(?::[0-9A-F]{1,16}){1,5}(?![\s\S])/.test(value))headers[name]=value;
+    }else if(name==='x-ratelimit-remaining'||name==='x-ratelimit-limit'){
+     if(value.length<=7&&/^(0|[1-9][0-9]{0,6})(?![\s\S])/.test(value)&&Number(value)<=1000000)headers[name]=value;
+    }else if(name==='x-ratelimit-reset'){
+     if(value.length<=10&&/^(0|[1-9][0-9]{0,9})(?![\s\S])/.test(value)&&Number(value)<=9999999999)headers[name]=value;
+    }else if(value.length<=5&&/^(0|[1-9][0-9]{0,4})(?![\s\S])/.test(value)&&Number(value)<=86400)headers[name]=value;
+   }
+   if(headers['x-ratelimit-remaining']!==undefined&&headers['x-ratelimit-limit']!==undefined&&Number(headers['x-ratelimit-remaining'])>Number(headers['x-ratelimit-limit'])){
+    delete headers['x-ratelimit-remaining'];delete headers['x-ratelimit-limit'];
+   }
+   const record=JSON.stringify({method:'GET',authMode:'GITHUB_TOKEN_READ_ONLY_METADATA',status,endpointTemplate,headers});
+   if(record.length>1023||Buffer.byteLength(record+'\n','utf8')>1024||!/^[\x20-\x7e]+(?![\s\S])/.test(record)||record.includes(metadataToken))return;
+   httpFailure.status=status;httpFailure.record=record;
+  }catch{} // Diagnostic construction must not replace the original status assertion.
+ }
+ async function get(url,commentId=null){
   remaining();
   assert(++requests<=L.requests,'Request bound');const u=new URL(url);assert.equal(u.origin,p.api);assert.equal(u.username,'');assert.equal(u.password,'');assert.equal(u.hash,'');
-  const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),Math.min(L.requestMs,remaining()));let reader,bytes=0;
+  const repo='/repos/hartican/sportscal',list=repo+'/issues/'+event.number+'/comments';let permitted=false;
+  if(u.pathname===repo+'/pulls/'+event.number&&u.search==='')permitted=true;
+  else if(u.pathname===list){
+   const entries=[...u.searchParams.entries()],page=u.searchParams.get('page');
+   permitted=u.search==='?per_page=100'||(entries.length===2&&u.searchParams.get('per_page')==='100'&&typeof page==='string'&&page.length<=String(L.pages).length&&/^[1-9][0-9]*(?![\s\S])/.test(page)&&Number(page)>=2&&Number(page)<=L.pages&&(u.search==='?per_page=100&page='+page||u.search==='?page='+page+'&per_page=100'));
+  }else if(Number.isSafeInteger(commentId)&&commentId>0&&u.pathname===repo+'/issues/comments/'+commentId&&u.search==='')permitted=true;
+  assert(permitted,'Closed GitHub metadata GET endpoint required before authentication');
+  const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),Math.min(L.requestMs,remaining())),abortOwnedMetadata=()=>controller.abort();let reader,bytes=0;
   try{
-   remaining();const response=await fetch(u,{method:'GET',headers:{Accept:'application/vnd.github+json','X-GitHub-Api-Version':'2022-11-28'},redirect:'error',credentials:'omit',cache:'no-store',signal:controller.signal});
+   if(metadataOwner){metadataOwner.signal.addEventListener('abort',abortOwnedMetadata,{once:true});if(metadataOwner.signal.aborted)abortOwnedMetadata();}
+   remaining();const response=await fetch(u,{method:'GET',headers:{Accept:'application/vnd.github+json','X-GitHub-Api-Version':'2022-11-28',Authorization:'Bearer '+metadataToken},redirect:'error',credentials:'omit',cache:'no-store',signal:controller.signal});remaining();
+   captureHttpFailure(response,u,commentId);
    assert.equal(response.status,200,'Public GitHub response; no alternate route');assert.equal(new URL(response.url).origin,p.api);
    const length=response.headers.get('content-length');if(length!==null)assert(/^(0|[1-9][0-9]*)$/.test(length)&&Number(length)<=L.response,'Response length');
    assert(/^application\/json\b/.test(response.headers.get('content-type')||''),'JSON provider representation');assert(response.body,'Response stream');
    reader=response.body.getReader();const chunks=[];
-   for(;;){remaining();const item=await reader.read();if(item.done)break;bytes+=item.value.byteLength;consumed+=item.value.byteLength;assert(bytes<=L.response&&consumed<=L.network,'Consumed body limit');chunks.push(Buffer.from(item.value));}
-   const raw=Buffer.concat(chunks),value=JSON.parse(new TextDecoder('utf-8',{fatal:true}).decode(raw));trace.push({url:u.href,status:response.status,bytes,sha256:hash(raw),observedAt:new Date().toISOString(),etag:response.headers.get('etag')});
+   for(;;){remaining();const item=await reader.read();remaining();if(item.done)break;bytes+=item.value.byteLength;consumed+=item.value.byteLength;assert(bytes<=L.response&&consumed<=L.network,'Consumed body limit');chunks.push(Buffer.from(item.value));}
+   const raw=Buffer.concat(chunks);assert(!raw.includes(Buffer.from(metadataToken,'utf8')),'Credential refused in metadata response');const value=JSON.parse(new TextDecoder('utf-8',{fatal:true}).decode(raw)),etag=response.headers.get('etag');trace.push({url:u.href,authMode:'GITHUB_TOKEN_READ_ONLY_METADATA',status:response.status,bytes,sha256:hash(raw),observedAt:new Date().toISOString(),etag:typeof etag==='string'&&!etag.includes(metadataToken)?etag:null});
    return {value,link:response.headers.get('link')};
-  }finally{clearTimeout(timer);controller.abort();if(reader)reader.releaseLock();}
+  }finally{if(metadataOwner)metadataOwner.signal.removeEventListener('abort',abortOwnedMetadata);clearTimeout(timer);controller.abort();if(reader)reader.releaseLock();}
  }
  const pulls=p.api+'/repos/'+p.repository+'/pulls/'+event.number;
  async function observePR(){
@@ -691,7 +822,7 @@ async function normal613Intake(revalidateStage=null){
  assert.deepEqual(w.comments,approvals.map(x=>({id:x.comment.id,bodySha256:x.comment.bodySha256,authorId:x.comment.authorId,createdAt:x.comment.createdAt,updatedAt:x.comment.updatedAt})).sort((a,z)=>a.id-z.id));
  for(const x of approvals)assert(normal613ApiTime(x.comment.createdAt,'Role publication')<=witnessed);
  const second=await scan();assert.deepEqual(second,first,'Complete action namespace unchanged');
- for(const x of second){const r=await get(p.api+'/repos/'+p.repository+'/issues/comments/'+x.comment.id);assert.deepEqual(comment(r.value),x.comment,'Selected comment final readback unchanged');}
+ for(const x of second){const r=await get(p.api+'/repos/'+p.repository+'/issues/comments/'+x.comment.id,x.comment.id);assert.deepEqual(comment(r.value),x.comment,'Selected comment final readback unchanged');}
  const finalPR=await observePR();remaining();
  const ackBytes=normal613Decode(payload.ackBase64,payload.ackSha256,'ACK'),ack=normal613Canonical(ackBytes,'ACK');
  const startedAt=prior?prior.value.startedAt:new Date(entryWall).toISOString(),startMonotonicNs=prior?prior.value.startMonotonicNs:entryMonotonic.toString();
@@ -718,9 +849,10 @@ async function normal613Intake(revalidateStage=null){
 
 async function normal613Admission(){
  'use strict';
+ const httpFailure=arguments[0]===undefined?null:arguments[0],metadataToken=arguments[1];
  const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto'),cp=require('node:child_process'),{TextDecoder}=require('node:util');
  const hash=bytes=>crypto.createHash('sha256').update(bytes).digest('hex');
- await normal613Intake('admission');
+ await normal613Intake('admission',httpFailure,metadataToken);
  const nsContext=normal613Context(),nsIntentBytes=normal613Read(nsContext.root,'normal613-intent.json'),nsAckBytes=normal613Read(nsContext.root,'normal613-ack.json'),nsFreshBytes=normal613Read(nsContext.root,'normal613-fresh.json');
  normal613Remaining(nsContext.value,120000);
  // NS_E610_PURE_BEGIN
@@ -943,7 +1075,7 @@ async function normal613Admission(){
  const {binding,rawBinding,bodySha256}=parseHandover(Buffer.from(event.pull_request.body,'utf8'));
  const H=digestHex(event.pull_request.head.sha,40,'Event H'),B=digestHex(event.pull_request.base.sha,40,'Event B'),T=digestHex(process.env.GITHUB_SHA,40,'Event T');
  const observed={headSha:H,baseSha:B,testedMergeSha:T,checkoutSha:git('rev-parse','HEAD'),parents:git('show','-s','--format=%P',T).split(' '),headTree:git('rev-parse',H+'^{tree}'),testedTree:git('rev-parse',T+'^{tree}')};
- validateEventJoin(event,process.env,observed,binding);assert.equal(B,'9f20813c9855e30d4ca32e721862f739b6d696ba','Reviewed normal613 predecessor');cleanCheckout();
+ validateEventJoin(event,process.env,observed,binding);assert.equal(B,'2e92211c700c40b2b508fc636a002868c61a7579','Reviewed normal613 predecessor');cleanCheckout();
  const entryBytes=processOutput('git',['ls-tree','-rz','--full-tree',H]),entries=parseGitEntries(entryBytes);
  assert.equal(entries.length,binding.expectedAssembledEntryCount,'Reviewed full source count');
  setReadPhase('projection-policy');
@@ -957,7 +1089,7 @@ async function normal613Admission(){
  const rows=initialSource.rows,expectedProjection=initialSource.projected,byPath=new Map(rows.map(r=>[r.path,r]));
  const assembled=assembledBytes(H,observed.headTree,binding.reviewedFinalMapSha256,rows);assert(assembled.length<=E610_LIMITS.manifest,'Assembled byte bound');
  assert.equal(hash(assembled),binding.expectedAssembledManifestSha256,'Publisher expected complete raw source manifest');
- const changed=utf8Text(processOutput('git',['diff','--no-renames','--name-only','-z','9f20813c9855e30d4ca32e721862f739b6d696ba',H])).split('\0').filter(Boolean);
+ const changed=utf8Text(processOutput('git',['diff','--no-renames','--name-only','-z','2e92211c700c40b2b508fc636a002868c61a7579',H])).split('\0').filter(Boolean);
  assert.equal(changed.length,binding.expectedBaseRelativePathCount,'Reviewed normal613-base-relative path count');
  const qualifier=byPath.get('scripts/validate-sync-current-forward.js'),fixture=byPath.get('scripts/fixtures/sync-normal-613-20261112.json');
  assert(qualifier&&fixture&&qualifier.mode==='100644'&&fixture.mode==='100644','Reviewed regular qualifier and fixture');
@@ -999,13 +1131,14 @@ async function normal613Admission(){
  setReadPhase('metadata-writeback');
  const assembledFile=save('assembled-source-manifest.json',assembled),proofFile=save('dependencies.json',jsonBytes(proof));
  const reservationFile=save('reservation-receipt.json',reservationBytes,E610_LIMITS.receipt),freshFile=save('fresh-main-reservation-binding.json',freshBytes,E610_LIMITS.receipt);
- assert.equal(byPath.get('scripts/materialize-git-tree.js').sha256,'f7b3a8d7867dc9af5df217a02d80b3135b542ef498937c67044cc7f7d0001373');
+ assert.equal(byPath.get('scripts/materialize-git-tree.js').sha256,'0757edcce5a3d1d54f0a56f457884a6565629a5741c592f80012683d7498f7f0');
  assert.equal(byPath.get('config/deployment-manifest.json').sha256,'78f7a1c46accaf56fb83ec1f4d8f5ecf98621a620807658c805870191297b103');
  setReadPhase('projection-source');
  // Expected bytes were prepared during the complete initial source proof; no second parent source pass.
  const snapshot=path.join(admission,'deployment-snapshot');
  setReadPhase('child-reservation');
- const childReadReservation=2*expectedProjection.reduce((n,e)=>n+e.row.sourceBytes*(e.row.path.endsWith('.js')?2:1),0);
+ // Each unique projected source is read once; keep both working-byte and Git-fallback allowance.
+ const childReadReservation=2*expectedProjection.reduce((n,e)=>n+e.row.sourceBytes,0);
  charge(childReadReservation,null,true);
  processOutput(process.execPath,['scripts/materialize-git-tree.js',H,snapshot,'--deployment'],65536,E610_LIMITS.materializerMs);
  setReadPhase('projection-output');
@@ -1081,9 +1214,11 @@ async function normal613EngineContext(){
  normal613Save(root,'normal613-context.json',context,remaining);
  normal613Save(proof,'normal613-admission-context.json',bytes,remaining);
 }
-async function normal613OwnedRun(id,command,args){
+async function normal613OwnedRun(id,command,args,metadataToken,httpFailure=null){
  const c=normal613Context(),v=c.value,engine=process.env.GITHUB_JOB==='installed-upgrade',allowed=engine?normal613EngineCommandIds(v.engine):normal613FixtureCommandIds();
- assert(allowed.includes(id),'Closed normal command identity');assert.equal(command,'bash');assert.deepEqual(args,['-Eeuo','pipefail']);
+ assert(allowed.includes(id),'Closed normal command identity');const directAdmission=!engine&&id==='admission',qualifierMetadata=!engine&&id==='qualifier',usesMetadata=directAdmission||qualifierMetadata;
+ if(directAdmission){assert.equal(command,'node');assert.deepEqual(args,['scripts/validate-forward-onboarding-ci.js','--normal613-admission']);command=process.execPath;}
+ else{assert.equal(command,'bash');assert.deepEqual(args,['-Eeuo','pipefail']);assert(usesMetadata||!metadataToken,'Metadata credential forbidden for product/test child');}
  const caps={admission:120000,qualifier:120000,premerge:300000,install:engine?600000:300000,apt:300000,pwa:240000,account:300000,'original-manifest':300000,'feed-controls':195000};
  let cap=caps[id]||125000;
  if(id==='qualifier'){
@@ -1096,15 +1231,16 @@ async function normal613OwnedRun(id,command,args){
  assert(budget>6000,'Reserve termination, final observation and record writeback inside authority');
  const root=c.root,cp=require('node:child_process'),outputs={stdout:[],stderr:[]},DEADLINE=Symbol('final closure deadline');
  let child=null,input=Buffer.alloc(0),used=0,failure=null,interrupted=null,status=null,signalName=null,closedAt=null,exitAt=null;
+ const metadataController=new AbortController(),workDeadlineNs=startMono+BigInt(budget-5000)*1000000n;let metadataError=null,metadataSettled=!qualifierMetadata,metadataValidated=false;
  let softTimer=null,killTimer=null,finalTimer=null,finalReached=false,finalAt=startMono+BigInt(budget-500)*1000000n,resolveFinal;
  const finalGate=new Promise(resolve=>{resolveFinal=resolve;});
  const delayTo=at=>Math.max(0,Math.ceil(Number(at-process.hrtime.bigint())/1e6));
  const kill=signal=>{if(Number.isSafeInteger(child?.pid))try{process.kill(-child.pid,signal);}catch(e){if(e.code!=='ESRCH')failure=failure||'Owned group signal unconfirmed: '+e.code;}};
  const detachLocalHandles=()=>{if(child){for(const stream of [child.stdin,child.stdout,child.stderr])stream?.destroy();child.unref();}process.stdin.destroy();};
- const finalStop=()=>{finalReached=true;failure=failure||'Absolute closure deadline reached';kill('SIGKILL');detachLocalHandles();resolveFinal(DEADLINE);};
+ const finalStop=()=>{finalReached=true;failure=failure||'Absolute closure deadline reached';metadataController.abort();kill('SIGKILL');detachLocalHandles();resolveFinal(DEADLINE);};
  const armFinal=()=>{clearTimeout(finalTimer);finalTimer=setTimeout(finalStop,delayTo(finalAt));};
  const terminate=reason=>{
-  failure=failure||reason;kill('SIGTERM');const now=process.hrtime.bigint(),earlier=now+4500000000n;
+  failure=failure||reason;metadataController.abort();kill('SIGTERM');const now=process.hrtime.bigint(),earlier=now+4500000000n;
   if(earlier<finalAt){finalAt=earlier;armFinal();}
   clearTimeout(killTimer);const forceAt=now+4000000000n<finalAt?now+4000000000n:finalAt;
   killTimer=setTimeout(()=>kill('SIGKILL'),delayTo(forceAt));
@@ -1114,10 +1250,22 @@ async function normal613OwnedRun(id,command,args){
  softTimer=setTimeout(()=>terminate('Owned command deadline'),Math.max(0,budget-5000));
  let groupGone=false,groupObservedAt=null;
  try{
+  let metadataReady=true;
+  if(usesMetadata)try{normal613MetadataCredential(metadataToken);}catch(error){metadataError=error;metadataReady=false;failure=failure||'Metadata credential unavailable or refused';}
   const collect=async()=>{const chunks=[];let n=0;for await(const chunk of process.stdin){n+=chunk.length;assert(n<=65536,'Bounded immutable command script');chunks.push(Buffer.from(chunk));}return Buffer.concat(chunks);};
-  const received=await Promise.race([collect().catch(e=>{failure=failure||e.message;return DEADLINE;}),finalGate]);
+  const received=metadataReady?await Promise.race([collect().catch(e=>{failure=failure||e.message;return DEADLINE;}),finalGate]):DEADLINE;
   if(received!==DEADLINE&&!finalReached&&process.hrtime.bigint()<finalAt){
-   input=received;child=cp.spawn(command,args,{cwd:process.cwd(),env:process.env,detached:true,stdio:['pipe','pipe','pipe']});
+   input=received;
+   if(qualifierMetadata){
+    const metadataOwner={signal:metadataController.signal,remaining(){assert(!metadataController.signal.aborted&&!failure&&!finalReached&&!interrupted,'Owned metadata stage interrupted');const n=Math.floor(Number(workDeadlineNs-process.hrtime.bigint())/1e6);assert(n>0,'Owned metadata stage deadline');return n;}};
+    const task=normal613Intake('qualification',httpFailure,metadataToken,metadataOwner).then(()=>{metadataSettled=true;metadataValidated=true;return true;},error=>{metadataSettled=true;metadataError=error;return false;});
+    const outcome=await Promise.race([task,finalGate]);
+    if(outcome!==true){failure=failure||'Qualifier metadata revalidation failed or did not settle';metadataController.abort();}
+   }
+   if(!failure&&!finalReached&&!metadataController.signal.aborted&&process.hrtime.bigint()<workDeadlineNs){
+   if(directAdmission)assert.equal(received.length,0,'Direct admission has no shell script input');
+   const childEnv=normal613MetadataChildEnvironment();if(directAdmission)childEnv.NS_NORMAL613_METADATA_TOKEN=metadataToken;
+   input=received;child=cp.spawn(command,args,{cwd:process.cwd(),env:childEnv,detached:true,stdio:['pipe','pipe','pipe']});
    const closeGate=new Promise(resolve=>{
     child.once('error',e=>{failure=failure||String(e.message);});
     child.once('exit',()=>{exitAt=process.hrtime.bigint();});
@@ -1137,16 +1285,18 @@ async function normal613OwnedRun(id,command,args){
    if(!groupGone&&process.hrtime.bigint()<finalAt){terminate('Owned descendants remain after parent closure');kill('SIGKILL');
     while(!groupGone&&!finalReached&&process.hrtime.bigint()<finalAt){await new Promise(r=>setTimeout(r,Math.min(25,delayTo(finalAt))));groupGone=observeGroup();}
    }
+   }else failure=failure||'Metadata/dispatch stage deadline reached';
   }else failure=failure||'Input/dispatch deadline reached';
   const childClosed=closedAt!==null&&closedAt<=finalAt&&!finalReached,ownedGroupClosed=groupGone&&groupObservedAt!==null&&groupObservedAt<=finalAt&&!finalReached;
   if(!childClosed||!ownedGroupClosed){failure=failure||'Final child/stdio/group closure unresolved';kill('SIGKILL');detachLocalHandles();}
   clearTimeout(softTimer);clearTimeout(killTimer);clearTimeout(finalTimer);
-  const record={schemaVersion:'normal613-owned-command.v1',id,repository:v.repository,headSha:v.headSha,baseSha:v.baseSha,testedMergeSha:v.testedMergeSha,bodySha256:v.bodySha256,intentSha256:v.intentSha256,allocationId:v.allocation?.allocationId||v.allocationId,laneId:v.allocation?.laneId||v.laneId,ownedOperationId:v.allocation?.ownedOperationId||v.ownedOperationId,runId:process.env.GITHUB_RUN_ID,runAttempt:Number(process.env.GITHUB_RUN_ATTEMPT),job:process.env.GITHUB_JOB,engine:v.engine||null,command,args,scriptBytes:input.length,scriptSha256:hash(input),startedAt:new Date(startWall).toISOString(),finishedAt:new Date().toISOString(),monotonicElapsedMs:Number(process.hrtime.bigint()-startMono)/1e6,hardBudgetMs:budget,finalClosureDeadlineAt:new Date(startWall+Number(finalAt-startMono)/1e6).toISOString(),finalClosureDeadlineReached:finalReached,status,signal:signalName,interrupted,failure,childPid:child?.pid||null,parentExitObserved:exitAt!==null,childClosed,ownedGroupClosed,outputObservedBytes:used,outputOverflow:used>NORMAL613_CALLER_POLICY.limits.commandOutput,cleanupStatus:childClosed&&ownedGroupClosed?'OBSERVED_CLOSED':'FAILED_OR_UNKNOWN'};
+  const record={schemaVersion:'normal613-owned-command.v1',id,repository:v.repository,headSha:v.headSha,baseSha:v.baseSha,testedMergeSha:v.testedMergeSha,bodySha256:v.bodySha256,intentSha256:v.intentSha256,allocationId:v.allocation?.allocationId||v.allocationId,laneId:v.allocation?.laneId||v.laneId,ownedOperationId:v.allocation?.ownedOperationId||v.ownedOperationId,runId:process.env.GITHUB_RUN_ID,runAttempt:Number(process.env.GITHUB_RUN_ATTEMPT),job:process.env.GITHUB_JOB,engine:v.engine||null,command,args,metadataAuthMode:usesMetadata?'GITHUB_TOKEN_READ_ONLY_METADATA':'NONE',metadataRevalidationSettled:metadataSettled,metadataRevalidationValidated:qualifierMetadata?metadataValidated:null,scriptBytes:input.length,scriptSha256:hash(input),startedAt:new Date(startWall).toISOString(),finishedAt:new Date().toISOString(),monotonicElapsedMs:Number(process.hrtime.bigint()-startMono)/1e6,hardBudgetMs:budget,finalClosureDeadlineAt:new Date(startWall+Number(finalAt-startMono)/1e6).toISOString(),finalClosureDeadlineReached:finalReached,status,signal:signalName,interrupted,failure,childPid:child?.pid||null,parentExitObserved:exitAt!==null,childClosed,ownedGroupClosed,outputObservedBytes:used,outputOverflow:used>NORMAL613_CALLER_POLICY.limits.commandOutput,cleanupStatus:childClosed&&ownedGroupClosed?'OBSERVED_CLOSED':'FAILED_OR_UNKNOWN'};
   for(const stream of ['stdout','stderr'])normal613Save(root,'command-'+id+'.'+stream+'.log',Buffer.concat(outputs[stream]));
   normal613Save(root,'command-'+id+'.json',record);
+  if(metadataError)throw metadataError;
   assert(childClosed&&ownedGroupClosed&&!failure&&status===0&&process.hrtime.bigint()<startMono+BigInt(budget)*1000000n,'Normal command failed, expired or cleanup unconfirmed: '+id);
  }finally{
-  clearTimeout(softTimer);clearTimeout(killTimer);clearTimeout(finalTimer);process.removeListener('SIGTERM',onTerm);process.removeListener('SIGINT',onInt);
+  metadataController.abort();clearTimeout(softTimer);clearTimeout(killTimer);clearTimeout(finalTimer);process.removeListener('SIGTERM',onTerm);process.removeListener('SIGINT',onInt);
   if(child&&(closedAt===null||!groupGone)){kill('SIGKILL');detachLocalHandles();}
  }
 }
@@ -1172,8 +1322,7 @@ function normal613Seal(){
  try{context=normal613Context().value;}catch(e){issues.push('Missing/unreadable admitted context');}
  const root=path.join(base,engine?'ns-normal-613-engine':'ns-normal-613-admission');
  const admissionNames=['assembled-source-manifest.json','dependencies.json','reservation-receipt.json','fresh-main-reservation-binding.json','execution-receipt.json','normal613-intent.json','normal613-ack.json','normal613-context.json','normal613-fresh.json','normal613-reservation.json','normal613-approval-witness.json','normal613-readback-before-admission.json','normal613-readback-before-qualification.json','normal613-admitted-engine-context.json','deployment-source-manifest.json','normal613-receipt-member-map.json'];
- const focusedNames=['context.json','report.json','stdout.log','stderr.log'];
- const required=engine?['context.json','baseline-controls.log','installed-baseline.log','installed-tooling.json','install.log','normal613-admission-context.json']:[...admissionNames,...focusedNames.map(n=>'focused/'+n)];
+ const required=engine?['context.json','baseline-controls.log','installed-baseline.log','installed-tooling.json','install.log','normal613-admission-context.json']:admissionNames;
  const proof=engine?path.join(base,'ns-upgrade-proof'):root;
  const add=(file,name)=>{assert(!path.isAbsolute(name)&&!name.split('/').some(s=>!s||s==='.'||s==='..')&&!name.includes('\\'));sources.push({file,name});};
  if(engine){
@@ -1183,7 +1332,6 @@ function normal613Seal(){
    }};
   try{visit(proof);}catch(e){issues.push('Incomplete/unsafe engine proof inventory: '+e.message);}
  }else for(const name of admissionNames)if(fs.existsSync(path.join(root,name)))add(path.join(root,name),name);
- if(!engine)for(const name of focusedNames){const file=path.join(base,'ns-normal-613-focused',name);if(fs.existsSync(file))add(file,'focused/'+name);else issues.push('Missing focused proof '+name);}
  const ids=context?(engine?normal613EngineCommandIds(context.engine):normal613FixtureCommandIds()):[];
  for(const id of ids)for(const suffix of ['json','stdout.log','stderr.log']){const file=path.join(root,'command-'+id+'.'+suffix);if(fs.existsSync(file))add(file,'commands/command-'+id+'.'+suffix);else issues.push('Missing command evidence '+id+'.'+suffix);}
  let total=0;
@@ -1195,7 +1343,7 @@ function normal613Seal(){
    try{const opened=fs.fstatSync(fd);for(const k of ['dev','ino','size','mtimeMs','ctimeMs'])assert.equal(opened[k],s[k]);bytes=fs.readFileSync(fd);const last=fs.fstatSync(fd);for(const k of ['dev','ino','size','mtimeMs','ctimeMs'])assert.equal(last[k],s[k]);assert.equal(bytes.length,s.size);}finally{fs.closeSync(fd);}
    const dir=path.dirname(path.join(output,item.name));fs.mkdirSync(dir,{recursive:true,mode:0o700});
    const saved=normal613Save(dir,path.basename(item.name),bytes);members.push({path:item.name,bytes:saved.bytes,sha256:saved.sha256});total+=bytes.length;
-   if(["execution-receipt.json","normal613-receipt-member-map.json","focused/context.json","focused/report.json"].includes(item.name))copiedDocuments.set(item.name,bytes);
+   if(["execution-receipt.json","normal613-receipt-member-map.json"].includes(item.name))copiedDocuments.set(item.name,bytes);
    if(item.name.startsWith('commands/')&&item.name.endsWith('.json')){const r=JSON.parse(normal613Utf8(bytes));if(r.status!==0||r.failure||!r.childClosed||!r.ownedGroupClosed||r.outputOverflow)issues.push('Command failed/unknown '+r.id);}
   }catch(e){issues.push('Member refused '+item.name+': '+e.message);}
  }
@@ -1209,28 +1357,6 @@ function normal613Seal(){
   assert.deepEqual(mapping.references,normal613ReceiptMemberReferences(receipt,new Map(members.map(m=>[m.path,m]))),'Complete exact receipt/member references');
  }catch(e){issues.push('Receipt/member mapping failed: '+e.message);}
 
- if(!engine)try{
-  const fc=JSON.parse(normal613Utf8(copiedDocuments.get('focused/context.json'))),fr=JSON.parse(normal613Utf8(copiedDocuments.get('focused/report.json')));
-  normal613UnicodeSafe(fc);normal613UnicodeSafe(fr);assert.equal(fc.schemaVersion,'normal613-focused-context.v1');assert.equal(fr.schemaVersion,'normal613-focused-report.v1');assert.equal(fr.status,'PASS_FOCUSED_SYNTHETIC_CONTROLS_ONLY');
-  for(const key of ['repository','headSha','testedMergeSha']){assert.equal(fc[key],context[key]);assert.equal(fr[key],context[key]);}
-  for(const value of [fc,fr]){assert.equal(value.runId,process.env.GITHUB_RUN_ID);assert.equal(value.runAttempt,Number(process.env.GITHUB_RUN_ATTEMPT));assert.equal(value.executionReceiptSha256,hash(copiedDocuments.get('execution-receipt.json')));assert.equal(value.originalDeadline||value.originalActionDeadline,context.actionDeadlineAt);}
-  assert.equal(fc.assembledManifestSha256,JSON.parse(normal613Utf8(copiedDocuments.get('execution-receipt.json'))).actualAssembledSourceManifestSha256);
-  assert.equal(fr.aggregateEntryNs,fc.aggregateEntryNs);assert.equal(fr.aggregateDeadlineNs,fc.aggregateDeadlineNs);assert(BigInt(fc.aggregateDeadlineNs)>BigInt(fc.aggregateEntryNs)&&BigInt(fc.aggregateDeadlineNs)-BigInt(fc.aggregateEntryNs)<=120000000000n);assert.equal(fr.failure,null);assert.equal(fr.releaseAcceptance,false);assert.equal(fr.realAuthorityFromSyntheticRecords,false);assert.deepEqual(fr.unrun,[]);assert.deepEqual(fr.newScratchRoots,[]);assert.equal(fr.completed.length,8);assert.equal(fc.sources.length,8);
-  for(const row of fr.completed){assert.equal(row.status,0);assert.equal(row.reason,null);assert(row.childClosed&&row.topLevelGroupClosed&&row.ownedCleanupObserved&&row.childReportAccepted&&!row.cleanupHold);assert.deepEqual(row.ownershipHolds,[]);assert(Array.isArray(row.ownedProcessIdentities)&&row.ownedProcessIdentities.length>0);assert.deepEqual(row.newScratchRoots,[]);assert(BigInt(row.childSoftDeadlineNs)<BigInt(row.childHardDeadlineNs)&&BigInt(row.childHardDeadlineNs)<=BigInt(fc.aggregateDeadlineNs)-3000000000n);}
-  for(const row of fr.completed)if(row.ownershipScope?.rootVisibility){
-   const s=row.ownershipScope,v=s.rootVisibility,e=s.rootEventProof,p=row.ownedProcessIdentities.find(x=>x.pid===row.childPid);
-   assert(p&&e?.exit&&e.close,'Resolved root visibility requires actual bound exit and close evidence');
-   const key=Object.fromEntries(['pid','uid','startTicks','pgid','sessionId'].map(k=>[k,p[k]]));
-   assert.equal(v.status,'RESOLVED_AFTER_BOUND_ROOT_EXIT_CLOSE_AND_DOMAIN_ABSENCE');assert(['EACCES','EPERM'].includes(v.errorCode)&&['EACCES','EPERM'].includes(v.lastErrorCode));assert(Number.isSafeInteger(v.readDenials)&&v.readDenials>0);assert.deepEqual(v.identity,key);
-   assert(Number.isSafeInteger(s.callerPid)&&s.callerPid>0);assert.equal(s.boundChildPid,row.childPid);assert(/^[a-f0-9]{64}$/.test(s.preSpawnMetadataSha256));
-   const join=hash(Buffer.from(JSON.stringify({root:key,callerPid:s.callerPid,rootObservedAtNs:s.rootObservedAtNs,preSpawnMetadataSha256:s.preSpawnMetadataSha256,boundChildPid:s.boundChildPid,childHandleBoundAtNs:s.childHandleBoundAtNs})));
-   assert.equal(s.rootEventJoinSha256,join);assert.equal(v.rootEventJoinSha256,join);
-   for(const event of [e.exit,e.close]){assert.equal(event.pid,row.childPid);assert.deepEqual(event.identity,key);assert.equal(event.rootEventJoinSha256,join);assert.equal(event.sameChildProcessHandle,true);assert.equal(event.code,row.status);assert.equal(event.signal,row.signal);}
-   const r=v.resolution;assert(r?.rootAbsent&&r.ownedDomainEmpty&&s.stableClosureInventory&&s.actualRootAfterSnapshot);assert(/^[a-f0-9]{64}$/.test(r.firstMetadataSha256));assert.equal(r.firstMetadataSha256,r.secondMetadataSha256);assert.deepEqual(s.unknownOrOwnershipHolds,[]);assert.deepEqual(s.permanentOwnershipHolds,[]);
-   const snap=BigInt(s.snapshotStartedNs),snapshotEnd=BigInt(s.snapshotCompletedNs),bound=BigInt(s.childHandleBoundAtNs),observed=BigInt(s.rootObservedAtNs),denied=BigInt(v.firstDeniedAtNs),lastDenied=BigInt(v.lastDeniedAtNs),exited=BigInt(e.exit.observedAtNs),closed=BigInt(e.close.observedAtNs),first=BigInt(r.firstInventoryStartedNs),second=BigInt(r.secondInventoryStartedNs),finished=BigInt(r.inventoryCompletedNs),resolved=BigInt(r.confirmedAtNs);
-   assert(BigInt(fc.aggregateEntryNs)<=snap&&snap<=snapshotEnd&&snapshotEnd<=bound&&bound<=observed&&observed<=denied&&denied<=lastDenied&&lastDenied<=resolved&&observed<=exited&&exited<=closed&&closed<=first&&first<=second&&second<=finished&&finished<=resolved&&resolved<=BigInt(row.childHardDeadlineNs),'Fresh post-event repeated inventory under original deadline');
-  }
- }catch(e){issues.push('Focused control proof failed: '+e.message);}
 
  if(process.env.NS_NORMAL613_JOB_STATUS!=='success')issues.push('Observed job status '+process.env.NS_NORMAL613_JOB_STATUS);
  const manifest={schemaVersion:'normal613-artifact-manifest.v1',status:issues.length?'FAILED_OR_UNKNOWN':'COMPLETE',repository:NORMAL613_CALLER_POLICY.repository,workflow:process.env.GITHUB_WORKFLOW_REF,headSha:context?.headSha||null,baseSha:context?.baseSha||null,testedMergeSha:context?.testedMergeSha||null,tree:context?.tree||null,bodySha256:context?.bodySha256||null,intentSha256:context?.intentSha256||null,allocationId:context?.allocation?.allocationId||context?.allocationId||null,laneId:context?.allocation?.laneId||context?.laneId||null,ownedOperationId:context?.allocation?.ownedOperationId||context?.ownedOperationId||null,runId:process.env.GITHUB_RUN_ID,runAttempt:Number(process.env.GITHUB_RUN_ATTEMPT),job:process.env.GITHUB_JOB,engine:context?.engine||null,observedAt:new Date().toISOString(),payloadBytes:total,files:members,expectedMembers:[...members.map(x=>x.path),'normal613-artifact-manifest.json'],requiredMembers:required,expectedCommands:ids,manifestSelfExcludedFromPayloadHashes:true,limits:{members:L.members,perMember:L.metadata,aggregate:L.artifact},issues,providerArtifactId:'POPULATED_BY_UPLOAD_ACTION_AND_OUTER_METADATA_JOIN',providerArtifactDigest:'OBSERVE_AFTER_UPLOAD',physicalIosAcceptance:false,releaseAcceptance:false};
@@ -1239,13 +1365,74 @@ function normal613Seal(){
  assert.equal(manifest.status,'COMPLETE','Incomplete producer evidence remains failed/unknown');
 }
 
+function normal613ValidateKnownVisibility(row,aggregateEntryNs){
+ const s=row.ownershipScope;
+ assert(s&&Array.isArray(s.knownVisibility),'Complete known-visibility receipt array required');
+ assert(s.knownVisibility.length<=4096,'Existing proc inventory bound');
+ if(!s.knownVisibility.length)return 0;
+ const key=p=>Object.fromEntries(['pid','uid','startTicks','pgid','sessionId'].map(k=>[k,p[k]]));
+ const ns=value=>{assert(typeof value==='string'&&/^[0-9]+$/.test(value),'Finite recorded monotonic time');return BigInt(value);};
+ const root=row.ownedProcessIdentities.find(p=>p.pid===row.childPid),events=s.rootEventProof,seen=new Set();
+ assert(root&&events?.exit&&events.close,'Known visibility requires actual bound root events');
+ const rootKey=key(root),join=hash(Buffer.from(JSON.stringify({root:rootKey,callerPid:s.callerPid,rootObservedAtNs:s.rootObservedAtNs,preSpawnMetadataSha256:s.preSpawnMetadataSha256,boundChildPid:s.boundChildPid,childHandleBoundAtNs:s.childHandleBoundAtNs})));
+ assert.equal(s.boundChildPid,row.childPid);assert.equal(s.rootEventJoinSha256,join);
+ assert(s.actualRootAfterSnapshot&&s.stableClosureInventory);assert.deepEqual(s.unknownOrOwnershipHolds,[]);assert.deepEqual(s.permanentOwnershipHolds,[]);assert.deepEqual(row.ownershipHolds,[]);
+ for(const event of [events.exit,events.close]){
+  assert.equal(event.pid,row.childPid);assert.deepEqual(event.identity,rootKey);assert.equal(event.rootEventJoinSha256,join);assert.equal(event.sameChildProcessHandle,true);assert.equal(event.code,row.status);assert.equal(event.signal,row.signal);
+ }
+ for(const value of s.knownVisibility){
+  const p=row.ownedProcessIdentities.find(p=>p.pid===value.identity?.pid),proof=value.positiveProof,r=value.resolution;
+  assert(p&&p.pid!==row.childPid&&!seen.has(p.pid),'Unique previously owned nonroot visibility identity');seen.add(p.pid);
+  assert.deepEqual(value.identity,key(p));assert.equal(value.rootEventJoinSha256,join);
+  assert.equal(value.status,'RESOLVED_AFTER_BOUND_ROOT_EXIT_CLOSE_AND_DOMAIN_ABSENCE');
+  assert(['EACCES','EPERM'].includes(value.errorCode)&&['EACCES','EPERM'].includes(value.lastErrorCode));assert(Number.isSafeInteger(value.readDenials)&&value.readDenials>0);
+  assert(proof&&proof.positiveMarkerConfirmed===true&&proof.ownedDomainConfirmed===true&&proof.baselineAbsent===true);
+  assert.equal(value.positiveProofSha256,hash(Buffer.from(JSON.stringify(proof))));assert.deepEqual(proof.identity,key(p));assert.deepEqual(proof.rootIdentity,rootKey);assert.equal(proof.rootEventJoinSha256,join);
+  const anchor=row.ownedProcessIdentities.find(a=>a.pid===proof.anchorIdentity?.pid);
+  assert(anchor&&anchor.pid!==p.pid);assert.deepEqual(proof.anchorIdentity,key(anchor));
+  assert(proof.parentPid===anchor.pid||p.pgid===anchor.pgid||p.sessionId===anchor.sessionId,'Saved positively owned parent/group/session anchor');
+  assert(r?.rootAbsent&&r.ownedDomainEmpty&&r.deniedIdentityAbsent);assert.deepEqual(r.deniedIdentity,value.identity);
+  assert(/^[a-f0-9]{64}$/.test(r.firstMetadataSha256));assert.equal(r.firstMetadataSha256,r.secondMetadataSha256);
+  assert(['LIVE_IDENTITY','ABSENT_PID'].includes(value.verificationMode),'Explicit live identity versus repeated absence mode');
+  if(value.verificationMode==='ABSENT_PID'){
+   assert(r.firstInventoryComplete===true&&r.secondInventoryComplete===true,'Two complete post-observation closure inventories required');
+   const a=value.absenceProof,closed=(o,names)=>assert(o&&JSON.stringify(Object.keys(o).sort())===JSON.stringify(names.split(' ').sort()),'Closed absence proof fields');
+   closed(a,'preDenial permissionDenial trigger samples');closed(a.preDenial,'identity identityObservation inventory');
+   const pre=a.preDenial,io=pre.identityObservation,inv=pre.inventory,d=a.permissionDenial,t=a.trigger;
+   closed(io,'identity parentPid directory startedAtNs completedAtNs stableStatPair stableDirectory');closed(io.directory,'dev ino uid');closed(inv,'identity complete sha256 startedAtNs completedAtNs');
+   assert.deepEqual(pre.identity,value.identity);assert.deepEqual(io.identity,value.identity);assert.deepEqual(inv.identity,value.identity);
+   assert(io.stableStatPair===true&&io.stableDirectory===true&&inv.complete===true);assert(/^[a-f0-9]{64}$/.test(inv.sha256));
+   for(const v of [io.parentPid,io.directory.dev,io.directory.ino,io.directory.uid])assert(Number.isSafeInteger(v)&&v>=0,'Finite actual pre-denial metadata');assert.equal(io.directory.uid,p.uid);
+   const firstDenial=value.firstPermissionDenial;closed(firstDenial,'operation target pid path errorCode startedAtNs failedAtNs');
+   assert.equal(firstDenial.operation,'boundedProcEnvironRead');assert.equal(firstDenial.target,'PROC_ENVIRON');assert.equal(firstDenial.pid,p.pid);assert.equal(firstDenial.path,'/proc/'+p.pid+'/environ');assert.equal(firstDenial.errorCode,value.errorCode);assert(['EACCES','EPERM'].includes(firstDenial.errorCode));assert.equal(firstDenial.failedAtNs,value.firstDeniedAtNs);assert(ns(proof.observedAtNs)<=ns(firstDenial.startedAtNs)&&ns(firstDenial.startedAtNs)<=ns(firstDenial.failedAtNs)&&ns(firstDenial.failedAtNs)<=ns(d.failedAtNs));
+   closed(d,'operation target pid path errorCode startedAtNs failedAtNs');
+   assert.equal(d.operation,'boundedProcEnvironRead');assert.equal(d.target,'PROC_ENVIRON');assert.equal(d.pid,p.pid);assert.equal(d.path,'/proc/'+p.pid+'/environ');assert(['EACCES','EPERM'].includes(d.errorCode));assert.equal(d.errorCode,value.lastErrorCode);assert.deepEqual(value.permissionDenial,d);assert.equal(value.lastDeniedAtNs,d.failedAtNs);
+   closed(t,'operation target path syscall errorCode observedAtNs');assert.equal(t.operation,'lstatSync');assert.equal(t.target,'PID_DIRECTORY');assert.equal(t.path,'/proc/'+p.pid);assert.equal(t.syscall,'lstat');assert.equal(t.errorCode,'ENOENT');
+   assert(Array.isArray(a.samples)&&a.samples.length===2,'Two independent directory absence observations required');
+   for(let i=0;i<2;i++){const sample=a.samples[i];closed(sample,'ordinal operation target path syscall errorCode noSymlinkFollow startedAtNs completedAtNs');assert.equal(sample.ordinal,i+1);assert.equal(sample.operation,'lstatSync');assert.equal(sample.target,'PID_DIRECTORY');assert.equal(sample.path,'/proc/'+p.pid);assert.equal(sample.syscall,'lstat');assert.equal(sample.errorCode,'ENOENT');assert.equal(sample.noSymlinkFollow,true);assert(ns(sample.startedAtNs)<=ns(sample.completedAtNs));}
+   const snap=ns(s.snapshotStartedNs),snapshotEnd=ns(s.snapshotCompletedNs),bound=ns(s.childHandleBoundAtNs),observed=ns(s.rootObservedAtNs),anchorAt=ns(proof.anchorObservedAtNs),positive=ns(proof.observedAtNs),preStart=ns(io.startedAtNs),preEnd=ns(io.completedAtNs),invStart=ns(inv.startedAtNs),invEnd=ns(inv.completedAtNs),denialStart=ns(d.startedAtNs),denialEnd=ns(d.failedAtNs),triggerAt=ns(t.observedAtNs),oneStart=ns(a.samples[0].startedAtNs),oneEnd=ns(a.samples[0].completedAtNs),twoStart=ns(a.samples[1].startedAtNs),twoEnd=ns(a.samples[1].completedAtNs),exit=ns(events.exit.observedAtNs),close=ns(events.close.observedAtNs),first=ns(r.firstInventoryStartedNs),second=ns(r.secondInventoryStartedNs),finished=ns(r.inventoryCompletedNs),resolved=ns(r.confirmedAtNs);
+   assert(ns(aggregateEntryNs)<=snap&&snap<=snapshotEnd&&snapshotEnd<=bound&&bound<=observed&&observed<=anchorAt&&anchorAt<=positive&&positive<=preStart&&preStart<=preEnd&&preEnd<=denialStart&&observed<=invStart&&invStart<=preStart&&invStart<=invEnd&&invEnd<=denialStart&&denialStart<=denialEnd&&denialEnd<=triggerAt&&triggerAt<=oneStart&&oneStart<=oneEnd&&oneEnd<=twoStart&&oneStart<twoStart&&twoStart<=twoEnd,'Positive/pre-denial/read/trigger/two-absence chronology');
+   assert(positive<=ns(value.firstDeniedAtNs)&&ns(value.firstDeniedAtNs)<=ns(value.lastDeniedAtNs));
+   let latest=close;const add=x=>{if(x!==undefined&&x!==null){const at=ns(x);if(at>latest)latest=at;}};add(s.rootVisibility?.lastDeniedAtNs);
+   for(const debt of s.knownVisibility){add(debt.lastDeniedAtNs);if(debt.verificationMode==='ABSENT_PID')add(debt.absenceProof.samples[1].completedAtNs);else add(debt.lastIdentityCheckedAtNs);}
+   assert(observed<=exit&&exit<=close&&twoEnd<=first&&latest<=ns(r.lastVisibilityObservationAtNs)&&ns(r.lastVisibilityObservationAtNs)<=first&&first<second&&second<=finished&&finished<=resolved&&resolved<=ns(row.childHardDeadlineNs),'Two complete empty inventories after ROOT close and ALL last denials/absence observations within original deadline');
+   if(Object.hasOwn(value,'lastIdentityCheckedAtNs')){assert(value.stableIdentityEvidence);assert.deepEqual(value.stableIdentityEvidence.identity,value.identity);assert.equal(value.stableIdentityEvidence.checkedAtNs,value.lastIdentityCheckedAtNs);assert(ns(value.lastIdentityCheckedAtNs)<=preStart,'Earlier live identity check cannot be claimed as post-denial absence verification');}
+   continue;
+  }
+  const snap=ns(s.snapshotStartedNs),snapshotEnd=ns(s.snapshotCompletedNs),bound=ns(s.childHandleBoundAtNs),observed=ns(s.rootObservedAtNs),anchorAt=ns(proof.anchorObservedAtNs),positive=ns(proof.observedAtNs),denied=ns(value.firstDeniedAtNs),lastDenied=ns(value.lastDeniedAtNs),identityChecked=ns(value.lastIdentityCheckedAtNs),exit=ns(events.exit.observedAtNs),close=ns(events.close.observedAtNs),first=ns(r.firstInventoryStartedNs),second=ns(r.secondInventoryStartedNs),finished=ns(r.inventoryCompletedNs),resolved=ns(r.confirmedAtNs);
+  assert(ns(aggregateEntryNs)<=snap&&snap<=snapshotEnd&&snapshotEnd<=bound&&bound<=observed&&observed<=anchorAt&&anchorAt<=positive&&positive<=denied&&denied<=lastDenied&&lastDenied<=identityChecked&&identityChecked<=first&&observed<=exit&&exit<=close&&close<=first&&first<second&&second<=finished&&finished<=resolved&&resolved<=ns(row.childHardDeadlineNs),'Positive identity, typed denial and two fresh post-close inventories within original deadline');
+ }
+ return s.knownVisibility.length;
+}
+
 function normal613CallerSourceControls(text){
  const restored=restoreNormal613Caller(text);if(restored.edits===0)return {profile:'legacy',normal613RuntimeExecuted:false};
+ const readonlyAuth=hash(Buffer.from(text))===NORMAL613_READONLY_AUTH_WORKFLOW_AMENDMENT.afterSha256;
  assert.equal(hash(Buffer.from(restored.text)),NORMAL613_CALLER_AMENDMENT.beforeSha256);
  const normal=text.indexOf('--normal613-intake'),journey=text.indexOf('- name: Verify new-user journey source controls');assert(normal>0&&normal<journey,'external intake before application checks');
  const baseline=text.indexOf('- name: Verify and resolve installed production baseline'),context=text.indexOf('- name: Record exact source and runtime\n'),install=text.indexOf('- name: Install isolated test dependencies'),observed=text.indexOf('- name: Observe actual installed per-engine tooling'),browser=text.indexOf('- name: Verify browser tool offline emulation');
  assert(baseline<context&&context<install&&install<observed&&observed<browser,'early preflight and actual installed observation order retained');
- for(const token of ['--normal613-full','--normal613-verify-current','--normal613-engine-context','--normal613-seal','normal613-admission-','browser: [chromium, webkit]','node "$script" --full'])assert(text.includes(token),'Required independent route '+token);
+ for(const token of ['--normal613-full',(readonlyAuth?'--normal613-run qualifier -- bash -Eeuo pipefail':'--normal613-verify-current'),'--normal613-engine-context','--normal613-seal','normal613-admission-','browser: [chromium, webkit]','node "$script" --full'])assert(text.includes(token),'Required independent route '+token);
  assert.equal(NORMAL613_CALLER_POLICY.relayUserId,269614001);assert.notEqual(NORMAL613_CALLER_POLICY.owners.RELEASE,NORMAL613_CALLER_POLICY.owners.PUBLISH);
  const negatives=[['normal intake removed','--normal613-intake','--normal613-intake-removed'],['normal qualifier removed','--normal613-full','--full'],['one engine omitted','browser: [chromium, webkit]','browser: [chromium]'],['manifest seal removed','--normal613-seal','--normal613-seal-removed'],['normal receipt output changed','normal613_source_admission.outputs.executionReceiptPath','normal613_source_admission.outputs.other']];
  for(const [name,from,to]of negatives){assert(text.includes(from),name+' applies');assert.throws(()=>restoreNormal613Caller(text.replace(from,to)),undefined,name);}
@@ -1253,21 +1440,42 @@ function normal613CallerSourceControls(text){
 }
 
 // No network/process dispatch occurs on import or on the unchanged legacy default.
-async function normal613Main(argv){
- const mode=argv[0];
- if(mode==='--normal613-intake'){assert.equal(argv.length,1);return normal613Intake();}
- if(mode==='--normal613-admission'){assert.equal(argv.length,1);return normal613Admission();}
- if(mode==='--normal613-verify-current'){assert.equal(argv.length,1);return normal613Intake('qualification');}
+async function normal613Main(argv,httpFailure=null,metadataToken){
+ const mode=argv[0];if(metadataToken===undefined)metadataToken=process.env.NS_NORMAL613_METADATA_TOKEN;delete process.env.NS_NORMAL613_METADATA_TOKEN;
+ const credentialMode=['--normal613-intake','--normal613-admission','--normal613-verify-current'].includes(mode)||(mode==='--normal613-run'&&['admission','qualifier'].includes(argv[1]));assert(credentialMode||!metadataToken,'Metadata credential forbidden in this mode');
+ if(mode==='--normal613-intake'){assert.equal(argv.length,1);return normal613Intake(null,httpFailure,metadataToken);}
+ if(mode==='--normal613-admission'){assert.equal(argv.length,1);return normal613Admission(httpFailure,metadataToken);}
+ if(mode==='--normal613-verify-current'){assert.equal(argv.length,1);return normal613Intake('qualification',httpFailure,metadataToken);}
  if(mode==='--normal613-engine-context'){assert.equal(argv.length,1);return normal613EngineContext();}
  if(mode==='--normal613-seal'){assert.equal(argv.length,1);return normal613Seal();}
- if(mode==='--normal613-run'){assert(argv.length>=5&&argv[2]==='--');return normal613OwnedRun(argv[1],argv[3],argv.slice(4));}
+ if(mode==='--normal613-run'){assert(argv.length>=5&&argv[2]==='--');return normal613OwnedRun(argv[1],argv[3],argv.slice(4),metadataToken,httpFailure);}
  throw Error('Unknown normal613 caller mode');
 }
 // NORMAL613_CALLER_SOURCE_END
 
 if(require.main===module){
  const argv=process.argv.slice(2);
- if(argv[0]?.startsWith('--normal613-'))normal613Main(argv).catch(error=>{console.error('NORMAL613_FAILED '+String(error.message).slice(0,1000));process.exitCode=1;});
+ if(argv[0]?.startsWith('--normal613-')){
+  const httpFailure={record:null,status:null},metadataToken=process.env.NS_NORMAL613_METADATA_TOKEN;delete process.env.NS_NORMAL613_METADATA_TOKEN;
+  normal613Main(argv,httpFailure,metadataToken).catch(error=>{
+   process.exitCode=1;
+   try{
+    const message=String(error.message),original=(typeof metadataToken==='string'&&metadataToken.length?message.split(metadataToken).join('[REDACTED]'):message).slice(0,1000);let text=original;
+    try{
+     // Only this invocation's unchanged status assertion may carry its response metadata.
+     if(error instanceof assert.AssertionError&&error.code==='ERR_ASSERTION'&&error.operator==='strictEqual'&&error.generatedMessage===false&&error.expected===200&&error.actual===httpFailure.status&&original.startsWith('Public GitHub response; no alternate route')){
+      const record=httpFailure.record;
+      if(typeof record==='string'&&record.length<=1023&&Buffer.byteLength(record+'\n','utf8')<=1024&&/^[\x20-\x7e]+(?![\s\S])/.test(record)){
+       const candidate=original+'\n'+record;
+       // Same single 1000-UTF16-unit slot: prefix17 + worst-case UTF8(1000 units)3000 + LF1.
+       if(candidate.length<=1000&&Buffer.byteLength('NORMAL613_FAILED '+candidate+'\n','utf8')<=3018)text=candidate;
+      }
+     }
+    }catch{} // Keep the exact original limited text if optional formatting cannot complete.
+    console.error('NORMAL613_FAILED '+text);
+   }catch{} // Exit1 is already established; no fallback write or new stream handler.
+  });
+ }
  else console.log(JSON.stringify(sourceControls(boundedRegularRead(path.resolve('.github/workflows/installed-upgrade-tests.yml'),256*1024*1024,sourceReadLedger).toString('utf8'))));
 }
-module.exports={normaliseForwardWorkflow,sourceControls,boundVersionPlanControls,boundedReaderControls,restoreNormal613Caller,normal613CallerSourceControls,normal613Body,normal613ValidateFresh,normal613ExpectedIntent,normal613Intake,normal613Main,normal613FocusedControls:Object.freeze({normal613FocusedClock,normal613FocusedOwnedProcesses,version:'normal613-focused-controls.v1',NORMAL613_CALLER_POLICY,normal613Remaining,normal613OwnedRoot,normal613Save,normal613UnicodeSafe,normal613Canonical,normal613ReceiptMemberReferences,normal613FixtureCommandIds,normal613EngineCommandIds})};
+module.exports={normaliseForwardWorkflow,sourceControls,boundVersionPlanControls,boundedReaderControls,restoreNormal613Caller,normal613CallerSourceControls,normal613Body,normal613ValidateFresh,normal613ExpectedIntent,normal613Intake,normal613Main,normal613FocusedControls:Object.freeze({normal613FocusedClock,normal613FocusedOwnedProcesses,normal613ValidateKnownVisibility,version:'normal613-focused-controls.v1',NORMAL613_CALLER_POLICY,normal613Remaining,normal613OwnedRoot,normal613Save,normal613UnicodeSafe,normal613Canonical,normal613ReceiptMemberReferences,normal613FixtureCommandIds,normal613EngineCommandIds})};

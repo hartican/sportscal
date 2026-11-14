@@ -22,7 +22,12 @@ function displayCopy(event,spoilersOn,now=new Date()){
 }
 function needsDisplayCopy(event,now=new Date()){
   if(cricket.isCricket(event))return stakesFor(event)>=4&&!cricket.complete(event.editorialNarrative);
-  return stakesFor(event)>=4&&[false,true].some(on=>{const copy=displayCopy(event,on,now);return !copy.hook||!copy.synopsis||wordCount(copy.hook)>25||wordCount(copy.synopsis)>80;});
+  const authoritative=policy.copy(event),preview=policy.schedule(event,{},now);
+  const missingAuthoritative=preview.inWindow&&!preview.protected&&!locks.activeFor(event)&&
+    (!String(authoritative.hook||'').trim()||!String(authoritative.synopsis||'').trim());
+  // Short rendering fallbacks cannot conceal missing authored Hook/Context.
+  // Form/Storyline-only gaps do not broaden the unrated repair authority.
+  return stakesFor(event)>=4&&(missingAuthoritative||[false,true].some(on=>{const copy=displayCopy(event,on,now);return !copy.hook||!copy.synopsis||wordCount(copy.hook)>25||wordCount(copy.synopsis)>80;}));
 }
 function completeStagedCopy(state){
   return state.staged_copy&&policy.completeCopy(state.staged_copy);
