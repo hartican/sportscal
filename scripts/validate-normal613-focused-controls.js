@@ -22,7 +22,7 @@ function NSB_BOOT_READ(file,max){
  }finally{NSB_RAW_FS.closeSync(fd);}
 }
 const NSB_TEMP=NSB_RAW_FS.realpathSync(process.env.RUNNER_TEMP),NSB_GUARD_PATH=NSB_PATH.join(__dirname,'validate-forward-onboarding-ci.js');
-const NSB_GUARD_BYTES=NSB_BOOT_READ(NSB_GUARD_PATH,202059);NSB_ASSERT.equal(NSB_GUARD_BYTES.length,202059);NSB_ASSERT.equal(NSB_CRYPTO.createHash('sha256').update(NSB_GUARD_BYTES).digest('hex'),'a10d825b7c6cdd1bb8379456574662694926f8c8a41a85fff75f018b8acc1a8b');
+const NSB_GUARD_BYTES=NSB_BOOT_READ(NSB_GUARD_PATH,202059);NSB_ASSERT.equal(NSB_GUARD_BYTES.length,202059);NSB_ASSERT.equal(NSB_CRYPTO.createHash('sha256').update(NSB_GUARD_BYTES).digest('hex'),'d9cf084966bbdffe88d343b96d16fa6ab218a853920c50ad5bf9379bb9f8829e');
 const NSB_S=require('./validate-forward-onboarding-ci').normal613FocusedControls;
 const NSB_CONTEXT_PATH=NSB_PATH.join(NSB_TEMP,'ns-normal-613-admission','normal613-context.json');
 NSB_ASSERT(NSB_NATIVE_MONO()<NSB_SOFT,'Context bootstrap remains charged');
@@ -81,7 +81,7 @@ const path=require('node:path');
 const os=require('node:os');
 const crypto=require('node:crypto');
 const sha=b=>crypto.createHash('sha256').update(b).digest('hex');
-assert.equal(sha(fs.readFileSync(path.join(__dirname,'validate-forward-onboarding-ci.js'))),'a10d825b7c6cdd1bb8379456574662694926f8c8a41a85fff75f018b8acc1a8b','Exact reviewed R3 with proposed export-only seam');
+assert.equal(sha(fs.readFileSync(path.join(__dirname,'validate-forward-onboarding-ci.js'))),'d9cf084966bbdffe88d343b96d16fa6ab218a853920c50ad5bf9379bb9f8829e','Exact reviewed R3 with proposed export-only seam');
 assert.equal(sha(fs.readFileSync(path.resolve('.github/workflows/installed-upgrade-tests.yml'))),'27fa852a067915ff9b4039a51a53eff606d222fb868a64144ecca82a46d6b3c9','Exact R3 workflow');
 const guard=require('./validate-forward-onboarding-ci');
 const S=guard.normal613FocusedControls;
@@ -120,7 +120,7 @@ function dataTests(){
  run('legacy-and-engine-identity-lists',()=>{assert.deepEqual(normal613FixtureCommandIds(),['journey','install','signup','feed','calendar','production','admission','qualifier','premerge']);const chromium=normal613EngineCommandIds('chromium'),webkit=normal613EngineCommandIds('webkit');assert(!chromium.includes('original-manifest'));assert.equal(webkit.filter(x=>x==='original-manifest').length,1);assert.deepEqual(webkit.filter(x=>x!=='original-manifest'),chromium);});
 }
 function runStaticInputBindings(){
- const files=[['scripts/validate-sync-current-forward.js',101617,'0669dc2014477c900a68ea97bcbef48c3634ecf7e13f7f8f2f8978800da41d25'],['scripts/fixtures/sync-normal-613-20261112.json',53227,'d534f749ba9b62182fd54203b6a90098e0ba9ef38a29d9e7e61a1c817476a582']];
+ const files=[['scripts/validate-sync-current-forward.js',101815,'c469cb2dcd2c029a0b5b1f6112b0396fe4fc65162e196ca085de6d32a9c8d125'],['scripts/fixtures/sync-normal-613-20261112.json',53227,'135f90f7ec129c0274f16f1208e55d5344eb22e235991cb6beed1df0c1088527']];
  run('frozen-r1-inputs',()=>{for(const [name,size,h]of files){const b=fs.readFileSync(path.resolve(name));assert.equal(b.length,size);assert.equal(sha(b),h);}});
 }
 

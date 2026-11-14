@@ -57,7 +57,7 @@
     "config/competition-classification.js": "2e0fd8ee374712192d56f31a895567ecade881694c4bb2f3782097fcf7f6acc7",
     "config/user-state-sync.js": "74cf255a546dcf3d5ab9797281991c8ec742ae07f5f5c69dbca08e4cfa72a7d1",
     "scripts/validate-sync608-reported-hold.js": "818f96bbd68a6b6c2adda4bb2a46ba271273933b3a551e44edebbad66bfce562",
-    "scripts/validate-sync-current-forward.js": "0669dc2014477c900a68ea97bcbef48c3634ecf7e13f7f8f2f8978800da41d25",
+    "scripts/validate-sync-current-forward.js": "c469cb2dcd2c029a0b5b1f6112b0396fe4fc65162e196ca085de6d32a9c8d125",
     "config/fantasy-deadline-ui.js": "c17bcf87249d18ea922637bc3a9872ce4f843f6077d93e180e032bbce0f87d9c",
     "scripts/validate-new-user-journey.js": "c24ce31ad61a764117b311153356e70cbe988dee710405e1fabcc625f9cb57fd"
   },

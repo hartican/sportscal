@@ -259,8 +259,8 @@ const NORMAL613_CALLER_POLICY=Object.freeze({
  owners:{RELEASE:'01a16141-8d23-7a02-bb05-51e2197a1119',PUBLISH:'01a0d5ba-943d-74e0-af7f-dab4fb2bdda4'},
  provenance:{nativePublishTurn:'01a1d264-6d9c-7962-8472-f30a93faadbd',historicalActorSha256:'4d853a24a60d2a2ec230aab522d8f36a82bb6804b061acba7bec0cafd90649d7',historicalActorIssuedAt:'2026-11-07T22:43:16.000Z',currentTokenValidity:'NOT_OBSERVED'},
  base:'2e92211c700c40b2b508fc636a002868c61a7579',product:'491d0ebcb2210b29a1ae6164c0c4deef1b04f2ec',productTree:'b69736ee739e7b31eebe58108c14889a333a756c',
- qualifier:{path:'scripts/validate-sync-current-forward.js',bytes:101617,sha256:'0669dc2014477c900a68ea97bcbef48c3634ecf7e13f7f8f2f8978800da41d25',gitBlob:'69355a239ab62deb17854e1d2eb2ab22b60e9293',mode:'100644'},
- fixture:{path:'scripts/fixtures/sync-normal-613-20261112.json',bytes:53227,sha256:'d534f749ba9b62182fd54203b6a90098e0ba9ef38a29d9e7e61a1c817476a582',gitBlob:'19a2a26e893efecc734e57e2e191689214f1830d',mode:'100644'},
+ qualifier:{path:'scripts/validate-sync-current-forward.js',bytes:101815,sha256:'c469cb2dcd2c029a0b5b1f6112b0396fe4fc65162e196ca085de6d32a9c8d125',gitBlob:'3e29b9cbb23cc77a485ffac2e28a71e37430af89',mode:'100644'},
+ fixture:{path:'scripts/fixtures/sync-normal-613-20261112.json',bytes:53227,sha256:'135f90f7ec129c0274f16f1208e55d5344eb22e235991cb6beed1df0c1088527',gitBlob:'dced71ab2dee8df74705de82c41b86a161c38972',mode:'100644'},
  reservationId:'ns-app-version-613-sportsyurt-20261112',reservationSha256:'daa00a480a28b0cca1d2f9922c82fc9394a5460b0d45f87c3566e42b58a473d7',
  limits:{record:65536,event:4194304,pages:10,comments:1000,requests:32,response:2097152,network:16777216,intakeMs:30000,requestMs:5000,jobMs:900000,metadata:16777216,members:256,artifact:67108864,commandOutput:4194304},
  transportLimit:'Application-consumed bytes/deadlines; not a claim about transport internals or atomic replay prevention.'

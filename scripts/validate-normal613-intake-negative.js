@@ -22,7 +22,7 @@ function NSB_BOOT_READ(file,max){
  }finally{NSB_RAW_FS.closeSync(fd);}
 }
 const NSB_TEMP=NSB_RAW_FS.realpathSync(process.env.RUNNER_TEMP),NSB_GUARD_PATH=NSB_PATH.join(__dirname,'validate-forward-onboarding-ci.js');
-const NSB_GUARD_BYTES=NSB_BOOT_READ(NSB_GUARD_PATH,202059);NSB_ASSERT.equal(NSB_GUARD_BYTES.length,202059);NSB_ASSERT.equal(NSB_CRYPTO.createHash('sha256').update(NSB_GUARD_BYTES).digest('hex'),'a10d825b7c6cdd1bb8379456574662694926f8c8a41a85fff75f018b8acc1a8b');
+const NSB_GUARD_BYTES=NSB_BOOT_READ(NSB_GUARD_PATH,202059);NSB_ASSERT.equal(NSB_GUARD_BYTES.length,202059);NSB_ASSERT.equal(NSB_CRYPTO.createHash('sha256').update(NSB_GUARD_BYTES).digest('hex'),'d9cf084966bbdffe88d343b96d16fa6ab218a853920c50ad5bf9379bb9f8829e');
 const NSB_S=require('./validate-forward-onboarding-ci').normal613FocusedControls;
 const NSB_CONTEXT_PATH=NSB_PATH.join(NSB_TEMP,'ns-normal-613-admission','normal613-context.json');
 NSB_ASSERT(NSB_NATIVE_MONO()<NSB_SOFT,'Context bootstrap remains charged');
@@ -76,12 +76,12 @@ async function NSB_RUN(fn,onError){
 // PRIVATE SOURCE PROPOSAL — UNPARSED AND UNRUN. Synthetic negatives only; no provider call.
 const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),os=require('node:os'),crypto=require('node:crypto'),cp=require('node:child_process');
 const sha=b=>crypto.createHash('sha256').update(b).digest('hex');
-const expectedGuard='a10d825b7c6cdd1bb8379456574662694926f8c8a41a85fff75f018b8acc1a8b';
+const expectedGuard='d9cf084966bbdffe88d343b96d16fa6ab218a853920c50ad5bf9379bb9f8829e';
 assert.equal(sha(fs.readFileSync(path.join(__dirname,'validate-forward-onboarding-ci.js'))),expectedGuard,'Reviewed R3 plus proposed export seam');
 const {normal613Intake,normal613Main,normal613FocusedControls}=require('./validate-forward-onboarding-ci');
 const expectedReservation='daa00a480a28b0cca1d2f9922c82fc9394a5460b0d45f87c3566e42b58a473d7';
-const qualifier={path:'scripts/validate-sync-current-forward.js',bytes:101617,sha256:'0669dc2014477c900a68ea97bcbef48c3634ecf7e13f7f8f2f8978800da41d25',gitBlob:'69355a239ab62deb17854e1d2eb2ab22b60e9293',mode:'100644'};
-const fixture={path:'scripts/fixtures/sync-normal-613-20261112.json',bytes:53227,sha256:'d534f749ba9b62182fd54203b6a90098e0ba9ef38a29d9e7e61a1c817476a582',gitBlob:'19a2a26e893efecc734e57e2e191689214f1830d',mode:'100644'};
+const qualifier={path:'scripts/validate-sync-current-forward.js',bytes:101815,sha256:'c469cb2dcd2c029a0b5b1f6112b0396fe4fc65162e196ca085de6d32a9c8d125',gitBlob:'3e29b9cbb23cc77a485ffac2e28a71e37430af89',mode:'100644'};
+const fixture={path:'scripts/fixtures/sync-normal-613-20261112.json',bytes:53227,sha256:'135f90f7ec129c0274f16f1208e55d5344eb22e235991cb6beed1df0c1088527',gitBlob:'dced71ab2dee8df74705de82c41b86a161c38972',mode:'100644'};
 const H='a'.repeat(40),T='b'.repeat(40),TREE='c'.repeat(40),BASE='2e92211c700c40b2b508fc636a002868c61a7579';
 const envKeys=['RUNNER_TEMP','GITHUB_EVENT_PATH','GITHUB_ACTIONS','GITHUB_EVENT_NAME','GITHUB_REPOSITORY','GITHUB_JOB','GITHUB_RUN_ATTEMPT','GITHUB_WORKFLOW_REF','GITHUB_REF','GITHUB_RUN_ID','GITHUB_SHA'];
 function syntheticEvent(reservation,now,allowance,expiry){
