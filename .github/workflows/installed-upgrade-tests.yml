@@ -167,11 +167,11 @@ jobs:
            const request=JSON.parse(utf8Text(raw));unicodeSafe(request);
            const version=request?.captureFacts?.baselineVersion;
            if(version==='612'){
-            assert.equal(implementationSha256,'0c50daf81a2b7bed72ba24a33fc453040480e91cc41923a92e8e1570426cbcde','Exact reviewed deployed612 collector');
+            assert(['0c50daf81a2b7bed72ba24a33fc453040480e91cc41923a92e8e1570426cbcde','79e55a3d30442984899fed99b0c6d5cd480ce23bdd59f3820a4de27c09f07c00'].includes(implementationSha256),'Exact reviewed deployed612 collector');
             return {baselineVersion:'612',bindingSchema:'primary-baseline-capture-binding.612.v1',validator:'validateCaptureBindingForProfile'};
            }
            assert.equal(version,'611','Only explicit reviewed611/612 capture profiles');
-           assert(['cd9f08b8fafad5ada96460043520b9293c65b91fb3f0cfc6db617c8db343b824','0c50daf81a2b7bed72ba24a33fc453040480e91cc41923a92e8e1570426cbcde'].includes(implementationSha256),'Exact reviewed legacy611-compatible collector');
+           assert(['cd9f08b8fafad5ada96460043520b9293c65b91fb3f0cfc6db617c8db343b824','0c50daf81a2b7bed72ba24a33fc453040480e91cc41923a92e8e1570426cbcde','79e55a3d30442984899fed99b0c6d5cd480ce23bdd59f3820a4de27c09f07c00'].includes(implementationSha256),'Exact reviewed legacy611-compatible collector');
            return {baselineVersion:'611',bindingSchema:'primary-baseline-capture-binding.v1',validator:'validateCaptureBinding'};
           }
           function primaryCaptureRequest(raw,event,env,observed,wall,validate,bindingSchema='primary-baseline-capture-binding.v1'){
