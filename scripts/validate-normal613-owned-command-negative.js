@@ -22,7 +22,7 @@ function NSB_BOOT_READ(file,max){
  }finally{NSB_RAW_FS.closeSync(fd);}
 }
 const NSB_TEMP=NSB_RAW_FS.realpathSync(process.env.RUNNER_TEMP),NSB_GUARD_PATH=NSB_PATH.join(__dirname,'validate-forward-onboarding-ci.js');
-const NSB_GUARD_BYTES=NSB_BOOT_READ(NSB_GUARD_PATH,202059);NSB_ASSERT.equal(NSB_GUARD_BYTES.length,202059);NSB_ASSERT.equal(NSB_CRYPTO.createHash('sha256').update(NSB_GUARD_BYTES).digest('hex'),'d9cf084966bbdffe88d343b96d16fa6ab218a853920c50ad5bf9379bb9f8829e');
+const NSB_GUARD_BYTES=NSB_BOOT_READ(NSB_GUARD_PATH,211953);NSB_ASSERT.equal(NSB_GUARD_BYTES.length,211953);NSB_ASSERT.equal(NSB_CRYPTO.createHash('sha256').update(NSB_GUARD_BYTES).digest('hex'),'ed164e005853c40080dc608937ceaaf2ce2da2c2cba54167db531a2448bdc573');
 const NSB_S=require('./validate-forward-onboarding-ci').normal613FocusedControls;
 const NSB_CONTEXT_PATH=NSB_PATH.join(NSB_TEMP,'ns-normal-613-admission','normal613-context.json');
 NSB_ASSERT(NSB_NATIVE_MONO()<NSB_SOFT,'Context bootstrap remains charged');
@@ -97,7 +97,7 @@ function captureCaseMetadata(tracker,child,phase,end,state){
    actualRootAfterSnapshot:scope.actualRootAfterSnapshot,stableClosureInventory:scope.stableClosureInventory,lastMetadataSha256:scope.lastMetadataSha256,
    excludedPreExistingCount:scope.excludedPreExisting?.length||0,unknownOrOwnershipHolds:scope.unknownOrOwnershipHolds,permanentOwnershipHolds:scope.permanentOwnershipHolds,
    childHandleBoundAtNs:scope.childHandleBoundAtNs,boundChildPid:scope.boundChildPid,rootEventJoinSha256:scope.rootEventJoinSha256,
-   rootVisibility:scope.rootVisibility,rootEventProof:scope.rootEventProof}:null,
+   rootVisibility:scope.rootVisibility,knownVisibility:scope.knownVisibility,rootEventProof:scope.rootEventProof}:null,
   metadataOnly:true,notIndependentOsClosureProof:true
  };
  assert(Buffer.byteLength(JSON.stringify(record))<=65536,'Bounded per-case kernel diagnostics');return record;

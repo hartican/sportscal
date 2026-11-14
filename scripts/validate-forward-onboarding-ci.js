@@ -397,7 +397,7 @@ function normal613FocusedOwnedProcesses(token,clock,until){
  assert(/^[a-f0-9]{64}$/.test(token),'Private per-child ownership marker');
  const selfPid=process.pid,selfUid=process.getuid(),known=new Map(),knownPositive=new Map(),knownVisibility=new Map(),groups=new Set(),sessions=new Set(),holds=[],permanentHolds=new Set();
  const fields=['pid','uid','startTicks','parentPid','pgid','sessionId'];
- let root=null,rootIdentity=null,rootObserved=false,rootAt=null,lastScope=null,rootExit=null,rootClose=null,rootVisibility=null,boundChild=null,boundPid=null,boundAt=null,rootEventJoinSha256=null;
+ let root=null,rootIdentity=null,rootObserved=false,rootAt=null,lastScope=null,rootExit=null,rootClose=null,rootVisibility=null,boundChild=null,boundPid=null,boundAt=null,rootEventJoinSha256=null,lastInventory=null;
  const rootVisibilityHold=()=>'UNOBSERVABLE_OWNED_CANDIDATE '+root+': typed environ permission denial (pending bound root exit/close and domain closure)';
  const knownVisibilityHold=pid=>'UNOBSERVABLE_KNOWN_DESCENDANT '+pid+': typed environ permission denial (pending bound root exit/close and domain closure)';
  const ownedKey=p=>Object.fromEntries(fields.filter(k=>k!=='parentPid').map(k=>[k,p[k]]));
@@ -417,24 +417,27 @@ function normal613FocusedOwnedProcesses(token,clock,until){
   for(const k of ['pid','uid','parentPid','pgid','sessionId'])assert(Number.isSafeInteger(p[k])&&p[k]>=0,'Finite kernel process metadata');
   return p;
  }
- function identity(pid){
-  check();const dir='/proc/'+pid,before=fs.lstatSync(dir);assert(before.isDirectory()&&!before.isSymbolicLink(),'Actual proc directory');
+ function identity(pid,witnesses=null){
+  check();const startedAtNs=clock.nowNs().toString(),dir='/proc/'+pid,before=fs.lstatSync(dir);assert(before.isDirectory()&&!before.isSymbolicLink(),'Actual proc directory');
   const a=parsed(pid,before.uid,bounded(dir+'/stat',16384).toString('utf8'));
   const b=parsed(pid,before.uid,bounded(dir+'/stat',16384).toString('utf8'));
   check();const after=fs.lstatSync(dir);for(const k of ['dev','ino','uid'])assert.equal(after[k],before[k],'Kernel directory identity changed');
-  assert(known.has(pid)?sameOwned(a,b):same(a,b),'Kernel process metadata changed during observation');return b;
+  assert(known.has(pid)?sameOwned(a,b):same(a,b),'Kernel process metadata changed during observation');
+  if(witnesses)witnesses.set(pid,{identity:ownedKey(b),parentPid:b.parentPid,directory:{dev:before.dev,ino:before.ino,uid:before.uid},startedAtNs,completedAtNs:clock.nowNs().toString(),stableStatPair:true,stableDirectory:true});return b;
  }
  function metadata(){
-  check();const names=fs.readdirSync('/proc').filter(n=>/^[1-9]\d*$/.test(n)).map(Number).sort((a,b)=>a-b);
-  assert(names.length<=4096,'Proc inventory bound');const seen=new Map();
+  check();const startedAtNs=clock.nowNs().toString(),names=fs.readdirSync('/proc').filter(n=>/^[1-9]\d*$/.test(n)).map(Number).sort((a,b)=>a-b);
+  assert(names.length<=4096,'Proc inventory bound');const seen=new Map(),observations=new Map();let complete=true;
   for(const pid of names){check();if(pid===selfPid)continue;
-   try{seen.set(pid,identity(pid));}
-   catch(e){if(e.code==='ENOENT'||e.code==='ESRCH')continue;note('UNKNOWN_KERNEL_METADATA '+pid+': '+e.message);}
+   try{seen.set(pid,identity(pid,observations));}
+   catch(e){if(e.code==='ENOENT'||e.code==='ESRCH')continue;complete=false;note('UNKNOWN_KERNEL_METADATA '+pid+': '+e.message);}
   }
-  return {seen,digest:hash(Buffer.from(JSON.stringify([...seen.values()].map(core))))};
+  return {seen,observations,complete,startedAtNs,completedAtNs:clock.nowNs().toString(),digest:hash(Buffer.from(JSON.stringify([...seen.values()].map(core))))};
  }
  function marked(p){
-  let bytes;try{bytes=bounded('/proc/'+p.pid+'/environ',65536);}catch(e){if(e.code==='EACCES'||e.code==='EPERM')e.normal613EnvironmentDenied=true;throw e;}
+  const startedAtNs=clock.nowNs().toString();let bytes;
+  try{bytes=bounded('/proc/'+p.pid+'/environ',65536);}
+  catch(e){if(e.code==='EACCES'||e.code==='EPERM'){e.normal613EnvironmentDenied=true;e.normal613PermissionDenial={operation:'boundedProcEnvironRead',target:'PROC_ENVIRON',pid:p.pid,path:'/proc/'+p.pid+'/environ',errorCode:e.code,startedAtNs,failedAtNs:clock.nowNs().toString()};}throw e;}
   const again=identity(p.pid);
   assert(known.has(p.pid)?sameOwned(p,again):same(p,again),'Process changed during ownership observation');
   return bytes.toString('utf8').split('\0').includes('NS_FOCUSED_OWNER_TOKEN='+token);
@@ -478,20 +481,54 @@ function normal613FocusedOwnedProcesses(token,clock,until){
   const proof={identity:ownedKey(p),rootIdentity:ownedKey(rootIdentity),rootEventJoinSha256,observedAtNs:clock.nowNs().toString(),parentPid:p.parentPid,anchorIdentity:ownedKey(anchor),anchorObservedAtNs:anchorAt,positiveMarkerConfirmed:true,ownedDomainConfirmed:true,baselineAbsent:true};
   knownPositive.set(p.pid,{proof,sha256:hash(Buffer.from(JSON.stringify(proof)))});
  }
- function rememberKnownVisibility(p,error){
+ function preDenialObservation(p,inventory,witness,denial){
+  const original=inventory?.observations.get(p.pid),observed=witness||original;
+  assert(inventory?.complete===true&&permanentHolds.size===0&&original&&observed,'Complete fresh pre-denial metadata required');
+  assert(sameOwned(original.identity,p)&&sameOwned(observed.identity,p)&&observed.stableStatPair&&observed.stableDirectory,'Pre-denial stable identity must match prior positive key');
+  assert(BigInt(observed.completedAtNs)<=BigInt(denial.startedAtNs)&&BigInt(inventory.completedAtNs)<=BigInt(denial.startedAtNs),'Pre-denial observations precede denied read');
+  return {identity:ownedKey(p),identityObservation:observed,inventory:{identity:ownedKey(inventory.seen.get(p.pid)),complete:true,sha256:inventory.digest,startedAtNs:inventory.startedAtNs,completedAtNs:inventory.completedAtNs}};
+ }
+ function repeatedPidAbsence(pid){
+  const path='/proc/'+pid,samples=[];
+  for(let ordinal=1;ordinal<=2;ordinal++){
+   check();const startedAtNs=clock.nowNs().toString();
+   try{fs.lstatSync(path);}
+   catch(e){if(e.code!=='ENOENT'||e.syscall!=='lstat'||e.path!==path)throw e;samples.push({ordinal,operation:'lstatSync',target:'PID_DIRECTORY',path,syscall:e.syscall,errorCode:e.code,noSymlinkFollow:true,startedAtNs,completedAtNs:clock.nowNs().toString()});continue;}
+   throw Error('KNOWN_ABSENCE_PID_PRESENT '+pid);
+  }
+  return samples;
+ }
+ function rememberKnownVisibility(p,error,inventory=null,witness=null){
   if(error.normal613EnvironmentDenied!==true||!['EACCES','EPERM'].includes(error.code)||p.pid===root||!rootObserved||!boundChild||boundPid!==root||!rootEventJoinSha256)return false;
   const expected=known.get(p.pid),positive=knownPositive.get(p.pid);
   if(!expected||!positive||!sameOwned(expected,p)||!sameOwned(positive.proof.identity,p)||positive.proof.rootEventJoinSha256!==rootEventJoinSha256)return false;
   try{
-   check();const current=identity(p.pid);
-   if(!sameOwned(expected,current)){note('KNOWN_DENIAL_IDENTITY_CHANGED '+p.pid);return false;}
-   const previous=knownVisibility.get(p.pid);
-   if(previous&&previous.status!=='PENDING_BOUND_ROOT_EXIT_CLOSE_AND_DOMAIN_CLOSURE'){note('KNOWN_DENIAL_AFTER_RESOLUTION '+p.pid);return false;}
-   const at=clock.nowNs().toString();assert(BigInt(positive.proof.observedAtNs)<=BigInt(at),'Positive ownership precedes known visibility debt');
-   const value=previous||{identity:ownedKey(expected),rootEventJoinSha256,positiveProof:positive.proof,positiveProofSha256:positive.sha256,status:'PENDING_BOUND_ROOT_EXIT_CLOSE_AND_DOMAIN_CLOSURE',errorCode:error.code,lastErrorCode:error.code,firstDeniedAtNs:at,lastDeniedAtNs:at,lastIdentityCheckedAtNs:at,readDenials:0,resolution:null};
-   value.lastDeniedAtNs=at;value.lastIdentityCheckedAtNs=at;value.lastErrorCode=error.code;value.readDenials++;knownVisibility.set(p.pid,value);
-   const hold=knownVisibilityHold(p.pid);if(!holds.includes(hold))holds.push(hold);return true;
+   check();const previous=knownVisibility.get(p.pid),denial=error.normal613PermissionDenial;
+   assert(denial&&denial.pid===p.pid&&denial.path==='/proc/'+p.pid+'/environ'&&denial.errorCode===error.code,'Actual typed denied read required');
+   if(previous&&(previous.status!=='PENDING_BOUND_ROOT_EXIT_CLOSE_AND_DOMAIN_CLOSURE'||previous.verificationMode==='ABSENT_PID')){note('KNOWN_DENIAL_AFTER_RESOLUTION_OR_ABSENCE '+p.pid);return false;}
+   let current=null,absenceProof=null;
+   try{current=identity(p.pid);}
+   catch(e){
+    if(e.code!=='ENOENT'||e.syscall!=='lstat'||e.path!=='/proc/'+p.pid)throw e;
+    const trigger={operation:'lstatSync',target:'PID_DIRECTORY',path:e.path,syscall:e.syscall,errorCode:e.code,observedAtNs:clock.nowNs().toString()},preDenial=preDenialObservation(p,inventory,witness,denial);
+    assert(BigInt(positive.proof.observedAtNs)<=BigInt(preDenial.identityObservation.startedAtNs),'Prior positive proof precedes fresh pre-denial identity');
+    absenceProof={preDenial,permissionDenial:denial,trigger,samples:repeatedPidAbsence(p.pid)};
+   }
+   if(current&&!sameOwned(expected,current)){note('KNOWN_DENIAL_IDENTITY_CHANGED '+p.pid);return false;}
+   const at=clock.nowNs().toString();assert(BigInt(positive.proof.observedAtNs)<=BigInt(denial.failedAtNs),'Positive ownership precedes known visibility debt');
+   const value=previous||{identity:ownedKey(expected),rootEventJoinSha256,positiveProof:positive.proof,positiveProofSha256:positive.sha256,status:'PENDING_BOUND_ROOT_EXIT_CLOSE_AND_DOMAIN_CLOSURE',errorCode:error.code,lastErrorCode:error.code,firstDeniedAtNs:denial.failedAtNs,lastDeniedAtNs:denial.failedAtNs,firstPermissionDenial:denial,readDenials:0,resolution:null};
+   value.lastDeniedAtNs=denial.failedAtNs;value.permissionDenial=denial;value.lastErrorCode=error.code;value.readDenials++;
+   if(absenceProof){value.verificationMode='ABSENT_PID';value.absenceProof=absenceProof;}
+   else{value.verificationMode='LIVE_IDENTITY';value.lastIdentityCheckedAtNs=at;value.stableIdentityEvidence={identity:ownedKey(current),checkedAtNs:at};}
+   knownVisibility.set(p.pid,value);const hold=knownVisibilityHold(p.pid);if(!holds.includes(hold))holds.push(hold);return true;
   }catch(e){note('KNOWN_DENIAL_CHECK_HOLD '+p.pid+': '+e.message);return false;}
+ }
+ function visibilityBoundaryNs(){
+  let last=rootClose?BigInt(rootClose.observedAtNs):0n;
+  const add=value=>{if(value!==undefined&&value!==null){const at=BigInt(value);if(at>last)last=at;}};
+  add(rootVisibility?.lastDeniedAtNs);
+  for(const v of knownVisibility.values()){add(v.lastDeniedAtNs);if(v.verificationMode==='ABSENT_PID')add(v.absenceProof.samples[1].completedAtNs);else add(v.lastIdentityCheckedAtNs);}
+  return last;
  }
  function rootEvent(kind,child,code,signal){
   try{
@@ -511,10 +548,10 @@ function normal613FocusedOwnedProcesses(token,clock,until){
  const waitingForRootExit=()=>{const pending=pendingVisibilityHolds();return pending.length>0&&permanentHolds.size===0&&holds.length===pending.length&&pending.every(h=>holds.includes(h));};
  function observe(){
   check();if(root===null){note('OWNED_ROOT_NOT_SET');return {active:[],groupMembers:[],sessionMembers:[],closed:false};}
-  const inventoryStartedNs=clock.nowNs().toString(),current=metadata(),seen=current.seen,checked=new Set(),active=new Map(),excluded=new Map();
+  const inventoryStartedNs=clock.nowNs().toString(),current=metadata(),seen=current.seen,checked=new Set(),active=new Map(),excluded=new Map();lastInventory=current;
   if(rootVisibility?.status==='RESOLVED_AFTER_BOUND_ROOT_EXIT_CLOSE_AND_DOMAIN_ABSENCE'&&seen.has(root))note('ROOT_REAPPEARED_AFTER_RESOLUTION '+root);
   if(rootExit&&rootClose&&seen.has(root))note('ROOT_PRESENT_AFTER_BOUND_EXIT_CLOSE '+root);
-  for(const value of knownVisibility.values())if(value.status==='RESOLVED_AFTER_BOUND_ROOT_EXIT_CLOSE_AND_DOMAIN_ABSENCE'&&seen.has(value.identity.pid))note('KNOWN_REAPPEARED_AFTER_RESOLUTION '+value.identity.pid);
+  for(const value of knownVisibility.values())if(seen.has(value.identity.pid)&&(value.status==='RESOLVED_AFTER_BOUND_ROOT_EXIT_CLOSE_AND_DOMAIN_ABSENCE'||value.verificationMode==='ABSENT_PID'))note('KNOWN_REAPPEARED_AFTER_RESOLUTION_OR_ABSENCE '+value.identity.pid);
   let expanded=true;
   while(expanded){
    expanded=false;
@@ -533,7 +570,7 @@ function normal613FocusedOwnedProcesses(token,clock,until){
     }
     let owned=false;
     try{owned=marked(p);}
-    catch(e){if(e.code==='ENOENT'||e.code==='ESRCH')continue;if(!rememberRootVisibility(p,e)&&!rememberKnownVisibility(p,e))note('UNOBSERVABLE_OWNED_CANDIDATE '+p.pid+': '+e.message);active.set(p.pid,p);continue;}
+    catch(e){if(e.code==='ENOENT'||e.code==='ESRCH')continue;if(!rememberRootVisibility(p,e)&&!rememberKnownVisibility(p,e,current))note('UNOBSERVABLE_OWNED_CANDIDATE '+p.pid+': '+e.message);active.set(p.pid,p);continue;}
     if(!owned){
      note((old?'OWNERSHIP_MARKER_LOST ':d.candidate?'UNOWNED_MEMBER_OF_OWNED_DOMAIN ':'POSSIBLY_OWNED_NEW_IDENTITY ')+p.pid);
      active.set(p.pid,p);continue;
@@ -553,14 +590,14 @@ function normal613FocusedOwnedProcesses(token,clock,until){
   }
   let stableClosureInventory=false;
   const emptyDomain=rootObserved&&!seen.has(root)&&active.size===0&&groupMembers.length===0&&sessionMembers.length===0;
-  const pendingCanResolve=waitingForRootExit()&&rootExit!==null&&rootClose!==null&&BigInt(inventoryStartedNs)>=BigInt(rootClose.observedAtNs);
+  const pendingCanResolve=waitingForRootExit()&&rootExit!==null&&rootClose!==null&&BigInt(inventoryStartedNs)>=visibilityBoundaryNs();
   if(emptyDomain&&(holds.length===0||pendingCanResolve)){
    // Unknown metadata still adds a permanent hold; neither time nor PASS output resolves it.
    const secondInventoryStartedNs=clock.nowNs().toString(),final=metadata(),inventoryCompletedNs=clock.nowNs().toString();stableClosureInventory=final.digest===current.digest;
-   if(stableClosureInventory&&!final.seen.has(root)&&pendingCanResolve&&waitingForRootExit()){
+   if(stableClosureInventory&&current.complete&&final.complete&&!final.seen.has(root)&&pendingCanResolve&&waitingForRootExit()){
     const pendingKnown=[...knownVisibility.values()].filter(v=>v.status==='PENDING_BOUND_ROOT_EXIT_CLOSE_AND_DOMAIN_CLOSURE');
     assert(pendingKnown.every(v=>!seen.has(v.identity.pid)&&!final.seen.has(v.identity.pid)),'Every denied known identity absent in both complete inventories');
-    const resolution={rootAbsent:true,ownedDomainEmpty:true,firstMetadataSha256:current.digest,secondMetadataSha256:final.digest,firstInventoryStartedNs:inventoryStartedNs,secondInventoryStartedNs,inventoryCompletedNs,confirmedAtNs:clock.nowNs().toString()};
+    const resolution={rootAbsent:true,ownedDomainEmpty:true,lastVisibilityObservationAtNs:visibilityBoundaryNs().toString(),firstInventoryComplete:current.complete,secondInventoryComplete:final.complete,firstMetadataSha256:current.digest,secondMetadataSha256:final.digest,firstInventoryStartedNs:inventoryStartedNs,secondInventoryStartedNs,inventoryCompletedNs,confirmedAtNs:clock.nowNs().toString()};
     if(rootVisibility?.status==='PENDING_BOUND_ROOT_EXIT_CLOSE_AND_DOMAIN_CLOSURE'){
      const index=holds.indexOf(rootVisibilityHold());assert(index>=0);
      rootVisibility.status='RESOLVED_AFTER_BOUND_ROOT_EXIT_CLOSE_AND_DOMAIN_ABSENCE';rootVisibility.resolution={...resolution};holds.splice(index,1);
@@ -579,16 +616,17 @@ function normal613FocusedOwnedProcesses(token,clock,until){
   return {active:[...active.values()],groupMembers,sessionMembers,closed:rootObserved&&active.size===0&&groupMembers.length===0&&sessionMembers.length===0&&holds.length===0&&stableClosureInventory};
  }
  function signalOwned(signal){
-  const observation=observe();
+  const observation=observe(),inventory=lastInventory;
   for(const p of observation.active){
    check();const expected=known.get(p.pid);
    if(!expected||!sameOwned(expected,p)){note('SIGNAL_IDENTITY_UNCONFIRMED '+p.pid);continue;}
    if(knownVisibility.get(p.pid)?.status==='PENDING_BOUND_ROOT_EXIT_CLOSE_AND_DOMAIN_CLOSURE')continue;
-   try{const current=identity(p.pid);if(current.uid!==selfUid||!sameOwned(expected,current)){note('SIGNAL_IDENTITY_UNCONFIRMED '+p.pid);continue;}
+   let preWitness=null;
+   try{const witnesses=new Map(),current=identity(p.pid,witnesses);preWitness=witnesses.get(p.pid);if(current.uid!==selfUid||!sameOwned(expected,current)){note('SIGNAL_IDENTITY_UNCONFIRMED '+p.pid);continue;}
     if(current.state==='Z')continue;
     if(!marked(current)){note('SIGNAL_OWNERSHIP_UNCONFIRMED '+p.pid);continue;}
     check();process.kill(current.pid,signal);
-   }catch(e){if(e.code!=='ESRCH'&&e.code!=='ENOENT'&&!rememberRootVisibility(p,e)&&!rememberKnownVisibility(p,e))note('SIGNAL_UNCONFIRMED '+p.pid+': '+e.message);}
+   }catch(e){if(e.code!=='ESRCH'&&e.code!=='ENOENT'&&!rememberRootVisibility(p,e)&&!rememberKnownVisibility(p,e,inventory,preWitness))note('SIGNAL_UNCONFIRMED '+p.pid+': '+e.message);}
   }
   return observation;
  }
@@ -1308,6 +1346,32 @@ function normal613ValidateKnownVisibility(row,aggregateEntryNs){
   assert(proof.parentPid===anchor.pid||p.pgid===anchor.pgid||p.sessionId===anchor.sessionId,'Saved positively owned parent/group/session anchor');
   assert(r?.rootAbsent&&r.ownedDomainEmpty&&r.deniedIdentityAbsent);assert.deepEqual(r.deniedIdentity,value.identity);
   assert(/^[a-f0-9]{64}$/.test(r.firstMetadataSha256));assert.equal(r.firstMetadataSha256,r.secondMetadataSha256);
+  assert(['LIVE_IDENTITY','ABSENT_PID'].includes(value.verificationMode),'Explicit live identity versus repeated absence mode');
+  if(value.verificationMode==='ABSENT_PID'){
+   assert(r.firstInventoryComplete===true&&r.secondInventoryComplete===true,'Two complete post-observation closure inventories required');
+   const a=value.absenceProof,closed=(o,names)=>assert(o&&JSON.stringify(Object.keys(o).sort())===JSON.stringify(names.split(' ').sort()),'Closed absence proof fields');
+   closed(a,'preDenial permissionDenial trigger samples');closed(a.preDenial,'identity identityObservation inventory');
+   const pre=a.preDenial,io=pre.identityObservation,inv=pre.inventory,d=a.permissionDenial,t=a.trigger;
+   closed(io,'identity parentPid directory startedAtNs completedAtNs stableStatPair stableDirectory');closed(io.directory,'dev ino uid');closed(inv,'identity complete sha256 startedAtNs completedAtNs');
+   assert.deepEqual(pre.identity,value.identity);assert.deepEqual(io.identity,value.identity);assert.deepEqual(inv.identity,value.identity);
+   assert(io.stableStatPair===true&&io.stableDirectory===true&&inv.complete===true);assert(/^[a-f0-9]{64}$/.test(inv.sha256));
+   for(const v of [io.parentPid,io.directory.dev,io.directory.ino,io.directory.uid])assert(Number.isSafeInteger(v)&&v>=0,'Finite actual pre-denial metadata');assert.equal(io.directory.uid,p.uid);
+   const firstDenial=value.firstPermissionDenial;closed(firstDenial,'operation target pid path errorCode startedAtNs failedAtNs');
+   assert.equal(firstDenial.operation,'boundedProcEnvironRead');assert.equal(firstDenial.target,'PROC_ENVIRON');assert.equal(firstDenial.pid,p.pid);assert.equal(firstDenial.path,'/proc/'+p.pid+'/environ');assert.equal(firstDenial.errorCode,value.errorCode);assert(['EACCES','EPERM'].includes(firstDenial.errorCode));assert.equal(firstDenial.failedAtNs,value.firstDeniedAtNs);assert(ns(proof.observedAtNs)<=ns(firstDenial.startedAtNs)&&ns(firstDenial.startedAtNs)<=ns(firstDenial.failedAtNs)&&ns(firstDenial.failedAtNs)<=ns(d.failedAtNs));
+   closed(d,'operation target pid path errorCode startedAtNs failedAtNs');
+   assert.equal(d.operation,'boundedProcEnvironRead');assert.equal(d.target,'PROC_ENVIRON');assert.equal(d.pid,p.pid);assert.equal(d.path,'/proc/'+p.pid+'/environ');assert(['EACCES','EPERM'].includes(d.errorCode));assert.equal(d.errorCode,value.lastErrorCode);assert.deepEqual(value.permissionDenial,d);assert.equal(value.lastDeniedAtNs,d.failedAtNs);
+   closed(t,'operation target path syscall errorCode observedAtNs');assert.equal(t.operation,'lstatSync');assert.equal(t.target,'PID_DIRECTORY');assert.equal(t.path,'/proc/'+p.pid);assert.equal(t.syscall,'lstat');assert.equal(t.errorCode,'ENOENT');
+   assert(Array.isArray(a.samples)&&a.samples.length===2,'Two independent directory absence observations required');
+   for(let i=0;i<2;i++){const sample=a.samples[i];closed(sample,'ordinal operation target path syscall errorCode noSymlinkFollow startedAtNs completedAtNs');assert.equal(sample.ordinal,i+1);assert.equal(sample.operation,'lstatSync');assert.equal(sample.target,'PID_DIRECTORY');assert.equal(sample.path,'/proc/'+p.pid);assert.equal(sample.syscall,'lstat');assert.equal(sample.errorCode,'ENOENT');assert.equal(sample.noSymlinkFollow,true);assert(ns(sample.startedAtNs)<=ns(sample.completedAtNs));}
+   const snap=ns(s.snapshotStartedNs),snapshotEnd=ns(s.snapshotCompletedNs),bound=ns(s.childHandleBoundAtNs),observed=ns(s.rootObservedAtNs),anchorAt=ns(proof.anchorObservedAtNs),positive=ns(proof.observedAtNs),preStart=ns(io.startedAtNs),preEnd=ns(io.completedAtNs),invStart=ns(inv.startedAtNs),invEnd=ns(inv.completedAtNs),denialStart=ns(d.startedAtNs),denialEnd=ns(d.failedAtNs),triggerAt=ns(t.observedAtNs),oneStart=ns(a.samples[0].startedAtNs),oneEnd=ns(a.samples[0].completedAtNs),twoStart=ns(a.samples[1].startedAtNs),twoEnd=ns(a.samples[1].completedAtNs),exit=ns(events.exit.observedAtNs),close=ns(events.close.observedAtNs),first=ns(r.firstInventoryStartedNs),second=ns(r.secondInventoryStartedNs),finished=ns(r.inventoryCompletedNs),resolved=ns(r.confirmedAtNs);
+   assert(ns(aggregateEntryNs)<=snap&&snap<=snapshotEnd&&snapshotEnd<=bound&&bound<=observed&&observed<=anchorAt&&anchorAt<=positive&&positive<=preStart&&preStart<=preEnd&&preEnd<=denialStart&&observed<=invStart&&invStart<=preStart&&invStart<=invEnd&&invEnd<=denialStart&&denialStart<=denialEnd&&denialEnd<=triggerAt&&triggerAt<=oneStart&&oneStart<=oneEnd&&oneEnd<=twoStart&&oneStart<twoStart&&twoStart<=twoEnd,'Positive/pre-denial/read/trigger/two-absence chronology');
+   assert(positive<=ns(value.firstDeniedAtNs)&&ns(value.firstDeniedAtNs)<=ns(value.lastDeniedAtNs));
+   let latest=close;const add=x=>{if(x!==undefined&&x!==null){const at=ns(x);if(at>latest)latest=at;}};add(s.rootVisibility?.lastDeniedAtNs);
+   for(const debt of s.knownVisibility){add(debt.lastDeniedAtNs);if(debt.verificationMode==='ABSENT_PID')add(debt.absenceProof.samples[1].completedAtNs);else add(debt.lastIdentityCheckedAtNs);}
+   assert(observed<=exit&&exit<=close&&twoEnd<=first&&latest<=ns(r.lastVisibilityObservationAtNs)&&ns(r.lastVisibilityObservationAtNs)<=first&&first<second&&second<=finished&&finished<=resolved&&resolved<=ns(row.childHardDeadlineNs),'Two complete empty inventories after ROOT close and ALL last denials/absence observations within original deadline');
+   if(Object.hasOwn(value,'lastIdentityCheckedAtNs')){assert(value.stableIdentityEvidence);assert.deepEqual(value.stableIdentityEvidence.identity,value.identity);assert.equal(value.stableIdentityEvidence.checkedAtNs,value.lastIdentityCheckedAtNs);assert(ns(value.lastIdentityCheckedAtNs)<=preStart,'Earlier live identity check cannot be claimed as post-denial absence verification');}
+   continue;
+  }
   const snap=ns(s.snapshotStartedNs),snapshotEnd=ns(s.snapshotCompletedNs),bound=ns(s.childHandleBoundAtNs),observed=ns(s.rootObservedAtNs),anchorAt=ns(proof.anchorObservedAtNs),positive=ns(proof.observedAtNs),denied=ns(value.firstDeniedAtNs),lastDenied=ns(value.lastDeniedAtNs),identityChecked=ns(value.lastIdentityCheckedAtNs),exit=ns(events.exit.observedAtNs),close=ns(events.close.observedAtNs),first=ns(r.firstInventoryStartedNs),second=ns(r.secondInventoryStartedNs),finished=ns(r.inventoryCompletedNs),resolved=ns(r.confirmedAtNs);
   assert(ns(aggregateEntryNs)<=snap&&snap<=snapshotEnd&&snapshotEnd<=bound&&bound<=observed&&observed<=anchorAt&&anchorAt<=positive&&positive<=denied&&denied<=lastDenied&&lastDenied<=identityChecked&&identityChecked<=first&&observed<=exit&&exit<=close&&close<=first&&first<second&&second<=finished&&finished<=resolved&&resolved<=ns(row.childHardDeadlineNs),'Positive identity, typed denial and two fresh post-close inventories within original deadline');
  }
