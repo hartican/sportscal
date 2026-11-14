@@ -824,8 +824,9 @@ async function normal613Intake(revalidateStage=null,httpFailure=null){
 }
 // NORMAL613_INTAKE_END
 
-async function normal613Admission(httpFailure=null){
+async function normal613Admission(){
  'use strict';
+ const httpFailure=arguments[0]===undefined?null:arguments[0];
  const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto'),cp=require('node:child_process'),{TextDecoder}=require('node:util');
  const hash=bytes=>crypto.createHash('sha256').update(bytes).digest('hex');
  await normal613Intake('admission',httpFailure);
