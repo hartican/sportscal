@@ -78,6 +78,9 @@ concurrency:
 
 jobs:
   fixture-activation:
+    permissions:
+      contents: read
+      pull-requests: read
     name: Fixture activation / remaining three checks
     if: github.event.pull_request.draft == false || (github.event.pull_request.draft == true && github.event.pull_request.head.repo.full_name == github.repository && startsWith(github.event.pull_request.head.ref, 'codex/baseline-capture-')) || (github.event.pull_request.draft == true && github.event.pull_request.head.repo.full_name == github.repository && startsWith(github.event.pull_request.head.ref, 'codex/source-qualification-') && startsWith(github.event.pull_request.body, '{"schemaVersion":"ns-release-handover.forward.v1",'))
     runs-on: ubuntu-24.04
@@ -98,6 +101,8 @@ jobs:
       - name: Bind genuine external normal613 decisions before application checks
         if: github.event.pull_request.draft == false && startsWith(github.event.pull_request.body, '{"schemaVersion":"ns-release-handover.normal613.v1",')
         timeout-minutes: 1
+        env:
+          NS_NORMAL613_METADATA_TOKEN: ${{ github.token }}
         run: timeout --signal=TERM --kill-after=5s 60s node scripts/validate-forward-onboarding-ci.js --normal613-intake
       # NS_NORMAL613_INTAKE_END
       - name: Record exact source and runtime in job log
@@ -1445,14 +1450,9 @@ jobs:
         if: github.event.pull_request.draft == false && startsWith(github.event.pull_request.body, '{"schemaVersion":"ns-release-handover.normal613.v1",')
         id: normal613_source_admission
         timeout-minutes: 2
-        run: |
-          ns_normal613_command=(bash -e)
-          if [ "${{ startsWith(github.event.pull_request.body, '{"schemaVersion":"ns-release-handover.normal613.v1",') }}" = "true" ]; then
-            ns_normal613_command=(node scripts/validate-forward-onboarding-ci.js --normal613-run admission -- bash -Eeuo pipefail)
-          fi
-          "${ns_normal613_command[@]}" <<'NS_NORMAL613_RUN_fixture_admission'
-          timeout --signal=TERM --kill-after=5s 120s node scripts/validate-forward-onboarding-ci.js --normal613-admission
-          NS_NORMAL613_RUN_fixture_admission
+        env:
+          NS_NORMAL613_METADATA_TOKEN: ${{ github.token }}
+        run: node scripts/validate-forward-onboarding-ci.js --normal613-run admission -- node scripts/validate-forward-onboarding-ci.js --normal613-admission < /dev/null
       # NS_NORMAL613_ADMISSION_END
       - name: Verify full SYNC source and generated qualification
         if: github.event.pull_request.draft == false
@@ -1460,6 +1460,7 @@ jobs:
         env:
           NS_SYNC_EXECUTION_RECEIPT: ${{ steps.normal613_source_admission.outputs.executionReceiptPath || steps.forward_source_admission.outputs.executionReceiptPath || steps.e610_source_admission.outputs.executionReceiptPath }}
           NS_SYNC_EXECUTION_RECEIPT_SHA256: ${{ steps.normal613_source_admission.outputs.executionReceiptSha256 || steps.forward_source_admission.outputs.executionReceiptSha256 || steps.e610_source_admission.outputs.executionReceiptSha256 }}
+          NS_NORMAL613_METADATA_TOKEN: ${{ startsWith(github.event.pull_request.body, '{"schemaVersion":"ns-release-handover.normal613.v1",') && github.token || '' }}
         run: |
           ns_normal613_command=(bash -e)
           if [ "${{ startsWith(github.event.pull_request.body, '{"schemaVersion":"ns-release-handover.normal613.v1",') }}" = "true" ]; then
@@ -1467,7 +1468,7 @@ jobs:
           fi
           "${ns_normal613_command[@]}" <<'NS_NORMAL613_RUN_fixture_qualifier'
           if [ "${{ startsWith(github.event.pull_request.body, '{"schemaVersion":"ns-release-handover.normal613.v1",') }}" = "true" ]; then
-            node scripts/validate-forward-onboarding-ci.js --normal613-verify-current
+            unset NS_NORMAL613_METADATA_TOKEN
             script=scripts/validate-sync-current-forward.js
             timeout --signal=TERM --kill-after=5s 120s node "$script" --normal613-full --execution-receipt "$NS_SYNC_EXECUTION_RECEIPT" --execution-receipt-sha256 "$NS_SYNC_EXECUTION_RECEIPT_SHA256"
           else

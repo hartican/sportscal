@@ -87,10 +87,13 @@ function restoreFocusedGateV2(text){
  const edits=JSON.parse(raw.toString("utf8"));assert.equal(edits.length,1);let restored=text;for(const e of edits){assert.equal(restored.split(e.after).length-1,1);restored=restored.replace(e.after,()=>e.before);}
  assert.equal(hash(Buffer.from(restored)),a.beforeSha256);return {text:restored,edits:1};
 }
+const NORMAL613_READONLY_AUTH_WORKFLOW_AMENDMENT=Object.freeze({"beforeSha256":"10750241b6220258c755ee764a793fe0e184c21e01ba7f668f413acb550c53a7","afterSha256":"3c6d09eae088d63ee7dd7ffbe367c138c4047401a87e387bc3d704fdf30c4f6a","edits":[{"before":"  fixture-activation:\n    name:","after":"  fixture-activation:\n    permissions:\n      contents: read\n      pull-requests: read\n    name:"},{"before":"        timeout-minutes: 1\n        run: timeout --signal=TERM --kill-after=5s 60s node scripts/validate-forward-onboarding-ci.js --normal613-intake","after":"        timeout-minutes: 1\n        env:\n          NS_NORMAL613_METADATA_TOKEN: ${{ github.token }}\n        run: timeout --signal=TERM --kill-after=5s 60s node scripts/validate-forward-onboarding-ci.js --normal613-intake"},{"before":"      - name: Bind reviewed normal613 source qualification receipt\n        if: github.event.pull_request.draft == false && startsWith(github.event.pull_request.body, '{\"schemaVersion\":\"ns-release-handover.normal613.v1\",')\n        id: normal613_source_admission\n        timeout-minutes: 2\n        run: |\n          ns_normal613_command=(bash -e)\n          if [ \"${{ startsWith(github.event.pull_request.body, '{\"schemaVersion\":\"ns-release-handover.normal613.v1\",') }}\" = \"true\" ]; then\n            ns_normal613_command=(node scripts/validate-forward-onboarding-ci.js --normal613-run admission -- bash -Eeuo pipefail)\n          fi\n          \"${ns_normal613_command[@]}\" <<'NS_NORMAL613_RUN_fixture_admission'\n          timeout --signal=TERM --kill-after=5s 120s node scripts/validate-forward-onboarding-ci.js --normal613-admission\n          NS_NORMAL613_RUN_fixture_admission\n","after":"      - name: Bind reviewed normal613 source qualification receipt\n        if: github.event.pull_request.draft == false && startsWith(github.event.pull_request.body, '{\"schemaVersion\":\"ns-release-handover.normal613.v1\",')\n        id: normal613_source_admission\n        timeout-minutes: 2\n        env:\n          NS_NORMAL613_METADATA_TOKEN: ${{ github.token }}\n        run: node scripts/validate-forward-onboarding-ci.js --normal613-run admission -- node scripts/validate-forward-onboarding-ci.js --normal613-admission < /dev/null\n"},{"before":"      - name: Verify full SYNC source and generated qualification\n        if: github.event.pull_request.draft == false\n        timeout-minutes: 3\n        env:\n          NS_SYNC_EXECUTION_RECEIPT: ${{ steps.normal613_source_admission.outputs.executionReceiptPath || steps.forward_source_admission.outputs.executionReceiptPath || steps.e610_source_admission.outputs.executionReceiptPath }}\n          NS_SYNC_EXECUTION_RECEIPT_SHA256: ${{ steps.normal613_source_admission.outputs.executionReceiptSha256 || steps.forward_source_admission.outputs.executionReceiptSha256 || steps.e610_source_admission.outputs.executionReceiptSha256 }}\n        run: |\n          ns_normal613_command=(bash -e)\n          if [ \"${{ startsWith(github.event.pull_request.body, '{\"schemaVersion\":\"ns-release-handover.normal613.v1\",') }}\" = \"true\" ]; then\n            ns_normal613_command=(node scripts/validate-forward-onboarding-ci.js --normal613-run qualifier -- bash -Eeuo pipefail)\n          fi\n          \"${ns_normal613_command[@]}\" <<'NS_NORMAL613_RUN_fixture_qualifier'\n          if [ \"${{ startsWith(github.event.pull_request.body, '{\"schemaVersion\":\"ns-release-handover.normal613.v1\",') }}\" = \"true\" ]; then\n            node scripts/validate-forward-onboarding-ci.js --normal613-verify-current\n            script=scripts/validate-sync-current-forward.js\n            timeout --signal=TERM --kill-after=5s 120s node \"$script\" --normal613-full --execution-receipt \"$NS_SYNC_EXECUTION_RECEIPT\" --execution-receipt-sha256 \"$NS_SYNC_EXECUTION_RECEIPT_SHA256\"\n          else\n          script=scripts/validate-sync608-reported-hold.js\n          if [ \"${{ startsWith(github.event.pull_request.body, '{\"schemaVersion\":\"ns-release-handover.forward.v1\",') }}\" = \"true\" ]; then script=scripts/validate-sync-current-forward.js; fi\n          timeout --signal=TERM --kill-after=5s 120s node \"$script\" --full --execution-receipt \"$NS_SYNC_EXECUTION_RECEIPT\" --execution-receipt-sha256 \"$NS_SYNC_EXECUTION_RECEIPT_SHA256\"\n          fi\n          NS_NORMAL613_RUN_fixture_qualifier\n","after":"      - name: Verify full SYNC source and generated qualification\n        if: github.event.pull_request.draft == false\n        timeout-minutes: 3\n        env:\n          NS_SYNC_EXECUTION_RECEIPT: ${{ steps.normal613_source_admission.outputs.executionReceiptPath || steps.forward_source_admission.outputs.executionReceiptPath || steps.e610_source_admission.outputs.executionReceiptPath }}\n          NS_SYNC_EXECUTION_RECEIPT_SHA256: ${{ steps.normal613_source_admission.outputs.executionReceiptSha256 || steps.forward_source_admission.outputs.executionReceiptSha256 || steps.e610_source_admission.outputs.executionReceiptSha256 }}\n          NS_NORMAL613_METADATA_TOKEN: ${{ startsWith(github.event.pull_request.body, '{\"schemaVersion\":\"ns-release-handover.normal613.v1\",') && github.token || '' }}\n        run: |\n          ns_normal613_command=(bash -e)\n          if [ \"${{ startsWith(github.event.pull_request.body, '{\"schemaVersion\":\"ns-release-handover.normal613.v1\",') }}\" = \"true\" ]; then\n            ns_normal613_command=(node scripts/validate-forward-onboarding-ci.js --normal613-run qualifier -- bash -Eeuo pipefail)\n          fi\n          \"${ns_normal613_command[@]}\" <<'NS_NORMAL613_RUN_fixture_qualifier'\n          if [ \"${{ startsWith(github.event.pull_request.body, '{\"schemaVersion\":\"ns-release-handover.normal613.v1\",') }}\" = \"true\" ]; then\n            unset NS_NORMAL613_METADATA_TOKEN\n            script=scripts/validate-sync-current-forward.js\n            timeout --signal=TERM --kill-after=5s 120s node \"$script\" --normal613-full --execution-receipt \"$NS_SYNC_EXECUTION_RECEIPT\" --execution-receipt-sha256 \"$NS_SYNC_EXECUTION_RECEIPT_SHA256\"\n          else\n          script=scripts/validate-sync608-reported-hold.js\n          if [ \"${{ startsWith(github.event.pull_request.body, '{\"schemaVersion\":\"ns-release-handover.forward.v1\",') }}\" = \"true\" ]; then script=scripts/validate-sync-current-forward.js; fi\n          timeout --signal=TERM --kill-after=5s 120s node \"$script\" --full --execution-receipt \"$NS_SYNC_EXECUTION_RECEIPT\" --execution-receipt-sha256 \"$NS_SYNC_EXECUTION_RECEIPT_SHA256\"\n          fi\n          NS_NORMAL613_RUN_fixture_qualifier\n"}]});
 function restoreNormal613Caller(text){
+ const auth=NORMAL613_READONLY_AUTH_WORKFLOW_AMENDMENT;let authEdits=0;
+ if(hash(Buffer.from(text))===auth.afterSha256){for(const edit of [...auth.edits].reverse()){assert.equal(text.split(edit.after).length-1,1,'one exact readonly metadata-auth amendment');text=text.replace(edit.after,()=>edit.before);}assert.equal(hash(Buffer.from(text)),auth.beforeSha256,'exact previous normal613 workflow restored');authEdits=auth.edits.length;}
  const focused=restoreFocusedGate(text),baseline612=restoreBaseline612Binder(focused.text);text=baseline612.text;
  const digest=hash(Buffer.from(text)),amendment=NORMAL613_CALLER_AMENDMENT;
- if(digest!==amendment.afterSha256){assert([amendment.beforeSha256,INSTALLED_TOOLING_AMENDMENT.beforeSha256].includes(digest),'exact reviewed normal613/P2 workflow only');return {text,edits:baseline612.edits+focused.edits};}
+ if(digest!==amendment.afterSha256){assert([amendment.beforeSha256,INSTALLED_TOOLING_AMENDMENT.beforeSha256].includes(digest),'exact reviewed normal613/P2 workflow only');return {text,edits:baseline612.edits+focused.edits+authEdits};}
  const d=amendment.restoration,packed=Buffer.from(d.base64,'base64');
  assert.equal(packed.toString('base64'),d.base64);assert.equal(packed.length,d.packedBytes);assert.equal(hash(packed),d.packedSha256);
  const raw=require('node:zlib').inflateRawSync(packed,{maxOutputLength:d.rawBytes+1});
@@ -99,7 +102,7 @@ function restoreNormal613Caller(text){
  assert(Buffer.from(JSON.stringify(edits)).equals(raw),'canonical restoration edit encoding');
  let restored=text;
  for(const edit of [...edits].reverse()){normal613Keys(edit,'before after','Restoration edit');assert(typeof edit.before==='string'&&typeof edit.after==='string'&&edit.after.length>0);assert.equal(restored.split(edit.after).length-1,1,'one exact normal613 amendment');restored=restored.replace(edit.after,()=>edit.before);}
- assert.equal(hash(Buffer.from(restored)),amendment.beforeSha256,'all accepted P2 workflow bytes restored');return {text:restored,edits:edits.length+baseline612.edits+focused.edits};
+ assert.equal(hash(Buffer.from(restored)),amendment.beforeSha256,'all accepted P2 workflow bytes restored');return {text:restored,edits:edits.length+baseline612.edits+focused.edits+authEdits};
 }
 function normaliseForwardWorkflow(text){
  const normal613=restoreNormal613Caller(text),amendment=restoreInstalledToolingAmendment(normal613.text);
@@ -660,8 +663,11 @@ function normal613FocusedOwnedProcesses(token,clock,until){
   },get rootObserved(){return rootObserved;}};
 }
 
-async function normal613Intake(revalidateStage=null,httpFailure=null){
+function normal613MetadataCredential(value){assert(typeof value==='string'&&value.length>0&&value.length<=4096&&!/[^\x21-\x7e]/.test(value),'Step-local built-in GitHub metadata token required');return value;}
+function normal613MetadataChildEnvironment(){const env={...process.env};delete env.NS_NORMAL613_METADATA_TOKEN;return env;}
+async function normal613Intake(revalidateStage=null,httpFailure=null,metadataToken,metadataOwner=null){
  const entryWall=Date.now(),entryMonotonic=process.hrtime.bigint();
+ delete process.env.NS_NORMAL613_METADATA_TOKEN;normal613MetadataCredential(metadataToken);
  const p=NORMAL613_CALLER_POLICY,L=p.limits,cp=require('node:child_process'),{TextDecoder}=require('node:util');
  assert.equal(process.version,'v24.21.0');assert.equal(process.platform,'linux');assert.equal(process.arch,'x64');
  assert.equal(process.env.GITHUB_ACTIONS,'true');assert.equal(process.env.GITHUB_EVENT_NAME,'pull_request');assert.equal(process.env.GITHUB_REPOSITORY,p.repository);assert.equal(process.env.GITHUB_JOB,'fixture-activation');assert.equal(process.env.GITHUB_RUN_ATTEMPT,'1');
@@ -678,11 +684,14 @@ async function normal613Intake(revalidateStage=null,httpFailure=null){
  if(prior){assert.equal(prior.value.bodySha256,parsed.bodySha256);assert.equal(prior.value.headSha,H);assert.equal(prior.value.validUntil,b.actionIntent.validUntil);assert.equal(prior.value.maxWallMs,b.actionIntent.maxWallMs);}
  function remaining(){
   const elapsed=Number(process.hrtime.bigint()-entryMonotonic)/1e6;assert(Math.abs(Date.now()-entryWall-elapsed)<=1000,'Intake clock');
-  const n=Math.floor(Math.min(L.intakeMs-elapsed,normal613Remaining(actionClock,L.intakeMs)));
+  const owned=metadataOwner?metadataOwner.remaining():Infinity;
+  if(metadataOwner)assert(!metadataOwner.signal.aborted,'Owned metadata stage interrupted');
+  assert(owned===Infinity||Number.isFinite(owned)&&owned>0,'Owned metadata stage deadline');
+  const n=Math.floor(Math.min(L.intakeMs-elapsed,normal613Remaining(actionClock,L.intakeMs),owned));
   assert(n>0,'Intake deadline');return n;
  }
  remaining();
- const git=(...args)=>cp.execFileSync('git',args,{encoding:'utf8',timeout:Math.min(5000,remaining()),killSignal:'SIGKILL',maxBuffer:4194304}).trim();
+ const git=(...args)=>{const value=cp.execFileSync('git',args,{encoding:'utf8',env:normal613MetadataChildEnvironment(),timeout:Math.min(5000,remaining()),killSignal:'SIGKILL',maxBuffer:4194304});remaining();return value.trim();};
  assert.equal(git('rev-parse','HEAD'),T);assert.deepEqual(git('show','-s','--format=%P',T).split(' '),[B,H]);assert.equal(git('rev-parse',H+'^{tree}'),b.expectedPublisherTreeSha);assert.equal(git('rev-parse',T+'^{tree}'),b.expectedPublisherTreeSha);
  const readyAt=normal613ApiTime(pr.updated_at,'Frozen Ready event update');assert(readyAt<=entryWall&&entryWall-readyAt<=86400000);
  const priorWitness=prior?JSON.parse(normal613Utf8(normal613Read(prior.root,revalidateStage==='qualification'?'normal613-readback-before-admission.json':'normal613-approval-witness.json',L.metadata))):null;
@@ -713,26 +722,34 @@ async function normal613Intake(revalidateStage=null,httpFailure=null){
    if(headers['x-ratelimit-remaining']!==undefined&&headers['x-ratelimit-limit']!==undefined&&Number(headers['x-ratelimit-remaining'])>Number(headers['x-ratelimit-limit'])){
     delete headers['x-ratelimit-remaining'];delete headers['x-ratelimit-limit'];
    }
-   const record=JSON.stringify({method:'GET',status,endpointTemplate,headers});
-   if(record.length>1023||Buffer.byteLength(record+'\n','utf8')>1024||!/^[\x20-\x7e]+(?![\s\S])/.test(record))return;
+   const record=JSON.stringify({method:'GET',authMode:'GITHUB_TOKEN_READ_ONLY_METADATA',status,endpointTemplate,headers});
+   if(record.length>1023||Buffer.byteLength(record+'\n','utf8')>1024||!/^[\x20-\x7e]+(?![\s\S])/.test(record)||record.includes(metadataToken))return;
    httpFailure.status=status;httpFailure.record=record;
   }catch{} // Diagnostic construction must not replace the original status assertion.
  }
  async function get(url,commentId=null){
   remaining();
   assert(++requests<=L.requests,'Request bound');const u=new URL(url);assert.equal(u.origin,p.api);assert.equal(u.username,'');assert.equal(u.password,'');assert.equal(u.hash,'');
-  const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),Math.min(L.requestMs,remaining()));let reader,bytes=0;
+  const repo='/repos/hartican/sportscal',list=repo+'/issues/'+event.number+'/comments';let permitted=false;
+  if(u.pathname===repo+'/pulls/'+event.number&&u.search==='')permitted=true;
+  else if(u.pathname===list){
+   const entries=[...u.searchParams.entries()],page=u.searchParams.get('page');
+   permitted=u.search==='?per_page=100'||(entries.length===2&&u.searchParams.get('per_page')==='100'&&typeof page==='string'&&page.length<=String(L.pages).length&&/^[1-9][0-9]*(?![\s\S])/.test(page)&&Number(page)>=2&&Number(page)<=L.pages&&(u.search==='?per_page=100&page='+page||u.search==='?page='+page+'&per_page=100'));
+  }else if(Number.isSafeInteger(commentId)&&commentId>0&&u.pathname===repo+'/issues/comments/'+commentId&&u.search==='')permitted=true;
+  assert(permitted,'Closed GitHub metadata GET endpoint required before authentication');
+  const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),Math.min(L.requestMs,remaining())),abortOwnedMetadata=()=>controller.abort();let reader,bytes=0;
   try{
-   remaining();const response=await fetch(u,{method:'GET',headers:{Accept:'application/vnd.github+json','X-GitHub-Api-Version':'2022-11-28'},redirect:'error',credentials:'omit',cache:'no-store',signal:controller.signal});
+   if(metadataOwner){metadataOwner.signal.addEventListener('abort',abortOwnedMetadata,{once:true});if(metadataOwner.signal.aborted)abortOwnedMetadata();}
+   remaining();const response=await fetch(u,{method:'GET',headers:{Accept:'application/vnd.github+json','X-GitHub-Api-Version':'2022-11-28',Authorization:'Bearer '+metadataToken},redirect:'error',credentials:'omit',cache:'no-store',signal:controller.signal});remaining();
    captureHttpFailure(response,u,commentId);
    assert.equal(response.status,200,'Public GitHub response; no alternate route');assert.equal(new URL(response.url).origin,p.api);
    const length=response.headers.get('content-length');if(length!==null)assert(/^(0|[1-9][0-9]*)$/.test(length)&&Number(length)<=L.response,'Response length');
    assert(/^application\/json\b/.test(response.headers.get('content-type')||''),'JSON provider representation');assert(response.body,'Response stream');
    reader=response.body.getReader();const chunks=[];
-   for(;;){remaining();const item=await reader.read();if(item.done)break;bytes+=item.value.byteLength;consumed+=item.value.byteLength;assert(bytes<=L.response&&consumed<=L.network,'Consumed body limit');chunks.push(Buffer.from(item.value));}
-   const raw=Buffer.concat(chunks),value=JSON.parse(new TextDecoder('utf-8',{fatal:true}).decode(raw));trace.push({url:u.href,status:response.status,bytes,sha256:hash(raw),observedAt:new Date().toISOString(),etag:response.headers.get('etag')});
+   for(;;){remaining();const item=await reader.read();remaining();if(item.done)break;bytes+=item.value.byteLength;consumed+=item.value.byteLength;assert(bytes<=L.response&&consumed<=L.network,'Consumed body limit');chunks.push(Buffer.from(item.value));}
+   const raw=Buffer.concat(chunks);assert(!raw.includes(Buffer.from(metadataToken,'utf8')),'Credential refused in metadata response');const value=JSON.parse(new TextDecoder('utf-8',{fatal:true}).decode(raw)),etag=response.headers.get('etag');trace.push({url:u.href,authMode:'GITHUB_TOKEN_READ_ONLY_METADATA',status:response.status,bytes,sha256:hash(raw),observedAt:new Date().toISOString(),etag:typeof etag==='string'&&!etag.includes(metadataToken)?etag:null});
    return {value,link:response.headers.get('link')};
-  }finally{clearTimeout(timer);controller.abort();if(reader)reader.releaseLock();}
+  }finally{if(metadataOwner)metadataOwner.signal.removeEventListener('abort',abortOwnedMetadata);clearTimeout(timer);controller.abort();if(reader)reader.releaseLock();}
  }
  const pulls=p.api+'/repos/'+p.repository+'/pulls/'+event.number;
  async function observePR(){
@@ -832,10 +849,10 @@ async function normal613Intake(revalidateStage=null,httpFailure=null){
 
 async function normal613Admission(){
  'use strict';
- const httpFailure=arguments[0]===undefined?null:arguments[0];
+ const httpFailure=arguments[0]===undefined?null:arguments[0],metadataToken=arguments[1];
  const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto'),cp=require('node:child_process'),{TextDecoder}=require('node:util');
  const hash=bytes=>crypto.createHash('sha256').update(bytes).digest('hex');
- await normal613Intake('admission',httpFailure);
+ await normal613Intake('admission',httpFailure,metadataToken);
  const nsContext=normal613Context(),nsIntentBytes=normal613Read(nsContext.root,'normal613-intent.json'),nsAckBytes=normal613Read(nsContext.root,'normal613-ack.json'),nsFreshBytes=normal613Read(nsContext.root,'normal613-fresh.json');
  normal613Remaining(nsContext.value,120000);
  // NS_E610_PURE_BEGIN
@@ -1197,9 +1214,11 @@ async function normal613EngineContext(){
  normal613Save(root,'normal613-context.json',context,remaining);
  normal613Save(proof,'normal613-admission-context.json',bytes,remaining);
 }
-async function normal613OwnedRun(id,command,args){
+async function normal613OwnedRun(id,command,args,metadataToken,httpFailure=null){
  const c=normal613Context(),v=c.value,engine=process.env.GITHUB_JOB==='installed-upgrade',allowed=engine?normal613EngineCommandIds(v.engine):normal613FixtureCommandIds();
- assert(allowed.includes(id),'Closed normal command identity');assert.equal(command,'bash');assert.deepEqual(args,['-Eeuo','pipefail']);
+ assert(allowed.includes(id),'Closed normal command identity');const directAdmission=!engine&&id==='admission',qualifierMetadata=!engine&&id==='qualifier',usesMetadata=directAdmission||qualifierMetadata;
+ if(directAdmission){assert.equal(command,'node');assert.deepEqual(args,['scripts/validate-forward-onboarding-ci.js','--normal613-admission']);command=process.execPath;}
+ else{assert.equal(command,'bash');assert.deepEqual(args,['-Eeuo','pipefail']);assert(usesMetadata||!metadataToken,'Metadata credential forbidden for product/test child');}
  const caps={admission:120000,qualifier:120000,premerge:300000,install:engine?600000:300000,apt:300000,pwa:240000,account:300000,'original-manifest':300000,'feed-controls':195000};
  let cap=caps[id]||125000;
  if(id==='qualifier'){
@@ -1212,15 +1231,16 @@ async function normal613OwnedRun(id,command,args){
  assert(budget>6000,'Reserve termination, final observation and record writeback inside authority');
  const root=c.root,cp=require('node:child_process'),outputs={stdout:[],stderr:[]},DEADLINE=Symbol('final closure deadline');
  let child=null,input=Buffer.alloc(0),used=0,failure=null,interrupted=null,status=null,signalName=null,closedAt=null,exitAt=null;
+ const metadataController=new AbortController(),workDeadlineNs=startMono+BigInt(budget-5000)*1000000n;let metadataError=null,metadataSettled=!qualifierMetadata,metadataValidated=false;
  let softTimer=null,killTimer=null,finalTimer=null,finalReached=false,finalAt=startMono+BigInt(budget-500)*1000000n,resolveFinal;
  const finalGate=new Promise(resolve=>{resolveFinal=resolve;});
  const delayTo=at=>Math.max(0,Math.ceil(Number(at-process.hrtime.bigint())/1e6));
  const kill=signal=>{if(Number.isSafeInteger(child?.pid))try{process.kill(-child.pid,signal);}catch(e){if(e.code!=='ESRCH')failure=failure||'Owned group signal unconfirmed: '+e.code;}};
  const detachLocalHandles=()=>{if(child){for(const stream of [child.stdin,child.stdout,child.stderr])stream?.destroy();child.unref();}process.stdin.destroy();};
- const finalStop=()=>{finalReached=true;failure=failure||'Absolute closure deadline reached';kill('SIGKILL');detachLocalHandles();resolveFinal(DEADLINE);};
+ const finalStop=()=>{finalReached=true;failure=failure||'Absolute closure deadline reached';metadataController.abort();kill('SIGKILL');detachLocalHandles();resolveFinal(DEADLINE);};
  const armFinal=()=>{clearTimeout(finalTimer);finalTimer=setTimeout(finalStop,delayTo(finalAt));};
  const terminate=reason=>{
-  failure=failure||reason;kill('SIGTERM');const now=process.hrtime.bigint(),earlier=now+4500000000n;
+  failure=failure||reason;metadataController.abort();kill('SIGTERM');const now=process.hrtime.bigint(),earlier=now+4500000000n;
   if(earlier<finalAt){finalAt=earlier;armFinal();}
   clearTimeout(killTimer);const forceAt=now+4000000000n<finalAt?now+4000000000n:finalAt;
   killTimer=setTimeout(()=>kill('SIGKILL'),delayTo(forceAt));
@@ -1230,10 +1250,22 @@ async function normal613OwnedRun(id,command,args){
  softTimer=setTimeout(()=>terminate('Owned command deadline'),Math.max(0,budget-5000));
  let groupGone=false,groupObservedAt=null;
  try{
+  let metadataReady=true;
+  if(usesMetadata)try{normal613MetadataCredential(metadataToken);}catch(error){metadataError=error;metadataReady=false;failure=failure||'Metadata credential unavailable or refused';}
   const collect=async()=>{const chunks=[];let n=0;for await(const chunk of process.stdin){n+=chunk.length;assert(n<=65536,'Bounded immutable command script');chunks.push(Buffer.from(chunk));}return Buffer.concat(chunks);};
-  const received=await Promise.race([collect().catch(e=>{failure=failure||e.message;return DEADLINE;}),finalGate]);
+  const received=metadataReady?await Promise.race([collect().catch(e=>{failure=failure||e.message;return DEADLINE;}),finalGate]):DEADLINE;
   if(received!==DEADLINE&&!finalReached&&process.hrtime.bigint()<finalAt){
-   input=received;child=cp.spawn(command,args,{cwd:process.cwd(),env:process.env,detached:true,stdio:['pipe','pipe','pipe']});
+   input=received;
+   if(qualifierMetadata){
+    const metadataOwner={signal:metadataController.signal,remaining(){assert(!metadataController.signal.aborted&&!failure&&!finalReached&&!interrupted,'Owned metadata stage interrupted');const n=Math.floor(Number(workDeadlineNs-process.hrtime.bigint())/1e6);assert(n>0,'Owned metadata stage deadline');return n;}};
+    const task=normal613Intake('qualification',httpFailure,metadataToken,metadataOwner).then(()=>{metadataSettled=true;metadataValidated=true;return true;},error=>{metadataSettled=true;metadataError=error;return false;});
+    const outcome=await Promise.race([task,finalGate]);
+    if(outcome!==true){failure=failure||'Qualifier metadata revalidation failed or did not settle';metadataController.abort();}
+   }
+   if(!failure&&!finalReached&&!metadataController.signal.aborted&&process.hrtime.bigint()<workDeadlineNs){
+   if(directAdmission)assert.equal(received.length,0,'Direct admission has no shell script input');
+   const childEnv=normal613MetadataChildEnvironment();if(directAdmission)childEnv.NS_NORMAL613_METADATA_TOKEN=metadataToken;
+   input=received;child=cp.spawn(command,args,{cwd:process.cwd(),env:childEnv,detached:true,stdio:['pipe','pipe','pipe']});
    const closeGate=new Promise(resolve=>{
     child.once('error',e=>{failure=failure||String(e.message);});
     child.once('exit',()=>{exitAt=process.hrtime.bigint();});
@@ -1253,16 +1285,18 @@ async function normal613OwnedRun(id,command,args){
    if(!groupGone&&process.hrtime.bigint()<finalAt){terminate('Owned descendants remain after parent closure');kill('SIGKILL');
     while(!groupGone&&!finalReached&&process.hrtime.bigint()<finalAt){await new Promise(r=>setTimeout(r,Math.min(25,delayTo(finalAt))));groupGone=observeGroup();}
    }
+   }else failure=failure||'Metadata/dispatch stage deadline reached';
   }else failure=failure||'Input/dispatch deadline reached';
   const childClosed=closedAt!==null&&closedAt<=finalAt&&!finalReached,ownedGroupClosed=groupGone&&groupObservedAt!==null&&groupObservedAt<=finalAt&&!finalReached;
   if(!childClosed||!ownedGroupClosed){failure=failure||'Final child/stdio/group closure unresolved';kill('SIGKILL');detachLocalHandles();}
   clearTimeout(softTimer);clearTimeout(killTimer);clearTimeout(finalTimer);
-  const record={schemaVersion:'normal613-owned-command.v1',id,repository:v.repository,headSha:v.headSha,baseSha:v.baseSha,testedMergeSha:v.testedMergeSha,bodySha256:v.bodySha256,intentSha256:v.intentSha256,allocationId:v.allocation?.allocationId||v.allocationId,laneId:v.allocation?.laneId||v.laneId,ownedOperationId:v.allocation?.ownedOperationId||v.ownedOperationId,runId:process.env.GITHUB_RUN_ID,runAttempt:Number(process.env.GITHUB_RUN_ATTEMPT),job:process.env.GITHUB_JOB,engine:v.engine||null,command,args,scriptBytes:input.length,scriptSha256:hash(input),startedAt:new Date(startWall).toISOString(),finishedAt:new Date().toISOString(),monotonicElapsedMs:Number(process.hrtime.bigint()-startMono)/1e6,hardBudgetMs:budget,finalClosureDeadlineAt:new Date(startWall+Number(finalAt-startMono)/1e6).toISOString(),finalClosureDeadlineReached:finalReached,status,signal:signalName,interrupted,failure,childPid:child?.pid||null,parentExitObserved:exitAt!==null,childClosed,ownedGroupClosed,outputObservedBytes:used,outputOverflow:used>NORMAL613_CALLER_POLICY.limits.commandOutput,cleanupStatus:childClosed&&ownedGroupClosed?'OBSERVED_CLOSED':'FAILED_OR_UNKNOWN'};
+  const record={schemaVersion:'normal613-owned-command.v1',id,repository:v.repository,headSha:v.headSha,baseSha:v.baseSha,testedMergeSha:v.testedMergeSha,bodySha256:v.bodySha256,intentSha256:v.intentSha256,allocationId:v.allocation?.allocationId||v.allocationId,laneId:v.allocation?.laneId||v.laneId,ownedOperationId:v.allocation?.ownedOperationId||v.ownedOperationId,runId:process.env.GITHUB_RUN_ID,runAttempt:Number(process.env.GITHUB_RUN_ATTEMPT),job:process.env.GITHUB_JOB,engine:v.engine||null,command,args,metadataAuthMode:usesMetadata?'GITHUB_TOKEN_READ_ONLY_METADATA':'NONE',metadataRevalidationSettled:metadataSettled,metadataRevalidationValidated:qualifierMetadata?metadataValidated:null,scriptBytes:input.length,scriptSha256:hash(input),startedAt:new Date(startWall).toISOString(),finishedAt:new Date().toISOString(),monotonicElapsedMs:Number(process.hrtime.bigint()-startMono)/1e6,hardBudgetMs:budget,finalClosureDeadlineAt:new Date(startWall+Number(finalAt-startMono)/1e6).toISOString(),finalClosureDeadlineReached:finalReached,status,signal:signalName,interrupted,failure,childPid:child?.pid||null,parentExitObserved:exitAt!==null,childClosed,ownedGroupClosed,outputObservedBytes:used,outputOverflow:used>NORMAL613_CALLER_POLICY.limits.commandOutput,cleanupStatus:childClosed&&ownedGroupClosed?'OBSERVED_CLOSED':'FAILED_OR_UNKNOWN'};
   for(const stream of ['stdout','stderr'])normal613Save(root,'command-'+id+'.'+stream+'.log',Buffer.concat(outputs[stream]));
   normal613Save(root,'command-'+id+'.json',record);
+  if(metadataError)throw metadataError;
   assert(childClosed&&ownedGroupClosed&&!failure&&status===0&&process.hrtime.bigint()<startMono+BigInt(budget)*1000000n,'Normal command failed, expired or cleanup unconfirmed: '+id);
  }finally{
-  clearTimeout(softTimer);clearTimeout(killTimer);clearTimeout(finalTimer);process.removeListener('SIGTERM',onTerm);process.removeListener('SIGINT',onInt);
+  metadataController.abort();clearTimeout(softTimer);clearTimeout(killTimer);clearTimeout(finalTimer);process.removeListener('SIGTERM',onTerm);process.removeListener('SIGINT',onInt);
   if(child&&(closedAt===null||!groupGone)){kill('SIGKILL');detachLocalHandles();}
  }
 }
@@ -1393,11 +1427,12 @@ function normal613ValidateKnownVisibility(row,aggregateEntryNs){
 
 function normal613CallerSourceControls(text){
  const restored=restoreNormal613Caller(text);if(restored.edits===0)return {profile:'legacy',normal613RuntimeExecuted:false};
+ const readonlyAuth=hash(Buffer.from(text))===NORMAL613_READONLY_AUTH_WORKFLOW_AMENDMENT.afterSha256;
  assert.equal(hash(Buffer.from(restored.text)),NORMAL613_CALLER_AMENDMENT.beforeSha256);
  const normal=text.indexOf('--normal613-intake'),journey=text.indexOf('- name: Verify new-user journey source controls');assert(normal>0&&normal<journey,'external intake before application checks');
  const baseline=text.indexOf('- name: Verify and resolve installed production baseline'),context=text.indexOf('- name: Record exact source and runtime\n'),install=text.indexOf('- name: Install isolated test dependencies'),observed=text.indexOf('- name: Observe actual installed per-engine tooling'),browser=text.indexOf('- name: Verify browser tool offline emulation');
  assert(baseline<context&&context<install&&install<observed&&observed<browser,'early preflight and actual installed observation order retained');
- for(const token of ['--normal613-full','--normal613-verify-current','--normal613-engine-context','--normal613-seal','normal613-admission-','browser: [chromium, webkit]','node "$script" --full'])assert(text.includes(token),'Required independent route '+token);
+ for(const token of ['--normal613-full',(readonlyAuth?'--normal613-run qualifier -- bash -Eeuo pipefail':'--normal613-verify-current'),'--normal613-engine-context','--normal613-seal','normal613-admission-','browser: [chromium, webkit]','node "$script" --full'])assert(text.includes(token),'Required independent route '+token);
  assert.equal(NORMAL613_CALLER_POLICY.relayUserId,269614001);assert.notEqual(NORMAL613_CALLER_POLICY.owners.RELEASE,NORMAL613_CALLER_POLICY.owners.PUBLISH);
  const negatives=[['normal intake removed','--normal613-intake','--normal613-intake-removed'],['normal qualifier removed','--normal613-full','--full'],['one engine omitted','browser: [chromium, webkit]','browser: [chromium]'],['manifest seal removed','--normal613-seal','--normal613-seal-removed'],['normal receipt output changed','normal613_source_admission.outputs.executionReceiptPath','normal613_source_admission.outputs.other']];
  for(const [name,from,to]of negatives){assert(text.includes(from),name+' applies');assert.throws(()=>restoreNormal613Caller(text.replace(from,to)),undefined,name);}
@@ -1405,14 +1440,15 @@ function normal613CallerSourceControls(text){
 }
 
 // No network/process dispatch occurs on import or on the unchanged legacy default.
-async function normal613Main(argv,httpFailure=null){
- const mode=argv[0];
- if(mode==='--normal613-intake'){assert.equal(argv.length,1);return normal613Intake(null,httpFailure);}
- if(mode==='--normal613-admission'){assert.equal(argv.length,1);return normal613Admission(httpFailure);}
- if(mode==='--normal613-verify-current'){assert.equal(argv.length,1);return normal613Intake('qualification',httpFailure);}
+async function normal613Main(argv,httpFailure=null,metadataToken){
+ const mode=argv[0];if(metadataToken===undefined)metadataToken=process.env.NS_NORMAL613_METADATA_TOKEN;delete process.env.NS_NORMAL613_METADATA_TOKEN;
+ const credentialMode=['--normal613-intake','--normal613-admission','--normal613-verify-current'].includes(mode)||(mode==='--normal613-run'&&['admission','qualifier'].includes(argv[1]));assert(credentialMode||!metadataToken,'Metadata credential forbidden in this mode');
+ if(mode==='--normal613-intake'){assert.equal(argv.length,1);return normal613Intake(null,httpFailure,metadataToken);}
+ if(mode==='--normal613-admission'){assert.equal(argv.length,1);return normal613Admission(httpFailure,metadataToken);}
+ if(mode==='--normal613-verify-current'){assert.equal(argv.length,1);return normal613Intake('qualification',httpFailure,metadataToken);}
  if(mode==='--normal613-engine-context'){assert.equal(argv.length,1);return normal613EngineContext();}
  if(mode==='--normal613-seal'){assert.equal(argv.length,1);return normal613Seal();}
- if(mode==='--normal613-run'){assert(argv.length>=5&&argv[2]==='--');return normal613OwnedRun(argv[1],argv[3],argv.slice(4));}
+ if(mode==='--normal613-run'){assert(argv.length>=5&&argv[2]==='--');return normal613OwnedRun(argv[1],argv[3],argv.slice(4),metadataToken,httpFailure);}
  throw Error('Unknown normal613 caller mode');
 }
 // NORMAL613_CALLER_SOURCE_END
@@ -1420,11 +1456,11 @@ async function normal613Main(argv,httpFailure=null){
 if(require.main===module){
  const argv=process.argv.slice(2);
  if(argv[0]?.startsWith('--normal613-')){
-  const httpFailure={record:null,status:null};
-  normal613Main(argv,httpFailure).catch(error=>{
+  const httpFailure={record:null,status:null},metadataToken=process.env.NS_NORMAL613_METADATA_TOKEN;delete process.env.NS_NORMAL613_METADATA_TOKEN;
+  normal613Main(argv,httpFailure,metadataToken).catch(error=>{
    process.exitCode=1;
    try{
-    const original=String(error.message).slice(0,1000);let text=original;
+    const message=String(error.message),original=(typeof metadataToken==='string'&&metadataToken.length?message.split(metadataToken).join('[REDACTED]'):message).slice(0,1000);let text=original;
     try{
      // Only this invocation's unchanged status assertion may carry its response metadata.
      if(error instanceof assert.AssertionError&&error.code==='ERR_ASSERTION'&&error.operator==='strictEqual'&&error.generatedMessage===false&&error.expected===200&&error.actual===httpFailure.status&&original.startsWith('Public GitHub response; no alternate route')){
