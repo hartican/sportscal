@@ -57,7 +57,7 @@
     "config/competition-classification.js": "2e0fd8ee374712192d56f31a895567ecade881694c4bb2f3782097fcf7f6acc7",
     "config/user-state-sync.js": "74cf255a546dcf3d5ab9797281991c8ec742ae07f5f5c69dbca08e4cfa72a7d1",
     "scripts/validate-sync608-reported-hold.js": "818f96bbd68a6b6c2adda4bb2a46ba271273933b3a551e44edebbad66bfce562",
-    "scripts/validate-sync-current-forward.js": "a54983351de787e957658f92efedf1e10b470cbb06af252070eb1661228a970f",
+    "scripts/validate-sync-current-forward.js": "c469cb2dcd2c029a0b5b1f6112b0396fe4fc65162e196ca085de6d32a9c8d125",
     "config/fantasy-deadline-ui.js": "c17bcf87249d18ea922637bc3a9872ce4f843f6077d93e180e032bbce0f87d9c",
     "scripts/validate-new-user-journey.js": "c24ce31ad61a764117b311153356e70cbe988dee710405e1fabcc625f9cb57fd"
   },
@@ -536,7 +536,7 @@
     "state": "SOURCE_TEMPLATE_NOT_ADMISSION",
     "productSourceSha": "491d0ebcb2210b29a1ae6164c0c4deef1b04f2ec",
     "productSourceTree": "b69736ee739e7b31eebe58108c14889a333a756c",
-    "preparedForBaseSha": "9f20813c9855e30d4ca32e721862f739b6d696ba",
+    "preparedForBaseSha": "2e92211c700c40b2b508fc636a002868c61a7579",
     "shellVersion": "613",
     "reservationOriginalSha256": "daa00a480a28b0cca1d2f9922c82fc9394a5460b0d45f87c3566e42b58a473d7",
     "reservationId": "ns-app-version-613-sportsyurt-20261112",
