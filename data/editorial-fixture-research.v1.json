@@ -4698,6 +4698,167 @@
         "method": "independent-summary-no-source-prose-retained",
         "reviewedAt": "2026-10-29T02:30:53.610848Z"
       }
+    },
+    {
+      "id": "evt_40",
+      "title": "Las Vegas qualifying: commitment without the braking error",
+      "hook": "A clean lap on the Strip can make a weekend; a missed braking point can undo it.",
+      "formCopy": "Norris arrives from a Sao Paulo pole and victory, while Verstappen recovered from 21st to second. That contrast gives qualifying its edge: McLaren's recent one-lap execution meets a Red Bull capable of recovering lost ground.",
+      "synopsis": "The sporting challenge sits beyond the lights: high speeds, heavy braking and nearby barriers leave little room for a compromised lap. For Norris, Verstappen and the rest, the question is who can combine commitment with precision before race strategy offers another way back.",
+      "closingCopy": "Las Vegas rewarded Mercedes with a Russell-Hamilton one-two in 2024. The 2026 qualifying session precedes a 50-lap Grand Prix on the 6.201-kilometre Strip circuit; pole is an opportunity, not a forecast.",
+      "researchedAt": "2026-11-13T13:19:24Z",
+      "researchDepth": 5,
+      "sources": [
+        "https://www.fia.com/news/f1-norris-triumphs-sao-paulo-mercedes-secure-2026-constructors-championship",
+        "https://www.formula1.com/en/racing/2026/las-vegas",
+        "https://www.formula1.com/en/latest/article/what-makes-the-las-vegas-grand-prix-special-and-why-you-should-see-it.7EKzEf0h1QWqvLFrEsdJVC",
+        "https://www.formula1.com/en/latest/article/formula-1-heineken-las-vegas-grand-prix-2026.1qmWzcBwKK5hkTbYbhVC22"
+      ],
+      "sourceObservations": [
+        {
+          "name": "FIA Sao Paulo Grand Prix report, 8 November 2026",
+          "url": "https://www.fia.com/news/f1-norris-triumphs-sao-paulo-mercedes-secure-2026-constructors-championship",
+          "sourceType": "official",
+          "checkedAt": "2026-11-13T13:19:24Z"
+        },
+        {
+          "name": "Formula 1 official Las Vegas 2026 race hub",
+          "url": "https://www.formula1.com/en/racing/2026/las-vegas",
+          "sourceType": "official",
+          "checkedAt": "2026-11-13T13:19:24Z"
+        },
+        {
+          "name": "Formula 1 Las Vegas sporting and historical guide",
+          "url": "https://www.formula1.com/en/latest/article/what-makes-the-las-vegas-grand-prix-special-and-why-you-should-see-it.7EKzEf0h1QWqvLFrEsdJVC",
+          "sourceType": "official",
+          "checkedAt": "2026-11-13T13:19:24Z"
+        },
+        {
+          "name": "Formula 1 official Las Vegas 2026 timetable",
+          "url": "https://www.formula1.com/en/latest/article/formula-1-heineken-las-vegas-grand-prix-2026.1qmWzcBwKK5hkTbYbhVC22",
+          "sourceType": "official",
+          "checkedAt": "2026-11-13T13:19:24Z"
+        }
+      ],
+      "facts": [
+        {
+          "statement": "Norris converted Sao Paulo pole into victory; Verstappen recovered from 21st to second.",
+          "dimension": "form",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "statement": "The Strip combines high speeds, heavy braking zones and close barriers.",
+          "dimension": "consequence",
+          "sourceIndexes": [
+            2
+          ]
+        },
+        {
+          "statement": "Russell and Hamilton delivered a Mercedes one-two in Las Vegas in 2024.",
+          "dimension": "history",
+          "sourceIndexes": [
+            2
+          ]
+        },
+        {
+          "statement": "The official 2026 timetable puts qualifying on Friday evening before the Saturday Grand Prix.",
+          "dimension": "consequence",
+          "sourceIndexes": [
+            3
+          ]
+        },
+        {
+          "statement": "The scheduled Grand Prix covers 50 laps of the 6.201-kilometre circuit.",
+          "dimension": "consequence",
+          "sourceIndexes": [
+            1,
+            3
+          ]
+        }
+      ]
+    },
+    {
+      "id": "evt_41",
+      "title": "Las Vegas race: Brazil momentum meets the Strip",
+      "hook": "Brazil gave McLaren the victory and Red Bull two podium places. The Strip puts that rivalry on very different ground.",
+      "formCopy": "Norris managed changing conditions at Interlagos, with Verstappen second and Hadjar third. Mercedes secured the constructors' title there. Las Vegas now tests recent performance on a fast street circuit rather than Brazil's wet-dry-wet challenge.",
+      "synopsis": "Straight-line speed must survive the braking zones, and every attack has to account for the barriers. Over the full distance, the interesting contest is not simply who looks quickest: it is who can turn that speed into clean overtakes without surrendering track position.",
+      "closingCopy": "The race runs for 50 laps. Leclerc's last-lap move for second at the inaugural Strip race in 2023 offers a useful reminder: this layout can leave meaningful places in play right to the flag.",
+      "researchedAt": "2026-11-13T13:19:24Z",
+      "researchDepth": 5,
+      "sources": [
+        "https://www.fia.com/news/f1-norris-triumphs-sao-paulo-mercedes-secure-2026-constructors-championship",
+        "https://www.formula1.com/en/racing/2026/las-vegas",
+        "https://www.formula1.com/en/latest/article/what-makes-the-las-vegas-grand-prix-special-and-why-you-should-see-it.7EKzEf0h1QWqvLFrEsdJVC",
+        "https://www.formula1.com/en/latest/article/formula-1-heineken-las-vegas-grand-prix-2026.1qmWzcBwKK5hkTbYbhVC22"
+      ],
+      "sourceObservations": [
+        {
+          "name": "FIA Sao Paulo Grand Prix report, 8 November 2026",
+          "url": "https://www.fia.com/news/f1-norris-triumphs-sao-paulo-mercedes-secure-2026-constructors-championship",
+          "sourceType": "official",
+          "checkedAt": "2026-11-13T13:19:24Z"
+        },
+        {
+          "name": "Formula 1 official Las Vegas 2026 race hub",
+          "url": "https://www.formula1.com/en/racing/2026/las-vegas",
+          "sourceType": "official",
+          "checkedAt": "2026-11-13T13:19:24Z"
+        },
+        {
+          "name": "Formula 1 Las Vegas sporting and historical guide",
+          "url": "https://www.formula1.com/en/latest/article/what-makes-the-las-vegas-grand-prix-special-and-why-you-should-see-it.7EKzEf0h1QWqvLFrEsdJVC",
+          "sourceType": "official",
+          "checkedAt": "2026-11-13T13:19:24Z"
+        },
+        {
+          "name": "Formula 1 official Las Vegas 2026 timetable",
+          "url": "https://www.formula1.com/en/latest/article/formula-1-heineken-las-vegas-grand-prix-2026.1qmWzcBwKK5hkTbYbhVC22",
+          "sourceType": "official",
+          "checkedAt": "2026-11-13T13:19:24Z"
+        }
+      ],
+      "facts": [
+        {
+          "statement": "Norris won in changing Sao Paulo conditions, ahead of Verstappen and Hadjar.",
+          "dimension": "form",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "statement": "Mercedes secured the 2026 constructors championship in Sao Paulo.",
+          "dimension": "consequence",
+          "sourceIndexes": [
+            0
+          ]
+        },
+        {
+          "statement": "The 2026 Las Vegas race is scheduled for 50 laps.",
+          "dimension": "consequence",
+          "sourceIndexes": [
+            1,
+            3
+          ]
+        },
+        {
+          "statement": "Leclerc passed Perez on the final lap for second at the 2023 Strip race.",
+          "dimension": "history",
+          "sourceIndexes": [
+            2
+          ]
+        },
+        {
+          "statement": "Formula 1 describes high speeds and heavy braking opportunities on the Las Vegas street layout.",
+          "dimension": "consequence",
+          "sourceIndexes": [
+            1,
+            2
+          ]
+        }
+      ]
     }
   ]
 }

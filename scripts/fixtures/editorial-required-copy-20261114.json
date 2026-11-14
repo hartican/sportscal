@@ -1,0 +1,106 @@
+{
+  "schemaVersion": "editorial-required-copy-fixtures.v1",
+  "capturedAt": "2026-11-13T14:12:07.204Z",
+  "source": {
+    "commit": "7deeaa264a4707e58a9eba382303c2806412de59",
+    "path": "data/events.json",
+    "gitBlob": "21b741aa1729a6290bbb1a3c2e25a6560c464e41"
+  },
+  "events": [
+    {
+      "id": "evt_40",
+      "eventId": "evt_40",
+      "canonicalEventId": "event:f1:2026:las-vegas:qualifying",
+      "sourceEventIds": [
+        "evt_40"
+      ],
+      "key": "f1",
+      "sport": "Formula 1",
+      "name": "Las Vegas GP \u00b7 Qualifying",
+      "date": "2026-11-21",
+      "time": "15:00",
+      "startTimeUtc": "2026-11-21T04:00:00.000Z",
+      "status": "upcoming",
+      "timeTbc": false,
+      "startTimeTbc": false,
+      "dateOnly": false,
+      "storyline": {
+        "stakes": 4,
+        "intensity": 4,
+        "intensitySource": "computed",
+        "arcStage": "preview",
+        "expectedSpectacle": 8,
+        "hookSpoilerOff": "Las Vegas GP \u00b7 Qualifying is coming up, with the main context and watch details in place.",
+        "hookSpoilerOn": "Las Vegas GP \u00b7 Qualifying is coming up, with the main context and watch details in place.",
+        "synopsisSpoilerOff": "Las Vegas GP \u00b7 Qualifying is still ahead. This card will stay spoiler-safe until the event is complete and its result has been reviewed.",
+        "synopsisSpoilerOn": "Las Vegas GP \u00b7 Qualifying is still ahead. This card will stay spoiler-safe until the event is complete and its result has been reviewed.",
+        "lastReviewedAt": "2026-09-16T07:13:34.687Z"
+      },
+      "stakesScore": 4,
+      "selectedSentence": "",
+      "fullSpiel": "",
+      "editorialPreview": {
+        "status": "withheld",
+        "angle": "",
+        "contextSignals": [],
+        "evidenceReferences": [],
+        "digestFingerprint": "d9d030f4b6e23c14a19fc3cf496ecf7cf253a25fc6253b70dfe066f75de5bb21",
+        "promptVersion": "f1-editorial.v1",
+        "sourceName": "",
+        "sourceUrl": "",
+        "sourceCheckedAt": "2026-10-11T12:38:56.615Z",
+        "needsPreviewRefresh": false
+      },
+      "sourceName": "Formula 1 official race hub",
+      "sourceUrl": "https://www.formula1.com/en/racing/2026/las-vegas",
+      "sourceCheckedAt": "2026-10-11T12:37:25.437Z"
+    },
+    {
+      "id": "evt_41",
+      "eventId": "evt_41",
+      "canonicalEventId": "event:f1:2026:las-vegas:race",
+      "sourceEventIds": [
+        "evt_41"
+      ],
+      "key": "f1",
+      "sport": "Formula 1",
+      "name": "Las Vegas GP \u00b7 Race",
+      "date": "2026-11-22",
+      "time": "15:00",
+      "startTimeUtc": "2026-11-22T04:00:00.000Z",
+      "status": "upcoming",
+      "timeTbc": false,
+      "startTimeTbc": false,
+      "dateOnly": false,
+      "storyline": {
+        "stakes": 4,
+        "intensity": 4,
+        "arcStage": "preview",
+        "expectedSpectacle": 9,
+        "hookSpoilerOff": "Las Vegas GP \u00b7 Race is coming up, with the main context and watch details in place.",
+        "hookSpoilerOn": "Las Vegas GP \u00b7 Race is coming up, with the main context and watch details in place.",
+        "synopsisSpoilerOff": "Las Vegas GP \u00b7 Race is still ahead. This card will stay spoiler-safe until the event is complete and its result has been reviewed.",
+        "synopsisSpoilerOn": "Las Vegas GP \u00b7 Race is still ahead. This card will stay spoiler-safe until the event is complete and its result has been reviewed.",
+        "intensitySource": "computed"
+      },
+      "stakesScore": 5,
+      "selectedSentence": "",
+      "fullSpiel": "",
+      "editorialPreview": {
+        "status": "withheld",
+        "angle": "",
+        "contextSignals": [],
+        "evidenceReferences": [],
+        "digestFingerprint": "d9d030f4b6e23c14a19fc3cf496ecf7cf253a25fc6253b70dfe066f75de5bb21",
+        "promptVersion": "f1-editorial.v1",
+        "sourceName": "",
+        "sourceUrl": "",
+        "sourceCheckedAt": "2026-10-11T12:38:56.615Z",
+        "needsPreviewRefresh": false
+      },
+      "sourceName": "Formula 1 official race hub",
+      "sourceUrl": "https://www.formula1.com/en/racing/2026/las-vegas",
+      "sourceCheckedAt": "2026-10-11T12:37:25.437Z"
+    }
+  ]
+}

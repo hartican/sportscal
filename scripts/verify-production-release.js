@@ -54,6 +54,8 @@ const FILE_MS=15000,CAPTURE_MS=60000,MAX_BODY=4194304,MAX_RECEIPT=16384,MAX_AGE=
 const CAPTURE_611=Object.freeze({baseline:BASELINE,tree:BASELINE_TREE,version:BASELINE_VERSION,deployment:DEPLOYMENT,policyHash:POLICY_HASH,bindingSchema:'primary-baseline-capture-binding.v1'});
 // Retained reviewed source identity only; no fresh READY/alias/body observations are embedded here.
 const CAPTURE_612=Object.freeze({baseline:'cb1608433c90a2dc036a8e28501fe9caec4b4f46',tree:'3d625e55758673b272c571382b82c61c0e87902a',version:'612',deployment:'dpl_5tDehB6KRAgj56uVrkRpcHm6xPr8',policyHash:'78f7a1c46accaf56fb83ec1f4d8f5ecf98621a620807658c805870191297b103',preparedForBase:'9f20813c9855e30d4ca32e721862f739b6d696ba',bindingSchema:'primary-baseline-capture-binding.612.v1'});
+// Additional fixed source context only; deployment/alias/window/body facts still require fresh proof.
+const CAPTURE_612_CURRENT_BASE=Object.freeze({...CAPTURE_612,preparedForBase:'2e92211c700c40b2b508fc636a002868c61a7579'});
 class CaptureError extends Error{constructor(code){super(code);this.code=code;}}
 function requireCapture(value,code){if(!value)throw new CaptureError(code);}
 function exactKeys(value,keys){
@@ -78,10 +80,12 @@ function validateCaptureBinding(binding,wall){
   requireCapture(binding.publisherWindow.owner==='nsPUBLISH'&&binding.publisherWindow.held===true,'binding_identity');
 }
 function selectCaptureProfile(binding){
-  return binding?.schemaVersion===CAPTURE_612.bindingSchema?CAPTURE_612:CAPTURE_611;
+  if(binding?.schemaVersion!==CAPTURE_612.bindingSchema)return CAPTURE_611;
+  return binding.preparedForBaseSha===CAPTURE_612_CURRENT_BASE.preparedForBase?CAPTURE_612_CURRENT_BASE:CAPTURE_612;
 }
 function validateCaptureBinding612(binding,wall){
-  const profile=CAPTURE_612;
+  const profile=selectCaptureProfile(binding);
+  requireCapture(profile===CAPTURE_612||profile===CAPTURE_612_CURRENT_BASE,'binding_identity');
   exactKeys(binding,['schemaVersion','baselineSha','baselineVersion','preparedForBaseSha','collectorSha','collectorTree','deployment','alias','publisherWindow']);
   requireCapture(binding.schemaVersion===profile.bindingSchema&&binding.baselineSha===profile.baseline&&binding.baselineVersion===profile.version,'binding_identity');
   for(const key of ['preparedForBaseSha','collectorSha','collectorTree'])requireCapture(typeof binding[key]==='string'&&/^[a-f0-9]{40}$/.test(binding[key]),'source_binding');
@@ -96,7 +100,8 @@ function validateCaptureBinding612(binding,wall){
   requireCapture(binding.publisherWindow.owner==='nsPUBLISH'&&binding.publisherWindow.held===true,'binding_identity');
 }
 function validateCaptureBindingForProfile(binding,wall){
-  if(selectCaptureProfile(binding)===CAPTURE_612)return validateCaptureBinding612(binding,wall);
+  const profile=selectCaptureProfile(binding);
+  if(profile===CAPTURE_612||profile===CAPTURE_612_CURRENT_BASE)return validateCaptureBinding612(binding,wall);
   return validateCaptureBinding(binding,wall);
 }
 // Optional pure pre-submission byte join for the existing sole-PUBLISH procedure.

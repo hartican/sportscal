@@ -125553,11 +125553,25 @@
           "name": "Tonga v Samoa",
           "competitionScope": "international",
           "isInternational": true,
-          "representativeCountryCodes": ["TO", "WS"],
-          "participantIds": ["team:nrl:national:tonga", "team:nrl:national:samoa"],
+          "representativeCountryCodes": [
+            "TO",
+            "WS"
+          ],
+          "participantIds": [
+            "team:nrl:national:tonga",
+            "team:nrl:national:samoa"
+          ],
           "participants": [
-            {"id":"team:nrl:national:tonga","name":"Tonga","role":"home"},
-            {"id":"team:nrl:national:samoa","name":"Samoa","role":"away"}
+            {
+              "id": "team:nrl:national:tonga",
+              "name": "Tonga",
+              "role": "home"
+            },
+            {
+              "id": "team:nrl:national:samoa",
+              "name": "Samoa",
+              "role": "away"
+            }
           ],
           "participantsConfirmed": true,
           "startTimeUtc": "2026-11-01T09:05:00.000Z",

@@ -69,6 +69,104 @@ const workerSuffix=`      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d
           if-no-files-found: ignore
           retention-days: 14
 `;
+const editorialPreparationBaseSha256="75049d7684c4c0dfd21f9eb452b07fccaba91b82f32a2786530f2880808bab6f";
+const editorialPreparationHelperSha256="5b2d8f59cd39dbc7ac78a65085987e76a64f2858496b3fe15457274b6a7e45d3";
+const editorialPreparationInputs="      editorial_prepare:\n        description: Prepare reviewed editorial only; never publish or deploy\n        type: boolean\n        default: false\n      editorial_research_sha256:\n        description: SHA256 of the decoded reviewed public research JSON\n        type: string\n        required: false\n      editorial_research_b64:\n        description: Base64 of reviewed PUBLIC research only; never private controls\n        type: string\n        required: false\n      editorial_recipient_public_key:\n        description: Root approved ephemeral RSA public PEM only; never a private key\n        type: string\n        required: false\n";
+const editorialPreparationJob="\n  editorial-preparation:\n    if: github.event_name == 'workflow_dispatch' && inputs.editorial_prepare == true\n    runs-on: ubuntu-24.04\n    timeout-minutes: 60\n    permissions:\n      contents: read\n    env:\n      INPUT_SOURCE_SHA: ${{ inputs.sha }}\n      INPUT_RESEARCH_SHA256: ${{ inputs.editorial_research_sha256 }}\n      INPUT_RESEARCH_B64: ${{ inputs.editorial_research_b64 }}\n      INPUT_RECIPIENT_PUBLIC_KEY: ${{ inputs.editorial_recipient_public_key }}\n      INPUT_QUICK: 'false'\n      PREP_RELEASE_REBUILD: ${{ inputs.rebuild && 'true' || 'false' }}\n      PREP_SELECTED_FEED_PROOF_SHA: ${{ inputs.selected_feed_proof_sha }}\n      EXPECTED_WORKFLOW_SHA: ${{ github.workflow_sha }}\n      PREP_RUN_ID: ${{ github.run_id }}\n      PREP_RUN_ATTEMPT: ${{ github.run_attempt }}\n    steps:\n      - name: Require immutable manual preparation selection\n        shell: bash\n        run: |\n          [[ \"$INPUT_SOURCE_SHA\" =~ ^[a-f0-9]{40}$ ]]\n          [[ \"$INPUT_RESEARCH_SHA256\" =~ ^[a-f0-9]{64}$ ]]\n          [[ \"$INPUT_SOURCE_SHA\" == \"$EXPECTED_WORKFLOW_SHA\" ]]\n          [[ \"$INPUT_QUICK\" == \"false\" ]]\n          [[ \"$PREP_RELEASE_REBUILD\" == \"false\" ]]\n          [[ -z \"$PREP_SELECTED_FEED_PROOF_SHA\" ]]\n\n      - name: Check out the reviewed immutable source\n        uses: actions/checkout@v5\n        with:\n          ref: ${{ inputs.sha }}\n          fetch-depth: 0\n          persist-credentials: false\n\n      - name: Set up existing Node runtime\n        uses: actions/setup-node@v5\n        with:\n          node-version: 24\n          cache: npm\n\n      - name: Install existing project dependencies only\n        run: npm ci --ignore-scripts --no-audit --no-fund\n\n      - name: Verify preparation and ordinary production source contracts\n        env:\n          GIT_NO_LAZY_FETCH: '1'\n          GIT_TERMINAL_PROMPT: '0'\n        run: |\n          timeout --signal=TERM --kill-after=5s 120s node scripts/validate-production-sql-batches.js\n          timeout --signal=TERM --kill-after=5s 120s node scripts/validate-adaptive-editorial.js\n\n      - name: Test transport then prepare canonical editorial without service writes\n        env:\n          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}\n          SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}\n          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}\n        run: node scripts/prepare-adaptive-editorial.js\n\n      - name: Return only authenticated ciphertext and safe metadata\n        if: always()\n        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2, Node 24\n        with:\n          name: editorial-preparation-${{ github.run_id }}-${{ github.run_attempt }}\n          path: |\n            ${{ runner.temp }}/editorial-preparation-return/private-return.encrypted.json\n            ${{ runner.temp }}/editorial-preparation-return/public-manifest.json\n          if-no-files-found: ignore\n          retention-days: 1\n\n      - name: Remove exact job-owned private and encrypted staging\n        if: always()\n        shell: bash\n        run: |\n          node scripts/prepare-adaptive-editorial.js --cleanup\n          rm -f -- \"$RUNNER_TEMP/editorial-preparation-return/private-return.encrypted.json\" \"$RUNNER_TEMP/editorial-preparation-return/public-manifest.json\"\n";
+const editorialPreparationRunName="run-name: ${{ inputs.editorial_prepare && 'Prepare editorial' || 'Deploy' }} ${{ inputs.sha }} ${{ inputs.request_id }}";
+const editorialPreparationOriginalRunName="run-name: Deploy ${{ inputs.sha }} ${{ inputs.request_id }}";
+
+// Manual editorial preparation is a separate, non-publishing route. Strip only
+// this reviewed additive seam, then run every frozen ordinary-production check.
+function validateEditorialPreparationHelper(source){
+ assert.equal(typeof source,'string');
+ assert.equal(hash(source),editorialPreparationHelperSha256,'Exact reviewed snapshot-only preparation/transport/cleanup helper');
+}
+function normaliseEditorialPreparationWorkflow(text){
+ assert.equal(typeof text,'string');
+ const jobs=[...text.matchAll(/^  ([a-z][a-z0-9-]*):\n/gm)];
+ const names=jobs.map(m=>m[1]);
+ if(names.length===2){
+  assert.deepEqual(names,['sql-safety','deploy']);
+  assert.equal(hash(text),editorialPreparationBaseSha256,'Only the exact prior ordinary production workflow may omit preparation');
+  return {restored:text,preparation:false};
+ }
+ assert.deepEqual(names,['sql-safety','deploy','editorial-preparation'],'No unknown or ambiguous mode/job');
+ assert(text.startsWith('name: Sportscal production\n'+editorialPreparationRunName+'\n'),'Exact mode-specific run name');
+ assert(text.includes("        default: ''\n"+editorialPreparationInputs+'permissions:\n'),'Optional preparation inputs follow the existing ordinary inputs');
+ assert(text.includes('permissions:\n  contents: read\nconcurrency:\n  group: sportscal-production-and-cleanup\n  cancel-in-progress: false\njobs:\n'),'Original read permission and global serialization');
+ const worker=text.slice(jobs[0].index,jobs[1].index),publisher=text.slice(jobs[1].index,jobs[2].index);
+ assert(worker.startsWith("  sql-safety:\n    if: inputs.editorial_prepare != true\n    name:"),'Whole four-batch job excluded from preparation');
+ assert(publisher.startsWith("  deploy:\n    if: inputs.editorial_prepare != true\n    needs: [sql-safety]\n"),'Publisher mutually excluded and all SQL dependencies retained');
+ const prep=text.slice(jobs[2].index);
+ assert.equal(prep,editorialPreparationJob.slice(1),'Exact separately guarded preparation steps, credential boundary and ciphertext-only artifacts');
+ assert(prep.startsWith("  editorial-preparation:\n    if: github.event_name == 'workflow_dispatch' && inputs.editorial_prepare == true\n"),'Manual true mode only');
+ assert(prep.includes('    permissions:\n      contents: read\n'),'Preparation is contents-read only');
+ assert(prep.includes("      INPUT_QUICK: 'false'\n"),'No undefined quick input on the production workflow');
+ assert(prep.includes('          [[ "$INPUT_SOURCE_SHA" == "$EXPECTED_WORKFLOW_SHA" ]]\n'),'Immutable workflow and source implementation binding');
+ assert(prep.includes('          [[ "$PREP_RELEASE_REBUILD" == "false" ]]\n          [[ -z "$PREP_SELECTED_FEED_PROOF_SHA" ]]\n'),'Ordinary release options cannot mix with preparation');
+ assert(!/VERCEL_|GH_TOKEN|npm install --global|git push|git commit|update-sportscal-cards-and-release|redeploy-and-release|deploy-current-commit|maintain-profile-avatars/.test(prep),'No publisher, SQL-deploy credential or cleanup side route');
+ assert(prep.includes('          node scripts/prepare-adaptive-editorial.js --cleanup\n'),'Always cleanup exact owned private directory');
+ let restored=permanentOnce(text,editorialPreparationJob,'','reviewed manual preparation job');
+ restored=permanentOnce(restored,editorialPreparationInputs,'','reviewed optional default-false preparation inputs');
+ restored=permanentOnce(restored,editorialPreparationRunName,editorialPreparationOriginalRunName,'mode-specific run name');
+ restored=permanentOnce(restored,"  sql-safety:\n    if: inputs.editorial_prepare != true\n","  sql-safety:\n",'whole SQL matrix guard');
+ restored=permanentOnce(restored,"  deploy:\n    if: inputs.editorial_prepare != true\n","  deploy:\n",'whole publisher guard');
+ assert.equal(hash(restored),editorialPreparationBaseSha256,'Entire prior ordinary workflow restored: all four SQL batches, deadlines, source SHA, credentials, gates, deploy dependencies and serialization');
+ return {restored,preparation:true};
+}
+function editorialPreparationRegressions(text,helperSource){
+ const base=normaliseEditorialPreparationWorkflow(text);
+ assert.equal(base.preparation,true,'Current production workflow includes the reviewed manual route');
+ assert.equal(normaliseEditorialPreparationWorkflow(base.restored).preparation,false,'Exact ordinary predecessor remains supported');
+ validateEditorialPreparationHelper(helperSource);
+ assert.throws(()=>validateEditorialPreparationHelper(helperSource+'\n'),undefined,'Unreviewed helper bytes reject');
+ // Existing normalizer, frozen original hashes and all original validation
+ // assertions are still exercised, rather than replacing them with a new hash.
+ const ordinary=normalisePermanentProductionSelection(base.restored).restored;
+ const report=validate(ordinary);
+ assert.equal(report.batches,4);assert.equal(report.requiredOccurrences,263);
+ const mutatePrep=(value,change)=>permanentOnce(value,editorialPreparationJob,change(editorialPreparationJob),'negative prep target');
+ const mutateInputs=(value,change)=>permanentOnce(value,editorialPreparationInputs,change(editorialPreparationInputs),'negative input target');
+ const controls=[
+  ['unknown extra job',v=>v+'  unreviewed:\n    runs-on: ubuntu-24.04\n    steps: []\n'],
+  ['preparation default true',v=>mutateInputs(v,s=>s.replace('        default: false','        default: true'))],
+  ['ambiguous preparation type',v=>mutateInputs(v,s=>s.replace('        type: boolean','        type: string'))],
+  ['duplicate preparation inputs',v=>v.replace(editorialPreparationInputs,()=>editorialPreparationInputs+editorialPreparationInputs)],
+  ['missing whole SQL guard',v=>v.replace("  sql-safety:\n    if: inputs.editorial_prepare != true\n","  sql-safety:\n")],
+  ['ordinary SQL bypass',v=>v.replace("  sql-safety:\n    if: inputs.editorial_prepare != true\n","  sql-safety:\n    if: inputs.editorial_prepare == true\n")],
+  ['step-only SQL guard',v=>v.replace("  sql-safety:\n    if: inputs.editorial_prepare != true\n","  sql-safety:\n").replace('      - name: canonical-context-pg18\n','      - name: canonical-context-pg18\n        if: inputs.editorial_prepare != true\n')],
+  ['missing whole deploy guard',v=>v.replace("  deploy:\n    if: inputs.editorial_prepare != true\n","  deploy:\n")],
+  ['ordinary deploy bypass',v=>v.replace("  deploy:\n    if: inputs.editorial_prepare != true\n","  deploy:\n    if: inputs.editorial_prepare == true\n")],
+  ['preparation always override',v=>mutatePrep(v,s=>s.replace("    if: github.event_name == 'workflow_dispatch' && inputs.editorial_prepare == true","    if: always()"))],
+  ['preparation contents write',v=>mutatePrep(v,s=>s.replace('      contents: read','      contents: write'))],
+  ['preparation executes SQL',v=>mutatePrep(v,s=>s.replace('run: node scripts/prepare-adaptive-editorial.js','run: node scripts/validate-canonical-context-batch.js'))],
+  ['preparation deploy wrapper',v=>mutatePrep(v,s=>s.replace('run: node scripts/prepare-adaptive-editorial.js','run: bash scripts/update-sportscal-cards-and-release.sh'))],
+  ['preparation Vercel credential',v=>mutatePrep(v,s=>s.replace('          SUPABASE_URL:',"          VERCEL_TOKEN: "+'$'+"{{ secrets.VERCEL_TOKEN }}\n          SUPABASE_URL:"))],
+  ['preparation push step',v=>mutatePrep(v,s=>s.replace('          [[ "$INPUT_QUICK" == "false" ]]','          git push origin HEAD:main'))],
+  ['mutable preparation source',v=>mutatePrep(v,s=>s.replace('          ref: '+'$'+'{{ inputs.sha }}','          ref: main'))],
+  ['missing immutable workflow guard',v=>mutatePrep(v,s=>s.replace('          [[ "$INPUT_SOURCE_SHA" == "$EXPECTED_WORKFLOW_SHA" ]]\n',''))],
+  ['mixed rebuild preparation',v=>mutatePrep(v,s=>s.replace('          [[ "$PREP_RELEASE_REBUILD" == "false" ]]\n',''))],
+  ['mixed selected proof preparation',v=>mutatePrep(v,s=>s.replace('          [[ -z "$PREP_SELECTED_FEED_PROOF_SHA" ]]\n',''))],
+  ['undefined quick selector',v=>mutatePrep(v,s=>s.replace("      INPUT_QUICK: 'false'","      INPUT_QUICK: "+'$'+"{{ inputs.quick }}"))],
+  ['persisted preparation checkout token',v=>mutatePrep(v,s=>s.replace('          persist-credentials: false','          persist-credentials: true'))],
+  ['public artifact wildcard',v=>mutatePrep(v,s=>s.replace('/private-return.encrypted.json','/*.json'))],
+  ['public plaintext report',v=>mutatePrep(v,s=>s.replace('/private-return.encrypted.json','/research-check-report.json'))],
+  ['missing always private cleanup',v=>mutatePrep(v,s=>s.replace('          node scripts/prepare-adaptive-editorial.js --cleanup\n',''))],
+  ['unsafe broad temp cleanup',v=>mutatePrep(v,s=>s.replace('          node scripts/prepare-adaptive-editorial.js --cleanup','          rm -rf -- "$RUNNER_TEMP"'))],
+  ['lost ordinary SQL batch',v=>v.replace('near-selection, grouped-view','grouped-view')],
+  ['lost ordinary deploy dependency',v=>v.replace('    needs: [sql-safety]\n','')],
+  ['changed ordinary deadline',v=>v.replace('    timeout-minutes: 30','    timeout-minutes: 31')],
+  ['lost ordinary publisher gate',v=>v.replace('          node scripts/validate-preference-bookkeeping.js\n','')],
+  ['changed global serialization',v=>v.replace('  group: sportscal-production-and-cleanup','  group: unreviewed-preparation')],
+  ['cancellation of concurrent publisher',v=>v.replace('  cancel-in-progress: false','  cancel-in-progress: true')],
+  ['global write permissions',v=>v.replace('permissions:\n  contents: read','permissions:\n  contents: write')],
+ ];
+ for(const[name,mutate]of controls){const broken=mutate(text);assert.notEqual(broken,text,name+' mutation must apply');assert.throws(()=>normaliseEditorialPreparationWorkflow(broken),undefined,name+' must refuse');}
+ return {groups:controls.length,routingNegativeControls:controls.length,helperByteRejections:1,names:controls.map(([name])=>name),helperSourcePinned:true,ordinaryPredecessorRestored:true,
+ originalRequiredOccurrences:report.requiredOccurrences,engineRuns:0,serviceRequests:0,releaseAcceptance:false};
+}
+
 function validate(text){
  const jobs=[...text.matchAll(/^  ([a-z][a-z0-9-]*):\n/gm)];
  assert.deepEqual(jobs.map(m=>m[1]),['sql-safety','deploy'],'Only four prerequisite matrix batches and the one publisher');
@@ -533,6 +631,7 @@ function normalisePermanentCaptureWorkflow(text){
  return {restored,capture,premerge};
 }
 function normalisePermanentProductionSelection(text){
+ text=normaliseEditorialPreparationWorkflow(text).restored;
  assert.equal(typeof text,'string');assert.equal(text.split(permanentProductionTwo).length-1,1,'Exactly two bounded selection calls');
  assert(text.includes(permanentProductionAnchor+permanentProductionTwo),'Selection suites after account-awareness predeploy');
  const restored=text.replace(permanentProductionTwo,()=>'');assert.equal(hash(restored),permanentProductionBeforeSha256,'Whole prior production source restored');return {restored};
@@ -588,11 +687,11 @@ function permanentCaptureRegressions(text){
  const begin='// NS_PRIMARY_CAPTURE_PURE_BEGIN',finish='// NS_PRIMARY_CAPTURE_PURE_END';assert.equal(capture.split(begin).length-1,1);assert.equal(capture.split(finish).length-1,1);
  const pure=capture.slice(capture.indexOf(begin),capture.indexOf(finish)).split('\n').map(line=>line.startsWith('          ')?line.slice(10):line).join('\n');
  const collectorFile=require('node:path').join(__dirname,'verify-production-release.js'),before=fs.lstatSync(collectorFile);
- assert(before.isFile()&&!before.isSymbolicLink()&&before.size===21975,'Exact reviewed collector source');
+ assert(before.isFile()&&!before.isSymbolicLink()&&(before.size===21975||before.size===22484),'Exact reviewed collector source');
  const stamp=s=>[s.dev,s.ino,s.size,s.mode,s.mtimeMs,s.ctimeMs],fd=fs.openSync(collectorFile,fs.constants.O_RDONLY|fs.constants.O_NOFOLLOW);let source;
  try{assert.deepEqual(stamp(fs.fstatSync(fd)),stamp(before));source=fs.readFileSync(fd);assert.deepEqual(stamp(fs.fstatSync(fd)),stamp(before));}finally{fs.closeSync(fd);}
- assert.deepEqual(stamp(fs.lstatSync(collectorFile)),stamp(before));assert.equal(source.length,21975);
- assert.equal(hash(source),'0c50daf81a2b7bed72ba24a33fc453040480e91cc41923a92e8e1570426cbcde');
+ assert.deepEqual(stamp(fs.lstatSync(collectorFile)),stamp(before));assert.equal(source.length,before.size);
+ assert.equal(hash(source),source.length===22484?'79e55a3d30442984899fed99b0c6d5cd480ce23bdd59f3820a4de27c09f07c00':'0c50daf81a2b7bed72ba24a33fc453040480e91cc41923a92e8e1570426cbcde');
  const collector=require(collectorFile),validateBinding=(binding,wall)=>collector.validateCaptureBinding(JSON.parse(JSON.stringify(binding)),wall);
  const harness="\nconst cases=[];function pass(name,run){run();cases.push(name);}function fail(name,run){assert.throws(run,undefined,name);cases.push(name);}\nconst H='1'.repeat(40),B='2'.repeat(40),T='3'.repeat(40),TREE='4'.repeat(40),NOW=Date.parse('2026-11-06T00:00:00.000Z');\nfunction fixture(){const facts={baselineSha:baseline,baselineVersion:baselineVersion,deployment:{id:deployment,state:'READY',releaseGitSha:baseline,origin:'https://nothingsport.app',checkedAt:new Date(NOW).toISOString()},alias:{domain:'nothingsport.app',deploymentId:deployment,projectId:project,teamId:team,redirect:null,checkedAt:new Date(NOW).toISOString()},publisherWindow:{owner:'nsPUBLISH',held:true}};return {body:{schemaVersion:'primary-baseline-capture-request.v1',publisherHeadSha:H,publisherTreeSha:TREE,preparedForBaseSha:B,namedAllocationId:'synthetic-source-control-only',publisherBindingRecordSha256:'a'.repeat(64),captureFacts:facts},event:{action:'opened',number:1,repository:{full_name:'hartican/sportscal'},pull_request:{number:1,draft:true,head:{sha:H,ref:'codex/baseline-capture-owned-control',repo:{full_name:'hartican/sportscal'}},base:{sha:B}}},env:{GITHUB_ACTIONS:'true',GITHUB_EVENT_NAME:'pull_request',GITHUB_REPOSITORY:'hartican/sportscal',GITHUB_JOB:'fixture-activation',GITHUB_RUN_ATTEMPT:'1',GITHUB_RUN_ID:'1',GITHUB_REF:'refs/pull/1/merge',GITHUB_SHA:T},observed:{checkoutSha:T,parents:[B,H],headTree:TREE,testedTree:TREE}};}\nfunction run(x,raw){return primaryCaptureRequest(raw||Buffer.from(JSON.stringify(x.body)),x.event,x.env,x.observed,NOW,validateBinding);}\npass('exact capture binding uses actual T not H',()=>{const x=fixture(),r=run(x);assert.equal(r.binding.collectorSha,T);assert.equal(r.H,H);assert.equal(r.binding.preparedForBaseSha,B);});\npass('fixed611 collector target not old609, with unchanged primary command scope',()=>{assert.equal(baseline,'4bff7ada7d03c3bff52a262f58e630fe47848a74');assert.equal(baselineVersion,'611');assert.equal(deployment,'dpl_CRai77riopJQrZNyGbJZBKkVmPVA');});\npass('actual external INTENT/body byte join is pure and not ACK authentication',()=>{\n const intentBytes=Buffer.from('SYNTHETIC_CONTROL_INTENT_NOT_ACTION_AUTHORITY'),bodyBytes=Buffer.from(JSON.stringify(fixture().body));\n const args={intentBytes,bodyBytes,acknowledgedIntentSha256:hash(intentBytes),acknowledgedBodySha256:hash(bodyBytes)};\n assert.equal(validateAck(args).scope,'BYTE_JOIN_ONLY_NOT_ACK_AUTHENTICATION_OR_ACTION_AUTHORITY');\n});\nfor(const[name,change]of[\n ['wrong independent INTENT byte identity',x=>{x.intentBytes=Buffer.from('OTHER_SYNTHETIC_INTENT');}],\n ['wrong final body byte identity',x=>{x.bodyBytes=Buffer.concat([x.bodyBytes,Buffer.from(' ')]);}],\n ['wrong INTENT ACK digest',x=>{x.acknowledgedIntentSha256='0'.repeat(64);}],\n ['wrong body ACK digest',x=>{x.acknowledgedBodySha256='0'.repeat(64);}],\n ['ACK of noncompact trailingLF body still refuses',x=>{x.bodyBytes=Buffer.concat([x.bodyBytes,Buffer.from('\\n')]);x.acknowledgedBodySha256=hash(x.bodyBytes);}]\n])fail(name,()=>{\n const intentBytes=Buffer.from('SYNTHETIC_CONTROL_INTENT_NOT_ACTION_AUTHORITY'),bodyBytes=Buffer.from(JSON.stringify(fixture().body));\n const args={intentBytes,bodyBytes,acknowledgedIntentSha256:hash(intentBytes),acknowledgedBodySha256:hash(bodyBytes)};change(args);validateAck(args);\n});\n\npass('Ready never captures and keeps normal/browser',()=>{const x=fixture();x.event.pull_request.draft=false;const r=captureRouteDecision(x.event.pull_request,'hartican/sportscal');assert.equal(r.runNormal,true);assert.equal(r.runInstalledBrowser,true);assert.equal(r.runCapture,false);});\npass('case-insensitive branch/repository model',()=>{const x=fixture();x.event.pull_request.head.ref=x.event.pull_request.head.ref.toUpperCase();x.event.pull_request.head.repo.full_name='HARTICAN/SPORTSCAL';assert.equal(captureRouteDecision(x.event.pull_request,'hartican/sportscal').runCapture,true);});\nfor(const[name,change]of[\n ['missing request field',x=>delete x.body.publisherTreeSha],['extra request field',x=>x.body.extra=true],['unknown mode',x=>x.body.schemaVersion='other'],['combined scope',x=>x.body.sourceQualificationBinding={}],['coerced head',x=>x.body.publisherHeadSha=42],['blank allocation',x=>x.body.namedAllocationId=' '],['template allocation',x=>x.body.namedAllocationId='SOURCE_TEMPLATE'],['wrong head',x=>x.body.publisherHeadSha=B],['wrong base',x=>x.body.preparedForBaseSha=H],['wrong tree',x=>x.body.publisherTreeSha=H],['fork',x=>x.event.pull_request.head.repo.full_name='fork/repo'],['wrong branch',x=>x.event.pull_request.head.ref='codex/unrelated'],['ordinary draft',x=>x.event.pull_request.head.ref='main'],['Ready cannot capture',x=>x.event.pull_request.draft=false],['unknown event',x=>x.event.action='edited'],['attempt2',x=>x.env.GITHUB_RUN_ATTEMPT='2'],['bad run',x=>x.env.GITHUB_RUN_ID='01'],['event base mismatch',x=>x.event.pull_request.base.sha=H],['checkout mismatch',x=>x.observed.checkoutSha=H],['parent order',x=>x.observed.parents=[H,B]],['unequal trees',x=>x.observed.testedTree=H],['wrong baseline',x=>x.body.captureFacts.baselineVersion='608'],['old609 version',x=>x.body.captureFacts.baselineVersion='609'],['old609 baseline',x=>x.body.captureFacts.baselineSha='037a6214c1a573b57298d3ea504de0b89e31d473'],['old609 deployment',x=>x.body.captureFacts.deployment.id='dpl_iMQryy8NccQZSzJnUc9i1HLdLYhB'],['extra facts',x=>x.body.captureFacts.extra=true],['legacy alias',x=>x.body.captureFacts.alias.domain='legacy.vercel.app'],['not READY',x=>x.body.captureFacts.deployment.state='ERROR'],['unheld window',x=>x.body.captureFacts.publisherWindow.held=false],['future alias',x=>x.body.captureFacts.alias.checkedAt=new Date(NOW+1).toISOString()],['stale deployment',x=>x.body.captureFacts.deployment.checkedAt=new Date(NOW-86400001).toISOString()],['unpaired Unicode',x=>x.body.namedAllocationId='\\ud800']\n])fail(name,()=>{const x=fixture();change(x);run(x);});\nfail('trailingLF',()=>{const x=fixture();run(x,Buffer.from(JSON.stringify(x.body)+'\\n'));});\nfail('duplicate request keys',()=>{const x=fixture();run(x,Buffer.from(JSON.stringify(x.body).replace('\"schemaVersion\":\"primary-baseline-capture-request.v1\"','\"schemaVersion\":\"other\",\"schemaVersion\":\"primary-baseline-capture-request.v1\"')));});\nfail('invalidUTF8',()=>run(fixture(),Buffer.from([255])));\nfail('body limit',()=>run(fixture(),Buffer.alloc(65537)));\n({groups:cases.length,names:cases,typedPrModelNotActionsInterpreter:true,networkRequests:0,releaseAcceptance:false});\n";
  const requestControls=require('node:vm').runInNewContext(pure+'\n'+harness,{assert,Buffer,TextDecoder:require('node:util').TextDecoder,path:require('node:path'),crypto,hash,validateBinding,baseline:collector.BASELINE,baselineVersion:collector.BASELINE_VERSION,validateAck:collector.validateCaptureIntentBodyAck,deployment:collector.DEPLOYMENT,project:collector.PROJECT,team:collector.TEAM},{timeout:5000});
@@ -1294,6 +1393,7 @@ function forwardConsumerControlsForContext(){
 
 if(require.main===module){
  const augmentedProduction=fs.readFileSync('.github/workflows/sportscal-production.yml','utf8');
+ const editorialPreparationControls=editorialPreparationRegressions(augmentedProduction,fs.readFileSync('scripts/prepare-adaptive-editorial.js','utf8'));
  const text=normalisePermanentProductionSelection(augmentedProduction).restored,report=validate(text);
  const rawForwardInstalled=fs.readFileSync('.github/workflows/installed-upgrade-tests.yml','utf8');
  const {normaliseForwardWorkflow,sourceControls}=require('./validate-forward-onboarding-ci');
@@ -1314,7 +1414,7 @@ if(require.main===module){
  let e610ActualConsumerAdmissionControls,consumerControlFailure=null;
  try{e610ActualConsumerAdmissionControls=forwardConsumerControlsForContext();if(e610ActualConsumerAdmissionControls.status==='NOT_FORWARD_CONTEXT')e610ActualConsumerAdmissionControls=e610ConsumerControlsForContext();}
  catch(error){consumerControlFailure=error;e610ActualConsumerAdmissionControls={status:'FAIL_ACTUAL_CONSUMER_ADMISSION_CONTROLS',message:error.message,report:error.e610Report||null,groups:error.e610Report?.groups??null,requiredSourceAdmissionGateClosed:false,releaseAcceptance:false};}
- console.log(JSON.stringify({schemaVersion:'production-sql-batches.v1',...report,forwardSourceControls,actualConsumerContextRoutingControls,negativeControls:originalNegativeControls,signupCompatibilityNegativeControls,lockedTerserPackageControls,e610AdmissionControls:admission.report,e610ActualConsumerAdmissionControls,singlePassSourceControls:singlePassSource.report,producerReadLedgerControls:producerReadLedger.report,projectionReadBudgetControls:projectionReadBudget.report,permanentCaptureControls:permanentCaptureControls.report,permanentProductionSelectionControls,engineRuns:0,serviceRequests:0,releaseAcceptance:false}));
+ console.log(JSON.stringify({schemaVersion:'production-sql-batches.v1',...report,forwardSourceControls,actualConsumerContextRoutingControls,editorialPreparationControls,negativeControls:originalNegativeControls,signupCompatibilityNegativeControls,lockedTerserPackageControls,e610AdmissionControls:admission.report,e610ActualConsumerAdmissionControls,singlePassSourceControls:singlePassSource.report,producerReadLedgerControls:producerReadLedger.report,projectionReadBudgetControls:projectionReadBudget.report,permanentCaptureControls:permanentCaptureControls.report,permanentProductionSelectionControls,engineRuns:0,serviceRequests:0,releaseAcceptance:false}));
  if(consumerControlFailure)throw consumerControlFailure;
 }
-module.exports={actualConsumerContextRoute,actualConsumerContextRoutingRegressions,forwardConsumerAdmissionRegressions,forwardConsumerControlsForContext,normaliseSinglePassSourceWorkflow,singlePassSourceRegressions,normaliseProducerReadLedgerWorkflow,producerReadLedgerRegressions,normaliseProjectionReadReuseWorkflow,projectionReadBudgetRegressions,normalisePermanentCaptureWorkflow,normalisePermanentProductionSelection,permanentCaptureRegressions,permanentProductionSelectionRegressions,e610ConsumerAdmissionRegressions,e610ConsumerControlsForContext,normaliseE610AdmissionWorkflow,e610AdmissionRegressions,resolveLockedTerserPackage,lockedTerserPackageRegressions,validate,regressions,validateSignupCompatibilityWorkflow,signupCompatibilityRegressions};
+module.exports={normaliseEditorialPreparationWorkflow,editorialPreparationRegressions,validateEditorialPreparationHelper,actualConsumerContextRoute,actualConsumerContextRoutingRegressions,forwardConsumerAdmissionRegressions,forwardConsumerControlsForContext,normaliseSinglePassSourceWorkflow,singlePassSourceRegressions,normaliseProducerReadLedgerWorkflow,producerReadLedgerRegressions,normaliseProjectionReadReuseWorkflow,projectionReadBudgetRegressions,normalisePermanentCaptureWorkflow,normalisePermanentProductionSelection,permanentCaptureRegressions,permanentProductionSelectionRegressions,e610ConsumerAdmissionRegressions,e610ConsumerControlsForContext,normaliseE610AdmissionWorkflow,e610AdmissionRegressions,resolveLockedTerserPackage,lockedTerserPackageRegressions,validate,regressions,validateSignupCompatibilityWorkflow,signupCompatibilityRegressions};

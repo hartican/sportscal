@@ -63,12 +63,20 @@ const entries = tree.toString("utf8").split("\0").filter(Boolean).map(record => 
 });
 const byName=new Map(entries.map(e=>[e.name,e]));
 const selected=new Set(entries.filter(e=>e.type==='blob'&&retained(e.name)).map(e=>e.name));
+// Retain only verified RAW JavaScript bytes for this invocation, not transformed output.
+// The 32 MiB limit bounds retained cache bytes only, not transient buffers or total RSS.
+const RAW_JS_CACHE_LIMIT=32*1024*1024,rawJsCache=new Map();let rawJsCacheBytes=0;
+try{
 // Some live adapters import parsers under scripts/. Include their local dependency closure.
 if(policy){
   for(const name of selected){
     if(!name.endsWith('.js'))continue;
     const entry=byName.get(name);
-    const source=(verifiedWorkingTreeContent(entry)||execFileSync('git',['cat-file','blob',entry.oid],{maxBuffer:64*1024*1024})).toString();
+    const raw=verifiedWorkingTreeContent(entry)||execFileSync('git',['cat-file','blob',entry.oid],{maxBuffer:64*1024*1024});
+    if(gitBlobOid(raw)!==entry.oid)throw new Error(`Raw JavaScript blob verification failed: ${name}`);
+    if(raw.length>RAW_JS_CACHE_LIMIT-rawJsCacheBytes)throw new Error('Retained raw JavaScript cache byte bound');
+    rawJsCache.set(name,{oid:entry.oid,content:raw});rawJsCacheBytes+=raw.length;
+    const source=raw.toString();
     for(const match of source.matchAll(/require\(\s*['"](\.[^'"]+)['"]\s*\)/g)){
       const base=path.posix.normalize(path.posix.join(path.posix.dirname(name),match[1]));
       const dependency=[base,base+'.js',base+'.json',base+'/index.js'].find(p=>byName.has(p));
@@ -88,7 +96,12 @@ blobs.forEach(entry => {
   fs.mkdirSync(path.dirname(outputPath), { recursive: true });
   // Reuse only bytes whose Git blob SHA matches this commit. Changed files
   // fall back to isolated object reads, avoiding bulk packed-object SIGBUS.
-  let content = verifiedWorkingTreeContent(entry) || execFileSync("git", ["cat-file", "blob", entry.oid], {
+  let content;
+  if(policy&&entry.name.endsWith(".js")){
+    const cached=rawJsCache.get(entry.name);
+    if(!cached||cached.oid!==entry.oid)throw new Error(`Missing verified raw JavaScript cache entry: ${entry.name}`);
+    content=cached.content;rawJsCache.delete(entry.name);rawJsCacheBytes-=content.length;
+  }else content = verifiedWorkingTreeContent(entry) || execFileSync("git", ["cat-file", "blob", entry.oid], {
       encoding: null,
       maxBuffer: 64 * 1024 * 1024,
     });
@@ -113,4 +126,6 @@ if(policy){
   fs.writeFileSync(path.join(destination,'.vercelignore'),'deployment-files.json\n');
   if(policy.acceptedBytes && bytes>policy.acceptedBytes*1.1)console.warn(`WARNING: deployment ${bytes} bytes exceeds accepted baseline ${policy.acceptedBytes} by more than 10%`);
 }
+if(rawJsCache.size||rawJsCacheBytes!==0)throw new Error("Unconsumed raw JavaScript cache entries");
 console.log(`Materialized ${blobs.length} verified files from ${revision}: ${bytes} bytes.`);
+}finally{rawJsCache.clear();rawJsCacheBytes=0;}

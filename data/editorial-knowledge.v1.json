@@ -1651,6 +1651,16 @@
       "id": "subject:fixture-research:evt_43:revision-4dc88abbaef4bc4813d78b7820c7aa7c48a9e6cf416336a3dc766e6312e8192f",
       "kind": "event",
       "name": "Qatar Grand Prix: retained official context"
+    },
+    {
+      "id": "subject:fixture-research:evt_40:revision-920c973bd1993bdde416a88fd84a989ecf296ef01ab76d500aef0bb191135d6a",
+      "kind": "event",
+      "name": "Las Vegas qualifying: commitment without the braking error"
+    },
+    {
+      "id": "subject:fixture-research:evt_41:revision-6f1829da906878398051b1fd0d75331e499f826e114042f56f95f2a8037d02dd",
+      "kind": "event",
+      "name": "Las Vegas race: Brazil momentum meets the Strip"
     }
   ],
   "sources": [
@@ -8576,6 +8586,62 @@
       "url": "https://www.formula1.com/en/racing/2025/qatar",
       "sourceType": "official",
       "checkedAt": "2026-10-30T23:28:25.790Z"
+    },
+    {
+      "id": "source:fixture-research:evt_40:revision-920c973bd1993bdde416a88fd84a989ecf296ef01ab76d500aef0bb191135d6a:0",
+      "name": "FIA Sao Paulo Grand Prix report, 8 November 2026",
+      "url": "https://www.fia.com/news/f1-norris-triumphs-sao-paulo-mercedes-secure-2026-constructors-championship",
+      "sourceType": "official",
+      "checkedAt": "2026-11-13T13:19:24Z"
+    },
+    {
+      "id": "source:fixture-research:evt_40:revision-920c973bd1993bdde416a88fd84a989ecf296ef01ab76d500aef0bb191135d6a:1",
+      "name": "Formula 1 official Las Vegas 2026 race hub",
+      "url": "https://www.formula1.com/en/racing/2026/las-vegas",
+      "sourceType": "official",
+      "checkedAt": "2026-11-13T13:19:24Z"
+    },
+    {
+      "id": "source:fixture-research:evt_40:revision-920c973bd1993bdde416a88fd84a989ecf296ef01ab76d500aef0bb191135d6a:2",
+      "name": "Formula 1 Las Vegas sporting and historical guide",
+      "url": "https://www.formula1.com/en/latest/article/what-makes-the-las-vegas-grand-prix-special-and-why-you-should-see-it.7EKzEf0h1QWqvLFrEsdJVC",
+      "sourceType": "official",
+      "checkedAt": "2026-11-13T13:19:24Z"
+    },
+    {
+      "id": "source:fixture-research:evt_40:revision-920c973bd1993bdde416a88fd84a989ecf296ef01ab76d500aef0bb191135d6a:3",
+      "name": "Formula 1 official Las Vegas 2026 timetable",
+      "url": "https://www.formula1.com/en/latest/article/formula-1-heineken-las-vegas-grand-prix-2026.1qmWzcBwKK5hkTbYbhVC22",
+      "sourceType": "official",
+      "checkedAt": "2026-11-13T13:19:24Z"
+    },
+    {
+      "id": "source:fixture-research:evt_41:revision-6f1829da906878398051b1fd0d75331e499f826e114042f56f95f2a8037d02dd:0",
+      "name": "FIA Sao Paulo Grand Prix report, 8 November 2026",
+      "url": "https://www.fia.com/news/f1-norris-triumphs-sao-paulo-mercedes-secure-2026-constructors-championship",
+      "sourceType": "official",
+      "checkedAt": "2026-11-13T13:19:24Z"
+    },
+    {
+      "id": "source:fixture-research:evt_41:revision-6f1829da906878398051b1fd0d75331e499f826e114042f56f95f2a8037d02dd:1",
+      "name": "Formula 1 official Las Vegas 2026 race hub",
+      "url": "https://www.formula1.com/en/racing/2026/las-vegas",
+      "sourceType": "official",
+      "checkedAt": "2026-11-13T13:19:24Z"
+    },
+    {
+      "id": "source:fixture-research:evt_41:revision-6f1829da906878398051b1fd0d75331e499f826e114042f56f95f2a8037d02dd:2",
+      "name": "Formula 1 Las Vegas sporting and historical guide",
+      "url": "https://www.formula1.com/en/latest/article/what-makes-the-las-vegas-grand-prix-special-and-why-you-should-see-it.7EKzEf0h1QWqvLFrEsdJVC",
+      "sourceType": "official",
+      "checkedAt": "2026-11-13T13:19:24Z"
+    },
+    {
+      "id": "source:fixture-research:evt_41:revision-6f1829da906878398051b1fd0d75331e499f826e114042f56f95f2a8037d02dd:3",
+      "name": "Formula 1 official Las Vegas 2026 timetable",
+      "url": "https://www.formula1.com/en/latest/article/formula-1-heineken-las-vegas-grand-prix-2026.1qmWzcBwKK5hkTbYbhVC22",
+      "sourceType": "official",
+      "checkedAt": "2026-11-13T13:19:24Z"
     }
   ],
   "narrativeFacts": [
@@ -40624,6 +40690,139 @@
       ],
       "observedAt": "2026-10-30T23:28:25.790Z",
       "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:evt_40:revision-920c973bd1993bdde416a88fd84a989ecf296ef01ab76d500aef0bb191135d6a:0",
+      "subjectIds": [
+        "subject:fixture-research:evt_40:revision-920c973bd1993bdde416a88fd84a989ecf296ef01ab76d500aef0bb191135d6a"
+      ],
+      "statement": "Norris converted Sao Paulo pole into victory; Verstappen recovered from 21st to second.",
+      "dimension": "form",
+      "sourceIds": [
+        "source:fixture-research:evt_40:revision-920c973bd1993bdde416a88fd84a989ecf296ef01ab76d500aef0bb191135d6a:0"
+      ],
+      "observedAt": "2026-11-13T13:19:24.000Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:evt_40:revision-920c973bd1993bdde416a88fd84a989ecf296ef01ab76d500aef0bb191135d6a:1",
+      "subjectIds": [
+        "subject:fixture-research:evt_40:revision-920c973bd1993bdde416a88fd84a989ecf296ef01ab76d500aef0bb191135d6a"
+      ],
+      "statement": "The Strip combines high speeds, heavy braking zones and close barriers.",
+      "dimension": "consequence",
+      "sourceIds": [
+        "source:fixture-research:evt_40:revision-920c973bd1993bdde416a88fd84a989ecf296ef01ab76d500aef0bb191135d6a:2"
+      ],
+      "observedAt": "2026-11-13T13:19:24.000Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:evt_40:revision-920c973bd1993bdde416a88fd84a989ecf296ef01ab76d500aef0bb191135d6a:2",
+      "subjectIds": [
+        "subject:fixture-research:evt_40:revision-920c973bd1993bdde416a88fd84a989ecf296ef01ab76d500aef0bb191135d6a"
+      ],
+      "statement": "Russell and Hamilton delivered a Mercedes one-two in Las Vegas in 2024.",
+      "dimension": "history",
+      "sourceIds": [
+        "source:fixture-research:evt_40:revision-920c973bd1993bdde416a88fd84a989ecf296ef01ab76d500aef0bb191135d6a:2"
+      ],
+      "observedAt": "2026-11-13T13:19:24.000Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:evt_40:revision-920c973bd1993bdde416a88fd84a989ecf296ef01ab76d500aef0bb191135d6a:3",
+      "subjectIds": [
+        "subject:fixture-research:evt_40:revision-920c973bd1993bdde416a88fd84a989ecf296ef01ab76d500aef0bb191135d6a"
+      ],
+      "statement": "The official 2026 timetable puts qualifying on Friday evening before the Saturday Grand Prix.",
+      "dimension": "consequence",
+      "sourceIds": [
+        "source:fixture-research:evt_40:revision-920c973bd1993bdde416a88fd84a989ecf296ef01ab76d500aef0bb191135d6a:3"
+      ],
+      "observedAt": "2026-11-13T13:19:24.000Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:evt_40:revision-920c973bd1993bdde416a88fd84a989ecf296ef01ab76d500aef0bb191135d6a:4",
+      "subjectIds": [
+        "subject:fixture-research:evt_40:revision-920c973bd1993bdde416a88fd84a989ecf296ef01ab76d500aef0bb191135d6a"
+      ],
+      "statement": "The scheduled Grand Prix covers 50 laps of the 6.201-kilometre circuit.",
+      "dimension": "consequence",
+      "sourceIds": [
+        "source:fixture-research:evt_40:revision-920c973bd1993bdde416a88fd84a989ecf296ef01ab76d500aef0bb191135d6a:1",
+        "source:fixture-research:evt_40:revision-920c973bd1993bdde416a88fd84a989ecf296ef01ab76d500aef0bb191135d6a:3"
+      ],
+      "observedAt": "2026-11-13T13:19:24.000Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:evt_41:revision-6f1829da906878398051b1fd0d75331e499f826e114042f56f95f2a8037d02dd:0",
+      "subjectIds": [
+        "subject:fixture-research:evt_41:revision-6f1829da906878398051b1fd0d75331e499f826e114042f56f95f2a8037d02dd"
+      ],
+      "statement": "Norris won in changing Sao Paulo conditions, ahead of Verstappen and Hadjar.",
+      "dimension": "form",
+      "sourceIds": [
+        "source:fixture-research:evt_41:revision-6f1829da906878398051b1fd0d75331e499f826e114042f56f95f2a8037d02dd:0"
+      ],
+      "observedAt": "2026-11-13T13:19:24.000Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:evt_41:revision-6f1829da906878398051b1fd0d75331e499f826e114042f56f95f2a8037d02dd:1",
+      "subjectIds": [
+        "subject:fixture-research:evt_41:revision-6f1829da906878398051b1fd0d75331e499f826e114042f56f95f2a8037d02dd"
+      ],
+      "statement": "Mercedes secured the 2026 constructors championship in Sao Paulo.",
+      "dimension": "consequence",
+      "sourceIds": [
+        "source:fixture-research:evt_41:revision-6f1829da906878398051b1fd0d75331e499f826e114042f56f95f2a8037d02dd:0"
+      ],
+      "observedAt": "2026-11-13T13:19:24.000Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:evt_41:revision-6f1829da906878398051b1fd0d75331e499f826e114042f56f95f2a8037d02dd:2",
+      "subjectIds": [
+        "subject:fixture-research:evt_41:revision-6f1829da906878398051b1fd0d75331e499f826e114042f56f95f2a8037d02dd"
+      ],
+      "statement": "The 2026 Las Vegas race is scheduled for 50 laps.",
+      "dimension": "consequence",
+      "sourceIds": [
+        "source:fixture-research:evt_41:revision-6f1829da906878398051b1fd0d75331e499f826e114042f56f95f2a8037d02dd:1",
+        "source:fixture-research:evt_41:revision-6f1829da906878398051b1fd0d75331e499f826e114042f56f95f2a8037d02dd:3"
+      ],
+      "observedAt": "2026-11-13T13:19:24.000Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:evt_41:revision-6f1829da906878398051b1fd0d75331e499f826e114042f56f95f2a8037d02dd:3",
+      "subjectIds": [
+        "subject:fixture-research:evt_41:revision-6f1829da906878398051b1fd0d75331e499f826e114042f56f95f2a8037d02dd"
+      ],
+      "statement": "Leclerc passed Perez on the final lap for second at the 2023 Strip race.",
+      "dimension": "history",
+      "sourceIds": [
+        "source:fixture-research:evt_41:revision-6f1829da906878398051b1fd0d75331e499f826e114042f56f95f2a8037d02dd:2"
+      ],
+      "observedAt": "2026-11-13T13:19:24.000Z",
+      "expiresAt": null
+    },
+    {
+      "id": "fact:fixture-research:evt_41:revision-6f1829da906878398051b1fd0d75331e499f826e114042f56f95f2a8037d02dd:4",
+      "subjectIds": [
+        "subject:fixture-research:evt_41:revision-6f1829da906878398051b1fd0d75331e499f826e114042f56f95f2a8037d02dd"
+      ],
+      "statement": "Formula 1 describes high speeds and heavy braking opportunities on the Las Vegas street layout.",
+      "dimension": "consequence",
+      "sourceIds": [
+        "source:fixture-research:evt_41:revision-6f1829da906878398051b1fd0d75331e499f826e114042f56f95f2a8037d02dd:1",
+        "source:fixture-research:evt_41:revision-6f1829da906878398051b1fd0d75331e499f826e114042f56f95f2a8037d02dd:2"
+      ],
+      "observedAt": "2026-11-13T13:19:24.000Z",
+      "expiresAt": null
     }
   ],
   "narrativeThreads": [
@@ -45515,6 +45714,40 @@
       ],
       "status": "active",
       "updatedAt": "2026-10-30T23:29:54.351Z"
+    },
+    {
+      "id": "thread:fixture-research:evt_40:revision-920c973bd1993bdde416a88fd84a989ecf296ef01ab76d500aef0bb191135d6a",
+      "subjectIds": [
+        "subject:fixture-research:evt_40:revision-920c973bd1993bdde416a88fd84a989ecf296ef01ab76d500aef0bb191135d6a"
+      ],
+      "title": "Las Vegas qualifying: commitment without the braking error",
+      "summary": "The sporting challenge sits beyond the lights: high speeds, heavy braking and nearby barriers leave little room for a compromised lap. For Norris, Verstappen and the rest, the question is who can combine commitment with precision before race strategy offers another way back.",
+      "factIds": [
+        "fact:fixture-research:evt_40:revision-920c973bd1993bdde416a88fd84a989ecf296ef01ab76d500aef0bb191135d6a:0",
+        "fact:fixture-research:evt_40:revision-920c973bd1993bdde416a88fd84a989ecf296ef01ab76d500aef0bb191135d6a:1",
+        "fact:fixture-research:evt_40:revision-920c973bd1993bdde416a88fd84a989ecf296ef01ab76d500aef0bb191135d6a:2",
+        "fact:fixture-research:evt_40:revision-920c973bd1993bdde416a88fd84a989ecf296ef01ab76d500aef0bb191135d6a:3",
+        "fact:fixture-research:evt_40:revision-920c973bd1993bdde416a88fd84a989ecf296ef01ab76d500aef0bb191135d6a:4"
+      ],
+      "status": "active",
+      "updatedAt": "2026-11-13T13:19:24Z"
+    },
+    {
+      "id": "thread:fixture-research:evt_41:revision-6f1829da906878398051b1fd0d75331e499f826e114042f56f95f2a8037d02dd",
+      "subjectIds": [
+        "subject:fixture-research:evt_41:revision-6f1829da906878398051b1fd0d75331e499f826e114042f56f95f2a8037d02dd"
+      ],
+      "title": "Las Vegas race: Brazil momentum meets the Strip",
+      "summary": "Straight-line speed must survive the braking zones, and every attack has to account for the barriers. Over the full distance, the interesting contest is not simply who looks quickest: it is who can turn that speed into clean overtakes without surrendering track position.",
+      "factIds": [
+        "fact:fixture-research:evt_41:revision-6f1829da906878398051b1fd0d75331e499f826e114042f56f95f2a8037d02dd:0",
+        "fact:fixture-research:evt_41:revision-6f1829da906878398051b1fd0d75331e499f826e114042f56f95f2a8037d02dd:1",
+        "fact:fixture-research:evt_41:revision-6f1829da906878398051b1fd0d75331e499f826e114042f56f95f2a8037d02dd:2",
+        "fact:fixture-research:evt_41:revision-6f1829da906878398051b1fd0d75331e499f826e114042f56f95f2a8037d02dd:3",
+        "fact:fixture-research:evt_41:revision-6f1829da906878398051b1fd0d75331e499f826e114042f56f95f2a8037d02dd:4"
+      ],
+      "status": "active",
+      "updatedAt": "2026-11-13T13:19:24Z"
     }
   ],
   "audienceMemories": [],
@@ -63862,6 +64095,80 @@
       "originalityReview": {
         "method": "independent-summary-no-source-prose-retained",
         "reviewedAt": "2026-10-30T23:29:54.351Z"
+      }
+    },
+    {
+      "id": "projection:fixture-research:evt_40",
+      "targetType": "feed-event",
+      "targetIds": [
+        "evt_40",
+        "event:f1:2026:las-vegas:qualifying"
+      ],
+      "researchDepth": 5,
+      "hook": "A clean lap on the Strip can make a weekend; a missed braking point can undo it.",
+      "synopsis": "The sporting challenge sits beyond the lights: high speeds, heavy braking and nearby barriers leave little room for a compromised lap. For Norris, Verstappen and the rest, the question is who can combine commitment with precision before race strategy offers another way back.",
+      "formCopy": "Norris arrives from a Sao Paulo pole and victory, while Verstappen recovered from 21st to second. That contrast gives qualifying its edge: McLaren's recent one-lap execution meets a Red Bull capable of recovering lost ground.",
+      "closingCopy": "Las Vegas rewarded Mercedes with a Russell-Hamilton one-two in 2024. The 2026 qualifying session precedes a 50-lap Grand Prix on the 6.201-kilometre Strip circuit; pole is an opportunity, not a forecast.",
+      "threadIds": [
+        "thread:fixture-research:evt_40:revision-920c973bd1993bdde416a88fd84a989ecf296ef01ab76d500aef0bb191135d6a"
+      ],
+      "factIds": [
+        "fact:fixture-research:evt_40:revision-920c973bd1993bdde416a88fd84a989ecf296ef01ab76d500aef0bb191135d6a:0",
+        "fact:fixture-research:evt_40:revision-920c973bd1993bdde416a88fd84a989ecf296ef01ab76d500aef0bb191135d6a:1",
+        "fact:fixture-research:evt_40:revision-920c973bd1993bdde416a88fd84a989ecf296ef01ab76d500aef0bb191135d6a:2",
+        "fact:fixture-research:evt_40:revision-920c973bd1993bdde416a88fd84a989ecf296ef01ab76d500aef0bb191135d6a:3",
+        "fact:fixture-research:evt_40:revision-920c973bd1993bdde416a88fd84a989ecf296ef01ab76d500aef0bb191135d6a:4"
+      ],
+      "sourceIds": [
+        "source:fixture-research:evt_40:revision-920c973bd1993bdde416a88fd84a989ecf296ef01ab76d500aef0bb191135d6a:0",
+        "source:fixture-research:evt_40:revision-920c973bd1993bdde416a88fd84a989ecf296ef01ab76d500aef0bb191135d6a:1",
+        "source:fixture-research:evt_40:revision-920c973bd1993bdde416a88fd84a989ecf296ef01ab76d500aef0bb191135d6a:2",
+        "source:fixture-research:evt_40:revision-920c973bd1993bdde416a88fd84a989ecf296ef01ab76d500aef0bb191135d6a:3"
+      ],
+      "researchedAt": "2026-11-13T13:19:24Z",
+      "editorialPhase": "preview",
+      "refreshAfter": "2026-11-21T04:00:00.000Z",
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-11-13T13:19:24Z"
+      }
+    },
+    {
+      "id": "projection:fixture-research:evt_41",
+      "targetType": "feed-event",
+      "targetIds": [
+        "evt_41",
+        "event:f1:2026:las-vegas:race"
+      ],
+      "researchDepth": 5,
+      "hook": "Brazil gave McLaren the victory and Red Bull two podium places. The Strip puts that rivalry on very different ground.",
+      "synopsis": "Straight-line speed must survive the braking zones, and every attack has to account for the barriers. Over the full distance, the interesting contest is not simply who looks quickest: it is who can turn that speed into clean overtakes without surrendering track position.",
+      "formCopy": "Norris managed changing conditions at Interlagos, with Verstappen second and Hadjar third. Mercedes secured the constructors' title there. Las Vegas now tests recent performance on a fast street circuit rather than Brazil's wet-dry-wet challenge.",
+      "closingCopy": "The race runs for 50 laps. Leclerc's last-lap move for second at the inaugural Strip race in 2023 offers a useful reminder: this layout can leave meaningful places in play right to the flag.",
+      "threadIds": [
+        "thread:fixture-research:evt_41:revision-6f1829da906878398051b1fd0d75331e499f826e114042f56f95f2a8037d02dd"
+      ],
+      "factIds": [
+        "fact:fixture-research:evt_41:revision-6f1829da906878398051b1fd0d75331e499f826e114042f56f95f2a8037d02dd:0",
+        "fact:fixture-research:evt_41:revision-6f1829da906878398051b1fd0d75331e499f826e114042f56f95f2a8037d02dd:1",
+        "fact:fixture-research:evt_41:revision-6f1829da906878398051b1fd0d75331e499f826e114042f56f95f2a8037d02dd:2",
+        "fact:fixture-research:evt_41:revision-6f1829da906878398051b1fd0d75331e499f826e114042f56f95f2a8037d02dd:3",
+        "fact:fixture-research:evt_41:revision-6f1829da906878398051b1fd0d75331e499f826e114042f56f95f2a8037d02dd:4"
+      ],
+      "sourceIds": [
+        "source:fixture-research:evt_41:revision-6f1829da906878398051b1fd0d75331e499f826e114042f56f95f2a8037d02dd:0",
+        "source:fixture-research:evt_41:revision-6f1829da906878398051b1fd0d75331e499f826e114042f56f95f2a8037d02dd:1",
+        "source:fixture-research:evt_41:revision-6f1829da906878398051b1fd0d75331e499f826e114042f56f95f2a8037d02dd:2",
+        "source:fixture-research:evt_41:revision-6f1829da906878398051b1fd0d75331e499f826e114042f56f95f2a8037d02dd:3"
+      ],
+      "researchedAt": "2026-11-13T13:19:24Z",
+      "editorialPhase": "preview",
+      "refreshAfter": "2026-11-22T04:00:00.000Z",
+      "generationMode": "researched",
+      "originalityReview": {
+        "method": "independent-summary-no-source-prose-retained",
+        "reviewedAt": "2026-11-13T13:19:24Z"
       }
     }
   ]
