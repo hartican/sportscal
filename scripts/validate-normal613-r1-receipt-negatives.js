@@ -22,7 +22,7 @@ function NSB_BOOT_READ(file,max){
  }finally{NSB_RAW_FS.closeSync(fd);}
 }
 const NSB_TEMP=NSB_RAW_FS.realpathSync(process.env.RUNNER_TEMP),NSB_GUARD_PATH=NSB_PATH.join(__dirname,'validate-forward-onboarding-ci.js');
-const NSB_GUARD_BYTES=NSB_BOOT_READ(NSB_GUARD_PATH,193605);NSB_ASSERT.equal(NSB_GUARD_BYTES.length,193605);NSB_ASSERT.equal(NSB_CRYPTO.createHash('sha256').update(NSB_GUARD_BYTES).digest('hex'),'a78201621fc5bb972bc130e93f1e4730c3f543859dffb5770a945ac2763ea164');
+const NSB_GUARD_BYTES=NSB_BOOT_READ(NSB_GUARD_PATH,202059);NSB_ASSERT.equal(NSB_GUARD_BYTES.length,202059);NSB_ASSERT.equal(NSB_CRYPTO.createHash('sha256').update(NSB_GUARD_BYTES).digest('hex'),'d9cf084966bbdffe88d343b96d16fa6ab218a853920c50ad5bf9379bb9f8829e');
 const NSB_S=require('./validate-forward-onboarding-ci').normal613FocusedControls;
 const NSB_CONTEXT_PATH=NSB_PATH.join(NSB_TEMP,'ns-normal-613-admission','normal613-context.json');
 NSB_ASSERT(NSB_NATIVE_MONO()<NSB_SOFT,'Context bootstrap remains charged');
@@ -81,7 +81,7 @@ const qualifier=path.join(__dirname,'validate-sync-current-forward.js'),fixture=
 const keys='schemaVersion publisherHeadSha publisherTreeSha actualAssembledSourceManifestPath actualAssembledSourceManifestSha256 actualDeploymentSourceManifestPath actualDeploymentSourceManifestSha256 releaseGitSha actualTestedMergeSha actualCloudRunId actualCloudRunAttempt actualCloudJobId namedAllocationId freshMainAndReservationBindingSha256 actualNodeBinarySha256 actualDependencyProofSha256 admissionGranted jobIdKind actualCloudJobKey actualCloudNumericJobId actualWorkflowPath observedAt eventBodySha256 headRole testedCommitRole releaseRole qualifier fixture approvedFinalMap runtime reservation freshMainAndReservationBinding git cloudContext normal613Action normal613Intent normal613Ack'.split(' ');
 function base(){const r=Object.fromEntries(keys.map(k=>[k,null]));Object.assign(r,{schemaVersion:'normal613-qualification-execution-receipt.v1',admissionGranted:true,jobIdKind:'github-job-key',actualCloudJobKey:'fixture-activation',actualCloudJobId:'github-job-key:fixture-activation',actualCloudNumericJobId:null,actualWorkflowPath:'.github/workflows/installed-upgrade-tests.yml',headRole:'pull_request.head.sha',testedCommitRole:'pull_request-merge-checkout',releaseRole:'source-qualification-candidate',namedAllocationId:'SYNTHETIC_TEST_ONLY'});return r;}
 assert.equal(process.env.NS_FOCUSED_R1_EARLY_TOTAL_MS,'1000');assert.equal(process.env.NS_FOCUSED_R1_TRAVERSAL_TOTAL_MS,'7000');
-assert.equal(sha(fs.readFileSync(qualifier)),'a54983351de787e957658f92efedf1e10b470cbb06af252070eb1661228a970f');assert.equal(sha(fs.readFileSync(fixture)),'744ddb4c83e97810bdd9f6778de0f50a5033695f24739d642c9179822c58a5d2');
+assert.equal(sha(fs.readFileSync(qualifier)),'c469cb2dcd2c029a0b5b1f6112b0396fe4fc65162e196ca085de6d32a9c8d125');assert.equal(sha(fs.readFileSync(fixture)),'135f90f7ec129c0274f16f1208e55d5344eb22e235991cb6beed1df0c1088527');
 let interrupted=false;for(const sig of ['SIGTERM','SIGINT'])process.once(sig,()=>{interrupted=true});
 const pause=n=>new Promise(resolve=>setTimeout(resolve,n));
 const rows=[],caseNames=['missing-deployment-path','admission-false','numeric-job-not-outer-join','wrong-release-role','actual-r1-source-traversal-corruption','actual-r1-dependency-traversal-corruption','actual-r1-deployment-traversal-corruption'];
@@ -162,6 +162,39 @@ NSB_RUN(main,e=>{console.error(JSON.stringify({status:'FAIL_OR_UNKNOWN',rows,fai
 // Mutations operate only on test-owned copies of already genuinely admitted inputs.
 // Source corruption changes a returned buffer, not a candidate file. The inherited
 // focused process group owns the qualifier and synchronous Git descendants.
+// Companion admission negatives share the ORIGINAL traversal's seven-second deadline.
+// Only owned test copies change; the sealed reservation and current authority stay separate.
+async function reservationBindingNegative(root,receipt,preload,kind,end){
+ clock.remaining(end);
+ const historical='9f20813c9855e30d4ca32e721862f739b6d696ba',current='2e92211c700c40b2b508fc636a002868c61a7579',sealedHash='daa00a480a28b0cca1d2f9922c82fc9394a5460b0d45f87c3566e42b58a473d7';
+ const sealed=fs.readFileSync(receipt.reservation.receipt.path);
+ assert.equal(sealed.length,1362);assert.equal(sha(sealed),sealedHash);assert.equal(JSON.parse(sealed.toString('utf8')).recordedBase,historical);assert.equal(receipt.git.baseSha,current);assert.notEqual(historical,current);
+ const copy=JSON.parse(JSON.stringify(receipt)),admission=path.dirname(receipt.reservation.receipt.path);let name,needle;
+ if(kind==='source'){
+  name='sealed-reservation-history-tamper';
+  const raw=sealed.toString('utf8'),field=/"recordedBase"(\s*:\s*)"9f20813c9855e30d4ca32e721862f739b6d696ba"/g;
+  assert.equal([...raw.matchAll(field)].length,1,'One original historical field');
+  const bytes=Buffer.from(raw.replace(field,(_match,separator)=>'"recordedBase"'+separator+JSON.stringify(current)));
+  assert.equal(bytes.length,1362);assert.notEqual(sha(bytes),sealedHash);
+  const file=path.join(admission,'test-reservation-history.json');fs.writeFileSync(file,bytes,{mode:0o600,flag:'wx'});
+  copy.reservation.receipt={...copy.reservation.receipt,path:file,bytes:bytes.length,sha256:sha(bytes)};needle=new RegExp(sealedHash);
+ }else if(kind==='dependency'){
+  name='current-main-rebound-to-historical-base';
+  const fresh=JSON.parse(fs.readFileSync(receipt.freshMainAndReservationBinding.receipt.path,'utf8'));assert.equal(fresh.observedMainSha,current);fresh.observedMainSha=historical;
+  const bytes=Buffer.from(JSON.stringify(fresh)+'\n'),file=path.join(admission,'test-current-main.json');fs.writeFileSync(file,bytes,{mode:0o600,flag:'wx'});
+  copy.freshMainAndReservationBinding.receipt={...copy.freshMainAndReservationBinding.receipt,path:file,bytes:bytes.length,sha256:sha(bytes)};copy.freshMainAndReservationBindingSha256=sha(bytes);needle=new RegExp(current);
+ }else{
+  assert.equal(kind,'deployment');name='stale-action-allocation';
+  copy.normal613Action.allocatedAt=new Date(Date.parse(copy.normal613Action.allocatedAt)-86400001).toISOString();needle=/fresh observations and strictly future expiry/;
+ }
+ const bytes=Buffer.from(JSON.stringify(copy)+'\n'),file=path.join(admission,'test-reservation-binding-receipt.json');fs.writeFileSync(file,bytes,{mode:0o600,flag:'wx'});
+ const result=await runBounded(root,[qualifier,'--normal613-full','--execution-receipt',file,'--execution-receipt-sha256',sha(bytes)],{...process.env,RUNNER_TEMP:root,NODE_OPTIONS:'--require='+preload},end,2*1024*1024);
+ assert(Number.isSafeInteger(result.status)&&result.status!==0&&result.signal===null,'Completed admission rejection, not timeout or signal');
+ assert.match(result.stderr,/"status":"ADMISSION_FAILED"/);assert.match(result.stderr,/"matrixArmsStarted":0/);assert.match(result.stderr,needle);
+ assert(!/TEST_SOURCE_CORRUPTION_APPLIED|TEST_STOP_BEFORE_MATRIX/.test(result.stderr),'Reservation/base/action rejection must precede corruption and matrix latch');
+ assert(fs.readFileSync(receipt.reservation.receipt.path).equals(sealed),'Original sealed receipt is untouched');clock.remaining(end);
+ return {name,status:'PASS_EXPECTED_REJECTION',childExit:result.status,matrixArmsStarted:0,sealedReservationSha256:sealedHash,historicalRecordedBase:historical,currentQualificationBase:current,sharedOriginalTraversalDeadline:true,releaseAcceptance:false};
+}
 async function traversal(parent,kind,outer){
  const end=remainingWindow(outer,7000);
  const oldRoot=fs.realpathSync(path.join(process.env.RUNNER_TEMP,'ns-normal-613-admission')),original=path.join(oldRoot,'execution-receipt.json'),expected=process.env.NS_FOCUSED_RECEIPT_SHA256;assert(/^[a-f0-9]{64}$/.test(expected||''),'Genuine focused receipt digest required');const raw=fs.readFileSync(original);assert.equal(sha(raw),expected);const receipt=JSON.parse(raw.toString('utf8'));
@@ -178,9 +211,10 @@ async function traversal(parent,kind,outer){
   const q=fs.readFileSync(qualifier,'utf8');assert(q.includes('function admitNormal613()')&&q.includes('const inputRow=sourceLeaves.get(fullAdmission'),'Known pre-matrix latch anchors');
   const preload=path.join(root,'synthetic-read-preload.cjs'),preloadSource=`const fs=require('node:fs'),open=fs.openSync,read=fs.readFileSync,close=fs.closeSync,fdPaths=new Map();fs.openSync=function(f,...a){const fd=open.call(this,f,...a);if(typeof f==='string')fdPaths.set(fd,f);return fd};fs.closeSync=function(fd,...a){fdPaths.delete(fd);return close.call(this,fd,...a)};fs.readFileSync=function(f,...a){const b=read.call(this,f,...a);if(typeof f!=='number'||!Buffer.isBuffer(b))return b;const p=fdPaths.get(f),stack=new Error().stack||'';if(p===${JSON.stringify(fixturePath)}&&!stack.includes('admitNormal613'))throw Error('TEST_STOP_BEFORE_MATRIX');if(${JSON.stringify(kind)}==='source'&&p===${JSON.stringify(targetPath)}&&stack.includes('admitNormal613')){if(!b.length)throw Error('TEST_EMPTY_TARGET');const x=Buffer.from(b);x[0]^=1;process.stderr.write('TEST_SOURCE_CORRUPTION_APPLIED\\n');return x}return b};`;
   fs.writeFileSync(preload,preloadSource,{mode:0o600,flag:'wx'});const bytes=Buffer.from(JSON.stringify(receipt)+'\n'),file=path.join(admission,'execution-receipt.json');fs.writeFileSync(file,bytes,{mode:0o600,flag:'wx'});
+  const bindingNegative=await reservationBindingNegative(root,receipt,preload,kind,end);
   const run=await runBounded(root,[qualifier,'--normal613-full','--execution-receipt',file,'--execution-receipt-sha256',sha(bytes)],{...process.env,RUNNER_TEMP:root,NODE_OPTIONS:'--require='+preload},end,2*1024*1024);
   assert(mono()<end,'FAIL: traversal window expired');assert.notEqual(run.status,0);assert.match(run.stderr,/"status":"ADMISSION_FAILED"/);assert.match(run.stderr,/"matrixArmsStarted":0/);assert(!/TEST_STOP_BEFORE_MATRIX/.test(run.stderr),'Intended corruption guard not reached');
   if(kind==='source'){assert.match(run.stderr,/TEST_SOURCE_CORRUPTION_APPLIED/);assert.match(run.stderr,/raw identity/);}if(kind==='dependency')assert.match(run.stderr,/dependency path scope\/duplicate/);if(kind==='deployment')assert.match(run.stderr,/complete deployment projection/);
-  passed=true;return {name:'actual-r1-'+kind+'-traversal-corruption',status:'PASS_EXPECTED_REJECTION',childExit:run.status,matrixArmsStarted:0,controlledBufferOnly:kind==='source',releaseAcceptance:false};
+  passed=true;return {name:'actual-r1-'+kind+'-traversal-corruption',status:'PASS_EXPECTED_REJECTION',childExit:run.status,matrixArmsStarted:0,controlledBufferOnly:kind==='source',bindingNegative,releaseAcceptance:false};
  }finally{if(passed&&mono()<end){clock.remaining(end);fs.rmSync(root,{recursive:true,force:false});NSB_ACTIVE_END=soft;}else console.error(JSON.stringify({status:'CLEANUP_HOLD',ownedRoot:root,reason:'failed control or qualifier/stdio closure unconfirmed'}));}
 }
