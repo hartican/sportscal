@@ -22,7 +22,7 @@ function NSB_BOOT_READ(file,max){
  }finally{NSB_RAW_FS.closeSync(fd);}
 }
 const NSB_TEMP=NSB_RAW_FS.realpathSync(process.env.RUNNER_TEMP),NSB_GUARD_PATH=NSB_PATH.join(__dirname,'validate-forward-onboarding-ci.js');
-const NSB_GUARD_BYTES=NSB_BOOT_READ(NSB_GUARD_PATH,193605);NSB_ASSERT.equal(NSB_GUARD_BYTES.length,193605);NSB_ASSERT.equal(NSB_CRYPTO.createHash('sha256').update(NSB_GUARD_BYTES).digest('hex'),'a78201621fc5bb972bc130e93f1e4730c3f543859dffb5770a945ac2763ea164');
+const NSB_GUARD_BYTES=NSB_BOOT_READ(NSB_GUARD_PATH,215472);NSB_ASSERT.equal(NSB_GUARD_BYTES.length,215472);NSB_ASSERT.equal(NSB_CRYPTO.createHash('sha256').update(NSB_GUARD_BYTES).digest('hex'),'8f950bc613227b06d6ba1172b5b6d9a4f54d38d1444711d7c738b66cb1dfe5ca');
 const NSB_S=require('./validate-forward-onboarding-ci').normal613FocusedControls;
 const NSB_CONTEXT_PATH=NSB_PATH.join(NSB_TEMP,'ns-normal-613-admission','normal613-context.json');
 NSB_ASSERT(NSB_NATIVE_MONO()<NSB_SOFT,'Context bootstrap remains charged');
@@ -81,7 +81,7 @@ const path=require('node:path');
 const os=require('node:os');
 const crypto=require('node:crypto');
 const sha=b=>crypto.createHash('sha256').update(b).digest('hex');
-assert.equal(sha(fs.readFileSync(path.join(__dirname,'validate-forward-onboarding-ci.js'))),'a78201621fc5bb972bc130e93f1e4730c3f543859dffb5770a945ac2763ea164','Exact reviewed R3 with proposed export-only seam');
+assert.equal(sha(fs.readFileSync(path.join(__dirname,'validate-forward-onboarding-ci.js'))),'8f950bc613227b06d6ba1172b5b6d9a4f54d38d1444711d7c738b66cb1dfe5ca','Exact reviewed R3 with proposed export-only seam');
 assert.equal(sha(fs.readFileSync(path.resolve('.github/workflows/installed-upgrade-tests.yml'))),'27fa852a067915ff9b4039a51a53eff606d222fb868a64144ecca82a46d6b3c9','Exact R3 workflow');
 const guard=require('./validate-forward-onboarding-ci');
 const S=guard.normal613FocusedControls;
@@ -120,7 +120,7 @@ function dataTests(){
  run('legacy-and-engine-identity-lists',()=>{assert.deepEqual(normal613FixtureCommandIds(),['journey','install','signup','feed','calendar','production','admission','qualifier','premerge']);const chromium=normal613EngineCommandIds('chromium'),webkit=normal613EngineCommandIds('webkit');assert(!chromium.includes('original-manifest'));assert.equal(webkit.filter(x=>x==='original-manifest').length,1);assert.deepEqual(webkit.filter(x=>x!=='original-manifest'),chromium);});
 }
 function runStaticInputBindings(){
- const files=[['scripts/validate-sync-current-forward.js',101617,'a54983351de787e957658f92efedf1e10b470cbb06af252070eb1661228a970f'],['scripts/fixtures/sync-normal-613-20261112.json',53227,'744ddb4c83e97810bdd9f6778de0f50a5033695f24739d642c9179822c58a5d2']];
+ const files=[['scripts/validate-sync-current-forward.js',101815,'c469cb2dcd2c029a0b5b1f6112b0396fe4fc65162e196ca085de6d32a9c8d125'],['scripts/fixtures/sync-normal-613-20261112.json',53227,'135f90f7ec129c0274f16f1208e55d5344eb22e235991cb6beed1df0c1088527']];
  run('frozen-r1-inputs',()=>{for(const [name,size,h]of files){const b=fs.readFileSync(path.resolve(name));assert.equal(b.length,size);assert.equal(sha(b),h);}});
 }
 
@@ -130,20 +130,20 @@ function ownershipDomainTests(){
  const token='d'.repeat(64),uid=process.getuid(),self=process.pid,host=self+10001,root=self+10002,child=self+10003,peer=self+10004;
  function fake(fn){
   const methods=['lstatSync','openSync','readSync','closeSync','readdirSync'],saved=Object.fromEntries(methods.map(n=>[n,fs[n]])),oldKill=process.kill;
-  const procs=new Map(),fds=new Map(),signals=[],envReads=[],faults=new Map(),handles=new WeakMap();let nextFd=1000000,listHook=null;
+  const procs=new Map(),fds=new Map(),signals=[],envReads=[],faults=new Map(),handles=new WeakMap();let nextFd=1000000,listHook=null,environmentHook=null,directoryHook=null;
   const record=(pid,values={})=>({pid,uid,startTicks:String(pid+100),parentPid:1,pgid:pid,sessionId:pid,state:'S',marker:false,...values});
-  const gone=()=>{const e=Error('synthetic missing proc');e.code='ENOENT';return e;};
+  const gone=(path,syscall)=>{const e=Error('synthetic missing proc');e.code='ENOENT';e.path=path;e.syscall=syscall;return e;};
   const statBytes=p=>{const f=Array(40).fill('0');f[0]=p.state;f[1]=String(p.parentPid);f[2]=String(p.pgid);f[3]=String(p.sessionId);f[19]=p.startTicks;return Buffer.from(String(p.pid)+' (synthetic) '+f.join(' ')+'\n');};
   procs.set(1,record(1,{uid:0,parentPid:0}));procs.set(host,record(host,{denyEnvironment:true}));
   fs.lstatSync=file=>{
-   NSB_CHECK();const m=/^\/proc\/([1-9]\d*)$/.exec(String(file));assert(m,'Mock only proc directories');const pid=Number(m[1]),p=procs.get(pid);if(!p)throw gone();
+   NSB_CHECK();const m=/^\/proc\/([1-9]\d*)$/.exec(String(file));assert(m,'Mock only proc directories');const pid=Number(m[1]);if(directoryHook)directoryHook(pid,file);const p=procs.get(pid);if(!p)throw gone(file,'lstat');
    if(faults.has(pid))throw faults.get(pid);
    return {uid:p.uid,dev:1,ino:pid,isDirectory:()=>true,isSymbolicLink:()=>false};
   };
   fs.readdirSync=file=>{NSB_CHECK();assert.equal(file,'/proc');const names=[...procs.keys()].map(String);if(listHook)listHook();return names;};
   fs.openSync=file=>{
-   NSB_CHECK();const m=/^\/proc\/([1-9]\d*)\/(stat|environ)$/.exec(String(file));assert(m,'Mock only proc metadata/environment');const p=procs.get(Number(m[1]));if(!p)throw gone();
-   if(m[2]==='environ'){envReads.push(p.pid);if(p.denyEnvironment){const e=Error('synthetic candidate environment denied');e.code=p.denyEnvironmentCode||'EACCES';throw e;}}
+   NSB_CHECK();const m=/^\/proc\/([1-9]\d*)\/(stat|environ)$/.exec(String(file));assert(m,'Mock only proc metadata/environment');const p=procs.get(Number(m[1]));if(!p)throw gone(file,'open');
+   if(m[2]==='environ'){envReads.push(p.pid);if(environmentHook)environmentHook(p);if(p.denyEnvironment){const e=Error('synthetic candidate environment denied');e.code=p.denyEnvironmentCode||'EACCES';throw e;}}
    const bytes=m[2]==='stat'?statBytes(p):Buffer.from(p.marker?'NS_FOCUSED_OWNER_TOKEN='+token+'\0':'OTHER=synthetic\0');
    const fd=nextFd++;fds.set(fd,{bytes,offset:0});return fd;
   };
@@ -152,9 +152,22 @@ function ownershipDomainTests(){
   process.kill=(pid,signal)=>{NSB_CHECK();assert(pid>0&&pid!==self,'No bare group or caller signal');signals.push({pid,signal});};
   const make=(clock=NSB_CLOCK)=>S.normal613FocusedOwnedProcesses(token,clock,NSB_SOFT);
   const start=t=>{procs.set(root,record(root,{parentPid:self,pgid:root,sessionId:root,marker:true}));const h=Object.create(require('node:child_process').ChildProcess.prototype);h.pid=root;handles.set(t,h);t.bindChild(h);t.setRoot(root);return t;};
-  try{fn({procs,record,signals,envReads,faults,make,start,handle:t=>handles.get(t),setListHook:fn=>{listHook=fn;}});assert.equal(fds.size,0,'Mock descriptors closed');}
+  try{fn({procs,record,signals,envReads,faults,make,start,handle:t=>handles.get(t),setListHook:fn=>{listHook=fn;},setEnvironmentHook:fn=>{environmentHook=fn;},setDirectoryHook:fn=>{directoryHook=fn;}});assert.equal(fds.size,0,'Mock descriptors closed');}
   finally{for(const n of methods)fs[n]=saved[n];process.kill=oldKill;}
  }
+ function knownCase(fn,code='EACCES',domain={parentPid:root,pgid:root,sessionId:root}){
+  return fake(h=>{
+   const t=h.start(h.make());h.procs.set(child,h.record(child,{...domain,marker:true}));t.observe();
+   assert(t.records().some(p=>p.pid===child),'Previously positive marker is mandatory');
+   h.procs.get(child).denyEnvironment=true;h.procs.get(child).denyEnvironmentCode=code;t.observe();
+   assert(t.waitingForRootExit&&t.holds.length===1&&t.scope().knownVisibility.length===1);
+   fn({...h,t});
+  });
+ }
+ function finishKnown(h){
+  h.procs.delete(root);h.procs.delete(child);h.t.recordRootExit(h.handle(h.t),0,null);h.t.recordRootClose(h.handle(h.t),0,null);
+ }
+ function knownRow(t){return {childPid:root,status:0,signal:null,childHardDeadlineNs:NSB_SOFT.toString(),ownedProcessIdentities:t.records(),ownershipScope:t.scope(),ownershipHolds:[...t.holds]};}
  run('ownership-preexisting-denied-positive-exclusion',()=>fake(({make,start,envReads,signals})=>{
   const t=start(make());assert.equal(t.holds.length,0);assert(!envReads.includes(host));const scope=t.scope();
   assert(scope.actualRootAfterSnapshot);assert(scope.excludedPreExisting.some(p=>p.before.pid===host&&JSON.stringify(p.before)===JSON.stringify(p.observed)));
@@ -317,6 +330,189 @@ function ownershipDomainTests(){
   const t=start(make());procs.get(root).denyEnvironment=true;t.observe();procs.delete(root);t.recordRootExit(handle(t),null,'SIGTERM');t.recordRootClose(handle(t),null,'SIGTERM');
   assert(t.observe().closed);assert.equal(t.scope().rootEventProof.exit.signal,'SIGTERM');
  }));
+ for(const code of ['EACCES','EPERM'])run('known-visibility-positive-'+code,()=>knownCase(h=>{
+  h.t.signalOwned('SIGTERM');assert(!h.signals.some(p=>p.pid===child),'Denied identity is not signal-authorised');
+  const pending=h.t.scope().knownVisibility[0];assert.equal(pending.errorCode,code);assert(pending.positiveProof.positiveMarkerConfirmed);assert.equal(pending.positiveProofSha256,sha(Buffer.from(JSON.stringify(pending.positiveProof))));
+  finishKnown(h);assert(h.t.observe().closed);assert.equal(h.t.holds.length,0);assert.equal(S.normal613ValidateKnownVisibility(knownRow(h.t),NSB_ENTRY.toString()),1);
+ },code));
+ for(const [name,domain]of [
+  ['group-only',{parentPid:1,pgid:root,sessionId:peer}],
+  ['session-only',{parentPid:1,pgid:peer,sessionId:root}]
+ ])run('known-visibility-positive-'+name+'-anchor',()=>knownCase(h=>{
+  const proof=h.t.scope().knownVisibility[0].positiveProof;
+  assert.equal(proof.parentPid,1);assert.equal(proof.anchorIdentity.pid,root);
+  assert(proof.parentPid!==proof.anchorIdentity.pid,'Parent lookup cannot satisfy this positive');
+  if(name==='group-only'){assert.equal(proof.identity.pgid,root);assert.notEqual(proof.identity.sessionId,root);}
+  else{assert.equal(proof.identity.sessionId,root);assert.notEqual(proof.identity.pgid,root);}
+  h.t.signalOwned('SIGTERM');assert(!h.signals.some(p=>p.pid===child));
+  finishKnown(h);assert(h.t.observe().closed);assert.equal(S.normal613ValidateKnownVisibility(knownRow(h.t),NSB_ENTRY.toString()),1);
+ },'EACCES',domain));
+ run('known-visibility-missing-positive-domain-anchor-stays-held',()=>fake(h=>{
+  const t=h.start(h.make());h.procs.set(child,h.record(child,{parentPid:1,pgid:child,sessionId:child,marker:true}));t.observe();
+  assert(t.records().some(p=>p.pid===child),'Positive marker alone is not a saved owned-domain anchor');
+  h.procs.get(child).denyEnvironment=true;t.observe();assert.equal(t.scope().knownVisibility.length,0);assert(t.scope().permanentOwnershipHolds.length);assert(!t.waitingForRootExit);
+  h.procs.delete(root);h.procs.delete(child);t.recordRootExit(h.handle(t),0,null);t.recordRootClose(h.handle(t),0,null);assert.equal(t.observe().closed,false);
+ }));
+ run('known-visibility-unstable-known-anchor-cannot-create-debt',()=>fake(h=>{
+  const t=h.start(h.make());h.procs.set(peer,h.record(peer,{parentPid:root,pgid:peer,sessionId:peer,marker:true}));t.observe();
+  assert(t.records().some(p=>p.pid===peer),'Learn a positively owned nonroot peer anchor first');
+  h.procs.get(peer).startTicks='999999999';h.procs.set(child,h.record(child,{parentPid:peer,pgid:peer,sessionId:peer,marker:true}));t.observe();
+  assert(t.records().some(p=>p.pid===child),'Exercise positive child admission despite unstable peer anchor');
+  h.procs.get(child).denyEnvironment=true;t.observe();assert.equal(t.scope().knownVisibility.length,0,'Unstable peer anchor must not save a positive debt proof');assert(t.scope().permanentOwnershipHolds.some(s=>s.includes('OWNED_IDENTITY_CHANGED')));
+  h.procs.delete(root);h.procs.delete(peer);h.procs.delete(child);t.recordRootExit(h.handle(t),0,null);t.recordRootClose(h.handle(t),0,null);assert.equal(t.observe().closed,false);
+ }));
+ run('known-visibility-root-and-descendant-debts-resolve-together',()=>knownCase(h=>{
+  h.procs.get(root).denyEnvironment=true;h.t.observe();assert(h.t.waitingForRootExit&&h.t.holds.length===2);
+  finishKnown(h);assert(h.t.observe().closed);assert.equal(h.t.scope().rootVisibility.status,'RESOLVED_AFTER_BOUND_ROOT_EXIT_CLOSE_AND_DOMAIN_ABSENCE');assert.equal(S.normal613ValidateKnownVisibility(knownRow(h.t),NSB_ENTRY.toString()),1);
+ }));
+ run('known-visibility-no-root-events-remains-held',()=>knownCase(h=>{
+  h.procs.delete(root);h.procs.delete(child);assert.equal(h.t.observe().closed,false);assert(h.t.waitingForRootExit);
+ }));
+ run('known-visibility-exit-without-close-remains-held',()=>knownCase(h=>{
+  h.procs.delete(root);h.procs.delete(child);h.t.recordRootExit(h.handle(h.t),0,null);assert.equal(h.t.observe().closed,false);
+ }));
+ run('known-visibility-present-descendant-remains-held',()=>knownCase(h=>{
+  h.procs.delete(root);h.t.recordRootExit(h.handle(h.t),0,null);h.t.recordRootClose(h.handle(h.t),0,null);assert.equal(h.t.observe().closed,false);
+ }));
+ run('known-visibility-recovered-marker-does-not-authorise-pending-signal',()=>knownCase(h=>{
+  h.procs.get(child).denyEnvironment=false;h.t.signalOwned('SIGTERM');assert(!h.signals.some(p=>p.pid===child));assert.equal(h.t.scope().knownVisibility[0].status,'PENDING_BOUND_ROOT_EXIT_CLOSE_AND_DOMAIN_CLOSURE');
+ }));
+ for(const [field,value]of [['uid',uid+1],['startTicks','999999999'],['pgid',peer],['sessionId',peer]])run('known-visibility-changed-'+field+'-permanent-hold',()=>knownCase(h=>{
+  h.procs.get(child)[field]=value;h.t.observe();assert(h.t.scope().permanentOwnershipHolds.some(s=>s.includes('OWNED_IDENTITY_CHANGED')));
+  finishKnown(h);assert.equal(h.t.observe().closed,false);assert(!h.t.waitingForRootExit);
+ }));
+ run('known-visibility-fresh-post-denial-identity-required',()=>fake(h=>{
+  const t=h.start(h.make());h.procs.set(child,h.record(child,{parentPid:root,pgid:root,sessionId:root,marker:true}));t.observe();h.procs.get(child).denyEnvironment=true;
+  let changed=false;h.setEnvironmentHook(p=>{if(p.pid===child&&!changed){changed=true;p.startTicks='999999999';}});
+  t.observe();assert(t.scope().permanentOwnershipHolds.some(s=>s.includes('KNOWN_DENIAL_IDENTITY_CHANGED')));assert.equal(t.scope().knownVisibility.length,0);
+ }));
+ run('known-visibility-other-environment-error-permanent-hold',()=>fake(h=>{
+  const t=h.start(h.make());h.procs.set(child,h.record(child,{parentPid:root,pgid:root,sessionId:root,marker:true}));t.observe();h.procs.get(child).denyEnvironment=true;h.procs.get(child).denyEnvironmentCode='EIO';
+  t.observe();assert(t.scope().permanentOwnershipHolds.length);assert.equal(t.scope().knownVisibility.length,0);
+ }));
+ run('known-visibility-unknown-kernel-metadata-remains-held',()=>knownCase(h=>{
+  const e=Error('synthetic metadata denied');e.code='EACCES';h.faults.set(host,e);finishKnown(h);assert.equal(h.t.observe().closed,false);h.faults.delete(host);assert.equal(h.t.observe().closed,false);
+ }));
+ run('known-visibility-permanent-hold-cannot-be-relabelled',()=>knownCase(h=>{
+  h.t.note(h.t.holds[0]);finishKnown(h);assert.equal(h.t.observe().closed,false);assert(h.t.scope().permanentOwnershipHolds.length);
+ }));
+ run('known-visibility-changing-second-inventory-cannot-resolve',()=>knownCase(h=>{
+  finishKnown(h);let lists=0;h.setListHook(()=>{lists++;if(lists===1)h.procs.set(peer,h.record(peer));});
+  assert.equal(h.t.observe().closed,false);assert(lists>=2,'Two actual synthetic proc inventories attempted');assert.equal(h.t.scope().knownVisibility[0].status,'PENDING_BOUND_ROOT_EXIT_CLOSE_AND_DOMAIN_CLOSURE');
+ }));
+ run('known-visibility-post-resolution-reappearance-is-permanent',()=>knownCase(h=>{
+  finishKnown(h);assert(h.t.observe().closed);h.procs.set(child,h.record(child,{parentPid:1,pgid:root,sessionId:root,marker:true}));
+  assert.equal(h.t.observe().closed,false);assert(h.t.scope().permanentOwnershipHolds.some(s=>s.includes('KNOWN_REAPPEARED_AFTER_RESOLUTION')));
+ }));
+ run('known-visibility-original-clock-exhaustion-never-resolves',()=>fake(h=>{
+  let expired=false;const boundedClock={...NSB_CLOCK,remaining:(...args)=>{NSB_CHECK();if(expired)throw Error('SYNTHETIC_ORIGINAL_EXHAUSTED');return NSB_CLOCK.remaining(...args);}};
+  const t=h.start(h.make(boundedClock));h.procs.set(child,h.record(child,{parentPid:root,pgid:root,sessionId:root,marker:true}));t.observe();h.procs.get(child).denyEnvironment=true;t.observe();h.procs.delete(root);h.procs.delete(child);t.recordRootExit(h.handle(t),0,null);t.recordRootClose(h.handle(t),0,null);expired=true;
+  assert.throws(()=>t.observe(),/SYNTHETIC_ORIGINAL_EXHAUSTED/);
+ }));
+ run('known-visibility-final-receipt-rejects-tampered-or-missing-proof',()=>knownCase(h=>{
+  finishKnown(h);assert(h.t.observe().closed);const valid=knownRow(h.t);assert.equal(S.normal613ValidateKnownVisibility(valid,NSB_ENTRY.toString()),1);
+  const mutations=[
+   ['missing-array',row=>{delete row.ownershipScope.knownVisibility;}],
+   ['missing-positive-proof',row=>{delete row.ownershipScope.knownVisibility[0].positiveProof;}],
+   ['false-marker-even-with-new-hash',row=>{const v=row.ownershipScope.knownVisibility[0];v.positiveProof.positiveMarkerConfirmed=false;v.positiveProofSha256=sha(Buffer.from(JSON.stringify(v.positiveProof)));}],
+   ['wrong-birth',row=>{row.ownershipScope.knownVisibility[0].identity.startTicks='999999999';}],
+   ['wrong-root-join',row=>{row.ownershipScope.knownVisibility[0].rootEventJoinSha256='f'.repeat(64);}],
+   ['missing-close',row=>{delete row.ownershipScope.rootEventProof.close;}],
+   ['wrong-handle',row=>{row.ownershipScope.rootEventProof.close.sameChildProcessHandle=false;}],
+   ['pending-debt',row=>{row.ownershipScope.knownVisibility[0].status='PENDING_BOUND_ROOT_EXIT_CLOSE_AND_DOMAIN_CLOSURE';}],
+   ['no-denied-absence',row=>{row.ownershipScope.knownVisibility[0].resolution.deniedIdentityAbsent=false;}],
+   ['unstable-inventories',row=>{row.ownershipScope.knownVisibility[0].resolution.secondMetadataSha256='f'.repeat(64);}],
+   ['before-root-close',row=>{row.ownershipScope.knownVisibility[0].resolution.firstInventoryStartedNs=(BigInt(row.ownershipScope.rootEventProof.close.observedAtNs)-1n).toString();}],
+   ['denial-and-identity-check-after-empty-scans',row=>{const v=row.ownershipScope.knownVisibility[0];v.lastDeniedAtNs=v.resolution.inventoryCompletedNs;v.lastIdentityCheckedAtNs=v.resolution.inventoryCompletedNs;}],
+   ['only-one-inventory',row=>{const r=row.ownershipScope.knownVisibility[0].resolution;r.secondInventoryStartedNs=r.firstInventoryStartedNs;}],
+   ['after-original-deadline',row=>{row.ownershipScope.knownVisibility[0].resolution.confirmedAtNs=(BigInt(row.childHardDeadlineNs)+1n).toString();}],
+   ['other-permanent-hold',row=>{row.ownershipScope.permanentOwnershipHolds=['SYNTHETIC_UNKNOWN'];}]
+  ];
+  for(const [name,mutate]of mutations){const row=JSON.parse(JSON.stringify(valid));mutate(row);assert.throws(()=>S.normal613ValidateKnownVisibility(row,NSB_ENTRY.toString()),undefined,name);}
+ }));
+ function absentCase(fn,options={}){
+  return fake(h=>{
+   const t=h.start(h.make()),domain=options.domain||{parentPid:root,pgid:root,sessionId:root};
+   h.procs.set(child,h.record(child,{...domain,marker:true}));
+   if(options.admit!==false)t.observe();
+   if(options.priorLive){h.procs.get(child).denyEnvironment=true;t.observe();assert.equal(t.scope().knownVisibility[0].verificationMode,'LIVE_IDENTITY');}
+   if(options.beforeDenial)options.beforeDenial(h);
+   h.procs.get(child).denyEnvironment=true;h.procs.get(child).denyEnvironmentCode=options.code||'EACCES';let lost=false,directoryCalls=0;
+   h.setEnvironmentHook(p=>{if(p.pid===child&&!lost){lost=true;h.procs.delete(child);}});
+   h.setDirectoryHook((pid,file)=>{if(lost&&pid===child){directoryCalls++;if(options.directoryStep)options.directoryStep(h,directoryCalls,file);}});
+   const before=h.envReads.filter(pid=>pid===child).length;t.observe();
+   fn({...h,t,directoryCalls:()=>directoryCalls,deniedEnvironmentReads:h.envReads.filter(pid=>pid===child).length-before});
+  });
+ }
+ for(const code of ['EACCES','EPERM'])run('known-absence-two-directory-observations-'+code,()=>absentCase(h=>{
+  const v=h.t.scope().knownVisibility[0];assert(v&&v.verificationMode==='ABSENT_PID'&&h.t.waitingForRootExit);assert.equal(v.errorCode,code);
+  assert.equal(h.deniedEnvironmentReads,1,'No environment retry or alternate access');assert.equal(h.directoryCalls(),3,'Trigger plus two new explicit directory observations');
+  assert(!Object.hasOwn(v,'lastIdentityCheckedAtNs'),'Absence is not a post-denial live identity check');
+  h.t.signalOwned('SIGTERM');assert(!h.signals.some(p=>p.pid===child));finishKnown(h);assert(h.t.observe().closed);assert.equal(S.normal613ValidateKnownVisibility(knownRow(h.t),NSB_ENTRY.toString()),1);
+ },{code}));
+ run('known-absence-keeps-earlier-live-proof-distinct',()=>absentCase(h=>{
+  const v=h.t.scope().knownVisibility[0];assert.equal(v.verificationMode,'ABSENT_PID');assert(v.stableIdentityEvidence);assert(BigInt(v.lastIdentityCheckedAtNs)<=BigInt(v.absenceProof.preDenial.identityObservation.startedAtNs));
+  finishKnown(h);assert(h.t.observe().closed);assert.equal(S.normal613ValidateKnownVisibility(knownRow(h.t),NSB_ENTRY.toString()),1);
+ },{priorLive:true}));
+ run('known-absence-no-bound-root-events-still-pending',()=>absentCase(h=>{
+  h.procs.delete(root);assert.equal(h.t.observe().closed,false);assert(h.t.waitingForRootExit);
+ }));
+ run('known-absence-exit-without-close-still-pending',()=>absentCase(h=>{
+  h.procs.delete(root);h.t.recordRootExit(h.handle(h.t),0,null);assert.equal(h.t.observe().closed,false);
+ }));
+ for(const [name,step]of [
+  ['single-observation-only',(_h,n,file)=>{if(n===3){const e=Error('synthetic unknown second absence');e.code='EIO';e.path=file;e.syscall='lstat';throw e;}}],
+  ['permission-error',(_h,n,file)=>{if(n===3){const e=Error('synthetic denied second absence');e.code='EACCES';e.path=file;e.syscall='lstat';throw e;}}],
+  ['wrong-path-trigger',(_h,n)=>{if(n===1){const e=Error('synthetic non-directory disappearance');e.code='ENOENT';e.path='/proc/'+child+'/stat';e.syscall='open';throw e;}}],
+  ['wrong-syscall-sample',(_h,n,file)=>{if(n===3){const e=Error('synthetic wrong absence operation');e.code='ENOENT';e.path=file;e.syscall='stat';throw e;}}],
+  ['pid-present-again',(h,n)=>{if(n===3)h.procs.set(child,h.record(child,{parentPid:root,pgid:root,sessionId:root,marker:true,denyEnvironment:true}));}],
+  ['reused-pid',(h,n)=>{if(n===3)h.procs.set(child,h.record(child,{startTicks:'999999999',parentPid:root,pgid:root,sessionId:root,marker:false}));}]
+ ])run('known-absence-'+name+'-stays-held',()=>absentCase(h=>{
+  assert.equal(h.t.scope().knownVisibility.length,0,'Invalid absence must not become typed debt');assert(h.t.scope().permanentOwnershipHolds.length);assert(!h.t.waitingForRootExit);
+ },{directoryStep:step}));
+ run('known-absence-first-seen-denial-never-qualifies',()=>absentCase(h=>{
+  assert.equal(h.t.scope().knownVisibility.length,0);assert(h.t.scope().permanentOwnershipHolds.length);
+ },{admit:false}));
+ run('known-absence-no-positive-anchor-never-qualifies',()=>absentCase(h=>{
+  assert.equal(h.t.scope().knownVisibility.length,0);assert(h.t.scope().permanentOwnershipHolds.length);
+ },{domain:{parentPid:1,pgid:child,sessionId:child}}));
+ for(const [field,value]of [['uid',uid+1],['startTicks','999999999'],['pgid',peer],['sessionId',peer]])run('known-absence-pre-denial-'+field+'-mismatch-stays-held',()=>absentCase(h=>{
+  assert.equal(h.t.scope().knownVisibility.length,0);assert(h.t.scope().permanentOwnershipHolds.length);
+ },{beforeDenial:h=>{h.procs.get(child)[field]=value;}}));
+ run('known-absence-mixed-unknown-metadata-never-resolves',()=>absentCase(h=>{
+  const e=Error('synthetic unknown kernel metadata');e.code='EACCES';h.faults.set(host,e);finishKnown(h);assert.equal(h.t.observe().closed,false);h.faults.delete(host);assert.equal(h.t.observe().closed,false);
+ }));
+ run('known-absence-present-after-debt-is-permanent-hold',()=>absentCase(h=>{
+  h.procs.set(child,h.record(child,{parentPid:root,pgid:root,sessionId:root,marker:true,denyEnvironment:true}));assert.equal(h.t.observe().closed,false);assert(h.t.scope().permanentOwnershipHolds.some(s=>s.includes('KNOWN_REAPPEARED_AFTER_RESOLUTION_OR_ABSENCE')));
+ }));
+ run('known-absence-validator-rejects-omitted-tampered-and-out-of-order-proofs',()=>absentCase(h=>{
+  finishKnown(h);assert(h.t.observe().closed);const valid=knownRow(h.t);assert.equal(S.normal613ValidateKnownVisibility(valid,NSB_ENTRY.toString()),1);
+  const mutate=[
+   ['missing-first-denial',row=>{delete row.ownershipScope.knownVisibility[0].firstPermissionDenial;}],
+   ['missing-mode',row=>{delete row.ownershipScope.knownVisibility[0].verificationMode;}],
+   ['missing-proof',row=>{delete row.ownershipScope.knownVisibility[0].absenceProof;}],
+   ['single-sample',row=>{row.ownershipScope.knownVisibility[0].absenceProof.samples.pop();}],
+   ['wrong-path',row=>{row.ownershipScope.knownVisibility[0].absenceProof.samples[1].path+='/environ';}],
+   ['wrong-operation',row=>{row.ownershipScope.knownVisibility[0].absenceProof.samples[1].syscall='stat';}],
+   ['unknown-error',row=>{row.ownershipScope.knownVisibility[0].absenceProof.samples[1].errorCode='EIO';}],
+   ['present-proof',row=>{row.ownershipScope.knownVisibility[0].absenceProof.samples[1].present=true;}],
+   ['reused-key',row=>{row.ownershipScope.knownVisibility[0].absenceProof.preDenial.identity.startTicks='999999999';}],
+   ['incomplete-pre-inventory',row=>{row.ownershipScope.knownVisibility[0].absenceProof.preDenial.inventory.complete=false;}],
+   ['no-positive-proof',row=>{delete row.ownershipScope.knownVisibility[0].positiveProof;}],
+   ['inventory-before-bound-root',row=>{const inv=row.ownershipScope.knownVisibility[0].absenceProof.preDenial.inventory;inv.startedAtNs='0';inv.completedAtNs='1';}],
+   ['inventory-start-after-identity',row=>{const pre=row.ownershipScope.knownVisibility[0].absenceProof.preDenial;pre.inventory.startedAtNs=pre.identityObservation.completedAtNs;pre.inventory.completedAtNs=pre.identityObservation.completedAtNs;}],
+   ['old-pre-identity',row=>{const v=row.ownershipScope.knownVisibility[0];v.absenceProof.preDenial.identityObservation.startedAtNs=(BigInt(v.positiveProof.observedAtNs)-1n).toString();}],
+   ['pre-check-after-denial',row=>{const a=row.ownershipScope.knownVisibility[0].absenceProof;a.preDenial.identityObservation.completedAtNs=(BigInt(a.permissionDenial.startedAtNs)+1n).toString();}],
+   ['same-sample-twice',row=>{const a=row.ownershipScope.knownVisibility[0].absenceProof;a.samples[1]={...a.samples[0],ordinal:2};}],
+   ['absence-after-first-scan',row=>{const v=row.ownershipScope.knownVisibility[0];v.absenceProof.samples[1].completedAtNs=(BigInt(v.resolution.firstInventoryStartedNs)+1n).toString();}],
+   ['missing-complete-scan',row=>{row.ownershipScope.knownVisibility[0].resolution.secondInventoryComplete=false;}],
+   ['missing-watermark',row=>{delete row.ownershipScope.knownVisibility[0].resolution.lastVisibilityObservationAtNs;}],
+   ['missing-root-close',row=>{delete row.ownershipScope.rootEventProof.close;}],
+   ['unknown-hold',row=>{row.ownershipScope.permanentOwnershipHolds=['SYNTHETIC_UNKNOWN'];}],
+   ['past-original-deadline',row=>{row.ownershipScope.knownVisibility[0].resolution.confirmedAtNs=(BigInt(row.childHardDeadlineNs)+1n).toString();}]
+  ];
+  for(const [name,fn]of mutate){const row=JSON.parse(JSON.stringify(valid));fn(row);assert.throws(()=>S.normal613ValidateKnownVisibility(row,NSB_ENTRY.toString()),undefined,name);}
+ }));
  run('ownership-unchanged-preexisting-other-uid-needs-no-environment',()=>fake(({make,start,procs,envReads})=>{
   procs.get(host).uid=uid+1;const t=start(make());assert.equal(t.holds.length,0);assert(!envReads.includes(host));
  }));
@@ -326,6 +522,6 @@ function main(){NSB_CHECK();
  assert.equal(process.platform,'linux');assert.equal(process.arch,'x64');assert.equal(process.version,'v24.21.0');assert.equal(process.env.NS_FOCUSED_CLOUD_ONLY,'1','Explicit test-lane marker; never real authority');
  assert(process.env.RUNNER_TEMP,'Owned RUNNER_TEMP required');const parent=fs.realpathSync(process.env.RUNNER_TEMP),root=fs.mkdtempSync(path.join(parent,'ns-normal613-focused-'));fs.chmodSync(root,0o700);let cleanup=false;
  try{runStaticInputBindings();clockTests();proofTests(root);dataTests();ownershipDomainTests();}finally{fs.rmSync(root,{recursive:true,force:false});cleanup=!fs.existsSync(root);assert(cleanup,'Owned focused test root not removed');}
- console.log(JSON.stringify({schemaVersion:'normal613-focused-helper-controls.v1',status:'PASS_FOCUSED_HELPER_SUBSET_ONLY',cases:rows,syntheticOwnershipDomainCases:20,syntheticRootVisibilityCases:23,newOwnershipKernelObservations:0,ownedRootClosed:cleanup,realAuthority:false,networkRequests:0,productReleaseAcceptance:false,notCovered:['actual intake Git/request timing','revalidation entry','engine entry','owned command closure','full seal','51-arm','four paired','Chromium','WebKit']}));
+ console.log(JSON.stringify({schemaVersion:'normal613-focused-helper-controls.v1',status:'PASS_FOCUSED_HELPER_SUBSET_ONLY',cases:rows,syntheticOwnershipDomainCases:20,syntheticRootVisibilityCases:23,syntheticKnownVisibilityCases:rows.filter(row=>row.name.startsWith("known-visibility-")).length,syntheticKnownAbsenceCases:rows.filter(row=>row.name.startsWith("known-absence-")).length,newOwnershipKernelObservations:0,ownedRootClosed:cleanup,realAuthority:false,networkRequests:0,productReleaseAcceptance:false,notCovered:['actual intake Git/request timing','revalidation entry','engine entry','owned command closure','full seal','51-arm','four paired','Chromium','WebKit']}));
 }
 NSB_RUN(main,e=>{console.error(JSON.stringify({schemaVersion:'normal613-focused-helper-controls.v1',status:'FAIL_OR_UNKNOWN',cases:rows,error:String(e.stack||e).slice(0,4096),productReleaseAcceptance:false}));process.exitCode=1;});

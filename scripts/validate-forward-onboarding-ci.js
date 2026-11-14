@@ -258,9 +258,9 @@ const NORMAL613_CALLER_POLICY=Object.freeze({
  relayUserId:269614001,relayLoginInformational:'hartican',
  owners:{RELEASE:'01a16141-8d23-7a02-bb05-51e2197a1119',PUBLISH:'01a0d5ba-943d-74e0-af7f-dab4fb2bdda4'},
  provenance:{nativePublishTurn:'01a1d264-6d9c-7962-8472-f30a93faadbd',historicalActorSha256:'4d853a24a60d2a2ec230aab522d8f36a82bb6804b061acba7bec0cafd90649d7',historicalActorIssuedAt:'2026-11-07T22:43:16.000Z',currentTokenValidity:'NOT_OBSERVED'},
- base:'9f20813c9855e30d4ca32e721862f739b6d696ba',product:'491d0ebcb2210b29a1ae6164c0c4deef1b04f2ec',productTree:'b69736ee739e7b31eebe58108c14889a333a756c',
- qualifier:{path:'scripts/validate-sync-current-forward.js',bytes:101617,sha256:'a54983351de787e957658f92efedf1e10b470cbb06af252070eb1661228a970f',gitBlob:'dece0f0ecffeb0435f7970bab922a0a37b2f10b9',mode:'100644'},
- fixture:{path:'scripts/fixtures/sync-normal-613-20261112.json',bytes:53227,sha256:'744ddb4c83e97810bdd9f6778de0f50a5033695f24739d642c9179822c58a5d2',gitBlob:'4901efd92c8b1d8ef255a06629b8c8bcc5038780',mode:'100644'},
+ base:'2e92211c700c40b2b508fc636a002868c61a7579',product:'491d0ebcb2210b29a1ae6164c0c4deef1b04f2ec',productTree:'b69736ee739e7b31eebe58108c14889a333a756c',
+ qualifier:{path:'scripts/validate-sync-current-forward.js',bytes:101815,sha256:'c469cb2dcd2c029a0b5b1f6112b0396fe4fc65162e196ca085de6d32a9c8d125',gitBlob:'3e29b9cbb23cc77a485ffac2e28a71e37430af89',mode:'100644'},
+ fixture:{path:'scripts/fixtures/sync-normal-613-20261112.json',bytes:53227,sha256:'135f90f7ec129c0274f16f1208e55d5344eb22e235991cb6beed1df0c1088527',gitBlob:'dced71ab2dee8df74705de82c41b86a161c38972',mode:'100644'},
  reservationId:'ns-app-version-613-sportsyurt-20261112',reservationSha256:'daa00a480a28b0cca1d2f9922c82fc9394a5460b0d45f87c3566e42b58a473d7',
  limits:{record:65536,event:4194304,pages:10,comments:1000,requests:32,response:2097152,network:16777216,intakeMs:30000,requestMs:5000,jobMs:900000,metadata:16777216,members:256,artifact:67108864,commandOutput:4194304},
  transportLimit:'Application-consumed bytes/deadlines; not a claim about transport internals or atomic replay prevention.'
@@ -395,10 +395,11 @@ function normal613FocusedClock(context,entryNs,inheritedEndNs=null){
 }
 function normal613FocusedOwnedProcesses(token,clock,until){
  assert(/^[a-f0-9]{64}$/.test(token),'Private per-child ownership marker');
- const selfPid=process.pid,selfUid=process.getuid(),known=new Map(),groups=new Set(),sessions=new Set(),holds=[],permanentHolds=new Set();
+ const selfPid=process.pid,selfUid=process.getuid(),known=new Map(),knownPositive=new Map(),knownVisibility=new Map(),groups=new Set(),sessions=new Set(),holds=[],permanentHolds=new Set();
  const fields=['pid','uid','startTicks','parentPid','pgid','sessionId'];
- let root=null,rootIdentity=null,rootObserved=false,rootAt=null,lastScope=null,rootExit=null,rootClose=null,rootVisibility=null,boundChild=null,boundPid=null,boundAt=null,rootEventJoinSha256=null;
+ let root=null,rootIdentity=null,rootObserved=false,rootAt=null,lastScope=null,rootExit=null,rootClose=null,rootVisibility=null,boundChild=null,boundPid=null,boundAt=null,rootEventJoinSha256=null,lastInventory=null;
  const rootVisibilityHold=()=>'UNOBSERVABLE_OWNED_CANDIDATE '+root+': typed environ permission denial (pending bound root exit/close and domain closure)';
+ const knownVisibilityHold=pid=>'UNOBSERVABLE_KNOWN_DESCENDANT '+pid+': typed environ permission denial (pending bound root exit/close and domain closure)';
  const ownedKey=p=>Object.fromEntries(fields.filter(k=>k!=='parentPid').map(k=>[k,p[k]]));
  const note=s=>{permanentHolds.add(s);if(!holds.includes(s))holds.push(s);};
  const check=()=>clock.remaining(until),same=(a,b)=>!!a&&!!b&&fields.every(k=>a[k]===b[k]);
@@ -416,24 +417,27 @@ function normal613FocusedOwnedProcesses(token,clock,until){
   for(const k of ['pid','uid','parentPid','pgid','sessionId'])assert(Number.isSafeInteger(p[k])&&p[k]>=0,'Finite kernel process metadata');
   return p;
  }
- function identity(pid){
-  check();const dir='/proc/'+pid,before=fs.lstatSync(dir);assert(before.isDirectory()&&!before.isSymbolicLink(),'Actual proc directory');
+ function identity(pid,witnesses=null){
+  check();const startedAtNs=clock.nowNs().toString(),dir='/proc/'+pid,before=fs.lstatSync(dir);assert(before.isDirectory()&&!before.isSymbolicLink(),'Actual proc directory');
   const a=parsed(pid,before.uid,bounded(dir+'/stat',16384).toString('utf8'));
   const b=parsed(pid,before.uid,bounded(dir+'/stat',16384).toString('utf8'));
   check();const after=fs.lstatSync(dir);for(const k of ['dev','ino','uid'])assert.equal(after[k],before[k],'Kernel directory identity changed');
-  assert(known.has(pid)?sameOwned(a,b):same(a,b),'Kernel process metadata changed during observation');return b;
+  assert(known.has(pid)?sameOwned(a,b):same(a,b),'Kernel process metadata changed during observation');
+  if(witnesses)witnesses.set(pid,{identity:ownedKey(b),parentPid:b.parentPid,directory:{dev:before.dev,ino:before.ino,uid:before.uid},startedAtNs,completedAtNs:clock.nowNs().toString(),stableStatPair:true,stableDirectory:true});return b;
  }
  function metadata(){
-  check();const names=fs.readdirSync('/proc').filter(n=>/^[1-9]\d*$/.test(n)).map(Number).sort((a,b)=>a-b);
-  assert(names.length<=4096,'Proc inventory bound');const seen=new Map();
+  check();const startedAtNs=clock.nowNs().toString(),names=fs.readdirSync('/proc').filter(n=>/^[1-9]\d*$/.test(n)).map(Number).sort((a,b)=>a-b);
+  assert(names.length<=4096,'Proc inventory bound');const seen=new Map(),observations=new Map();let complete=true;
   for(const pid of names){check();if(pid===selfPid)continue;
-   try{seen.set(pid,identity(pid));}
-   catch(e){if(e.code==='ENOENT'||e.code==='ESRCH')continue;note('UNKNOWN_KERNEL_METADATA '+pid+': '+e.message);}
+   try{seen.set(pid,identity(pid,observations));}
+   catch(e){if(e.code==='ENOENT'||e.code==='ESRCH')continue;complete=false;note('UNKNOWN_KERNEL_METADATA '+pid+': '+e.message);}
   }
-  return {seen,digest:hash(Buffer.from(JSON.stringify([...seen.values()].map(core))))};
+  return {seen,observations,complete,startedAtNs,completedAtNs:clock.nowNs().toString(),digest:hash(Buffer.from(JSON.stringify([...seen.values()].map(core))))};
  }
  function marked(p){
-  let bytes;try{bytes=bounded('/proc/'+p.pid+'/environ',65536);}catch(e){if(e.code==='EACCES'||e.code==='EPERM')e.normal613EnvironmentDenied=true;throw e;}
+  const startedAtNs=clock.nowNs().toString();let bytes;
+  try{bytes=bounded('/proc/'+p.pid+'/environ',65536);}
+  catch(e){if(e.code==='EACCES'||e.code==='EPERM'){e.normal613EnvironmentDenied=true;e.normal613PermissionDenial={operation:'boundedProcEnvironRead',target:'PROC_ENVIRON',pid:p.pid,path:'/proc/'+p.pid+'/environ',errorCode:e.code,startedAtNs,failedAtNs:clock.nowNs().toString()};}throw e;}
   const again=identity(p.pid);
   assert(known.has(p.pid)?sameOwned(p,again):same(p,again),'Process changed during ownership observation');
   return bytes.toString('utf8').split('\0').includes('NS_FOCUSED_OWNER_TOKEN='+token);
@@ -468,6 +472,64 @@ function normal613FocusedOwnedProcesses(token,clock,until){
    rootVisibility.lastDeniedAtNs=at;rootVisibility.lastErrorCode=error.code;rootVisibility.readDenials++;if(!holds.includes(rootVisibilityHold()))holds.push(rootVisibilityHold());return true;
   }catch(e){note('ROOT_DENIAL_CHECK_HOLD '+e.message);return false;}
  }
+ function rememberKnownPositive(p,seen){
+  if(p.pid===root||baseline.seen.has(p.pid)||!rootEventJoinSha256||!rootObserved)return;
+  const anchor=known.get(p.parentPid)||[...known.values()].find(q=>q.pgid===p.pgid||q.sessionId===p.sessionId);
+  if(!anchor||anchor.pid===p.pid||!sameOwned(anchor,seen.get(anchor.pid)))return;
+  const anchorAt=anchor.pid===root?rootAt:knownPositive.get(anchor.pid)?.proof.observedAtNs;
+  if(anchorAt===undefined||anchorAt===null)return;
+  const proof={identity:ownedKey(p),rootIdentity:ownedKey(rootIdentity),rootEventJoinSha256,observedAtNs:clock.nowNs().toString(),parentPid:p.parentPid,anchorIdentity:ownedKey(anchor),anchorObservedAtNs:anchorAt,positiveMarkerConfirmed:true,ownedDomainConfirmed:true,baselineAbsent:true};
+  knownPositive.set(p.pid,{proof,sha256:hash(Buffer.from(JSON.stringify(proof)))});
+ }
+ function preDenialObservation(p,inventory,witness,denial){
+  const original=inventory?.observations.get(p.pid),observed=witness||original;
+  assert(inventory?.complete===true&&permanentHolds.size===0&&original&&observed,'Complete fresh pre-denial metadata required');
+  assert(sameOwned(original.identity,p)&&sameOwned(observed.identity,p)&&observed.stableStatPair&&observed.stableDirectory,'Pre-denial stable identity must match prior positive key');
+  assert(BigInt(observed.completedAtNs)<=BigInt(denial.startedAtNs)&&BigInt(inventory.completedAtNs)<=BigInt(denial.startedAtNs),'Pre-denial observations precede denied read');
+  return {identity:ownedKey(p),identityObservation:observed,inventory:{identity:ownedKey(inventory.seen.get(p.pid)),complete:true,sha256:inventory.digest,startedAtNs:inventory.startedAtNs,completedAtNs:inventory.completedAtNs}};
+ }
+ function repeatedPidAbsence(pid){
+  const path='/proc/'+pid,samples=[];
+  for(let ordinal=1;ordinal<=2;ordinal++){
+   check();const startedAtNs=clock.nowNs().toString();
+   try{fs.lstatSync(path);}
+   catch(e){if(e.code!=='ENOENT'||e.syscall!=='lstat'||e.path!==path)throw e;samples.push({ordinal,operation:'lstatSync',target:'PID_DIRECTORY',path,syscall:e.syscall,errorCode:e.code,noSymlinkFollow:true,startedAtNs,completedAtNs:clock.nowNs().toString()});continue;}
+   throw Error('KNOWN_ABSENCE_PID_PRESENT '+pid);
+  }
+  return samples;
+ }
+ function rememberKnownVisibility(p,error,inventory=null,witness=null){
+  if(error.normal613EnvironmentDenied!==true||!['EACCES','EPERM'].includes(error.code)||p.pid===root||!rootObserved||!boundChild||boundPid!==root||!rootEventJoinSha256)return false;
+  const expected=known.get(p.pid),positive=knownPositive.get(p.pid);
+  if(!expected||!positive||!sameOwned(expected,p)||!sameOwned(positive.proof.identity,p)||positive.proof.rootEventJoinSha256!==rootEventJoinSha256)return false;
+  try{
+   check();const previous=knownVisibility.get(p.pid),denial=error.normal613PermissionDenial;
+   assert(denial&&denial.pid===p.pid&&denial.path==='/proc/'+p.pid+'/environ'&&denial.errorCode===error.code,'Actual typed denied read required');
+   if(previous&&(previous.status!=='PENDING_BOUND_ROOT_EXIT_CLOSE_AND_DOMAIN_CLOSURE'||previous.verificationMode==='ABSENT_PID')){note('KNOWN_DENIAL_AFTER_RESOLUTION_OR_ABSENCE '+p.pid);return false;}
+   let current=null,absenceProof=null;
+   try{current=identity(p.pid);}
+   catch(e){
+    if(e.code!=='ENOENT'||e.syscall!=='lstat'||e.path!=='/proc/'+p.pid)throw e;
+    const trigger={operation:'lstatSync',target:'PID_DIRECTORY',path:e.path,syscall:e.syscall,errorCode:e.code,observedAtNs:clock.nowNs().toString()},preDenial=preDenialObservation(p,inventory,witness,denial);
+    assert(BigInt(positive.proof.observedAtNs)<=BigInt(preDenial.identityObservation.startedAtNs),'Prior positive proof precedes fresh pre-denial identity');
+    absenceProof={preDenial,permissionDenial:denial,trigger,samples:repeatedPidAbsence(p.pid)};
+   }
+   if(current&&!sameOwned(expected,current)){note('KNOWN_DENIAL_IDENTITY_CHANGED '+p.pid);return false;}
+   const at=clock.nowNs().toString();assert(BigInt(positive.proof.observedAtNs)<=BigInt(denial.failedAtNs),'Positive ownership precedes known visibility debt');
+   const value=previous||{identity:ownedKey(expected),rootEventJoinSha256,positiveProof:positive.proof,positiveProofSha256:positive.sha256,status:'PENDING_BOUND_ROOT_EXIT_CLOSE_AND_DOMAIN_CLOSURE',errorCode:error.code,lastErrorCode:error.code,firstDeniedAtNs:denial.failedAtNs,lastDeniedAtNs:denial.failedAtNs,firstPermissionDenial:denial,readDenials:0,resolution:null};
+   value.lastDeniedAtNs=denial.failedAtNs;value.permissionDenial=denial;value.lastErrorCode=error.code;value.readDenials++;
+   if(absenceProof){value.verificationMode='ABSENT_PID';value.absenceProof=absenceProof;}
+   else{value.verificationMode='LIVE_IDENTITY';value.lastIdentityCheckedAtNs=at;value.stableIdentityEvidence={identity:ownedKey(current),checkedAtNs:at};}
+   knownVisibility.set(p.pid,value);const hold=knownVisibilityHold(p.pid);if(!holds.includes(hold))holds.push(hold);return true;
+  }catch(e){note('KNOWN_DENIAL_CHECK_HOLD '+p.pid+': '+e.message);return false;}
+ }
+ function visibilityBoundaryNs(){
+  let last=rootClose?BigInt(rootClose.observedAtNs):0n;
+  const add=value=>{if(value!==undefined&&value!==null){const at=BigInt(value);if(at>last)last=at;}};
+  add(rootVisibility?.lastDeniedAtNs);
+  for(const v of knownVisibility.values()){add(v.lastDeniedAtNs);if(v.verificationMode==='ABSENT_PID')add(v.absenceProof.samples[1].completedAtNs);else add(v.lastIdentityCheckedAtNs);}
+  return last;
+ }
  function rootEvent(kind,child,code,signal){
   try{
    check();assert(rootObserved&&boundChild&&child===boundChild&&child.pid===boundPid&&boundPid===root&&rootEventJoinSha256,'Bound actual ChildProcess handle and root identity');const pid=boundPid;
@@ -479,12 +541,17 @@ function normal613FocusedOwnedProcesses(token,clock,until){
    else{assert(kind==='close'&&rootExit&&rootClose===null,'Exit must precede close');assert.equal(code,rootExit.code);assert.equal(signal,rootExit.signal);assert(BigInt(at)>=BigInt(rootExit.observedAtNs),'Ordered root close');rootClose=record;}
   }catch(e){note('ROOT_EVENT_JOIN_HOLD '+e.message);throw e;}
  }
- const waitingForRootExit=()=>!!rootVisibility&&rootVisibility.status==='PENDING_BOUND_ROOT_EXIT_CLOSE_AND_DOMAIN_CLOSURE'&&permanentHolds.size===0&&holds.length===1&&holds[0]===rootVisibilityHold();
+ const pendingVisibilityHolds=()=>[
+  ...(rootVisibility?.status==='PENDING_BOUND_ROOT_EXIT_CLOSE_AND_DOMAIN_CLOSURE'?[rootVisibilityHold()]:[]),
+  ...[...knownVisibility.values()].filter(v=>v.status==='PENDING_BOUND_ROOT_EXIT_CLOSE_AND_DOMAIN_CLOSURE').map(v=>knownVisibilityHold(v.identity.pid))
+ ];
+ const waitingForRootExit=()=>{const pending=pendingVisibilityHolds();return pending.length>0&&permanentHolds.size===0&&holds.length===pending.length&&pending.every(h=>holds.includes(h));};
  function observe(){
   check();if(root===null){note('OWNED_ROOT_NOT_SET');return {active:[],groupMembers:[],sessionMembers:[],closed:false};}
-  const inventoryStartedNs=clock.nowNs().toString(),current=metadata(),seen=current.seen,checked=new Set(),active=new Map(),excluded=new Map();
+  const inventoryStartedNs=clock.nowNs().toString(),current=metadata(),seen=current.seen,checked=new Set(),active=new Map(),excluded=new Map();lastInventory=current;
   if(rootVisibility?.status==='RESOLVED_AFTER_BOUND_ROOT_EXIT_CLOSE_AND_DOMAIN_ABSENCE'&&seen.has(root))note('ROOT_REAPPEARED_AFTER_RESOLUTION '+root);
   if(rootExit&&rootClose&&seen.has(root))note('ROOT_PRESENT_AFTER_BOUND_EXIT_CLOSE '+root);
+  for(const value of knownVisibility.values())if(seen.has(value.identity.pid)&&(value.status==='RESOLVED_AFTER_BOUND_ROOT_EXIT_CLOSE_AND_DOMAIN_ABSENCE'||value.verificationMode==='ABSENT_PID'))note('KNOWN_REAPPEARED_AFTER_RESOLUTION_OR_ABSENCE '+value.identity.pid);
   let expanded=true;
   while(expanded){
    expanded=false;
@@ -503,12 +570,12 @@ function normal613FocusedOwnedProcesses(token,clock,until){
     }
     let owned=false;
     try{owned=marked(p);}
-    catch(e){if(e.code==='ENOENT'||e.code==='ESRCH')continue;if(!rememberRootVisibility(p,e))note('UNOBSERVABLE_OWNED_CANDIDATE '+p.pid+': '+e.message);active.set(p.pid,p);continue;}
+    catch(e){if(e.code==='ENOENT'||e.code==='ESRCH')continue;if(!rememberRootVisibility(p,e)&&!rememberKnownVisibility(p,e,current))note('UNOBSERVABLE_OWNED_CANDIDATE '+p.pid+': '+e.message);active.set(p.pid,p);continue;}
     if(!owned){
      note((old?'OWNERSHIP_MARKER_LOST ':d.candidate?'UNOWNED_MEMBER_OF_OWNED_DOMAIN ':'POSSIBLY_OWNED_NEW_IDENTITY ')+p.pid);
      active.set(p.pid,p);continue;
     }
-    if(!old){groups.add(p.pgid);sessions.add(p.sessionId);expanded=true;}known.set(p.pid,p);
+    if(!old){rememberKnownPositive(p,seen);groups.add(p.pgid);sessions.add(p.sessionId);expanded=true;}known.set(p.pid,p);
     active.set(p.pid,p);if(p.pid===root)rootObserved=true;
    }
   }
@@ -523,15 +590,23 @@ function normal613FocusedOwnedProcesses(token,clock,until){
   }
   let stableClosureInventory=false;
   const emptyDomain=rootObserved&&!seen.has(root)&&active.size===0&&groupMembers.length===0&&sessionMembers.length===0;
-  const pendingCanResolve=waitingForRootExit()&&rootExit!==null&&rootClose!==null&&BigInt(inventoryStartedNs)>=BigInt(rootClose.observedAtNs);
+  const pendingCanResolve=waitingForRootExit()&&rootExit!==null&&rootClose!==null&&BigInt(inventoryStartedNs)>=visibilityBoundaryNs();
   if(emptyDomain&&(holds.length===0||pendingCanResolve)){
    // Unknown metadata still adds a permanent hold; neither time nor PASS output resolves it.
    const secondInventoryStartedNs=clock.nowNs().toString(),final=metadata(),inventoryCompletedNs=clock.nowNs().toString();stableClosureInventory=final.digest===current.digest;
-   if(stableClosureInventory&&!final.seen.has(root)&&pendingCanResolve&&waitingForRootExit()){
-    const index=holds.indexOf(rootVisibilityHold());assert(index>=0&&holds.length===1);
-    rootVisibility.status='RESOLVED_AFTER_BOUND_ROOT_EXIT_CLOSE_AND_DOMAIN_ABSENCE';
-    rootVisibility.resolution={rootAbsent:true,ownedDomainEmpty:true,firstMetadataSha256:current.digest,secondMetadataSha256:final.digest,firstInventoryStartedNs:inventoryStartedNs,secondInventoryStartedNs,inventoryCompletedNs,confirmedAtNs:clock.nowNs().toString()};
-    holds.splice(index,1);
+   if(stableClosureInventory&&current.complete&&final.complete&&!final.seen.has(root)&&pendingCanResolve&&waitingForRootExit()){
+    const pendingKnown=[...knownVisibility.values()].filter(v=>v.status==='PENDING_BOUND_ROOT_EXIT_CLOSE_AND_DOMAIN_CLOSURE');
+    assert(pendingKnown.every(v=>!seen.has(v.identity.pid)&&!final.seen.has(v.identity.pid)),'Every denied known identity absent in both complete inventories');
+    const resolution={rootAbsent:true,ownedDomainEmpty:true,lastVisibilityObservationAtNs:visibilityBoundaryNs().toString(),firstInventoryComplete:current.complete,secondInventoryComplete:final.complete,firstMetadataSha256:current.digest,secondMetadataSha256:final.digest,firstInventoryStartedNs:inventoryStartedNs,secondInventoryStartedNs,inventoryCompletedNs,confirmedAtNs:clock.nowNs().toString()};
+    if(rootVisibility?.status==='PENDING_BOUND_ROOT_EXIT_CLOSE_AND_DOMAIN_CLOSURE'){
+     const index=holds.indexOf(rootVisibilityHold());assert(index>=0);
+     rootVisibility.status='RESOLVED_AFTER_BOUND_ROOT_EXIT_CLOSE_AND_DOMAIN_ABSENCE';rootVisibility.resolution={...resolution};holds.splice(index,1);
+    }
+    for(const value of pendingKnown){
+     const index=holds.indexOf(knownVisibilityHold(value.identity.pid));assert(index>=0);
+     value.status='RESOLVED_AFTER_BOUND_ROOT_EXIT_CLOSE_AND_DOMAIN_ABSENCE';
+     value.resolution={...resolution,deniedIdentityAbsent:true,deniedIdentity:{...value.identity}};holds.splice(index,1);
+    }
    }
   }
   lastScope={callerPid:selfPid,callerUid:selfUid,snapshotStartedNs,snapshotCompletedNs,preSpawnIdentityCount:baseline.seen.size,preSpawnMetadataSha256:baseline.digest,
@@ -541,15 +616,17 @@ function normal613FocusedOwnedProcesses(token,clock,until){
   return {active:[...active.values()],groupMembers,sessionMembers,closed:rootObserved&&active.size===0&&groupMembers.length===0&&sessionMembers.length===0&&holds.length===0&&stableClosureInventory};
  }
  function signalOwned(signal){
-  const observation=observe();
+  const observation=observe(),inventory=lastInventory;
   for(const p of observation.active){
    check();const expected=known.get(p.pid);
    if(!expected||!sameOwned(expected,p)){note('SIGNAL_IDENTITY_UNCONFIRMED '+p.pid);continue;}
-   try{const current=identity(p.pid);if(current.uid!==selfUid||!sameOwned(expected,current)){note('SIGNAL_IDENTITY_UNCONFIRMED '+p.pid);continue;}
+   if(knownVisibility.get(p.pid)?.status==='PENDING_BOUND_ROOT_EXIT_CLOSE_AND_DOMAIN_CLOSURE')continue;
+   let preWitness=null;
+   try{const witnesses=new Map(),current=identity(p.pid,witnesses);preWitness=witnesses.get(p.pid);if(current.uid!==selfUid||!sameOwned(expected,current)){note('SIGNAL_IDENTITY_UNCONFIRMED '+p.pid);continue;}
     if(current.state==='Z')continue;
     if(!marked(current)){note('SIGNAL_OWNERSHIP_UNCONFIRMED '+p.pid);continue;}
     check();process.kill(current.pid,signal);
-   }catch(e){if(e.code!=='ESRCH'&&e.code!=='ENOENT'&&!rememberRootVisibility(p,e))note('SIGNAL_UNCONFIRMED '+p.pid+': '+e.message);}
+   }catch(e){if(e.code!=='ESRCH'&&e.code!=='ENOENT'&&!rememberRootVisibility(p,e)&&!rememberKnownVisibility(p,e,inventory,preWitness))note('SIGNAL_UNCONFIRMED '+p.pid+': '+e.message);}
   }
   return observation;
  }
@@ -572,12 +649,12 @@ function normal613FocusedOwnedProcesses(token,clock,until){
   scope(){
    clock.remaining(clock.endNs-1500000000n);
    const value=lastScope||{callerPid:selfPid,snapshotStartedNs,snapshotCompletedNs,preSpawnIdentityCount:baseline.seen.size,preSpawnMetadataSha256:baseline.digest,rootIdentity:null,rootObservedAtNs:null,actualRootAfterSnapshot:false,excludedPreExisting:[],stableClosureInventory:false,unknownOrOwnershipHolds:[...holds]};
-   const proof={...value,unknownOrOwnershipHolds:[...holds],permanentOwnershipHolds:[...permanentHolds],childHandleBoundAtNs:boundAt,boundChildPid:boundPid,rootEventJoinSha256,rootVisibility,rootEventProof:{exit:rootExit,close:rootClose}};
+   const proof={...value,unknownOrOwnershipHolds:[...holds],permanentOwnershipHolds:[...permanentHolds],childHandleBoundAtNs:boundAt,boundChildPid:boundPid,rootEventJoinSha256,rootVisibility,knownVisibility:[...knownVisibility.values()],rootEventProof:{exit:rootExit,close:rootClose}};
    assert(Buffer.byteLength(JSON.stringify(proof))<=524288,'Bounded per-child ownership scope proof');return proof;
   },get rootObserved(){return rootObserved;}};
 }
 
-async function normal613Intake(revalidateStage=null){
+async function normal613Intake(revalidateStage=null,httpFailure=null){
  const entryWall=Date.now(),entryMonotonic=process.hrtime.bigint();
  const p=NORMAL613_CALLER_POLICY,L=p.limits,cp=require('node:child_process'),{TextDecoder}=require('node:util');
  assert.equal(process.version,'v24.21.0');assert.equal(process.platform,'linux');assert.equal(process.arch,'x64');
@@ -605,12 +682,43 @@ async function normal613Intake(revalidateStage=null){
  const priorWitness=prior?JSON.parse(normal613Utf8(normal613Read(prior.root,revalidateStage==='qualification'?'normal613-readback-before-admission.json':'normal613-approval-witness.json',L.metadata))):null;
  const namespace=hash(Buffer.from(JSON.stringify({schemaVersion:'normal613-action-namespace.v1',repository:p.repository,pullRequest:event.number,phase:'qualification',purpose:b.actionIntent.purpose,headSha:H,baseSha:B,intentSha256:b.actionIntent.intentSha256,bodySha256:parsed.bodySha256,allocationId:b.actionIntent.allocationId,laneId:b.actionIntent.laneId,ownedOperationId:b.actionIntent.ownedOperationId})));
  const marker='NS_NORMAL613_V1 '+namespace,policySha256=hash(Buffer.from(JSON.stringify(p))),trace=[],passes=[];let consumed=priorWitness?priorWitness.consumedBytes:0,requests=priorWitness?priorWitness.requests:0;
- async function get(url){
+ // CLI-only best-effort metadata; no body, authority, retry, clock or output reservation.
+ function captureHttpFailure(response,u,commentId){
+  try{
+   if(!httpFailure)return;
+   const status=response.status;
+   if(!Number.isInteger(status)||status<100||status>599||status===200)return;
+   const repo='/repos/'+p.repository;let endpointTemplate;
+   if(u.pathname===repo+'/pulls/'+event.number)endpointTemplate='/repos/{owner}/{repo}/pulls/{number}';
+   else if(u.pathname===repo+'/issues/'+event.number+'/comments')endpointTemplate='/repos/{owner}/{repo}/issues/{number}/comments';
+   else if(Number.isSafeInteger(commentId)&&commentId>0&&u.pathname===repo+'/issues/comments/'+commentId)endpointTemplate='/repos/{owner}/{repo}/issues/comments/{id}';
+   else return;
+   const headers={};
+   for(const name of ['x-github-request-id','x-ratelimit-remaining','x-ratelimit-limit','x-ratelimit-reset','retry-after']){
+    const value=response.headers.get(name);if(typeof value!=='string')continue;
+    if(name==='x-github-request-id'){
+     if(value.length<=96&&/^[0-9A-F]{1,16}(?::[0-9A-F]{1,16}){1,5}(?![\s\S])/.test(value))headers[name]=value;
+    }else if(name==='x-ratelimit-remaining'||name==='x-ratelimit-limit'){
+     if(value.length<=7&&/^(0|[1-9][0-9]{0,6})(?![\s\S])/.test(value)&&Number(value)<=1000000)headers[name]=value;
+    }else if(name==='x-ratelimit-reset'){
+     if(value.length<=10&&/^(0|[1-9][0-9]{0,9})(?![\s\S])/.test(value)&&Number(value)<=9999999999)headers[name]=value;
+    }else if(value.length<=5&&/^(0|[1-9][0-9]{0,4})(?![\s\S])/.test(value)&&Number(value)<=86400)headers[name]=value;
+   }
+   if(headers['x-ratelimit-remaining']!==undefined&&headers['x-ratelimit-limit']!==undefined&&Number(headers['x-ratelimit-remaining'])>Number(headers['x-ratelimit-limit'])){
+    delete headers['x-ratelimit-remaining'];delete headers['x-ratelimit-limit'];
+   }
+   const record=JSON.stringify({method:'GET',status,endpointTemplate,headers});
+   if(record.length>1023||Buffer.byteLength(record+'\n','utf8')>1024||!/^[\x20-\x7e]+(?![\s\S])/.test(record))return;
+   httpFailure.status=status;httpFailure.record=record;
+  }catch{} // Diagnostic construction must not replace the original status assertion.
+ }
+ async function get(url,commentId=null){
   remaining();
   assert(++requests<=L.requests,'Request bound');const u=new URL(url);assert.equal(u.origin,p.api);assert.equal(u.username,'');assert.equal(u.password,'');assert.equal(u.hash,'');
   const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),Math.min(L.requestMs,remaining()));let reader,bytes=0;
   try{
    remaining();const response=await fetch(u,{method:'GET',headers:{Accept:'application/vnd.github+json','X-GitHub-Api-Version':'2022-11-28'},redirect:'error',credentials:'omit',cache:'no-store',signal:controller.signal});
+   captureHttpFailure(response,u,commentId);
    assert.equal(response.status,200,'Public GitHub response; no alternate route');assert.equal(new URL(response.url).origin,p.api);
    const length=response.headers.get('content-length');if(length!==null)assert(/^(0|[1-9][0-9]*)$/.test(length)&&Number(length)<=L.response,'Response length');
    assert(/^application\/json\b/.test(response.headers.get('content-type')||''),'JSON provider representation');assert(response.body,'Response stream');
@@ -691,7 +799,7 @@ async function normal613Intake(revalidateStage=null){
  assert.deepEqual(w.comments,approvals.map(x=>({id:x.comment.id,bodySha256:x.comment.bodySha256,authorId:x.comment.authorId,createdAt:x.comment.createdAt,updatedAt:x.comment.updatedAt})).sort((a,z)=>a.id-z.id));
  for(const x of approvals)assert(normal613ApiTime(x.comment.createdAt,'Role publication')<=witnessed);
  const second=await scan();assert.deepEqual(second,first,'Complete action namespace unchanged');
- for(const x of second){const r=await get(p.api+'/repos/'+p.repository+'/issues/comments/'+x.comment.id);assert.deepEqual(comment(r.value),x.comment,'Selected comment final readback unchanged');}
+ for(const x of second){const r=await get(p.api+'/repos/'+p.repository+'/issues/comments/'+x.comment.id,x.comment.id);assert.deepEqual(comment(r.value),x.comment,'Selected comment final readback unchanged');}
  const finalPR=await observePR();remaining();
  const ackBytes=normal613Decode(payload.ackBase64,payload.ackSha256,'ACK'),ack=normal613Canonical(ackBytes,'ACK');
  const startedAt=prior?prior.value.startedAt:new Date(entryWall).toISOString(),startMonotonicNs=prior?prior.value.startMonotonicNs:entryMonotonic.toString();
@@ -716,11 +824,11 @@ async function normal613Intake(revalidateStage=null){
 }
 // NORMAL613_INTAKE_END
 
-async function normal613Admission(){
+async function normal613Admission(httpFailure=null){
  'use strict';
  const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto'),cp=require('node:child_process'),{TextDecoder}=require('node:util');
  const hash=bytes=>crypto.createHash('sha256').update(bytes).digest('hex');
- await normal613Intake('admission');
+ await normal613Intake('admission',httpFailure);
  const nsContext=normal613Context(),nsIntentBytes=normal613Read(nsContext.root,'normal613-intent.json'),nsAckBytes=normal613Read(nsContext.root,'normal613-ack.json'),nsFreshBytes=normal613Read(nsContext.root,'normal613-fresh.json');
  normal613Remaining(nsContext.value,120000);
  // NS_E610_PURE_BEGIN
@@ -943,7 +1051,7 @@ async function normal613Admission(){
  const {binding,rawBinding,bodySha256}=parseHandover(Buffer.from(event.pull_request.body,'utf8'));
  const H=digestHex(event.pull_request.head.sha,40,'Event H'),B=digestHex(event.pull_request.base.sha,40,'Event B'),T=digestHex(process.env.GITHUB_SHA,40,'Event T');
  const observed={headSha:H,baseSha:B,testedMergeSha:T,checkoutSha:git('rev-parse','HEAD'),parents:git('show','-s','--format=%P',T).split(' '),headTree:git('rev-parse',H+'^{tree}'),testedTree:git('rev-parse',T+'^{tree}')};
- validateEventJoin(event,process.env,observed,binding);assert.equal(B,'9f20813c9855e30d4ca32e721862f739b6d696ba','Reviewed normal613 predecessor');cleanCheckout();
+ validateEventJoin(event,process.env,observed,binding);assert.equal(B,'2e92211c700c40b2b508fc636a002868c61a7579','Reviewed normal613 predecessor');cleanCheckout();
  const entryBytes=processOutput('git',['ls-tree','-rz','--full-tree',H]),entries=parseGitEntries(entryBytes);
  assert.equal(entries.length,binding.expectedAssembledEntryCount,'Reviewed full source count');
  setReadPhase('projection-policy');
@@ -957,7 +1065,7 @@ async function normal613Admission(){
  const rows=initialSource.rows,expectedProjection=initialSource.projected,byPath=new Map(rows.map(r=>[r.path,r]));
  const assembled=assembledBytes(H,observed.headTree,binding.reviewedFinalMapSha256,rows);assert(assembled.length<=E610_LIMITS.manifest,'Assembled byte bound');
  assert.equal(hash(assembled),binding.expectedAssembledManifestSha256,'Publisher expected complete raw source manifest');
- const changed=utf8Text(processOutput('git',['diff','--no-renames','--name-only','-z','9f20813c9855e30d4ca32e721862f739b6d696ba',H])).split('\0').filter(Boolean);
+ const changed=utf8Text(processOutput('git',['diff','--no-renames','--name-only','-z','2e92211c700c40b2b508fc636a002868c61a7579',H])).split('\0').filter(Boolean);
  assert.equal(changed.length,binding.expectedBaseRelativePathCount,'Reviewed normal613-base-relative path count');
  const qualifier=byPath.get('scripts/validate-sync-current-forward.js'),fixture=byPath.get('scripts/fixtures/sync-normal-613-20261112.json');
  assert(qualifier&&fixture&&qualifier.mode==='100644'&&fixture.mode==='100644','Reviewed regular qualifier and fixture');
@@ -999,13 +1107,14 @@ async function normal613Admission(){
  setReadPhase('metadata-writeback');
  const assembledFile=save('assembled-source-manifest.json',assembled),proofFile=save('dependencies.json',jsonBytes(proof));
  const reservationFile=save('reservation-receipt.json',reservationBytes,E610_LIMITS.receipt),freshFile=save('fresh-main-reservation-binding.json',freshBytes,E610_LIMITS.receipt);
- assert.equal(byPath.get('scripts/materialize-git-tree.js').sha256,'f7b3a8d7867dc9af5df217a02d80b3135b542ef498937c67044cc7f7d0001373');
+ assert.equal(byPath.get('scripts/materialize-git-tree.js').sha256,'0757edcce5a3d1d54f0a56f457884a6565629a5741c592f80012683d7498f7f0');
  assert.equal(byPath.get('config/deployment-manifest.json').sha256,'78f7a1c46accaf56fb83ec1f4d8f5ecf98621a620807658c805870191297b103');
  setReadPhase('projection-source');
  // Expected bytes were prepared during the complete initial source proof; no second parent source pass.
  const snapshot=path.join(admission,'deployment-snapshot');
  setReadPhase('child-reservation');
- const childReadReservation=2*expectedProjection.reduce((n,e)=>n+e.row.sourceBytes*(e.row.path.endsWith('.js')?2:1),0);
+ // Each unique projected source is read once; keep both working-byte and Git-fallback allowance.
+ const childReadReservation=2*expectedProjection.reduce((n,e)=>n+e.row.sourceBytes,0);
  charge(childReadReservation,null,true);
  processOutput(process.execPath,['scripts/materialize-git-tree.js',H,snapshot,'--deployment'],65536,E610_LIMITS.materializerMs);
  setReadPhase('projection-output');
@@ -1217,6 +1326,7 @@ function normal613Seal(){
   assert.equal(fc.assembledManifestSha256,JSON.parse(normal613Utf8(copiedDocuments.get('execution-receipt.json'))).actualAssembledSourceManifestSha256);
   assert.equal(fr.aggregateEntryNs,fc.aggregateEntryNs);assert.equal(fr.aggregateDeadlineNs,fc.aggregateDeadlineNs);assert(BigInt(fc.aggregateDeadlineNs)>BigInt(fc.aggregateEntryNs)&&BigInt(fc.aggregateDeadlineNs)-BigInt(fc.aggregateEntryNs)<=120000000000n);assert.equal(fr.failure,null);assert.equal(fr.releaseAcceptance,false);assert.equal(fr.realAuthorityFromSyntheticRecords,false);assert.deepEqual(fr.unrun,[]);assert.deepEqual(fr.newScratchRoots,[]);assert.equal(fr.completed.length,8);assert.equal(fc.sources.length,8);
   for(const row of fr.completed){assert.equal(row.status,0);assert.equal(row.reason,null);assert(row.childClosed&&row.topLevelGroupClosed&&row.ownedCleanupObserved&&row.childReportAccepted&&!row.cleanupHold);assert.deepEqual(row.ownershipHolds,[]);assert(Array.isArray(row.ownedProcessIdentities)&&row.ownedProcessIdentities.length>0);assert.deepEqual(row.newScratchRoots,[]);assert(BigInt(row.childSoftDeadlineNs)<BigInt(row.childHardDeadlineNs)&&BigInt(row.childHardDeadlineNs)<=BigInt(fc.aggregateDeadlineNs)-3000000000n);}
+  for(const row of fr.completed)normal613ValidateKnownVisibility(row,fc.aggregateEntryNs);
   for(const row of fr.completed)if(row.ownershipScope?.rootVisibility){
    const s=row.ownershipScope,v=s.rootVisibility,e=s.rootEventProof,p=row.ownedProcessIdentities.find(x=>x.pid===row.childPid);
    assert(p&&e?.exit&&e.close,'Resolved root visibility requires actual bound exit and close evidence');
@@ -1239,6 +1349,66 @@ function normal613Seal(){
  assert.equal(manifest.status,'COMPLETE','Incomplete producer evidence remains failed/unknown');
 }
 
+function normal613ValidateKnownVisibility(row,aggregateEntryNs){
+ const s=row.ownershipScope;
+ assert(s&&Array.isArray(s.knownVisibility),'Complete known-visibility receipt array required');
+ assert(s.knownVisibility.length<=4096,'Existing proc inventory bound');
+ if(!s.knownVisibility.length)return 0;
+ const key=p=>Object.fromEntries(['pid','uid','startTicks','pgid','sessionId'].map(k=>[k,p[k]]));
+ const ns=value=>{assert(typeof value==='string'&&/^[0-9]+$/.test(value),'Finite recorded monotonic time');return BigInt(value);};
+ const root=row.ownedProcessIdentities.find(p=>p.pid===row.childPid),events=s.rootEventProof,seen=new Set();
+ assert(root&&events?.exit&&events.close,'Known visibility requires actual bound root events');
+ const rootKey=key(root),join=hash(Buffer.from(JSON.stringify({root:rootKey,callerPid:s.callerPid,rootObservedAtNs:s.rootObservedAtNs,preSpawnMetadataSha256:s.preSpawnMetadataSha256,boundChildPid:s.boundChildPid,childHandleBoundAtNs:s.childHandleBoundAtNs})));
+ assert.equal(s.boundChildPid,row.childPid);assert.equal(s.rootEventJoinSha256,join);
+ assert(s.actualRootAfterSnapshot&&s.stableClosureInventory);assert.deepEqual(s.unknownOrOwnershipHolds,[]);assert.deepEqual(s.permanentOwnershipHolds,[]);assert.deepEqual(row.ownershipHolds,[]);
+ for(const event of [events.exit,events.close]){
+  assert.equal(event.pid,row.childPid);assert.deepEqual(event.identity,rootKey);assert.equal(event.rootEventJoinSha256,join);assert.equal(event.sameChildProcessHandle,true);assert.equal(event.code,row.status);assert.equal(event.signal,row.signal);
+ }
+ for(const value of s.knownVisibility){
+  const p=row.ownedProcessIdentities.find(p=>p.pid===value.identity?.pid),proof=value.positiveProof,r=value.resolution;
+  assert(p&&p.pid!==row.childPid&&!seen.has(p.pid),'Unique previously owned nonroot visibility identity');seen.add(p.pid);
+  assert.deepEqual(value.identity,key(p));assert.equal(value.rootEventJoinSha256,join);
+  assert.equal(value.status,'RESOLVED_AFTER_BOUND_ROOT_EXIT_CLOSE_AND_DOMAIN_ABSENCE');
+  assert(['EACCES','EPERM'].includes(value.errorCode)&&['EACCES','EPERM'].includes(value.lastErrorCode));assert(Number.isSafeInteger(value.readDenials)&&value.readDenials>0);
+  assert(proof&&proof.positiveMarkerConfirmed===true&&proof.ownedDomainConfirmed===true&&proof.baselineAbsent===true);
+  assert.equal(value.positiveProofSha256,hash(Buffer.from(JSON.stringify(proof))));assert.deepEqual(proof.identity,key(p));assert.deepEqual(proof.rootIdentity,rootKey);assert.equal(proof.rootEventJoinSha256,join);
+  const anchor=row.ownedProcessIdentities.find(a=>a.pid===proof.anchorIdentity?.pid);
+  assert(anchor&&anchor.pid!==p.pid);assert.deepEqual(proof.anchorIdentity,key(anchor));
+  assert(proof.parentPid===anchor.pid||p.pgid===anchor.pgid||p.sessionId===anchor.sessionId,'Saved positively owned parent/group/session anchor');
+  assert(r?.rootAbsent&&r.ownedDomainEmpty&&r.deniedIdentityAbsent);assert.deepEqual(r.deniedIdentity,value.identity);
+  assert(/^[a-f0-9]{64}$/.test(r.firstMetadataSha256));assert.equal(r.firstMetadataSha256,r.secondMetadataSha256);
+  assert(['LIVE_IDENTITY','ABSENT_PID'].includes(value.verificationMode),'Explicit live identity versus repeated absence mode');
+  if(value.verificationMode==='ABSENT_PID'){
+   assert(r.firstInventoryComplete===true&&r.secondInventoryComplete===true,'Two complete post-observation closure inventories required');
+   const a=value.absenceProof,closed=(o,names)=>assert(o&&JSON.stringify(Object.keys(o).sort())===JSON.stringify(names.split(' ').sort()),'Closed absence proof fields');
+   closed(a,'preDenial permissionDenial trigger samples');closed(a.preDenial,'identity identityObservation inventory');
+   const pre=a.preDenial,io=pre.identityObservation,inv=pre.inventory,d=a.permissionDenial,t=a.trigger;
+   closed(io,'identity parentPid directory startedAtNs completedAtNs stableStatPair stableDirectory');closed(io.directory,'dev ino uid');closed(inv,'identity complete sha256 startedAtNs completedAtNs');
+   assert.deepEqual(pre.identity,value.identity);assert.deepEqual(io.identity,value.identity);assert.deepEqual(inv.identity,value.identity);
+   assert(io.stableStatPair===true&&io.stableDirectory===true&&inv.complete===true);assert(/^[a-f0-9]{64}$/.test(inv.sha256));
+   for(const v of [io.parentPid,io.directory.dev,io.directory.ino,io.directory.uid])assert(Number.isSafeInteger(v)&&v>=0,'Finite actual pre-denial metadata');assert.equal(io.directory.uid,p.uid);
+   const firstDenial=value.firstPermissionDenial;closed(firstDenial,'operation target pid path errorCode startedAtNs failedAtNs');
+   assert.equal(firstDenial.operation,'boundedProcEnvironRead');assert.equal(firstDenial.target,'PROC_ENVIRON');assert.equal(firstDenial.pid,p.pid);assert.equal(firstDenial.path,'/proc/'+p.pid+'/environ');assert.equal(firstDenial.errorCode,value.errorCode);assert(['EACCES','EPERM'].includes(firstDenial.errorCode));assert.equal(firstDenial.failedAtNs,value.firstDeniedAtNs);assert(ns(proof.observedAtNs)<=ns(firstDenial.startedAtNs)&&ns(firstDenial.startedAtNs)<=ns(firstDenial.failedAtNs)&&ns(firstDenial.failedAtNs)<=ns(d.failedAtNs));
+   closed(d,'operation target pid path errorCode startedAtNs failedAtNs');
+   assert.equal(d.operation,'boundedProcEnvironRead');assert.equal(d.target,'PROC_ENVIRON');assert.equal(d.pid,p.pid);assert.equal(d.path,'/proc/'+p.pid+'/environ');assert(['EACCES','EPERM'].includes(d.errorCode));assert.equal(d.errorCode,value.lastErrorCode);assert.deepEqual(value.permissionDenial,d);assert.equal(value.lastDeniedAtNs,d.failedAtNs);
+   closed(t,'operation target path syscall errorCode observedAtNs');assert.equal(t.operation,'lstatSync');assert.equal(t.target,'PID_DIRECTORY');assert.equal(t.path,'/proc/'+p.pid);assert.equal(t.syscall,'lstat');assert.equal(t.errorCode,'ENOENT');
+   assert(Array.isArray(a.samples)&&a.samples.length===2,'Two independent directory absence observations required');
+   for(let i=0;i<2;i++){const sample=a.samples[i];closed(sample,'ordinal operation target path syscall errorCode noSymlinkFollow startedAtNs completedAtNs');assert.equal(sample.ordinal,i+1);assert.equal(sample.operation,'lstatSync');assert.equal(sample.target,'PID_DIRECTORY');assert.equal(sample.path,'/proc/'+p.pid);assert.equal(sample.syscall,'lstat');assert.equal(sample.errorCode,'ENOENT');assert.equal(sample.noSymlinkFollow,true);assert(ns(sample.startedAtNs)<=ns(sample.completedAtNs));}
+   const snap=ns(s.snapshotStartedNs),snapshotEnd=ns(s.snapshotCompletedNs),bound=ns(s.childHandleBoundAtNs),observed=ns(s.rootObservedAtNs),anchorAt=ns(proof.anchorObservedAtNs),positive=ns(proof.observedAtNs),preStart=ns(io.startedAtNs),preEnd=ns(io.completedAtNs),invStart=ns(inv.startedAtNs),invEnd=ns(inv.completedAtNs),denialStart=ns(d.startedAtNs),denialEnd=ns(d.failedAtNs),triggerAt=ns(t.observedAtNs),oneStart=ns(a.samples[0].startedAtNs),oneEnd=ns(a.samples[0].completedAtNs),twoStart=ns(a.samples[1].startedAtNs),twoEnd=ns(a.samples[1].completedAtNs),exit=ns(events.exit.observedAtNs),close=ns(events.close.observedAtNs),first=ns(r.firstInventoryStartedNs),second=ns(r.secondInventoryStartedNs),finished=ns(r.inventoryCompletedNs),resolved=ns(r.confirmedAtNs);
+   assert(ns(aggregateEntryNs)<=snap&&snap<=snapshotEnd&&snapshotEnd<=bound&&bound<=observed&&observed<=anchorAt&&anchorAt<=positive&&positive<=preStart&&preStart<=preEnd&&preEnd<=denialStart&&observed<=invStart&&invStart<=preStart&&invStart<=invEnd&&invEnd<=denialStart&&denialStart<=denialEnd&&denialEnd<=triggerAt&&triggerAt<=oneStart&&oneStart<=oneEnd&&oneEnd<=twoStart&&oneStart<twoStart&&twoStart<=twoEnd,'Positive/pre-denial/read/trigger/two-absence chronology');
+   assert(positive<=ns(value.firstDeniedAtNs)&&ns(value.firstDeniedAtNs)<=ns(value.lastDeniedAtNs));
+   let latest=close;const add=x=>{if(x!==undefined&&x!==null){const at=ns(x);if(at>latest)latest=at;}};add(s.rootVisibility?.lastDeniedAtNs);
+   for(const debt of s.knownVisibility){add(debt.lastDeniedAtNs);if(debt.verificationMode==='ABSENT_PID')add(debt.absenceProof.samples[1].completedAtNs);else add(debt.lastIdentityCheckedAtNs);}
+   assert(observed<=exit&&exit<=close&&twoEnd<=first&&latest<=ns(r.lastVisibilityObservationAtNs)&&ns(r.lastVisibilityObservationAtNs)<=first&&first<second&&second<=finished&&finished<=resolved&&resolved<=ns(row.childHardDeadlineNs),'Two complete empty inventories after ROOT close and ALL last denials/absence observations within original deadline');
+   if(Object.hasOwn(value,'lastIdentityCheckedAtNs')){assert(value.stableIdentityEvidence);assert.deepEqual(value.stableIdentityEvidence.identity,value.identity);assert.equal(value.stableIdentityEvidence.checkedAtNs,value.lastIdentityCheckedAtNs);assert(ns(value.lastIdentityCheckedAtNs)<=preStart,'Earlier live identity check cannot be claimed as post-denial absence verification');}
+   continue;
+  }
+  const snap=ns(s.snapshotStartedNs),snapshotEnd=ns(s.snapshotCompletedNs),bound=ns(s.childHandleBoundAtNs),observed=ns(s.rootObservedAtNs),anchorAt=ns(proof.anchorObservedAtNs),positive=ns(proof.observedAtNs),denied=ns(value.firstDeniedAtNs),lastDenied=ns(value.lastDeniedAtNs),identityChecked=ns(value.lastIdentityCheckedAtNs),exit=ns(events.exit.observedAtNs),close=ns(events.close.observedAtNs),first=ns(r.firstInventoryStartedNs),second=ns(r.secondInventoryStartedNs),finished=ns(r.inventoryCompletedNs),resolved=ns(r.confirmedAtNs);
+  assert(ns(aggregateEntryNs)<=snap&&snap<=snapshotEnd&&snapshotEnd<=bound&&bound<=observed&&observed<=anchorAt&&anchorAt<=positive&&positive<=denied&&denied<=lastDenied&&lastDenied<=identityChecked&&identityChecked<=first&&observed<=exit&&exit<=close&&close<=first&&first<second&&second<=finished&&finished<=resolved&&resolved<=ns(row.childHardDeadlineNs),'Positive identity, typed denial and two fresh post-close inventories within original deadline');
+ }
+ return s.knownVisibility.length;
+}
+
 function normal613CallerSourceControls(text){
  const restored=restoreNormal613Caller(text);if(restored.edits===0)return {profile:'legacy',normal613RuntimeExecuted:false};
  assert.equal(hash(Buffer.from(restored.text)),NORMAL613_CALLER_AMENDMENT.beforeSha256);
@@ -1253,11 +1423,11 @@ function normal613CallerSourceControls(text){
 }
 
 // No network/process dispatch occurs on import or on the unchanged legacy default.
-async function normal613Main(argv){
+async function normal613Main(argv,httpFailure=null){
  const mode=argv[0];
- if(mode==='--normal613-intake'){assert.equal(argv.length,1);return normal613Intake();}
- if(mode==='--normal613-admission'){assert.equal(argv.length,1);return normal613Admission();}
- if(mode==='--normal613-verify-current'){assert.equal(argv.length,1);return normal613Intake('qualification');}
+ if(mode==='--normal613-intake'){assert.equal(argv.length,1);return normal613Intake(null,httpFailure);}
+ if(mode==='--normal613-admission'){assert.equal(argv.length,1);return normal613Admission(httpFailure);}
+ if(mode==='--normal613-verify-current'){assert.equal(argv.length,1);return normal613Intake('qualification',httpFailure);}
  if(mode==='--normal613-engine-context'){assert.equal(argv.length,1);return normal613EngineContext();}
  if(mode==='--normal613-seal'){assert.equal(argv.length,1);return normal613Seal();}
  if(mode==='--normal613-run'){assert(argv.length>=5&&argv[2]==='--');return normal613OwnedRun(argv[1],argv[3],argv.slice(4));}
@@ -1267,7 +1437,27 @@ async function normal613Main(argv){
 
 if(require.main===module){
  const argv=process.argv.slice(2);
- if(argv[0]?.startsWith('--normal613-'))normal613Main(argv).catch(error=>{console.error('NORMAL613_FAILED '+String(error.message).slice(0,1000));process.exitCode=1;});
+ if(argv[0]?.startsWith('--normal613-')){
+  const httpFailure={record:null,status:null};
+  normal613Main(argv,httpFailure).catch(error=>{
+   process.exitCode=1;
+   try{
+    const original=String(error.message).slice(0,1000);let text=original;
+    try{
+     // Only this invocation's unchanged status assertion may carry its response metadata.
+     if(error instanceof assert.AssertionError&&error.code==='ERR_ASSERTION'&&error.operator==='strictEqual'&&error.generatedMessage===false&&error.expected===200&&error.actual===httpFailure.status&&original.startsWith('Public GitHub response; no alternate route')){
+      const record=httpFailure.record;
+      if(typeof record==='string'&&record.length<=1023&&Buffer.byteLength(record+'\n','utf8')<=1024&&/^[\x20-\x7e]+(?![\s\S])/.test(record)){
+       const candidate=original+'\n'+record;
+       // Same single 1000-UTF16-unit slot: prefix17 + worst-case UTF8(1000 units)3000 + LF1.
+       if(candidate.length<=1000&&Buffer.byteLength('NORMAL613_FAILED '+candidate+'\n','utf8')<=3018)text=candidate;
+      }
+     }
+    }catch{} // Keep the exact original limited text if optional formatting cannot complete.
+    console.error('NORMAL613_FAILED '+text);
+   }catch{} // Exit1 is already established; no fallback write or new stream handler.
+  });
+ }
  else console.log(JSON.stringify(sourceControls(boundedRegularRead(path.resolve('.github/workflows/installed-upgrade-tests.yml'),256*1024*1024,sourceReadLedger).toString('utf8'))));
 }
-module.exports={normaliseForwardWorkflow,sourceControls,boundVersionPlanControls,boundedReaderControls,restoreNormal613Caller,normal613CallerSourceControls,normal613Body,normal613ValidateFresh,normal613ExpectedIntent,normal613Intake,normal613Main,normal613FocusedControls:Object.freeze({normal613FocusedClock,normal613FocusedOwnedProcesses,version:'normal613-focused-controls.v1',NORMAL613_CALLER_POLICY,normal613Remaining,normal613OwnedRoot,normal613Save,normal613UnicodeSafe,normal613Canonical,normal613ReceiptMemberReferences,normal613FixtureCommandIds,normal613EngineCommandIds})};
+module.exports={normaliseForwardWorkflow,sourceControls,boundVersionPlanControls,boundedReaderControls,restoreNormal613Caller,normal613CallerSourceControls,normal613Body,normal613ValidateFresh,normal613ExpectedIntent,normal613Intake,normal613Main,normal613FocusedControls:Object.freeze({normal613FocusedClock,normal613FocusedOwnedProcesses,normal613ValidateKnownVisibility,version:'normal613-focused-controls.v1',NORMAL613_CALLER_POLICY,normal613Remaining,normal613OwnedRoot,normal613Save,normal613UnicodeSafe,normal613Canonical,normal613ReceiptMemberReferences,normal613FixtureCommandIds,normal613EngineCommandIds})};
