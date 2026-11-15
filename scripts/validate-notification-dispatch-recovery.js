@@ -71,6 +71,27 @@ async function reconciliationTimingBoundary(){
 async function main(){
  const now=new Date('2026-10-06T11:30:00Z');
  const refresh=require('../lib/comms-refresh');
+ // The batching incident pins both its clock and its original published inputs.
+ const fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto');
+ const incidentRoot=path.join(__dirname,'fixtures/notification-dispatch-incident-20261006');
+ const incidentBytes={};
+ for(const [file,sha256] of [
+  ['comms-sources.v1.json','aa75e7f8e1985a34177b2fde922c834f49ee03aa1ec54df90ba7d8c475bc5d4c'],
+  ['marquee-candidates.v1.json','e5720f3bdbbeee56153e48f5fcbe1c4072971c34019bba699f529c050f4530e1'],
+ ]){
+  const bytes=fs.readFileSync(path.join(incidentRoot,file));
+  assert.equal(crypto.createHash('sha256').update(bytes).digest('hex'),sha256,'Pinned incident bytes must retain their original provenance');
+  incidentBytes[file]=bytes;
+ }
+ const incidentInputs={
+  sourceImpl:()=>JSON.parse(incidentBytes['comms-sources.v1.json'].toString('utf8')),
+  marqueeImpl:()=>JSON.parse(incidentBytes['marquee-candidates.v1.json'].toString('utf8')),
+ };
+ const incidentEditorial=require('../lib/editorial-maintenance');
+ const incidentRestorers=[];
+ try{
+  incidentRestorers.push(mock('../lib/editorial-maintenance',{...incidentEditorial,inventory:options=>incidentEditorial.inventory({...options,sourceImpl:incidentInputs.sourceImpl})}));
+  incidentRestorers.push(mock('../lib/competition-fixtures',{fixtures:()=>incidentInputs.sourceImpl().events}));
  const calls=[];
  const request=async(p,o={})=>{
   calls.push({p,o});
@@ -81,15 +102,15 @@ async function main(){
   }
   return [];
  };
- const prepared=await refresh.prepare({now:+now,request});
+ const prepared=await refresh.prepare({now:+now,...incidentInputs,request});
  assert(prepared.candidates.length>100,'Pinned incident must exceed the database batch cap');
- const result=await refresh.reconcile({now:+now,request});
+ const result=await refresh.reconcile({now:+now,...incidentInputs,request});
  const batches=calls.filter(c=>c.p.endsWith('nothingsports_comms_sync_batch'));
  assert.equal(result.updated,prepared.candidates.length);
  assert.equal(new Set(batches.flatMap(c=>c.o.body.items.map(i=>i.id))).size,prepared.candidates.length,'Each candidate is synced once');
  assert(calls.some(c=>c.o.body?.last_error===null),'Successful refresh clears its lease and error');
  const unchangedCalls=[];
- const unchanged=await refresh.reconcile({now:+now,request:async(p,o={})=>{
+ const unchanged=await refresh.reconcile({now:+now,...incidentInputs,request:async(p,o={})=>{
   unchangedCalls.push({p,o});
   if(p.endsWith('nothingsports_comms_claim_refresh'))return 'lease';
   if(p.includes('nothingsports_marquee_campaigns?'))return prepared.candidates.map(c=>({campaign_id:c.campaignId,event_id:c.eventId,content_hash:c.contentHash,candidate:c,draft_copy:{hook:'Owner edit'},campaign_revision:9}));
@@ -100,7 +121,7 @@ async function main(){
  assert(!unchangedCalls.some(c=>c.p.endsWith('nothingsports_comms_sync_batch')),'The six-hour refresh avoids sending unchanged campaign payloads');
  let batchNumber=0;
  const conflictCalls=[];
- await assert.rejects(refresh.reconcile({now:+now,request:async(p,o={})=>{
+ await assert.rejects(refresh.reconcile({now:+now,...incidentInputs,request:async(p,o={})=>{
   conflictCalls.push({p,o});
   if(p.endsWith('nothingsports_comms_claim_refresh'))return 'lease';
   if(p.endsWith('nothingsports_comms_sync_batch'))return {updated:0,conflicts:++batchNumber===2?1:0};
@@ -109,6 +130,7 @@ async function main(){
  assert.equal(batchNumber,2,'A concurrent edit stops remaining batches');
  assert(!conflictCalls.some(c=>c.o.body?.source_revision),'Partial refresh cannot mark the new source revision complete');
  assert(conflictCalls.some(c=>c.o.body?.last_error==='content_refresh_failed'&&c.o.body.lease_token===null),'Failed refresh releases its lease for an idempotent retry');
+ }finally{incidentRestorers.reverse().forEach(restore=>restore());}
  const fixtures=require('../lib/reminder-fixtures');
  const upstream=new server.SupabaseRequestError('Deadline',{status:504,payload:{code:'supabase_timeout'}});
  const snapshotCalls=new Map();
