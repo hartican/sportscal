@@ -30,13 +30,14 @@ async function main(){
     const verified=read(file);assert.deepEqual(verified.teams.map(t=>t.id),original.teams.map(t=>t.id));assert.deepEqual(verified.players.map(p=>p.id),original.players.map(p=>p.id));assert.deepEqual(verified.sources.filter(s=>original.sources.some(o=>o.id===s.id)&&!s.id.includes(':clubs-current')&&!s.id.startsWith('source:football:roster:')),original.sources.filter(s=>!s.id.includes(':clubs-current')&&!s.id.startsWith('source:football:roster:')),'unread official pages retain dates');
     requests=0;assert.equal((await maintenance.refreshDue({root,fetchImpl})).changed,false);assert.equal(requests,0,'repeat is source-free');
     const fixture=read('data/events.json').events.find(e=>e.id==='epl-2026-27-129016');assert(fixture);
+    const reference=new Date(fixture.startTimeUtc);
     for(const name of ['data/events.json','feeds/incoming/events.json']){const d=read(name);d.events=d.events.map(e=>e.id===fixture.id?{...e,editorialNarrative:null}:e);write(name,d);}
     const baseline=read('data/events.json').events,clock=fixture.canonicalSourceCheckedAt;
-    const repaired=editorial.repairMissing({root});assert(repaired.repaired.includes(fixture.id));
+    const repaired=editorial.repairMissing({root,reference});assert(repaired.repaired.includes(fixture.id));
     const after=read('data/events.json').events;assert(after.find(e=>e.id===fixture.id).editorialNarrative.hook);assert.equal(after.find(e=>e.id===fixture.id).canonicalSourceCheckedAt,clock);
     assert.deepEqual(after.filter(e=>!repaired.repaired.includes(e.id)),baseline.filter(e=>!repaired.repaired.includes(e.id)),'missing preview repair preserves other cards');
     const bytes=names.map(name=>fs.readFileSync(path.join(root,name)));
-    assert.equal(editorial.repairMissing({root}).changed,false);
+    assert.equal(editorial.repairMissing({root,reference}).changed,false);
     names.forEach((name,i)=>assert.deepEqual(fs.readFileSync(path.join(root,name)),bytes[i],'unchanged repair retains bytes'));
     const full=require('./update-cards').buildSteps({localOnly:true});assert(full.some(s=>s[0]==='scripts/refresh-football-directory.js'&&s.includes('--refresh-due')));
     const quick=fs.readFileSync(path.join(project,'scripts/quick-results.js'),'utf8');assert(quick.includes('football-directory-maintenance'));assert(quick.includes('repairMissing({reference:now})'));
