@@ -112,7 +112,15 @@
     if(policy.eventFamilyIds(parent).some(id=>(prefs.followFirst?.followedMajorEventIds||[]).includes(id))||(prefs.preferenceGraph?.competitionPreferences||[]).some(p=>p.competitionId===parent.competitionId&&p.enabled===true))return {type:'event',id:parent.eventFamilyId,displayTag:false};
     const excluded=new Set(parent.excludedParticipantIds||[]),golf=['golf','golf-women','masters'].includes(policy.sportKey(parent));
     if(golf&&parent.participantsConfirmed!==true)return null;
-    if(golf&&policy.hasAustralianParticipant(parent)&&(prefs.followFirst?.australiansOnlySportIds||[]).includes('sport:golf'))return {type:'sport',id:'golf',displayTag:false};
+    if(golf&&policy.hasAustralianParticipant(parent)){
+      const sport=policy.sportKey(parent)==='masters'?'golf':policy.sportKey(parent),sportId=`sport:${sport}`;
+      const selectors=prefs.selectedSelectorEntityIds||[];
+      const followed=(selectors.length?selectors.includes(sportId):(prefs.followedSports||[]).includes(sport))
+        ||policy.effectiveDomainPreferences(parent,prefs).some(p=>p.sportDomainId===sportId&&p.enabled===true);
+      // A remembered Australian-only filter narrows a matching sport follow;
+      // it cannot create one or cross the men's/women's sport boundary.
+      if(followed&&(prefs.followFirst?.australiansOnlySportIds||[]).includes(sportId))return {type:'sport',id:sport,displayTag:false};
+    }
     const participant=[...new Set([...(parent.participantIds||[]),...(parent.sourceParticipation||[]).filter(e=>!e.excluded).map(e=>e.participantId)])].find(id=>!excluded.has(id)&&(participantFollowed(id) || expandedParticipantIds?.has(id)));
     return participant?{type:participant.startsWith('team:')?'team':'athlete',id:participant,displayTag:false}:null;
   }

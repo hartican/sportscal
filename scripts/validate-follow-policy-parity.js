@@ -56,4 +56,5 @@ assert.equal(policy.australiansFilterUseful({key:"football"}),true);
 const summary=require('../config/follow-summary').allFollowed({followedSports:["tennis"],followFirst:{collectionFollows:["collection:test"]},preferenceGraph:{entityFollows:[{participantId:"athlete:tennis:muted",followLevel:"mute"}]}}, {collectionsById:{"collection:test":{label:"Watch list",memberIds:["athlete:tennis:watched","athlete:tennis:muted"]}}});
 assert(summary.some(item=>item.id==="athlete:tennis:watched"&&item.origins.includes("Watch list")));
 assert(!summary.some(item=>item.id==="athlete:tennis:muted"));
+require("./validate-golf-filter-consent");
 console.log("Follow policy parity: sport/event/Australian/direct/mute and cross-discipline cases passed.");
