@@ -1,5 +1,5 @@
 name: Sportscal production
-run-name: ${{ inputs.editorial_prepare && 'Prepare editorial' || 'Deploy' }} ${{ inputs.sha }} ${{ inputs.request_id }}
+run-name: ${{ inputs.near_capture && format('Near capture {0}', inputs.request_id) || format('{0} {1} {2}', inputs.editorial_prepare && 'Prepare editorial' || 'Deploy', inputs.sha, inputs.request_id) }}
 on:
   workflow_dispatch:
     inputs:
@@ -33,14 +33,23 @@ on:
         description: Root approved ephemeral RSA public PEM only; never a private key
         type: string
         required: false
+      near_capture:
+        description: One allocated private capture; excludes every release path
+        type: boolean
+        default: false
+      near_capture_binding:
+        description: Base64 of public capture/source/control/recipient binding only
+        type: string
+        required: false
+        default: ''
 permissions:
   contents: read
 concurrency:
-  group: sportscal-production-and-cleanup
+  group: ${{ inputs.near_capture && 'ns-near-current-capture' || 'sportscal-production-and-cleanup' }}
   cancel-in-progress: false
 jobs:
   sql-safety:
-    if: inputs.editorial_prepare != true
+    if: inputs.editorial_prepare != true && inputs.near_capture != true
     name: SQL safety / ${{ matrix.batch }}
     runs-on: ubuntu-24.04
     timeout-minutes: 30
@@ -137,27 +146,30 @@ jobs:
           if-no-files-found: ignore
           retention-days: 14
   deploy:
-    if: inputs.editorial_prepare != true
+    if: always() && !cancelled() && inputs.editorial_prepare != true && (inputs.near_capture == true || needs.sql-safety.result == 'success')
     needs: [sql-safety]
     runs-on: ubuntu-24.04
     timeout-minutes: 30
     env:
-      VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
-      VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
-      VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+      VERCEL_TOKEN: ${{ inputs.near_capture != true && secrets.VERCEL_TOKEN || '' }}
+      VERCEL_ORG_ID: ${{ inputs.near_capture != true && secrets.VERCEL_ORG_ID || '' }}
+      VERCEL_PROJECT_ID: ${{ inputs.near_capture != true && secrets.VERCEL_PROJECT_ID || '' }}
       NS_SERIALIZED_DEPLOY: '1'
       NS_FORCE_REDEPLOY: ${{ inputs.rebuild && '1' || '0' }}
       NS_DEPLOY_REPORT_DIR: /tmp/sportscal-release-report
       NS_SELECTED_FEED_PROOF_SHA: ${{ inputs.selected_feed_proof_sha }}
     steps:
       - uses: actions/checkout@v5
+        if: inputs.near_capture != true
         with:
           ref: main
           fetch-depth: 0
       - uses: actions/setup-node@v5
+        if: inputs.near_capture != true
         with:
           node-version: 24
       - name: Verify requested mainline release
+        if: inputs.near_capture != true
         env:
           RELEASE_SHA: ${{ inputs.sha }}
         run: |
@@ -166,9 +178,12 @@ jobs:
           test -z "$NS_SELECTED_FEED_PROOF_SHA" || test "$NS_SELECTED_FEED_PROOF_SHA" = "$RELEASE_SHA"
           git checkout --detach "$RELEASE_SHA"
       - run: npm ci && npm install --global vercel@59.1.4
+        if: inputs.near_capture != true
       - name: Verify production SQL batch contract
+        if: inputs.near_capture != true
         run: node scripts/validate-production-sql-batches.js
       - name: Verify feed and deployment safety contracts
+        if: inputs.near_capture != true
         run: |
           node scripts/build-fantasy-ui.js --check
           node scripts/validate-fantasy-deadlines.js
@@ -427,6 +442,7 @@ jobs:
           node scripts/validate-global-app-adapter.js
           node scripts/validate-laver-cup.js
       - name: Verify shared fixture publication input
+        if: inputs.near_capture != true
         env:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
@@ -437,10 +453,13 @@ jobs:
           node scripts/verify-near-app-adapter.js --live-read
           node scripts/verify-global-app-adapter.js --live-read --dictionary-v2
       - name: Bind project and preserve current production
+        if: inputs.near_capture != true
         run: node scripts/prepare-production-release.js
       - name: Deploy or reuse exact release
+        if: inputs.near_capture != true
         run: bash scripts/deploy-current-commit.sh
       - name: Verify public release
+        if: inputs.near_capture != true
         run: |
           node scripts/verify-production-release.js
           node scripts/verify-match-centre-public.js
@@ -450,14 +469,68 @@ jobs:
           node scripts/verify-global-fixture-public.js
           exit "$feed_status"
       - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2, Node 24
-        if: always()
+        if: always() && inputs.near_capture != true
         with:
           name: release-${{ inputs.sha }}
           path: /tmp/sportscal-release-report
           retention-days: 14
 
+
+      - name: Check out exact capture control
+        if: github.event_name == 'workflow_dispatch' && inputs.near_capture == true
+        uses: actions/checkout@v5
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Check out fixed offline-tested capture application
+        if: github.event_name == 'workflow_dispatch' && inputs.near_capture == true
+        uses: actions/checkout@v5
+        with:
+          ref: 96bcdd8e4177496f4a6866b59ff1ec1182468815
+          path: application96
+          fetch-depth: 1
+          persist-credentials: false
+
+      - name: Set up existing capture Node runtime
+        if: github.event_name == 'workflow_dispatch' && inputs.near_capture == true
+        uses: actions/setup-node@v5
+        with:
+          node-version: 24
+
+      - name: Capture one bounded private near response
+        id: near_capture
+        if: github.event_name == 'workflow_dispatch' && inputs.near_capture == true
+        env:
+          NS_NEAR_BINDING_BASE64: ${{ inputs.near_capture_binding }}
+          NS_NEAR_CAPTURE_REQUEST_ID: ${{ inputs.request_id }}
+          NS_NEAR_WORKFLOW_SHA: ${{ github.workflow_sha }}
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+        run: node scripts/near-response-capture-ci.js --capture
+
+      - name: Return only encrypted near capture and redacted manifest
+        id: near_return
+        if: always() && github.event_name == 'workflow_dispatch' && inputs.near_capture == true && steps.near_capture.outputs.return_ready == 'true'
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: near-current-capture-${{ inputs.request_id }}
+          path: |
+            ${{ steps.near_capture.outputs.return_dir }}/encrypted.json
+            ${{ steps.near_capture.outputs.return_dir }}/manifest.json
+          if-no-files-found: error
+          retention-days: 1
+
+      - name: Remove exact uploaded job-owned near plaintext
+        if: always() && github.event_name == 'workflow_dispatch' && inputs.near_capture == true && steps.near_return.outcome == 'success'
+        env:
+          NS_NEAR_CAPTURE_ID: ${{ inputs.request_id }}
+        run: node scripts/near-response-capture-ci.js --cleanup
+
   editorial-preparation:
-    if: github.event_name == 'workflow_dispatch' && inputs.editorial_prepare == true
+    if: github.event_name == 'workflow_dispatch' && inputs.editorial_prepare == true && inputs.near_capture != true
     runs-on: ubuntu-24.04
     timeout-minutes: 60
     permissions:

@@ -1,5 +1,4 @@
 name: Canonical card refresh
-run-name: ${{ inputs.near_capture && format('Near capture {0}', inputs.near_capture_id) || github.workflow }}
 
 on:
   workflow_dispatch:
@@ -8,26 +7,6 @@ on:
         description: Verify the daily incremental refresh instead of full reconciliation
         type: boolean
         default: false
-      near_capture:
-        description: One allocated private capture; no refresh or deployment
-        type: boolean
-        default: false
-      application_source_sha:
-        type: string
-        default: ''
-      near_capture_id:
-        type: string
-        default: ''
-      near_recipient_public_key:
-        description: Ephemeral recipient public PEM only
-        type: string
-        default: ''
-      near_driver_sha256:
-        type: string
-        default: ''
-      near_control_sha:
-        type: string
-        default: ''
   schedule:
     - cron: "0 3 * * *"
       timezone: Australia/Sydney
@@ -37,7 +16,7 @@ permissions:
   actions: write
 
 concurrency:
-  group: ${{ inputs.near_capture && 'ns-near-current-capture' || 'canonical-card-refresh' }}
+  group: canonical-card-refresh
   cancel-in-progress: false
 
 jobs:
@@ -49,10 +28,6 @@ jobs:
         id: cadence
         shell: bash
         run: |
-          if [[ "${{ inputs.near_capture && 'true' || 'false' }}" == "true" ]]; then
-            echo "run=false" >> "$GITHUB_OUTPUT"
-            exit 0
-          fi
           if [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
             echo "run=true" >> "$GITHUB_OUTPUT"
             echo "quick=${{ inputs.quick && '1' || '0' }}" >> "$GITHUB_OUTPUT"
@@ -129,7 +104,7 @@ jobs:
         run: node scripts/maintain-profile-avatars.js
 
       - name: Preserve refresh diagnostics
-        if: always() && inputs.near_capture != true
+        if: always()
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2, Node 24
         with:
           name: refresh-diagnostics
@@ -143,59 +118,3 @@ jobs:
             ${{ runner.temp }}/wrc-source-failure.json
           if-no-files-found: ignore
           retention-days: 14
-
-      - name: Check out exact capture control
-        if: github.event_name == 'workflow_dispatch' && inputs.near_capture == true
-        uses: actions/checkout@v5
-        with:
-          ref: ${{ github.sha }}
-          fetch-depth: 0
-          persist-credentials: false
-
-      - name: Check out fixed offline-tested capture application
-        if: github.event_name == 'workflow_dispatch' && inputs.near_capture == true
-        uses: actions/checkout@v5
-        with:
-          ref: 96bcdd8e4177496f4a6866b59ff1ec1182468815
-          path: application96
-          fetch-depth: 1
-          persist-credentials: false
-
-      - name: Set up existing capture Node runtime
-        if: github.event_name == 'workflow_dispatch' && inputs.near_capture == true
-        uses: actions/setup-node@v5
-        with:
-          node-version: 24
-
-      - name: Capture one bounded private near response
-        id: near_capture
-        if: github.event_name == 'workflow_dispatch' && inputs.near_capture == true
-        env:
-          NS_NEAR_APP_SHA: ${{ inputs.application_source_sha }}
-          NS_NEAR_CAPTURE_ID: ${{ inputs.near_capture_id }}
-          NS_NEAR_RECIPIENT_PUBLIC_KEY: ${{ inputs.near_recipient_public_key }}
-          NS_NEAR_DRIVER_SHA: ${{ inputs.near_driver_sha256 }}
-          NS_NEAR_CONTROL_SHA: ${{ inputs.near_control_sha }}
-          NS_NEAR_WORKFLOW_SHA: ${{ github.workflow_sha }}
-          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
-          SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
-          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
-        run: node scripts/near-response-capture-ci.js --capture
-
-      - name: Return only encrypted near capture and redacted manifest
-        id: near_return
-        if: always() && github.event_name == 'workflow_dispatch' && inputs.near_capture == true && steps.near_capture.outputs.return_ready == 'true'
-        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
-        with:
-          name: near-current-capture-${{ inputs.near_capture_id }}
-          path: |
-            ${{ steps.near_capture.outputs.return_dir }}/encrypted.json
-            ${{ steps.near_capture.outputs.return_dir }}/manifest.json
-          if-no-files-found: error
-          retention-days: 1
-
-      - name: Remove exact uploaded job-owned near plaintext
-        if: always() && github.event_name == 'workflow_dispatch' && inputs.near_capture == true && steps.near_return.outcome == 'success'
-        env:
-          NS_NEAR_CAPTURE_ID: ${{ inputs.near_capture_id }}
-        run: node scripts/near-response-capture-ci.js --cleanup

@@ -13,13 +13,22 @@ const blob=b=>crypto.createHash('sha1').update(Buffer.from(`blob ${b.length}\0`)
 const uuid=s=>typeof s==='string'&&/^[a-f0-9]{8}-(?:[a-f0-9]{4}-){3}[a-f0-9]{12}$/.test(s);
 function publicKey(pem){const key=crypto.createPublicKey(pem);assert(key.asymmetricKeyType==='rsa'&&key.asymmetricKeyDetails.modulusLength>=2048&&key.asymmetricKeyDetails.modulusLength<=8192);return key;}
 const fingerprint=k=>hash((k?.type==='public'?k:crypto.createPublicKey(k)).export({format:'der',type:'spki'}));
+function routeInput(env){
+ const b=unbase64(env.NS_NEAR_BINDING_BASE64,12288),input=JSON.parse(new TextDecoder('utf-8',{fatal:true}).decode(b));
+ assert(Buffer.from(JSON.stringify(input)).equals(b),'Capture input must be canonical public JSON');
+ assert.deepEqual(Object.keys(input).sort(),['captureId','controlSha','driverSha256','recipientPublicKey','sourceSha']);
+ assert.equal(input.captureId,env.NS_NEAR_CAPTURE_REQUEST_ID);
+ assert(typeof input.recipientPublicKey==='string'&&input.recipientPublicKey.length<=8192);
+ return {...env,NS_NEAR_APP_SHA:input.sourceSha,NS_NEAR_CAPTURE_ID:input.captureId,NS_NEAR_RECIPIENT_PUBLIC_KEY:input.recipientPublicKey,NS_NEAR_DRIVER_SHA:input.driverSha256,NS_NEAR_CONTROL_SHA:input.controlSha};
+}
 function context(env,driverSha){
  assert.equal(env.GITHUB_REPOSITORY,'hartican/sportscal');assert.equal(env.GITHUB_EVENT_NAME,'workflow_dispatch');
- assert.equal(env.GITHUB_WORKFLOW,'Canonical card refresh');assert.equal(env.GITHUB_JOB,'refresh');assert.equal(env.GITHUB_REF,BRANCH);
+ assert.equal(env.GITHUB_WORKFLOW,'Sportscal production');assert.equal(env.GITHUB_JOB,'deploy');assert.equal(env.GITHUB_REF,BRANCH);
+ assert.equal(env.RUNNER_OS,'Linux');assert.equal(env.RUNNER_ARCH,'X64');
  assert.equal(env.GITHUB_RUN_ATTEMPT,'1');assert(/^\d+$/.test(env.GITHUB_RUN_ID||''));assert(uuid(env.NS_NEAR_CAPTURE_ID));
  assert.equal(env.NS_NEAR_APP_SHA,APP.sha);assert.equal(env.NS_NEAR_DRIVER_SHA,driverSha);assert(/^[a-f0-9]{64}$/.test(driverSha));
  assert(/^[a-f0-9]{40}$/.test(env.NS_NEAR_CONTROL_SHA||''));assert.equal(env.GITHUB_SHA,env.NS_NEAR_CONTROL_SHA);assert.equal(env.NS_NEAR_WORKFLOW_SHA,env.NS_NEAR_CONTROL_SHA);
- assert.equal(env.GITHUB_WORKFLOW_REF,`hartican/sportscal/.github/workflows/canonical-card-refresh.yml@${BRANCH}`);
+ assert.equal(env.GITHUB_WORKFLOW_REF,`hartican/sportscal/.github/workflows/sportscal-production.yml@${BRANCH}`);
  const key=publicKey(env.NS_NEAR_RECIPIENT_PUBLIC_KEY);return {purpose:PURPOSE,action:ACTION,captureId:env.NS_NEAR_CAPTURE_ID,sourceSha:APP.sha,sourceTree:APP.tree,transportSha256:APP.transport,validatorSha256:APP.validator,controlSha:env.NS_NEAR_CONTROL_SHA,driverSha256:driverSha,runId:env.GITHUB_RUN_ID,runAttempt:1,recipientFingerprint:fingerprint(key)};
 }
 function validateBinding(b,expected){
@@ -103,6 +112,7 @@ async function capture({directory,binding,ids,transport,environment,membershipCl
  }finally{clearTimeout(timer);if(failed)controller.abort();}
 }
 async function live(env=process.env){
+ env=routeInput(env);assert.equal(process.versions.node.split('.')[0],'24');
  const control=await fs.realpath(path.join(__dirname,'..')),driverSha=hash(await regular(__filename,65536)),binding=context(env,driverSha);
  assert(typeof env.GITHUB_OUTPUT==='string'&&env.GITHUB_OUTPUT&&!/[\r\n]/.test(env.GITHUB_OUTPUT));
  const outputStat=await fs.lstat(env.GITHUB_OUTPUT);assert(outputStat.isFile()&&!outputStat.isSymbolicLink());
@@ -137,4 +147,4 @@ async function cleanup(env=process.env){
  for(const n of ['admission.private.json','ATTEMPT.private.json','response.body','CAPTURE_COMPLETE.private.json']){const f=path.join(d,n);try{const st=await fs.lstat(f);assert(st.isFile()&&!st.isSymbolicLink());await fs.unlink(f);}catch(e){if(e.code!=='ENOENT')throw e;}}
 }
 if(require.main===module){const cmd=process.argv[2];(cmd==='--cleanup'?cleanup():cmd==='--capture'&&process.argv.length===3?live():Promise.reject(Error('Invalid capture command'))).catch(()=>{console.error('NS_NEAR_CAPTURE_STOP: bounded diagnostic failed; no automatic retry.');process.exitCode=1;});}
-module.exports={APP,BRANCH,PURPOSE,ACTION,RPC,LIMIT,REQUEST_MS,STAGE_MS,hash,blob,context,encrypt,decrypt,exclusive,capture,recover};
+module.exports={APP,BRANCH,PURPOSE,ACTION,RPC,LIMIT,REQUEST_MS,STAGE_MS,hash,blob,routeInput,context,encrypt,decrypt,exclusive,capture,recover};

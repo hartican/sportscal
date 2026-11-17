@@ -3,25 +3,44 @@
 const assert=require('node:assert/strict'),fs=require('node:fs/promises'),path=require('node:path'),os=require('node:os'),crypto=require('node:crypto'),cp=require('node:child_process');
 const api=require('./near-response-capture-ci');
 async function main(){
- const root=path.resolve(__dirname,'..'),file=path.join(root,'.github/workflows/canonical-card-refresh.yml'),wf=await fs.readFile(file,'utf8');
- const old=cp.execFileSync('git',['show',api.APP.sha+':.github/workflows/canonical-card-refresh.yml'],{cwd:root,encoding:'utf8'});
- const captureStart=wf.indexOf('\n      - name: Check out exact capture control');assert(captureStart>0);
- let normal=wf.slice(0,captureStart).replace(/^run-name:.*\n/m,'').replace(/      near_capture:\n[\s\S]*?(?=  schedule:)/,'');
- normal=normal.replace("  group: ${{ inputs.near_capture && 'ns-near-current-capture' || 'canonical-card-refresh' }}",'  group: canonical-card-refresh');
- normal=normal.replace('          if [[ "${{ inputs.near_capture && \'true\' || \'false\' }}" == "true" ]]; then\n            echo "run=false" >> "$GITHUB_OUTPUT"\n            exit 0\n          fi\n','');
- normal=normal.replace('if: always() && inputs.near_capture != true','if: always()');assert.equal(normal,old,'Normal scheduled/manual refresh must remain byte-identical after removing only the capture overlay');
- const normalSteps=wf.slice(0,captureStart).split('      - name:').slice(1);
- for(const step of normalSteps){if(step.startsWith(' Select tournament'))continue;assert(step.includes("if: steps.cadence.outputs.run == 'true'")||step.includes("if: always() && github.event_name == 'schedule' && steps.cadence.outputs.run == 'true'")||step.includes('if: always() && inputs.near_capture != true'),'Every original side-effect step must be excluded in capture mode');}
- const cap=wf.slice(captureStart);assert.equal((cap.match(/run: node scripts\/near-response-capture-ci.js --capture/g)||[]).length,1);
+ const root=path.resolve(__dirname,'..'),file=path.join(root,'.github/workflows/sportscal-production.yml'),wf=await fs.readFile(file,'utf8');
+ const old=cp.execFileSync('git',['show',api.APP.sha+':.github/workflows/sportscal-production.yml'],{cwd:root,encoding:'utf8'});
+ const canonical=await fs.readFile(path.join(root,'.github/workflows/canonical-card-refresh.yml'),'utf8');assert.equal(canonical,cp.execFileSync('git',['show',api.APP.sha+':.github/workflows/canonical-card-refresh.yml'],{cwd:root,encoding:'utf8'}),'Disabled canonical workflow source remains exact');
+ assert(!/^  schedule:/m.test(wf),'Manual capture workflow must have no scheduler');
+ const captureStart=wf.indexOf('\n      - name: Check out exact capture control'),captureEnd=wf.indexOf('  editorial-preparation:\n');assert(captureStart>0&&captureEnd>captureStart);
+ const cap=wf.slice(captureStart,captureEnd);let normal=wf.slice(0,captureStart)+wf.slice(captureEnd);
+ normal=normal.replace(/^run-name:.*$/m,old.match(/^run-name:.*$/m)[0]).replace(/      near_capture:\n[\s\S]*?(?=permissions:\n)/,'');
+ normal=normal.replace("  group: ${{ inputs.near_capture && 'ns-near-current-capture' || 'sportscal-production-and-cleanup' }}",'  group: sportscal-production-and-cleanup');
+ normal=normal.replace('    if: inputs.editorial_prepare != true && inputs.near_capture != true','    if: inputs.editorial_prepare != true');
+ normal=normal.replace("    if: always() && !cancelled() && inputs.editorial_prepare != true && (inputs.near_capture == true || needs.sql-safety.result == 'success')",'    if: inputs.editorial_prepare != true');
+ normal=normal.replace("    if: github.event_name == 'workflow_dispatch' && inputs.editorial_prepare == true && inputs.near_capture != true","    if: github.event_name == 'workflow_dispatch' && inputs.editorial_prepare == true");
+ normal=normal.replaceAll('        if: inputs.near_capture != true\n','').replace('        if: always() && inputs.near_capture != true','        if: always()');
+ for(const key of ['VERCEL_TOKEN','VERCEL_ORG_ID','VERCEL_PROJECT_ID'])normal=normal.replace('${{ inputs.near_capture != true && secrets.'+key+" || '' }}",'${{ secrets.'+key+' }}');
+ assert.equal(normal,old,'All normal production/editorial paths remain exact after removing capture-only guards');
+ assert(wf.includes('  sql-safety:\n    if: inputs.editorial_prepare != true && inputs.near_capture != true'));assert(wf.includes("inputs.editorial_prepare == true && inputs.near_capture != true"));
+ const ordinaryDeploy=wf.slice(wf.indexOf('  deploy:\n'),captureStart).split(/(?=^      - )/m).slice(1);
+ for(const step of ordinaryDeploy)assert(/^        if: (?:always\(\) && )?inputs.near_capture != true$/m.test(step),'Every ordinary production step is excluded');
+ const dispatchInputs=wf.slice(wf.indexOf('    inputs:\n'),wf.indexOf('permissions:\n'));
+ assert.equal((dispatchInputs.match(/^      [a-z_][a-z0-9_]*:\n/gm)||[]).length,10,'Keep dispatch input count within the existing supported ten-input limit');
+ assert.equal((cap.match(/run: node scripts\/near-response-capture-ci.js --capture/g)||[]).length,1);
  assert(!/update-cards|update-sportscal|deploy-current|git push|maintain-profile/.test(cap));assert(cap.includes('ref: '+api.APP.sha));
  assert.equal((cap.match(/secrets\.SUPABASE_/g)||[]).length,3);const secretStep=cap.split('      - name: Capture one bounded private near response')[1].split('      - name:')[0];assert.equal((secretStep.match(/secrets\.SUPABASE_/g)||[]).length,3);
  const returned=cap.split('          path: |')[1].split('          if-no-files-found')[0];assert(returned.includes('steps.near_capture.outputs.return_dir }}/encrypted.json')&&returned.includes('steps.near_capture.outputs.return_dir }}/manifest.json'));assert(!/response\.body|private\.json|\*\*/.test(returned));assert(cap.includes("steps.near_capture.outputs.return_ready == 'true'"),'No artifact upload before validated encrypted return exists');
  assert(wf.includes("inputs.near_capture == true")&&wf.includes('cancel-in-progress: false'));assert(!cap.includes('npm '));
  const driver=await fs.readFile(path.join(root,'scripts/near-response-capture-ci.js'));const driverHash=api.hash(driver),control='a'.repeat(40),id='38e33d38-324a-4dfb-a33e-8034a5ef21e7';
  const keys=crypto.generateKeyPairSync('rsa',{modulusLength:2048,publicKeyEncoding:{type:'spki',format:'pem'},privateKeyEncoding:{type:'pkcs8',format:'pem'}});
- const env={GITHUB_REPOSITORY:'hartican/sportscal',GITHUB_EVENT_NAME:'workflow_dispatch',GITHUB_WORKFLOW:'Canonical card refresh',GITHUB_JOB:'refresh',GITHUB_REF:api.BRANCH,GITHUB_RUN_ATTEMPT:'1',GITHUB_RUN_ID:'123',GITHUB_SHA:control,GITHUB_WORKFLOW_REF:'hartican/sportscal/.github/workflows/canonical-card-refresh.yml@'+api.BRANCH,NS_NEAR_APP_SHA:api.APP.sha,NS_NEAR_DRIVER_SHA:driverHash,NS_NEAR_CONTROL_SHA:control,NS_NEAR_WORKFLOW_SHA:control,NS_NEAR_CAPTURE_ID:id,NS_NEAR_RECIPIENT_PUBLIC_KEY:keys.publicKey};
+ const publicInput={sourceSha:api.APP.sha,captureId:id,recipientPublicKey:keys.publicKey,driverSha256:driverHash,controlSha:control};
+ const env=api.routeInput({GITHUB_REPOSITORY:'hartican/sportscal',GITHUB_EVENT_NAME:'workflow_dispatch',GITHUB_WORKFLOW:'Sportscal production',GITHUB_JOB:'deploy',RUNNER_OS:'Linux',RUNNER_ARCH:'X64',GITHUB_REF:api.BRANCH,GITHUB_RUN_ATTEMPT:'1',GITHUB_RUN_ID:'123',GITHUB_SHA:control,GITHUB_WORKFLOW_REF:'hartican/sportscal/.github/workflows/sportscal-production.yml@'+api.BRANCH,NS_NEAR_BINDING_BASE64:Buffer.from(JSON.stringify(publicInput)).toString('base64'),NS_NEAR_CAPTURE_REQUEST_ID:id,NS_NEAR_WORKFLOW_SHA:control});
  const binding=api.context(env,driverHash);
- for(const [field,value]of [['NS_NEAR_APP_SHA','b'.repeat(40)],['NS_NEAR_CONTROL_SHA','b'.repeat(40)],['GITHUB_RUN_ATTEMPT','2'],['GITHUB_REF','refs/heads/main'],['NS_NEAR_DRIVER_SHA','0'.repeat(64)],['NS_NEAR_CAPTURE_ID','../bad']])assert.throws(()=>api.context({...env,[field]:value},driverHash),'Invalid source/attempt/ref binding must stop');
+ for(const [field,value]of [['NS_NEAR_APP_SHA','b'.repeat(40)],['NS_NEAR_CONTROL_SHA','b'.repeat(40)],['GITHUB_RUN_ATTEMPT','2'],['GITHUB_REF','refs/heads/main'],['NS_NEAR_DRIVER_SHA','0'.repeat(64)],['NS_NEAR_CAPTURE_ID','../bad'],['GITHUB_WORKFLOW','Canonical card refresh'],['GITHUB_JOB','refresh'],['RUNNER_OS','macOS']])assert.throws(()=>api.context({...env,[field]:value},driverHash),'Invalid source/attempt/ref/route binding must stop');
+ assert.throws(()=>api.routeInput({...env,NS_NEAR_CAPTURE_REQUEST_ID:'wrong'}));assert.throws(()=>api.routeInput({...env,NS_NEAR_BINDING_BASE64:'!bad!'}));assert.throws(()=>api.routeInput({...env,NS_NEAR_BINDING_BASE64:Buffer.from(JSON.stringify({...publicInput,SUPABASE_SECRET_KEY:'forged'})).toString('base64')}));
+ if(process.argv.includes('--route-only')){
+  const prior=cp.execFileSync('git',['show','98bea0dbf5613f685d6bddd7088a6a9c751ecb26:scripts/near-response-capture-ci.js'],{cwd:root,encoding:'utf8'}),current=driver.toString('utf8');
+  const span=(s,a,b)=>s.slice(s.indexOf(a),s.indexOf(b));
+  assert.equal(span(current,'function validateBinding','async function live'),span(prior,'function validateBinding','async function live'),'Existing encryption/private-sink/deadline/closure code remains byte-identical');
+  assert.equal(span(current,'async function recover','if(require.main===module)'),span(prior,'async function recover','if(require.main===module)'),'Existing private return/decryption/cleanup remains byte-identical');
+  console.log(JSON.stringify({state:'PASS_OFFLINE_MANUAL_ROUTE_DELTA',manualOnly:true,canonicalSourceUnchanged:true,normalReleaseBehaviorUnchanged:true,allNoncapturePathsExcluded:true,exactSourceRouteRunnerAttemptGuards:true,publicInputCannotInjectSecrets:true,encryptedReturnCodeUnchanged:true,rawBodyArtifactExcluded:true,liveCalls:0,transportAndFullCryptoSuitesRepeated:false}));return;
+ }
  const raw=Buffer.concat([Buffer.from([239,187,191]),Buffer.from(JSON.stringify({schemaVersion:'current-fixture-bundle.v1',scope:'match-centre',complete:true,rows:[{source_id:'PRIVATE_SOURCE',fixture:{id:'PRIVATE_ID',label:'café 🏉',zero:0,missing:null}}]}))]);
  const receipt={binding,state:'CAPTURE_COMPLETE',rowCount:1,membershipIds:['PRIVATE_MEMBERSHIP'],membershipCount:1};
  const sealed=api.encrypt(raw,receipt,keys.publicKey),expected={captureId:id,controlSha:control,driverSha256:driverHash,sourceSha:api.APP.sha,runId:'123',recipientFingerprint:binding.recipientFingerprint};
