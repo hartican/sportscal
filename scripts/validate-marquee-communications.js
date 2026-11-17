@@ -133,7 +133,7 @@ async function main(){
   assert.equal(legacyExport.subject, visibleLegacyDraft.email.subject, "the exact visible operator subject must be handed off");
   assert.deepEqual(legacyExport.bodyParagraphs, visibleLegacyDraft.email.bodyParagraphs, "the exact visible body must be handed off");
   assert.equal(legacyExport.primaryCta.url,bledisloe.drafts.email.primaryCta.url,"legacy draft hydrates canonical fixture CTA");
-  assert.match(legacyExport.image.url, /^https:\/\/nothingsport\.vercel\.app\/assets\/marquee\//, "legacy rows must hydrate the current first-party image");
+  assert.match(legacyExport.image.url, /^https:\/\/nothingsport\.app\/assets\/marquee\//, "legacy rows must hydrate the current first-party image");
   assert.match(legacyExport.image.altText, /Bledisloe Cup/, "legacy rows must hydrate image alt text");
   const merged = comms._test.mergeDraft(bledisloe.drafts, visibleLegacyDraft);
   assert.equal(merged.email.subject, visibleLegacyDraft.email.subject);

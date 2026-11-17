@@ -17,7 +17,7 @@ async function main(){
     assert(c.drafts.hook);assert(c.drafts.email.subject.length<=150);assert(c.drafts.email.preheader.length<=150);
     assert(c.drafts.email.bodyParagraphs.length>=1&&c.drafts.email.bodyParagraphs.length<=8);
     assert(c.drafts.email.bodyParagraphs.every(p=>!/^(Why It Matters|Form|Match Context|Storyline|CTA)\s*[:|]/i.test(p)));
-    assert.match(c.drafts.email.primaryCta.url,/^https:\/\/nothingsport\.vercel\.app\//);
+    assert.match(c.drafts.email.primaryCta.url,/^https:\/\/nothingsport\.app\//);
     assert.match(c.participation.liveUrl,new RegExp('campaign='+c.campaignId));
     assert.equal(c.drafts.live.logos.order,'teams-first');assert.equal(c.drafts.live.animationPreset,'subtle','Editorial-only 5 is not real >4.8 Heat');
     assert.equal(c.channels.email.enabled,false);assert.equal(c.channels.social.enabled,false);

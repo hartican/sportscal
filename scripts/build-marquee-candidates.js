@@ -12,7 +12,7 @@ const ROOT = path.resolve(__dirname, "..");
 const OUTPUT = path.join(ROOT, "data/marquee-candidates.v1.json");
 const IMAGE_DIRECTORY = path.join(ROOT, "assets/marquee");
 const BRAND_LOGO = path.join(ROOT, "assets/brand/web/nothingsport-logo.png");
-const PUBLIC_ORIGIN = "https://nothingsport.vercel.app";
+const PUBLIC_ORIGIN = "https://nothingsport.app";
 
 function readJson(file){ return JSON.parse(fs.readFileSync(file, "utf8")); }
 function sha256(value){ return crypto.createHash("sha256").update(value).digest("hex"); }
@@ -77,14 +77,19 @@ function imageSvg(candidate, logoData){
     <text x="72" y="760" fill="#f1f1f1" font-family="Arial,Helvetica,sans-serif" font-size="34" font-weight="650">${dateTime}</text>
     <rect x="72" y="812" width="430" height="78" rx="39" fill="#ff2d8d"/><text x="287" y="864" text-anchor="middle" fill="#09090b" font-family="Arial,Helvetica,sans-serif" font-size="27" font-weight="900">${xml(candidate.material.rating?.label||'Editorial stakes')}</text>
     <text x="72" y="980" fill="#d7d7db" font-family="Arial,Helvetica,sans-serif" font-size="31">${hook}</text>
-    <line x1="72" y1="1195" x2="1008" y2="1195" stroke="#35353b" stroke-width="2"/><text x="72" y="1260" fill="#fff" font-family="Arial,Helvetica,sans-serif" font-size="31" font-weight="700">nothingsport.vercel.app/live</text>
+    <line x1="72" y1="1195" x2="1008" y2="1195" stroke="#35353b" stroke-width="2"/><text x="72" y="1260" fill="#fff" font-family="Arial,Helvetica,sans-serif" font-size="31" font-weight="700">nothingsport.app/live</text>
   </svg>`);
 }
-async function generateImage(candidate, logoData){
+async function generateImage(candidate, logoData, outputAdapter = null){
   const fileName = `${candidate.campaignId}-${candidate.contentHash.slice(0, 12)}.jpg`;
   const absolutePath = path.join(IMAGE_DIRECTORY, fileName);
-  fs.mkdirSync(IMAGE_DIRECTORY, { recursive:true });
-  await sharp(imageSvg(candidate, logoData)).jpeg({ quality:90, chromaSubsampling:"4:4:4", progressive:true }).toFile(absolutePath);
+  if (outputAdapter){
+    const bytes = await sharp(imageSvg(candidate, logoData)).jpeg({ quality:90, chromaSubsampling:"4:4:4", progressive:true }).toBuffer();
+    outputAdapter.writeJpeg(absolutePath, bytes);
+  } else {
+    fs.mkdirSync(IMAGE_DIRECTORY, { recursive:true });
+    await sharp(imageSvg(candidate, logoData)).jpeg({ quality:90, chromaSubsampling:"4:4:4", progressive:true }).toFile(absolutePath);
+  }
   return { path:`/assets/marquee/${fileName}`, publicUrl:`${PUBLIC_ORIGIN}/assets/marquee/${fileName}`, width:1080, height:1350, mimeType:"image/jpeg", firstPartyAssetsOnly:true };
 }
 function identityAsset(label, assetPath, registry, rightsStatus = "existing-app-identity"){
@@ -167,12 +172,22 @@ function candidateFor(event, evidence, feedMeta, nowMs){
     participation:{ enabled:readyForExport, liveUrl:`${PUBLIC_ORIGIN}/live?source=marquee&campaign=${campaignId}`, fixtureUrl, ratingWindow:marquee.ratingWindow(timing) },
   };
 }
-async function build({ now = process.env.MARQUEE_NOW || new Date().toISOString() } = {}){
+async function build({ now = process.env.MARQUEE_NOW || new Date().toISOString(), outputAdapter = null } = {}){
   const previous=fs.existsSync(OUTPUT)?readJson(OUTPUT).candidates:[];
   const feed = readJson(path.join(ROOT, "data/events.json"));
   const feedMeta = readJson(path.join(ROOT, "data/feed-meta.json"));
   const nowMs = Date.parse(now);
   if (!Number.isFinite(nowMs)) throw new Error(`Invalid campaign reference time: ${now}`);
+  if (outputAdapter){
+    if (outputAdapter.contract !== "ns.marquee-output-sink.sync.v2" || !Object.isFrozen(outputAdapter)) throw new Error("Exact qualified synchronous output sink required");
+    const supplied = outputAdapter, checked = {};
+    for (const method of ["writeJson","planImages","writeJpeg","purge","finish"]){
+      if (typeof supplied[method] !== "function") throw new Error("Incomplete synchronous output sink: " + method);
+      checked[method] = (...args) => { const result = Reflect.apply(supplied[method], supplied, args); if (result !== undefined) throw new Error("Synchronous void output sink violated: " + method); };
+    }
+    outputAdapter = Object.freeze(checked);
+  }
+  const writeJson = outputAdapter ? (...args) => outputAdapter.writeJson(...args) : (...args) => fs.writeFileSync(...args);
   const canonical=[...new Set(canonicalEvents().values())];
   const merged=require('../config/fixture-identity').mergeOverlays(canonical,feed.events||[]);
   const events=require('../config/fixture-identity').mergeOverlays(merged,require('../lib/competition-fixtures').fixtures());
@@ -181,7 +196,8 @@ async function build({ now = process.env.MARQUEE_NOW || new Date().toISOString()
   const majors=readJson(path.join(ROOT,'data/major-events.v1.json')).events.filter(e=>e.lifecycleStatus!=='retired').map(e=>({...e,commsKind:'major-event',date:e.startDate,sport:e.sportLabel||e.sportKey,status:e.lifecycleStatus||'upcoming',sourceName:e.sourceName||e.source?.name||e.name,sourceUrl:e.sourceUrl||e.officialUrl||e.source?.url,sourceCheckedAt:e.sourceCheckedAt||e.publishedAt,editorialNarrative:e.editorialNarrative||{hook:e.summary,synopsis:(e.details||[]).join('\n\n')}}));
   const sourceItems=[...events.map(resolve),...majors].filter(e=>!content.past(e,nowMs)).map(e=>Object.fromEntries(fields.filter(k=>e[k]!==undefined).map(k=>[k,e[k]])));
   const sourceRevision=`${feedMeta.version||'feed'}@${feedMeta.publishedAt||'unknown'}:${content.hash(sourceItems).slice(0,12)}`;
-  fs.writeFileSync(path.join(ROOT,'data/comms-sources.v1.json'),JSON.stringify({schemaVersion:'comms-sources.v1',sourceRevision,events:sourceItems})+'\n');
+  const stagedComms = JSON.stringify({schemaVersion:'comms-sources.v1',sourceRevision,events:sourceItems})+'\n';
+  if (!outputAdapter) fs.writeFileSync(path.join(ROOT,'data/comms-sources.v1.json'),stagedComms);
   const excluded=[],candidates=[],futureFive=sourceItems.filter(e=>Number(e.storyline?.stakes??e.stakesScore)===5);
   for(const event of sourceItems.filter(e=>content.eligible(e,null,nowMs))){
     for(const slot of content.postingSlots(event,nowMs))candidates.push(content.candidate(event,slot,null,sourceRevision));
@@ -192,9 +208,13 @@ async function build({ now = process.env.MARQUEE_NOW || new Date().toISOString()
     if(Number.isFinite(aSend)&&aSend!==bSend)return aSend-bSend;
     return (a.timing.startTimeUtc||a.material.displayDate||"9999").localeCompare(b.timing.startTimeUtc||b.material.displayDate||"9999")||a.eventId.localeCompare(b.eventId);
   });
+  if (outputAdapter){
+    outputAdapter.planImages(candidates);
+    outputAdapter.writeJson(path.join(ROOT,'data/comms-sources.v1.json'),stagedComms);
+  }
   const logoData = fs.readFileSync(BRAND_LOGO).toString("base64");
   for (const candidate of candidates){
-    const image = await generateImage(candidate, logoData);
+    const image = await generateImage(candidate, logoData, outputAdapter);
     image.altText=candidate.drafts.instagram.altText;
     candidate.drafts.instagram.image = image;
     candidate.drafts.email.image = { ...image, altText:candidate.drafts.instagram.altText };
@@ -208,12 +228,14 @@ async function build({ now = process.env.MARQUEE_NOW || new Date().toISOString()
     summary:{ stakesFiveFuture:futureFive.length, shown:candidates.length, eligible:candidates.filter(c => c.readyForExport).length, watching:candidates.filter(c => !c.readyForExport).length, actionable:candidates.filter(c => c.actionable).length, late:candidates.filter(c => c.late).length },
     candidates, excluded:excluded.sort((a, b) => a.eventId.localeCompare(b.eventId)),
   };
-  fs.writeFileSync(OUTPUT, `${JSON.stringify(artifact, null, 2)}\n`);
+  writeJson(OUTPUT, `${JSON.stringify(artifact, null, 2)}\n`);
   // Only expired campaign compositions are purged. Active revisions and shared brand/team assets remain.
   const activeIds=new Set(candidates.map(c=>c.campaignId)),expiredIds=new Set(previous.filter(c=>Date.parse(c.timing?.endTimeUtc||'')<=nowMs&&!activeIds.has(c.campaignId)).map(c=>c.campaignId));
-  for(const file of fs.readdirSync(IMAGE_DIRECTORY))if(/^marquee_[a-f0-9]{16}-[a-f0-9]{12}\.jpg$/.test(file)&&expiredIds.has(file.slice(0,24)))fs.unlinkSync(path.join(IMAGE_DIRECTORY,file));
+  if (outputAdapter) outputAdapter.purge({ previous, artifact, nowMs, outputPath:OUTPUT, imageDirectory:IMAGE_DIRECTORY });
+  else for(const file of fs.readdirSync(IMAGE_DIRECTORY))if(/^marquee_[a-f0-9]{16}-[a-f0-9]{12}\.jpg$/.test(file)&&expiredIds.has(file.slice(0,24)))fs.unlinkSync(path.join(IMAGE_DIRECTORY,file));
   console.log(`Marquee candidates: ${artifact.summary.shown} shown, ${artifact.summary.eligible} export-ready, ${artifact.summary.watching} watching, ${artifact.summary.actionable} actionable, ${artifact.summary.late} late; ${excluded.length} excluded. Shadow mode wrote ${path.relative(ROOT, OUTPUT)}.`);
-  require('./adaptive-editorial').buildSources();
+  require('./adaptive-editorial').buildSources(outputAdapter ? {writeOutput:writeJson} : undefined);
+  if (outputAdapter) outputAdapter.finish();
   return artifact;
 }
 

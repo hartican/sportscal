@@ -3,7 +3,7 @@ const fs=require('node:fs'),crypto=require('node:crypto'),assert=require('node:a
 const policy=require('../config/editorial-maintenance'),store=require('../lib/editorial-maintenance');
 const read=file=>JSON.parse(fs.readFileSync(file,'utf8'));
 const write=(file,data)=>fs.writeFileSync(file,JSON.stringify(data,null,2)+'\n');
-function buildSources(){
+function buildSources({writeOutput=fs.writeFileSync}={}){
   const source=read('data/comms-sources.v1.json'),knowledge=read('data/editorial-knowledge.v1.json'),feed=read('data/events.json');
   const resolve=require('../lib/fixture-editorial').createResolver(knowledge,feed.events);
   const events=require('../config/fixture-identity').mergeOverlays(source.events,feed.events).map(resolve).map(event=>{
@@ -11,7 +11,7 @@ function buildSources(){
     return {...event,editorialSources:[...new Set(urls)]};
   });
   const sourceRevision=crypto.createHash('sha256').update(JSON.stringify(events)).digest('hex');
-  fs.writeFileSync('data/editorial-maintenance-sources.v1.json',JSON.stringify({schemaVersion:'editorial-maintenance-sources.v1',sourceRevision,events})+'\n');
+  writeOutput('data/editorial-maintenance-sources.v1.json',JSON.stringify({schemaVersion:'editorial-maintenance-sources.v1',sourceRevision,events})+'\n');
   return {events:events.length,sourceRevision};
 }
 async function main(args){
