@@ -3,6 +3,8 @@
 // Default inert. Live mode is confined to the existing exact-main publisher step.
 const fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto'),assert=require('node:assert/strict');
 const gate=require('./lib/near-app-adapter-qualification');
+// Explicit release-owner activation occurs only after guarded producer staging.
+const NEAR_TRANSPORT=undefined;
 const ORIGIN='https://mkghopnkhcxtmfrcjdbc.supabase.co',MAX_BYTES=4194304;
 function membership(now){
  const model=require('../config/match-centre'),published=require('../lib/calendar-catalogue').catalogue().filter(model.supported);
@@ -51,7 +53,7 @@ async function main({argv=process.argv.slice(2),environment=process.env,log=cons
   report.prerequisite={stage:'complete'};
   report.state='RUNNING';save();
   const storeFactory=require('../lib/live-fixtures').createSnapshotStore;
-  await gate.qualify({read:signal=>gate.measure({storeFactory,request:transport.supabaseServiceRequest,environment,membershipIds,maxBytes:MAX_BYTES,signal,onReceipt:read=>{report.activeRead=read;}}),record:read=>{if(!finished){report.reads.push(read);delete report.activeRead;save();}}});
+  await gate.qualify({read:signal=>gate.measure({storeFactory,request:transport.supabaseServiceRequest,environment,membershipIds,nearTransport:NEAR_TRANSPORT,maxBytes:MAX_BYTES,signal,onReceipt:read=>{report.activeRead=read;}}),record:read=>{if(!finished){report.reads.push(read);delete report.activeRead;save();}}});
   report.state='PASS_BOUNDED_APP_ADAPTER_NOT_FULL_RELEASE_ACCEPTANCE';
  }catch(error){
   report.state='STOP_FIRST_FAILURE_NO_RETRY';report.failure={code:gate.failureCode(error)};

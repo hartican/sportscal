@@ -1,6 +1,7 @@
 'use strict';
 // Release-only observation through the existing app reader; no new transport.
 const crypto=require('node:crypto'),assert=require('node:assert/strict');
+const nearKeys=require('../../lib/near-fixture-keys');
 const BUNDLE='/rest/v1/rpc/nothingsports_read_match_centre_fixture_bundle';
 const HEALTH='/rest/v1/rpc/nothingsports_read_fixture_source_health';
 const sha=value=>crypto.createHash('sha256').update(value).digest('hex');
@@ -25,7 +26,8 @@ function validateBundle(value){
  for(const row of value.rows)assert(typeof row?.source_id==='string'&&row.source_id&&row.fixture&&typeof row.fixture==='object'&&!Array.isArray(row.fixture),'Malformed fixture row');
  return {rows:value.rows.length,parsedValueSha256:sha(JSON.stringify(value))};
 }
-async function measure({storeFactory,request,environment,membershipIds,maxBytes=4194304,signal,onReceipt=()=>{},timer=()=>performance.now()}){
+async function measure({storeFactory,request,environment,membershipIds,nearTransport,maxBytes=4194304,signal,onReceipt=()=>{},timer=()=>performance.now()}){
+ if(nearTransport!==undefined&&nearTransport!==nearKeys.CANDIDATE)throw Error('Invalid trusted near transport');
  const calls=[];let bundle,health;onReceipt({calls});
  const observed=async(url,options)=>{
   assert(!signal?.aborted,'Outer allocation cancelled');
@@ -33,12 +35,12 @@ async function measure({storeFactory,request,environment,membershipIds,maxBytes=
   assert.equal(options.method,'POST');assert(calls.length<2,'Exactly one ordinary concurrent health/bundle read');
   if(url===BUNDLE)assert.deepEqual(options.body,{p_membership_ids:membershipIds});else assert.deepEqual(options.body,{});
   const receipt={kind:url===BUNDLE?'bundle':'health',timings:[]};calls.push(receipt);
-  const value=await request(url,{...options,environment,signal:AbortSignal.any([signal,options.signal].filter(Boolean)),onTiming:event=>{assert(receipt.timings.length<32);receipt.timings.push(observation(event));}});
+  const value=await request(url,{...options,environment,signal:AbortSignal.any([signal,options.signal].filter(Boolean)),onTiming:event=>{assert(receipt.timings.length<32);receipt.timings.push(observation(event));options.onTiming?.(event);}});
   receipt.bytes=validateTransport(receipt,maxBytes);
-  if(url===BUNDLE){receipt.bundle=validateBundle(value);bundle=value;}else health=value;
+  if(url===BUNDLE){bundle=nearTransport===nearKeys.CANDIDATE?nearKeys.decode(value,{textBytes:receipt.bytes}):value;receipt.bundle=validateBundle(bundle);if(nearTransport===nearKeys.CANDIDATE)receipt.parsedWireSha256=sha(JSON.stringify(value));}else health=value;
   return value;
  };
- const store=storeFactory({request:observed}),began=timer();
+ const store=storeFactory({request:observed,...(nearTransport===undefined?{}:{nearTransport})}),began=timer();
  try{
   const value=await store.read({scope:'match-centre',preserveIds:membershipIds,interactive:true});
   assert(Array.isArray(health)&&Array.isArray(value),'Complete health and consumer arrays required');
