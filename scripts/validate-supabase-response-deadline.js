@@ -4,6 +4,7 @@ const transport=require('../lib/supabase-server');
 const pause=ms=>new Promise(resolve=>setTimeout(resolve,ms));
 async function validate({offline=false}={}){
  await validateOfflineTiming();
+ await validateOfflineCapture();
  if(offline)return;
  let writes=0;const app=http.createServer((req,res)=>{
   if(req.url==='/headers-stall')return;
@@ -97,4 +98,65 @@ async function validateOfflineTiming(){
  entries.length=0;await assert.rejects(read('{"message":"PRIVATE_FAILURE"}',{status:403,onTiming:()=>{throw Error('PRIVATE_OBSERVER');}}),e=>e.status===403&&e.message==='PRIVATE_FAILURE');
  entries.length=0;const stopped=new AbortController();stopped.abort();await assert.rejects(transport.supabaseRequest('/PRIVATE_PREABORT',{...options,signal:stopped.signal,fetchImpl:()=>{throw Error('Must not fetch');}}),e=>e.status===502);assert(!entries.some(e=>e.phase==='fetch-start'));
  console.log('Offline transport timing: opt-in privacy, unchanged parser/errors, one body read, headers/body timeout, callback isolation and abort passed.');
+}
+
+// Existing validator extension: in-memory stream doubles, no network or files.
+async function validateOfflineCapture(){
+ const path='/rest/v1/rpc/nothingsports_read_match_centre_fixture_bundle';
+ const environment={SUPABASE_URL:'https://private.invalid',SUPABASE_PUBLISHABLE_KEY:'PRIVATE_KEY'};
+ const ordinary={method:'POST',body:{p_membership_ids:[]},environment,timeoutMs:250};
+ const fixture=Buffer.from('{"zero":0,"off":false,"empty":"","null":null,"arr":[0,false,null]}');
+ function stream(chunks,{stall=false,onRead}={}){
+  const state={reads:0,cancels:0,releases:0,calls:0,signal:null,redirect:null};
+  let at=0;
+  const fetchImpl=async(_url,options)=>{
+   state.calls++;state.signal=options.signal;state.redirect=options.redirect;
+   return {ok:true,status:200,text(){throw Error('Capture must not use text()');},body:{getReader(){return {
+    read(){state.reads++;onRead?.();if(at<chunks.length)return Promise.resolve({value:chunks[at++],done:false});return stall?new Promise(()=>{}):Promise.resolve({done:true});},
+    cancel(){state.cancels++;return Promise.resolve();},releaseLock(){state.releases++;},
+   };}}};
+  };
+  return {state,fetchImpl};
+ }
+ async function successful(raw,chunks,maxBytes){
+  const transportState=stream(chunks),saved=[],events=[];let meta,completed=0;
+  const capability=transport.createResponseCapture({maxBytes,onChunk({bytes,offset}){assert.equal(offset,Buffer.concat(saved).length);saved.push(bytes);},onComplete(value){meta=value;completed++;}});
+  const value=await transport.supabaseRequest(path,{...ordinary,fetchImpl:transportState.fetchImpl,onTiming:e=>events.push(e),captureResponse:capability});
+  assert.deepEqual(value,JSON.parse(new TextDecoder('utf-8',{fatal:true}).decode(raw)));
+  assert.deepEqual(Buffer.concat(saved),raw);assert.equal(meta.bytes,raw.length);assert.equal(completed,1);
+  const crypto=require('node:crypto');assert.equal(meta.sha256,crypto.createHash('sha256').update(raw).digest('hex'));
+  assert.equal(meta.gitBlobSha1,crypto.createHash('sha1').update(Buffer.from(`blob ${raw.length}\0`)).update(raw).digest('hex'));
+  assert.equal(transportState.state.calls,1);assert.equal(transportState.state.redirect,'error');assert.equal(transportState.state.releases,1);
+  assert.equal(events.at(-1).outcome,'success');assert(!JSON.stringify(events).includes('PRIVATE_'));
+  await assert.rejects(transport.supabaseRequest(path,{...ordinary,fetchImpl:transportState.fetchImpl,captureResponse:capability}),e=>e.payload?.code==='supabase_capture_not_authorised');
+  assert.equal(transportState.state.calls,1,'A capture capability cannot be replayed');
+ }
+ await successful(fixture,[fixture],fixture.length+1); // below cap
+ await successful(fixture,[fixture],fixture.length); // exact cap
+ const utf8=Buffer.from('{"label":"café 🏉","nested":{"unknown":null}}');
+ await successful(utf8,[...utf8].map(n=>Uint8Array.of(n)),utf8.length);
+ const bom=Buffer.concat([Buffer.from([239,187,191]),utf8]);await successful(bom,[bom],bom.length);
+ async function rejected(chunks,code,{maxBytes=1024,stall=false,onChunk=()=>{},onComplete=()=>{},signal,onRead}={}){
+  const mocked=stream(chunks,{stall,onRead}),events=[];let complete=0;
+  const cap=transport.createResponseCapture({maxBytes,onChunk,onComplete(value){complete++;return onComplete(value);}});
+  await assert.rejects(transport.supabaseRequest(path,{...ordinary,signal,fetchImpl:mocked.fetchImpl,onTiming:e=>events.push(e),captureResponse:cap}),e=>e.payload?.code===code);
+  assert.equal(mocked.state.calls,1);assert.equal(mocked.state.signal.aborted,true);assert.equal(mocked.state.releases,1);
+  assert(!events.some(e=>e.phase==='complete'&&e.outcome==='success'));assert(!JSON.stringify(events).includes('PRIVATE_'));
+  return {mocked,events,complete};
+ }
+ const overflow=await rejected([fixture], 'supabase_capture_too_large',{maxBytes:fixture.length-1});
+ assert.equal(overflow.complete,0);assert.equal(overflow.mocked.state.cancels,1);assert(!overflow.events.some(e=>e.phase==='parse-start'));
+ const partial=[];await rejected([Buffer.from('{'),fixture],'supabase_capture_too_large',{maxBytes:fixture.length,onChunk:({bytes})=>partial.push(bytes)});assert.deepEqual(Buffer.concat(partial),Buffer.from('{'));
+ assert.equal((await rejected([Uint8Array.of(255)],'supabase_capture_invalid_utf8')).complete,0);
+ assert.equal((await rejected([Buffer.from('{')],'supabase_capture_invalid_json')).complete,0);
+ assert.equal((await rejected([fixture],'supabase_capture_sink_failed',{onChunk(){throw Error('PRIVATE_WRITER_FAILURE');}})).complete,0);
+ assert.equal((await rejected([fixture],'supabase_capture_sink_failed',{onComplete(){throw Error('PRIVATE_WRITER_FAILURE');}})).complete,1);
+ const stalled=await rejected([Buffer.from('{')],'supabase_timeout',{stall:true});assert.equal(stalled.complete,0);assert.equal(stalled.mocked.state.cancels,1);
+ const stalledWriter=await rejected([fixture],'supabase_timeout',{onChunk:()=>new Promise(()=>{})});assert.equal(stalledWriter.complete,0);
+ const controller=new AbortController(),aborted=stream([],{stall:true,onRead:()=>controller.abort(new Error('PRIVATE_CALLER_ABORT'))});let completes=0;
+ await assert.rejects(transport.supabaseRequest(path,{...ordinary,signal:controller.signal,fetchImpl:aborted.fetchImpl,captureResponse:transport.createResponseCapture({maxBytes:1024,onChunk(){},onComplete(){completes++;}})}),e=>e.status===502);
+ assert.equal(completes,0);assert.equal(aborted.state.calls,1);
+ let forgedCalls=0;await assert.rejects(transport.supabaseRequest(path,{...ordinary,captureResponse:{},fetchImpl:async()=>{forgedCalls++;}}),e=>e.payload?.code==='supabase_capture_not_authorised');assert.equal(forgedCalls,0);
+ const wrongPath=transport.createResponseCapture({maxBytes:1024,onChunk(){},onComplete(){}});await assert.rejects(transport.supabaseRequest('/wrong',{...ordinary,captureResponse:wrongPath,fetchImpl:async()=>{forgedCalls++;}}),e=>e.payload?.code==='supabase_capture_not_authorised');assert.equal(forgedCalls,0);
+ console.log('Offline bounded capture: complete/exact/overflow/UTF8/abort/deadline/sink/privacy/default separation cases passed.');
 }
