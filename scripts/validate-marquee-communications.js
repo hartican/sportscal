@@ -107,38 +107,54 @@ async function main(){
   const dismissedSync = comms._test.syncPatch({ ...current, state:"cancelled" }, changedCandidate);
   assert.equal(dismissedSync.patch.state, "cancelled", "source sync must not silently restore a dismissed CMS item");
 
-  const bledisloeSource = JSON.parse(read("data/events.json")).events.find(item => item.id === "rugby-australia-new-zealand-2026-10-17");
-  assert(bledisloeSource, "reviewed fixture retained independently of active campaign lifetime");
-  const bledisloe = content.candidate(bledisloeSource, content.postingSlots(bledisloeSource, Date.parse(first.generatedAt))[0], null, first.sourceRevision);
+  // Hydration needs a current deployed candidate with the same content hash.
+  // A hard-coded historic fixture may have retired from this active artifact.
+  const legacyCandidate = candidate;
   const visibleLegacyDraft = {
     email:{
-      subject:"5/5 stakes: Bledisloe Cup Game I, Australia v New Zealand — Sat 3:45 pm",
-      preheader:"Join the watch party, then rate the fixture after it finishes.",
-      headline:"Saturday watch party: Bledisloe Cup I",
-      bodyParagraphs:["A rivalry-led Bledisloe introduction.", "Join us for the Bledisloe Cup on Sat at 3:45 pm AEDT."],
+      subject:"Visible legacy operator subject",
+      preheader:"Visible legacy operator preview text.",
+      headline:"Visible legacy operator headline",
+      bodyParagraphs:["Visible legacy operator paragraph one.", "Visible legacy operator paragraph two."],
     },
-    instagram:{ caption:"UNMISSABLE RUGBY: BLEDISLOE CUP." },
+    instagram:{ caption:"Visible legacy operator caption." },
   };
   const legacyRow = {
-    campaign_id:bledisloe.campaignId,
-    event_id:bledisloe.eventId,
+    campaign_id:legacyCandidate.campaignId,
+    event_id:legacyCandidate.eventId,
     campaign_revision:4,
-    content_hash:bledisloe.contentHash,
+    content_hash:legacyCandidate.contentHash,
     state:"needs_review",
-    candidate:{ material:bledisloe.material },
+    candidate:{ material:legacyCandidate.material },
     draft_copy:visibleLegacyDraft,
-    proposed_send_at:bledisloe.proposedSendAt,
+    proposed_send_at:legacyCandidate.proposedSendAt,
   };
+  const incompleteLegacyHandoff = error => error.code === "handoff_incomplete" &&
+    ["fixture link", "approved or first-party image", "alt text"].every(field => error.message.includes(field));
+  assert.throws(
+    () => comms._test.manualHandoffPack({ ...legacyRow, campaign_id:legacyCandidate.campaignId + ":not-published" }, exportTime),
+    incompleteLegacyHandoff,
+    "material-only rows without a published candidate must not invent handoff fields",
+  );
+  const mismatchedHash = legacyCandidate.contentHash === "0".repeat(64) ? "1".repeat(64) : "0".repeat(64);
+  assert.throws(
+    () => comms._test.manualHandoffPack({ ...legacyRow, content_hash:mismatchedHash }, exportTime),
+    incompleteLegacyHandoff,
+    "a different published revision must not hydrate a legacy row",
+  );
   const legacyExport = comms._test.manualHandoffPack(legacyRow, exportTime);
   assert.equal(legacyExport.subject, visibleLegacyDraft.email.subject, "the exact visible operator subject must be handed off");
   assert.deepEqual(legacyExport.bodyParagraphs, visibleLegacyDraft.email.bodyParagraphs, "the exact visible body must be handed off");
-  assert.equal(legacyExport.primaryCta.url,bledisloe.drafts.email.primaryCta.url,"legacy draft hydrates canonical fixture CTA");
+  assert.equal(legacyExport.primaryCta.url,legacyCandidate.drafts.email.primaryCta.url,"legacy draft hydrates canonical fixture CTA");
+  assert.match(legacyExport.primaryCta.url, /^https:\/\/nothingsport\.app\//, "legacy rows must hydrate the current canonical fixture link");
   assert.match(legacyExport.image.url, /^https:\/\/nothingsport\.app\/assets\/marquee\//, "legacy rows must hydrate the current first-party image");
-  assert.match(legacyExport.image.altText, /Bledisloe Cup/, "legacy rows must hydrate image alt text");
-  const merged = comms._test.mergeDraft(bledisloe.drafts, visibleLegacyDraft);
+  assert.equal(legacyExport.image.url, legacyCandidate.drafts.email.image.publicUrl, "legacy rows must hydrate the exact current image");
+  assert.ok(legacyExport.image.altText, "legacy rows must hydrate image alt text");
+  assert.equal(legacyExport.image.altText, legacyCandidate.drafts.email.image.altText, "legacy rows must hydrate the exact current image alt text");
+  const merged = comms._test.mergeDraft(legacyCandidate.drafts, visibleLegacyDraft);
   assert.equal(merged.email.subject, visibleLegacyDraft.email.subject);
-  assert.equal(merged.email.primaryCta.url, bledisloe.drafts.email.primaryCta.url);
-  assert.equal(merged.email.image.publicUrl, bledisloe.drafts.email.image.publicUrl);
+  assert.equal(merged.email.primaryCta.url, legacyCandidate.drafts.email.primaryCta.url);
+  assert.equal(merged.email.image.publicUrl, legacyCandidate.drafts.email.image.publicUrl);
   // Exercise date-only handoffs even when the real inventory has no pending clocks.
   const pendingDate = new Date(Date.parse(first.generatedAt) + 86400000).toISOString().slice(0, 10);
   const watchingEvent = { id:"fixture:test:unconfirmed-marquee", name:"Unconfirmed test fixture", date:pendingDate, dateOnly:true, timePrecision:"date-only", stakesScore:5 };
