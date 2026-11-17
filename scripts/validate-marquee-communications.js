@@ -217,9 +217,9 @@ async function main(){
   assert.doesNotMatch(commsSource, /SEND NOW|send-now|import-consent|resend-broadcasts|instagram-mcp/);
   assert.doesNotMatch(commsSource, /nothingsports_marquee_subscribers|nothingsports_marquee_deliveries/);
   assert.match(adminSource, /Post workspace/);assert.doesNotMatch(adminSource,/Hootsuite|Mailchimp/);
-  assert.match(adminSource, /src="\/assets\/brand\/web\/nothingsport-logo\.png"/);
-  assert.match(participatePageSource, /src="\/assets\/brand\/web\/nothingsport-logo\.png"/);
-  assert.doesNotMatch(adminSource + participatePageSource, /nothingsport-logo-(?:day|night)\.png|nothingsport-helm/i);
+  assert.match(adminSource, /src="\/assets\/brand\/web\/sportsyurt-logo-night\.svg"/);
+  assert.match(participatePageSource, /src="\/assets\/brand\/web\/sportsyurt-logo-night\.svg"/);
+  assert.doesNotMatch(adminSource + participatePageSource, /nothingsport-logo(?:-(?:day|night))?\.png|nothingsport-helm/i);
   assert.match(adminSource, /manual-content-handoff\.v2/);
   assert.match(adminSource, /Primary CTA label/);
   assert.match(adminSource, /Image alt text/);
