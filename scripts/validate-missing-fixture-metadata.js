@@ -51,7 +51,7 @@ async function main(){
   for(const key of ['result','resultStatus','resultPublishedAt','fixtureResults','score','scoreDisplay','homeScore','awayScore','outcomeText','recapText'])delete event[key];
   const handler=require('../lib/live-fixture-handler').createLiveFixtureHandler({publishedFixtures:()=>[event],read:async()=>({sources:[],revision:'controlled',stale:false}),clock:()=>now,resolveHighlights:()=>assert.fail('Unconfirmed completion cannot spend provider quota')});
   const res=response();await handler({method:'GET',headers:{},url:'/api/fixtures?mode=highlight&ids='+encodeURIComponent(event.id)},res);
-  assert.equal(res.code,404);assert.match(res.body,/Nothing Sport.*(?:received|confirmed)/);assert.match(res.body,/fixture update/i);assert(!res.body.includes('Highlights unavailable right now'),'The app must identify its missing fixture update');assert(res.body.includes('/?event='+encodeURIComponent(event.id)),'Return to the same fixture');assert.equal(res.headers['Cache-Control'],'no-store');
+  assert.equal(res.code,404);assert.match(res.body,/SportsYurt has not received confirmed completion for this fixture\. Highlights cannot be checked yet\./);assert.match(res.body,/fixture update/i);assert(!res.body.includes('Highlights unavailable right now'),'The app must identify its missing fixture update');assert(res.body.includes('/?event='+encodeURIComponent(event.id)),'Return to the same fixture');assert.equal(res.headers['Cache-Control'],'no-store');
  }
  console.log('Missing fixture metadata: real football venue gaps, unknown clocks, and reported RLWC/Minjee highlight eligibility failures explain the app data gap without inventing sporting facts or spending lookup quota.');
 }
