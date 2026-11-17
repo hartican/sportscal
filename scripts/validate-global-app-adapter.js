@@ -111,7 +111,7 @@ test('exclusive owned receipt refuses existing files, symlinks and oversized rep
 function prerequisites(){
  const root=fs.mkdtempSync(path.join(os.tmpdir(),'global-prerequisites-')),repo=path.join(root,'repo'),source=path.join(__dirname,'..');fs.mkdirSync(repo);
  const env={PATH:process.env.PATH,GIT_CONFIG_NOSYSTEM:'1',GIT_CONFIG_GLOBAL:os.devNull,GIT_CEILING_DIRECTORIES:root},git=args=>cp.execFileSync('git',args,{cwd:repo,env,encoding:'utf8',stdio:['ignore','pipe','pipe'],timeout:5000});
- const files=['scripts/verify-global-app-adapter.js','scripts/lib/global-app-adapter-qualification.js','scripts/lib/near-app-adapter-qualification.js','lib/supabase-server.js','config/event-action-identity.js'];let head,count=0;
+ const files=['scripts/verify-global-app-adapter.js','scripts/lib/global-app-adapter-qualification.js','scripts/lib/near-app-adapter-qualification.js','lib/near-fixture-keys.js','lib/supabase-server.js','config/event-action-identity.js'];let head,count=0;
  const probe=path.join(repo,'PRIVATE_PROBE_NAME.txt');
  function invoke(name,change={},argv=['--live-read']){
   const dir=path.join(root,name),result=cp.spawnSync(process.execPath,['--require',path.join(root,'deny.cjs'),path.join(repo,files[0]),...argv],{cwd:repo,env:{...env,GITHUB_ACTIONS:'true',GITHUB_EVENT_NAME:'workflow_dispatch',GITHUB_REF:'refs/heads/main',GITHUB_REPOSITORY:'hartican/sportscal',GITHUB_WORKFLOW:'Sportscal production',GITHUB_JOB:'deploy',GITHUB_RUN_ID:'123',GITHUB_SHA:head,NS_NEAR_APP_RELEASE_SHA:head,NS_DEPLOY_REPORT_DIR:dir,...change},encoding:'utf8',timeout:10000});
