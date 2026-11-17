@@ -4,7 +4,7 @@
 const fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto'),assert=require('node:assert/strict');
 const gate=require('./lib/near-app-adapter-qualification');
 // Explicit release-owner activation occurs only after guarded producer staging.
-const NEAR_TRANSPORT=undefined;
+const NEAR_TRANSPORT=require('../lib/near-fixture-keys').CANDIDATE;
 const ORIGIN='https://mkghopnkhcxtmfrcjdbc.supabase.co',MAX_BYTES=4194304;
 function membership(now){
  const model=require('../config/match-centre'),published=require('../lib/calendar-catalogue').catalogue().filter(model.supported);

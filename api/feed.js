@@ -46,7 +46,7 @@ function createFeedHandler({globalSnapshotTransport,load=feedDependencies,authen
   const liveOwner=live||(()=>globalSnapshotTransport?(scopedLiveHandler||=require('../lib/live-fixture-handler').createLiveFixtureHandler({globalSnapshotTransport})):(liveHandler||=require('../lib/live-fixture-handler').createLiveFixtureHandler()));
   return async function feedHandler(request,response){
     const route=new URL(request.url||'/api/feed','https://nothingsport.local');
-    if(route.searchParams.get('route')==='match-centre'||request.query?.route==='match-centre')return require('../lib/match-centre-handler').createMatchCentreHandler()(request,response);
+    if(route.searchParams.get('route')==='match-centre'||request.query?.route==='match-centre')return require('../lib/match-centre-handler').createMatchCentreHandler({nearSnapshotTransport:require('../lib/near-fixture-keys').CANDIDATE})(request,response);
     if(['/api/fixtures','/api/fixture-refresh'].includes(route.pathname)||['fixtures','fixture-refresh'].includes(route.searchParams.get('route')||request.query?.route))return liveOwner()(request,response);
     response.setHeader("Cache-Control", "private, max-age=0, must-revalidate");
     response.setHeader('Pragma','no-cache');response.setHeader('Vary','Authorization');
