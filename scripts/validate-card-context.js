@@ -30,8 +30,21 @@ function validate(){
  for(const id of ['fixture:us-open-2026:official:mq:11113','fixture:us-open-2026:official:wd:4102']){const original=official.find(f=>f.id===id);assert(original);const replay={...original,status:'live'};assert.equal(require('../lib/tournament-progress').tennis({tour:'ATP'},[replay]).length,0);const overview=require('../lib/event-overviews').build([replay]);assert(!overview.some(o=>o.tournamentProgress?.length),'Raw excluded draw remains excluded after real overview production');const retained=require('./build-code-inspector').normalizeFixture(replay,'sport:tennis');assert.equal(retained.eventCode,original.eventCode);assert.equal(require('../lib/tournament-progress').tennis({tour:'ATP'},[retained]).length,0);}
  const unknown={...observation,eventType:'match',matchType:undefined,discipline:undefined,tour:undefined};assert.equal(require('../lib/tournament-progress').tennis({tour:'ATP'},[unknown]).length,0,'Parent tour and absent exclusions cannot establish main singles');
  const before=JSON.stringify(parent);timing.presentation(parent,'2026-10-12T16:00:00Z');assert.equal(JSON.stringify(parent),before,'Sydney midnight does not rewrite the official play day or source numbers');
- const calendar=require('../config/calendar-export'),legacy={module:{exports:{}},globalThis:{},TextEncoder,Date,Intl};vm.runInNewContext(cp.execFileSync('git',['show','033e44e7:config/calendar-export.js'],{encoding:'utf8'}),legacy);
- for(const fixture of [actual,{id:'all-day',name:'é; tennis,\\\n',date:'2026-10-11',endDate:'2026-10-12',dateOnly:true},{...actual,status:'cancelled'}])assert.equal(calendar.buildIcs([fixture],{now:new Date(now)}),legacy.module.exports.buildIcs([fixture],{now:new Date(now)}),'Encoder extraction keeps exported bytes identical');
+ const calendar=require('../config/calendar-export'),legacy={module:{exports:{}},globalThis:{},TextEncoder,Date,Intl};
+ // Keep the historical encoder independent; adapt only approved fixed brand literals
+ // before encoding so escaping, folding and every exported byte remain compared.
+ let legacySource=cp.execFileSync('git',['show','033e44e7:config/calendar-export.js'],{encoding:'utf8'});
+ const approvedBrandLiterals=[
+  ["name='Nothing Sport'","name='SportsYurt'"],
+  ["'PRODID:-//Nothing Sport//Calendar//EN'","'PRODID:-//SportsYurt//Calendar//EN'"],
+  ["event.delayedResultSource?.attribution, 'Nothing Sport'","event.delayedResultSource?.attribution, 'SportsYurt'"],
+ ];
+ for(const [from,to] of approvedBrandLiterals){
+  assert.equal(legacySource.split(from).length,2,'Historical oracle must contain exactly one approved brand literal: '+from);
+  legacySource=legacySource.replace(from,to);
+ }
+ vm.runInNewContext(legacySource,legacy);
+ for(const fixture of [actual,{id:'all-day',name:'é; tennis,\\\n',date:'2026-10-11',endDate:'2026-10-12',dateOnly:true},{...actual,status:'cancelled'}])assert.equal(calendar.buildIcs([fixture],{now:new Date(now)}),legacy.module.exports.buildIcs([fixture],{now:new Date(now)}),'Historical encoder keeps every byte identical after only the three approved brand literals');
  const runtime=fs.readFileSync('assets/js/calendar-sync-ui.js','utf8');assert(runtime.includes('NOTHINGSPORTS_CALENDAR_ICS'));assert(runtime.includes('refreshCounts')&&runtime.includes('matchingEvents'));
  console.log('Card context: real tennis labels, verified round ranges/tours, unknown and final states, frozen Test days, projection/compact transport and identical calendar bytes passed.');
 }
