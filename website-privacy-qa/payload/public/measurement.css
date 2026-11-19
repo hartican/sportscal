@@ -1,0 +1,10 @@
+.measurement-notice[hidden]{display:none!important}
+.measurement-notice{position:fixed;z-index:80;right:20px;bottom:20px;width:min(440px,calc(100vw - 40px));max-height:75vh;overflow:auto;padding:24px;background:#fff5ef;color:#0c1010;border:1px solid #ca9d91;border-radius:16px;box-shadow:0 12px 44px #0c10102b;font-size:14px;line-height:1.55}
+.measurement-notice h2{margin:0 0 10px;font-size:21px;line-height:1.2;letter-spacing:-.025em}
+.measurement-notice p{margin:10px 0}
+.measurement-notice summary{cursor:pointer;text-decoration:underline;text-underline-offset:3px}
+.measurement-notice a{color:inherit;text-decoration:underline}
+.measurement-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+.measurement-actions .button{min-height:44px}
+#measurement-status:empty{display:none}
+@media(max-width:720px){.measurement-notice{right:12px;bottom:calc(78px + env(safe-area-inset-bottom));width:calc(100vw - 24px);padding:20px;max-height:65vh}}

@@ -1,0 +1,48 @@
+/* Shared peach direction, adapted to the existing public website. */
+.utility-bar,.site-header,.site-footer{background:#0C1010;color:#F1E7F6}
+.utility-bar{border-bottom:1px solid #443746}
+.brand{gap:10px;flex-shrink:0}
+.brand-mark,.brand-footer .brand-mark{display:block;width:42px;height:46px;object-fit:contain;background:none;padding:0;border-radius:0}
+.brand-wordmark{display:block;width:160px;height:auto;object-fit:contain}
+.brand-footer .brand-wordmark{width:145px}
+.nav-link.active:after{background:#FB7B82}.nav-dot{background:#FB7B82}
+.icon{stroke-width:1.8}.tiny-plus .icon,.small-spark .icon{width:15px;height:15px}.personalise-icon .icon{width:40px;height:40px}
+.button-lime,.pill-lime,.pocket-card,.closing-card{background:linear-gradient(125deg,#F9BC9B,#FB7B82 65%,#FB3D6C);color:#0C1010}
+.button-lime:hover{background:#F9BC9B;color:#0C1010}.button-dark:hover{color:#0C1010}
+.button-outline{border-color:#76627A}.button-outline:hover{background:#29232D}
+.pocket-card .round-arrow{background:#0C1010;color:#F9BC9B}
+.pocket-card .pocket-install{border-color:#0C101060}.pocket-qr img,.install-qr-block>img{background:#FFFBFD}
+.personalise-card{background:#F1E7F6;color:#271E2B}.personalise-card:hover{background:#F9BC9B}
+.feature-main{color:#F1E7F6}.feature-content p{color:#F1E7F6}.feature-eyebrow{color:#F9BC9B}
+.marketing-hero .feature-shade{background:linear-gradient(90deg,#0C1010bb,#0C101011),linear-gradient(0deg,#0C1010f5,#0C101008 95%)}
+.score-strip,.feed-controls,.filter-line,.schedule-foot{border-color:#443746}
+.range-tabs .active{background:#F1E7F6;color:#271E2B}
+.feed-action[aria-pressed=true]{background:#49313E;color:#F9BC9B}
+.feed-notice,.match-uncertain{background:#342C1C;color:#F5D38C}
+.match-state.paused,.match-state.awaiting,.match-state.delay,.ticker-item .ticker-status.paused{color:#F5D38C}
+.match-team-score.is-ahead{color:#F9BC9B}.match-footer{background:#141718}
+.team-logo-wrap,.team-logo-wrap>img,.dialog-scoreboard .team-logo-wrap,.dialog-scoreboard .team-logo-wrap>img{background:#FFFBFD;color:#271E2B}
+.sport-filter.active,.sport-filter[aria-pressed=true]{background:#49313E;color:#F9BC9B;border-color:#FB7B82}
+.context-visual{background:#29232D}.fact-lines>div{border-color:#76627A}.fact-dot{background:#F9BC9B}
+.home-visual,.installer{background:#141718;color:#F1E7F6}
+.home-grid-art>span,.home-grid-art>span:nth-child(2),.home-grid-art>span:nth-child(6){background:#3B303F}
+.home-grid-art .home-app{background:#0C1010}.home-app>.brand-mark{background:none;color:inherit}
+.sport-photo-label{background:#0C1010;color:#F1E7F6}.how-number{color:#0C1010}
+.installer-tabs .active,.install-step.active .step-index{color:#0C1010;background:#F9BC9B}
+.install-step,.install-step .step-copy,.installer-tabs>button{color:#F1E7F6}
+.install-step:hover,.install-step.active{background:#29232D}.install-step.active{border-color:#FB7B82}
+.step-copy small,.install-copy-link,.install-help,.install-help a,.phone-illustration-note,.installer-tabs>span{color:#C4B6CB}
+/* Native installation illustrations retain their familiar light browser chrome. */
+.install-phone{background:#F8F1F5;color:#271E2B}.phone-sheet{background:#FFFBFD;color:#271E2B}
+.phone-address,.phone-toolbar{background:#E4D8E7;color:#392D40}.phone-page>.phone-lines{background:#D8C8D3}
+.phone-app-icon,.phone-app-icon .brand-mark{background:#0C1010}.phone-sheet-row.selected,.phone-highlight,.phone-page>.phone-lime{background:#F9BC9B;color:#271E2B}
+.principles-banner{background:#191B1E}.principles-mark{color:#F9BC9B}
+.dialog-scoreboard{background:#191B1E;color:#F1E7F6}.dialog-top{background:#0C1010}.score-visibility-note{color:#C4B6CB}
+.site-footer .brand-mark{background:none}.footer-top>p,.footer-bottom,.utility-right{color:#C4B6CB}
+.mobile-install-bar{background:#0C1010f5;border-color:#443746}
+::selection{background:#F9BC9B;color:#0C1010}
+:is(a,button):focus-visible{outline:3px solid #FB7B82;outline-offset:4px}
+@media(max-width:700px){.brand-wordmark{width:128px}.brand-mark{width:30px;height:34px}.brand{gap:7px}.header-inner{gap:8px}.header-install{padding:8px 10px}.header-actions{margin-left:auto}.header-install .icon{display:none}}
+@media(max-width:370px){.brand-wordmark{width:110px}.brand-mark{width:27px}.header-install{font-size:9px;padding:8px}}
+
+.faq-list summary .icon{width:18px;height:18px;flex-shrink:0}.faq-list details[open] summary .icon{transform:rotate(45deg)}
