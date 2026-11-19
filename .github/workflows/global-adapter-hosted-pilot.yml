@@ -1,0 +1,373 @@
+name: GLOBAL adapter hosted pilot
+
+on:
+  push:
+    branches:
+      - codex/global-adapter-hosted-pilot-20261119
+
+permissions:
+  contents: read
+
+jobs:
+  controls:
+    name: GLOBAL adapter / ${{ matrix.control }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 8
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - control: known-failure
+            sha: 10b2cbc9d9cf4d5cf0b355b95a3f4ea290e78cdf
+            tree: b7cb531552e301beeec5a436526ebf2ddf2616c5
+          - control: one-line-fix
+            sha: 8b9ac971fffde6f542843fdfe7b95858d568a546
+            tree: 45dbf31a1797a7b615f8327b871a056c105505bd
+    env:
+      CONTROL: ${{ matrix.control }}
+      TARGET_SHA: ${{ matrix.sha }}
+      TARGET_TREE: ${{ matrix.tree }}
+      NODE_IMAGE: docker.io/library/node@sha256:6b9d4ea31e614e29f364bf75758458731eb1e105b80c99667438dd6b3fe262e0
+      EVIDENCE: ${{ runner.temp }}/global-adapter-evidence
+    steps:
+      - name: Check out the exact target
+        uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5.0.1
+        with:
+          ref: ${{ matrix.sha }}
+          path: target
+          fetch-depth: 1
+          persist-credentials: false
+          submodules: false
+          lfs: false
+      - name: Prepare pinned Node and Git image
+        run: docker pull --platform linux/amd64 "$NODE_IMAGE"
+      - name: Verify isolated execution and expected outcome
+        shell: bash
+        run: |
+          python3 -I - <<'PY'
+          import hashlib
+          import json
+          import os
+          from pathlib import Path
+          import re
+          import selectors
+          import signal
+          import socket
+          import stat
+          import subprocess as sp
+          import tempfile
+          import time
+
+
+          BRANCH = "refs/heads/codex/global-adapter-hosted-pilot-20261119"
+          WORKFLOW = ".github/workflows/global-adapter-hosted-pilot.yml"
+          VALIDATOR = "scripts/validate-global-app-adapter.js"
+          MARKER = b'{\n  "name": "pilot-disposable-scratch",\n  "private": true,\n  "type": "commonjs"\n}\n'
+          MARKER_HASH = "1b9babc515ee2074db49f235281b43627c211085d6e022a51c6f33494025874f"
+          LIMIT = 256 * 1024
+          FAULT = "Fixture snapshot read failed "
+          NEAR = "scripts/lib/near-app-adapter-qualification.js"
+
+          # This preflight runs from the same image and mount policy as the validator.
+          CANARY = r"""
+          const assert = require('node:assert/strict');
+          const fs = require('node:fs');
+          const cp = require('node:child_process');
+          const { createRequire } = require('node:module');
+          const [host, port] = process.argv.slice(1);
+          function probe(host, port) {
+            return new Promise((resolve, reject) => {
+              const connection = require('node:net').createConnection({host, port:Number(port)});
+              connection.on('connect', () => { connection.destroy(); reject(Error('TCP unexpectedly reachable')); });
+              connection.on('error', ({code}) => {
+                if (['ENETUNREACH', 'EHOSTUNREACH', 'EACCES', 'EPERM'].includes(code)) resolve(code);
+                else reject(Error('Unclassified TCP error ' + code));
+              });
+              connection.setTimeout(1500, () => { connection.destroy(); reject(Error('TCP timeout')); });
+            });
+          }
+          (async () => {
+            assert.deepEqual([process.platform, process.arch, process.version], ['linux', 'x64', 'v24.22.2']);
+            assert(!fs.existsSync('/input/.git') && !fs.existsSync('/var/run/docker.sock'));
+            assert(Object.keys(process.env).every(name => !/^(GITHUB_|RUNNER_|ACTIONS_|.*TOKEN|.*SECRET)/.test(name)));
+            assert.throws(() => fs.writeFileSync('/input/.pilot-canary', 'forbidden'), {code: /^(EROFS|EACCES)$/});
+            fs.writeFileSync('/scratch/marker.cjs', 'module.exports = 71', {flag: 'wx'});
+            const load = createRequire('/scratch/disposable/repo/entry.cjs');
+            assert.equal(load('../../marker.cjs'), 71);
+            assert.throws(() => load('../../does-not-exist'), {code: 'MODULE_NOT_FOUND'});
+            fs.unlinkSync('/scratch/marker.cjs');
+
+            const direct = await probe(host, port);
+            const child = cp.execFileSync(process.execPath, ['-e',
+              '(' + probe.toString() + ')(...process.argv.slice(1)).then(code=>console.log(code)).catch(e=>{console.error(e);process.exitCode=1})',
+              host, port], {encoding: 'utf8', timeout: 3000}).trim();
+            assert(['ENETUNREACH', 'EHOSTUNREACH', 'EACCES', 'EPERM'].includes(child));
+            console.log(JSON.stringify({
+              node: process.version, platform: process.platform, arch: process.arch,
+              git: cp.execFileSync('git', ['--version'], {encoding:'utf8', timeout:3000}).trim(),
+              tcp: direct, childTcp: child, sourceWriteDenied: true, scratchResolverPassed: true,
+              checkoutMetadataAbsent: true, ciEnvironmentAbsent: true
+            }));
+          })().catch(e => {console.error(e);process.exitCode=1});
+          """
+
+
+          def require(condition, detail):
+              if not condition:
+                  raise RuntimeError(detail)
+
+
+          def capture(*args):
+              return sp.check_output(args, timeout=35)
+
+
+          def dock(*args):
+              return capture("docker", *args).decode().strip()
+
+
+          def digest(data):
+              return hashlib.sha256(data).hexdigest()
+
+
+          def inspect_container(cid):
+              return json.loads(dock("inspect", "--type", "container", cid))[0]
+
+
+          def inventory(checkout, source):
+              expected = {}
+              for entry in capture("git", "-C", checkout, "ls-tree", "-rz", "HEAD").split(b"\0"):
+                  if not entry:
+                      continue
+                  meta, name = entry.split(b"\t", 1)
+                  mode, kind, oid = meta.split()
+                  require(kind == b"blob" and mode in (b"100644", b"100755"), "Unexpected Git file type")
+                  expected[os.fsdecode(name)] = (int(mode, 8), oid.decode())
+
+              observed_count = total_bytes = 0
+              for directory, directories, files in os.walk(source, followlinks=False):
+                  for name in directories:
+                      require(not (Path(directory) / name).is_symlink(), "Unexpected linked source directory")
+                  for name in files:
+                      path = Path(directory) / name
+                      git_path = path.relative_to(source).as_posix()
+                      mode = path.lstat().st_mode
+                      require(stat.S_ISREG(mode), "Unexpected non-regular source file")
+                      contents = path.read_bytes()
+                      object_bytes = f"blob {len(contents)}\0".encode() + contents
+                      require(expected.get(git_path) == (mode & 0o100755, hashlib.sha1(object_bytes).hexdigest()),
+                              f"Source does not match Git inventory: {git_path}")
+                      total_bytes += len(contents)
+                      observed_count += 1
+              require(observed_count == len(expected) == 4023, "Source file count mismatch")
+              return {"files": observed_count, "bytes": total_bytes, "allBlobsAndExecutableBitsMatch": True}
+
+
+          def attach_bounded(cid, seconds, observation):
+              output = {"stdout": bytearray(), "stderr": bytearray()}
+              start = time.monotonic()
+              with sp.Popen(["docker", "start", "--attach", cid], stdout=sp.PIPE, stderr=sp.PIPE,
+                            start_new_session=True) as proc, selectors.DefaultSelector() as selector:
+                  selector.register(proc.stdout, selectors.EVENT_READ, "stdout")
+                  selector.register(proc.stderr, selectors.EVENT_READ, "stderr")
+                  try:
+                      while selector.get_map():
+                          remaining = seconds - (time.monotonic() - start)
+                          if remaining <= 0:
+                              raise TimeoutError("Container output exceeded wall-clock limit")
+                          for key, _ in selector.select(remaining):
+                              block = os.read(key.fd, 8192)
+                              if not block:
+                                  selector.unregister(key.fileobj)
+                                  continue
+                              stream = output[key.data]
+                              require(len(stream) + len(block) <= LIMIT, "Container diagnostic output exceeded bound")
+                              stream.extend(block)
+                      cli_exit = proc.wait(timeout=max(0.1, seconds - (time.monotonic() - start)))
+                  finally:
+                      if proc.poll() is None:
+                          os.killpg(proc.pid, signal.SIGKILL)
+                          proc.wait()
+                      observation.update({
+                          "durationMs": round((time.monotonic() - start) * 1000),
+                          "stdout": {"bytes": len(output["stdout"]), "sha256": digest(output["stdout"])},
+                          "stderr": {"bytes": len(output["stderr"]), "sha256": digest(output["stderr"])},
+                      })
+              return cli_exit, bytes(output["stdout"]), bytes(output["stderr"])
+
+
+          def isolated(source, scratch, image, argv, seconds, observation):
+              user = f"{os.getuid()}:{os.getgid()}"
+              require(os.getuid() != 0, "Runner user is root")
+              cid = dock(
+                  "create", "--pull=never", "--platform=linux/amd64", "--network=none", "--read-only",
+                  "--cap-drop=ALL", "--security-opt=no-new-privileges=true", "--user", user,
+                  "--pids-limit=128", "--memory=1g", "--cpus=2", "--log-driver=none",
+                  "--mount", f"type=bind,source={source},target=/input,readonly",
+                  "--mount", f"type=bind,source={scratch},target=/scratch",
+                  "--env", "HOME=/scratch", "--env", "TMPDIR=/scratch",
+                  "--workdir=/input", "--entrypoint=/usr/local/bin/node", image, *argv
+              )
+              try:
+                  conf = inspect_container(cid)
+                  host = conf["HostConfig"]
+                  mounts = sorted((m["Type"], m["Source"], m["Destination"], m["RW"]) for m in conf["Mounts"])
+                  require(mounts == [("bind", str(source), "/input", False), ("bind", str(scratch), "/scratch", True)],
+                          "Unexpected container mounts")
+                  require(host["NetworkMode"] == "none" and host["ReadonlyRootfs"] and not host["Privileged"]
+                          and host["CapDrop"] == ["ALL"] and host["CapAdd"] in (None, [])
+                          and "no-new-privileges=true" in host["SecurityOpt"]
+                          and conf["Config"]["User"] == user and not host["PortBindings"],
+                          "Unexpected container isolation configuration")
+                  require(conf["Image"] == dock("image", "inspect", "--format", "{{.Id}}", image),
+                          "Container image ID differs from pinned local image")
+                  observation.update({
+                      "imageId": conf["Image"], "containerId": cid, "network": host["NetworkMode"],
+                      "readOnlyRoot": True, "privileged": False, "user": user, "noNewPrivileges": True,
+                      "capDrop": ["ALL"], "mounts": {"/input": "read-only", "/scratch": "read-write"},
+                      "pidLimit": host["PidsLimit"], "memoryBytes": host["Memory"], "nanoCpus": host["NanoCpus"],
+                  })
+                  cli_exit, stdout, stderr = attach_bounded(cid, seconds, observation)
+                  state = inspect_container(cid)["State"]
+                  native_exit = state["ExitCode"]
+                  observation.update({"exit": native_exit, "attachExit": cli_exit, "state": state["Status"],
+                                      "oomKilled": state["OOMKilled"]})
+                  require(state["Status"] == "exited" and not state["OOMKilled"] and not state["Error"]
+                          and 0 <= native_exit < 128 and cli_exit == native_exit,
+                          "Container did not exit normally or attach status differs")
+                  return native_exit, stdout, stderr
+              finally:
+                  require(dock("rm", "--force", cid) == cid, "Unexpected container removal response")
+                  observation["removed"] = not dock("ps", "-aq", "--filter", f"id={cid}")
+                  require(observation["removed"], "Owned container still exists")
+
+
+          def classify(control, exit_code, stdout, stderr):
+              diagnostics = stderr.decode()
+              faults = [line for line in diagnostics.splitlines() if line.startswith(FAULT)]
+              for line in faults:
+                  event = json.loads(line[len(FAULT):])
+                  require(event["event"] == "fixture_snapshot_read_failed" and event["scope"] == "global",
+                          "Unexpected synthetic fault diagnostic")
+              other = "\n".join(line for line in diagnostics.splitlines() if not line.startswith(FAULT))
+              if control == "known-failure":
+                  missing = re.findall(r"Error: Cannot find module '([^']+)'", other)
+                  require(exit_code == 1 and not stdout and missing == ["../../lib/near-fixture-keys"]
+                          and "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:" in other
+                          and "Require stack:" in other
+                          and re.search(r"code: 'MODULE_NOT_FOUND'", other)
+                          and re.search(r"(?m)^\+   '- /scratch/global-prerequisites-[A-Za-z0-9]+/repo/"
+                                        + re.escape(NEAR) + r"\\n' \+$", other)
+                          and "at prerequisites (/input/" + VALIDATOR + ":" in other
+                          and not re.search(r"ERR_INVALID_PACKAGE_CONFIG|ETIMEDOUT|SIGKILL|EACCES", other),
+                          "Known case did not fail with the expected disposable prerequisite error")
+                  return {"classification": "expected_missing_codec", "faultControls": len(faults)}
+
+              report = json.loads(stdout)
+              require(control == "one-line-fix" and exit_code == 0 and not other and len(faults) == 22
+                      and report == {
+                          "schemaVersion": "global-app-adapter-source-tests.v1", "checks": 34, "passed": True,
+                          "networkCalls": 0, "serviceCalls": 0,
+                          "scope": "Actual SDK/parser/CANDIDATE with fake HTTP, allocation and disposable Git/receipt controls",
+                      }, "Fixed case did not produce the expected validator report")
+              return {"classification": "passed_all_checks", "faultControls": len(faults), "validatorReport": report}
+
+
+          def run_pilot(evidence, receipt):
+              env = os.environ
+              workflow_sha = env["GITHUB_WORKFLOW_SHA"]
+              require(env["GITHUB_REF"] == BRANCH and env["GITHUB_EVENT_NAME"] == "push"
+                      and env["GITHUB_REPOSITORY"] == "hartican/sportscal" and env["GITHUB_RUN_ATTEMPT"] == "1"
+                      and env["GITHUB_SHA"] == workflow_sha
+                      and env["GITHUB_WORKFLOW_REF"] == f'hartican/sportscal/{WORKFLOW}@{BRANCH}',
+                      "Unexpected workflow identity or rerun")
+              image = env["NODE_IMAGE"]
+              checkout = Path(env["GITHUB_WORKSPACE"]) / "target"
+              sha, tree = capture("git", "-C", checkout, "rev-parse", "HEAD", "HEAD^{tree}").decode().splitlines()
+              require((sha, tree) == (env["TARGET_SHA"], env["TARGET_TREE"]), "Checkout identity mismatch")
+              receipt["target"] = {"sha": sha, "tree": tree}
+              receipt["image"] = image
+              receipt["projectDependencyInstall"] = False
+
+              with tempfile.TemporaryDirectory(prefix="global-adapter-", dir=env["RUNNER_TEMP"]) as directory:
+                  root = Path(directory)
+                  source, scratch, archive = root / "input", root / "scratch", root / "input.tar"
+                  source.mkdir(mode=0o755)
+                  scratch.mkdir(mode=0o700)
+                  sp.run(["git", "-C", checkout, "archive", "--output", archive, "HEAD"], check=True, timeout=30)
+                  sp.run(["tar", "-xf", archive, "-C", source], check=True, timeout=30)
+                  receipt["sourceBefore"] = inventory(checkout, source)
+                  require((source / "lib/near-fixture-keys.js").is_file(), "Codec missing from the source snapshot")
+                  copies_codec = "'lib/near-fixture-keys.js'" in (source / VALIDATOR).read_text()
+                  require(copies_codec == (env["CONTROL"] == "one-line-fix"), "Unexpected disposable codec copy list")
+                  receipt["codec"] = {"presentInSource": True, "copiedByValidator": copies_codec}
+                  require(digest(MARKER) == MARKER_HASH, "Scratch package marker bytes differ")
+                  marker = scratch / "package.json"
+                  marker.write_bytes(MARKER)
+                  receipt["scratchPackageSha256"] = digest(marker.read_bytes())
+
+                  gateway = next(x["Gateway"] for x in json.loads(dock("network", "inspect", "bridge"))[0]["IPAM"]["Config"]
+                                 if "." in x.get("Gateway", ""))
+                  canary = receipt["isolationCanary"] = {}
+                  with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as listener:
+                      listener.bind((gateway, 0))
+                      listener.listen()
+                      port = listener.getsockname()[1]
+
+                      def host_reaches_endpoint():
+                          with socket.create_connection((gateway, port), timeout=2), listener.accept()[0]:
+                              return True
+
+                      canary["hostReachableBefore"] = host_reaches_endpoint()
+                      status, stdout, stderr = isolated(source, scratch, image, ["-e", CANARY, "--", gateway, str(port)], 18, canary)
+                      canary["hostReachableAfter"] = host_reaches_endpoint()
+                      require(status == 0 and not stderr, "Isolation or runtime canary failed")
+                      canary["checks"] = json.loads(stdout)
+                      require(canary["checks"]["git"].startswith("git version "), "Git missing from pinned image")
+                      (evidence / "canary.stdout").write_bytes(stdout)
+
+                  validator = receipt["validator"] = {}
+                  exit_code, stdout, stderr = isolated(source, scratch, image, ["/input/" + VALIDATOR], 70, validator)
+                  receipt["sourceAfter"] = inventory(checkout, source)
+                  require(digest(marker.read_bytes()) == MARKER_HASH, "Scratch package marker changed")
+                  require(receipt["sourceBefore"] == receipt["sourceAfter"], "Source snapshot changed")
+                  validator.update(classify(env["CONTROL"], exit_code, stdout, stderr))
+                  # Retain the reviewed synthetic diagnostics after classification.
+                  (evidence / "validator.stdout").write_bytes(stdout)
+                  (evidence / "validator.stderr").write_bytes(stderr)
+
+
+          def main():
+              env = os.environ
+              evidence = Path(env["EVIDENCE"])
+              evidence.mkdir(mode=0o700)
+              receipt = {
+                  "schema": "global-adapter-hosted-pilot.v1",
+                  "control": env["CONTROL"],
+                  "workflow": {name: env[name] for name in (
+                      "GITHUB_REPOSITORY", "GITHUB_WORKFLOW_REF", "GITHUB_WORKFLOW_SHA", "GITHUB_REF", "GITHUB_SHA",
+                      "GITHUB_EVENT_NAME", "GITHUB_RUN_ID", "GITHUB_RUN_ATTEMPT", "GITHUB_JOB",
+                      "RUNNER_OS", "RUNNER_ARCH", "RUNNER_ENVIRONMENT",
+                  )},
+              }
+              try:
+                  run_pilot(evidence, receipt)
+                  receipt["outcome"] = "expected_result_observed"
+              except Exception as error:
+                  receipt["outcome"] = "unverified"
+                  receipt["failure"] = f"{type(error).__name__}: {error}"
+                  raise
+              finally:
+                  (evidence / "receipt.json").write_text(json.dumps(receipt, indent=2, sort_keys=True) + "\n")
+
+
+          if __name__ == "__main__":
+              main()
+          PY
+      - name: Upload host-owned pilot evidence
+        if: ${{ always() }}
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: global-adapter-${{ matrix.control }}-attempt-${{ github.run_attempt }}
+          path: ${{ env.EVIDENCE }}/
+          if-no-files-found: error
+          retention-days: 7
