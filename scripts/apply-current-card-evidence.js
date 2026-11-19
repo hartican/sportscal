@@ -7,6 +7,7 @@ const fs = require("node:fs");
 const path = require("node:path");
 const reviewedTiming=require('../lib/reviewed-session-timing');
 const acceptedResults=require('./lib/accepted-result-projection');
+const { createRetirementIndex } = require('../lib/retired-horse-coverage');
 
 const ROOT = path.resolve(__dirname, "..");
 const TARGETS = ["data/canonical/afl-nrl-2026.json", "feeds/incoming/events.json", "data/follow-sources/coverage.v1.json", "data/canonical/official-card-results-2026.json", "data/major-events.v1.json"];
@@ -16,6 +17,34 @@ const identity = record => record?.id || record?.eventId || record?.canonicalEve
 const aliases = override => new Set([override.id, override.canonicalId].filter(Boolean));
 const recordAliases = record => [record?.id, record?.eventId, record?.canonicalEventId, ...(record?.sourceEventIds || [])].filter(Boolean);
 const matches = (record, override) => recordAliases(record).some(id => aliases(override).has(id));
+
+function retirementFor(records){
+  const context = [];
+  const expanded = new WeakSet();
+  const visit = (record, enclosingIds=[]) => {
+    context.push(record);
+    if(!record || typeof record !== 'object' || Array.isArray(record))return;
+    // Context-only edge carriers: retain the untouched child as well, so all
+    // original parent fields survive. These copies never enter output records.
+    for(const parentId of enclosingIds)context.push({...record,parentId});
+    if(expanded.has(record))return;
+    expanded.add(record);
+    // Project only actual enclosing identities from the frozen contract.
+    // No classification, invented ID, normalisation or child-to-parent alias.
+    const parentIds = [...new Set([
+      record.id, record.eventId, record.canonicalId, record.canonicalEventId,
+      record.sourceIds?.legacy,
+      ...(Array.isArray(record.sourceEventIds) ? record.sourceEventIds : []),
+      ...(Array.isArray(record.legacyEventIds) ? record.legacyEventIds : []),
+    ].filter(value => typeof value === 'string' && value.length > 0))];
+    for(const child of Array.isArray(record.subEvents) ? record.subEvents : [])visit(child,parentIds);
+  };
+  // Add each containment edge even when a child was encountered as a flat row
+  // earlier. Only repeated traversal is suppressed; fixed-point closure remains
+  // the responsibility of the single frozen retirement helper.
+  for(const record of records)visit(record);
+  return createRetirementIndex(context);
+}
 
 function publicFields(override){
   const next = { ...override };
@@ -98,19 +127,20 @@ function normalizeCompletedTiming(record, {child=false} = {}){
   const hours = Math.max(0.5, Number(record.liveWindow) || 3);
   return { ...record, endTimeUtc:new Date(start + hours * 3600000).toISOString(), endTimeBasis:"scheduled-live-window" };
 }
-function applyArray(records, overrides, checkedAt, { upsert=false, child=false } = {}){
+function applyArray(records, overrides, checkedAt, { upsert=false, child=false, retirement=retirementFor([...records, ...overrides]) } = {}){
   const next = records.map(record => {
+    if (retirement.isRetired(record)) return record;
     const override = overrides.find(item => matches(record, item));
     return normalizeCompletedTiming(override ? mergeRecord(record, override, checkedAt) : record,{child});
   });
-  if(upsert) for(const override of overrides) if(!next.some(record => matches(record, override))) next.push(fixtureSeed(override, checkedAt));
+  if(upsert) for(const override of overrides) if(!retirement.isRetired(override) && !next.some(record => matches(record, override))) next.push(fixtureSeed(override, checkedAt));
   return next;
 }
-function applyFixtureAndResultEvidence(records,evidence,{upsert=false}={}){
-  const next=applyArray(applyArray(records,evidence.fixtureOverrides,evidence.checkedAt,{upsert}),evidence.resultOverrides,evidence.checkedAt);
+function applyFixtureAndResultEvidence(records,evidence,{upsert=false,retirement=retirementFor([...records,...evidence.fixtureOverrides,...evidence.resultOverrides])}={}){
+  const next=applyArray(applyArray(records,evidence.fixtureOverrides,evidence.checkedAt,{upsert,retirement}),evidence.resultOverrides,evidence.checkedAt,{retirement});
   // Both passes preserve order and append only new fixture seeds. Compare the
   // coherent final facts with the original, never the transient preview frame.
-  return next.map((record,index)=>index<records.length?retainNewerReviewedEditorial(records[index],record):record);
+  return next.map((record,index)=>index<records.length&&!retirement.isRetired(record)?retainNewerReviewedEditorial(records[index],record):record);
 }
 function observedCompletionBoundary(record){
   const clocks=[record.statusFactObservedAt,record.firstConfirmedCompleteAt,record.resultSourceCheckedAt||record.sourceCheckedAt];
@@ -129,35 +159,52 @@ function hasCompletionBoundary(record){
 function applyEvidence({ check=false, root=ROOT } = {}){
   const read=relative=>JSON.parse(fs.readFileSync(path.join(root,relative),'utf8'));
   const write=(relative,value)=>fs.writeFileSync(path.join(root,relative),`${JSON.stringify(value,null,2)}\n`);
-  const evidence = read("data/canonical/current-card-evidence-2026.json");
+  let evidence = read("data/canonical/current-card-evidence-2026.json");
   acceptedResults.validateAcceptedSet(evidence.resultOverrides);
   const timings=reviewedTiming.validate(evidence.timingOverrides||[]);
   // Reviewed results are final facts, not merely score text on upcoming cards.
   evidence.resultOverrides = evidence.resultOverrides.map(result => ({ ...result, status:"completed" }));
   const documents = Object.fromEntries(TARGETS.map(file => [file, read(file)]));
+  // Keep the complete retained/source graph until both passes and all projections
+  // have finished. Filtering first would lose opaque aliases and parent closure.
+  const retained = Object.values(documents).flatMap(document => [
+    ...(document.events || []), ...(document.results || []),
+    ...(document.events || []).flatMap(event => event.subEvents || []),
+  ]);
+  const retirement = retirementFor([...retained, ...evidence.fixtureOverrides, ...evidence.resultOverrides, ...timings]);
+  const rejectedResults = evidence.resultOverrides.some(record => retirement.isRetired(record));
+  evidence = {
+    ...evidence,
+    fixtureOverrides:evidence.fixtureOverrides.filter(record => !retirement.isRetired(record)),
+    resultOverrides:evidence.resultOverrides.filter(record => !retirement.isRetired(record)),
+    broadcastOverrides:evidence.broadcastOverrides.filter(group => !retirement.isRetired(group))
+      .map(group => ({...group, ids:group.ids.filter(id => !retirement.isRetired({id}))})).filter(group => group.ids.length),
+  };
+  const activeTimings = timings.filter(record => !retirement.isRetired(record));
   const canonical = documents[TARGETS[0]];
-  canonical.events = applyFixtureAndResultEvidence(canonical.events || [],evidence).map(record=>{
+  canonical.events = applyFixtureAndResultEvidence(canonical.events || [],evidence,{retirement}).map(record=>{
+    if(retirement.isRetired(record))return record;
     const source={...record};
     for(const key of ['storyline','cardVariant','archived'])delete source[key];
     return source;
   });
   const feed = documents[TARGETS[1]];
-  feed.events = applyFixtureAndResultEvidence(feed.events || [],evidence,{upsert:true});
+  feed.events = applyFixtureAndResultEvidence(feed.events || [],evidence,{upsert:true,retirement});
   const coverage = documents[TARGETS[2]];
-  coverage.events = applyArray(coverage.events || [], evidence.resultOverrides, evidence.checkedAt);
-  for(const group of evidence.broadcastOverrides) coverage.events = (coverage.events || []).map(record => group.ids.includes(identity(record)) ? mergeRecord(record, group, evidence.checkedAt) : record);
+  coverage.events = applyArray(coverage.events || [], evidence.resultOverrides, evidence.checkedAt,{retirement});
+  for(const group of evidence.broadcastOverrides) coverage.events = (coverage.events || []).map(record => !retirement.isRetired(record) && group.ids.includes(identity(record)) ? mergeRecord(record, group, evidence.checkedAt) : record);
   const results = documents[TARGETS[3]];
   const byId = new Map((results.results || []).map(record => [record.id, record]));
   for(const override of evidence.resultOverrides) byId.set(override.id, { ...(byId.get(override.id) || { id:override.id }), ...publicFields(override) });
   results.results = [...byId.values()];
-  results.checkedAt = evidence.checkedAt;
+  if(!rejectedResults || evidence.resultOverrides.length)results.checkedAt = evidence.checkedAt;
   const majorEvents = documents[TARGETS[4]];
-  majorEvents.events = (majorEvents.events || []).map(event => ({
+  majorEvents.events = (majorEvents.events || []).map(event => retirement.isRetired(event) ? event : ({
     ...event,
-    subEvents:applyArray(event.subEvents || [], evidence.resultOverrides, evidence.checkedAt,{child:true}),
+    subEvents:applyArray(event.subEvents || [], evidence.resultOverrides, evidence.checkedAt,{child:true,retirement}),
   }));
-  feed.events=reviewedTiming.apply(feed.events,timings,{required:true});
-  coverage.events=reviewedTiming.apply(coverage.events,timings);
+  feed.events=reviewedTiming.apply(feed.events,activeTimings,{required:true});
+  coverage.events=reviewedTiming.apply(coverage.events,activeTimings);
 
   if(check){
     for(const override of evidence.fixtureOverrides){
@@ -197,10 +244,22 @@ function applySelectedResults(ids,{root=ROOT}={}){
     if(acceptedResults.isAcceptedResult(row))acceptedResults.validateAcceptedResult(row);
     return {...row,status:'completed'};
   });
+  // Every selection needs retained parent context, not only accepted capsules.
+  // This is read-only admission; child mutation remains in its existing branch.
+  const majorFile='data/major-events.v1.json';
+  const retainedMajor=read(majorFile);
+  assert(retainedMajor && Array.isArray(retainedMajor.events),'Retained major fixtures are required for selected-result retirement preflight');
+  const selectedContext=[...retainedMajor.events,...evidence.fixtureOverrides,...evidence.resultOverrides];
+  const selectionRetirement=retirementFor(selectedContext);
+  for(const row of selected)assert(!selectionRetirement.isRetired(row),`${row.id}: withdrawn result cannot pass retained-parent preflight`);
   const files=['feeds/incoming/events.json','data/events.json'];
   const updates=files.map(file=>{
     const document=read(file);
-    for(const row of selected)assert.equal(document.events.filter(record=>matches(record,row)).length,1,`${row.id}: exactly one retained fixture is required in ${file}`);
+    const retirement=retirementFor([...document.events,...selectedContext]);
+    for(const row of selected){
+      assert(!retirement.isRetired(row),`${row.id}: withdrawn result cannot be applied (${file})`);
+      assert.equal(document.events.filter(record=>matches(record,row)).length,1,`${row.id}: exactly one retained fixture is required in ${file}`);
+    }
     document.events=document.events.map(record=>{
       const override=selected.find(row=>matches(record,row));
       if(!override)return record;
@@ -215,6 +274,8 @@ function applySelectedResults(ids,{root=ROOT}={}){
   for(const row of selected)byId.set(row.id,{...byId.get(row.id),...publicFields(row)});
   results.results=[...byId.values()];
   const canonicalFile='data/canonical/afl-nrl-2026.json',canonical=read(canonicalFile);
+  const retirement=retirementFor([...canonical.events,...results.results,...updates.flatMap(update=>update.document.events),...selectedContext]);
+  for(const row of selected)assert(!retirement.isRetired(row),`${row.id}: withdrawn result cannot update retained projections`);
   for(const row of selected)assert(canonical.events.filter(record=>matches(record,row)).length<=1,`${row.id}: canonical identity must be unique`);
   canonical.events=canonical.events.map(record=>{
     const row=selected.find(row=>matches(record,row));if(!row)return record;
@@ -226,7 +287,9 @@ function applySelectedResults(ids,{root=ROOT}={}){
   // Preflight all identities before any write; never upsert a guessed fixture.
   if(selected.some(acceptedResults.isAcceptedResult)){
     for(const childFile of ['data/follow-sources/coverage.v1.json','data/major-events.v1.json']){
-      const document=read(childFile);
+      const document=childFile===majorFile?retainedMajor:read(childFile);
+      const childRetirement=retirementFor([...document.events,...document.events.flatMap(event=>event.subEvents||[]),...canonical.events,...results.results,...selectedContext]);
+      for(const row of selected)assert(!childRetirement.isRetired(row),`${row.id}: withdrawn result cannot update retained children`);
       const apply=records=>records.map(record=>{const row=selected.find(row=>acceptedResults.isAcceptedResult(row)&&matches(record,row));return row?acceptedResults.mergeAcceptedResult(record,row):record;});
       if(childFile.includes('major-events'))document.events=document.events.map(event=>Array.isArray(event.subEvents)?{...event,subEvents:apply(event.subEvents)}:event);
       else document.events=apply(document.events);
@@ -245,13 +308,19 @@ function applySelectedTimings({root=ROOT}={}){
   const targets=['data/canonical/fiba-women-sailgp-motogp-2026.json','feeds/incoming/events.json','data/events.json','data/follow-sources/coverage.v1.json'];
   // Validate every retained document before any write; a partial/missing identity
   // must not leave the public projections with different schedule facts.
-  const updates=targets.map(file=>{
-    const filename=path.join(root,file),bytes=fs.readFileSync(filename,'utf8'),doc=JSON.parse(bytes);
-    doc.events=reviewedTiming.apply(doc.events,rows,{required:file!=='data/follow-sources/coverage.v1.json'});
+  const retained=targets.map(file=>{
+    const filename=path.join(root,file),bytes=fs.readFileSync(filename,'utf8');
+    return {file,filename,bytes,doc:JSON.parse(bytes)};
+  });
+  const retirement=retirementFor([...retained.flatMap(item=>item.doc.events),...(evidence.fixtureOverrides||[]),...(evidence.resultOverrides||[]),...rows]);
+  const activeRows=rows.filter(row=>!retirement.isRetired(row));
+  if(!activeRows.length)return;
+  const updates=retained.map(({file,filename,bytes,doc})=>{
+    doc.events=reviewedTiming.apply(doc.events,activeRows,{required:file!=='data/follow-sources/coverage.v1.json'});
     return {filename,bytes,next:JSON.stringify(doc,null,2)+'\n'};
   });
   for(const {filename,bytes,next} of updates)if(bytes!==next)fs.writeFileSync(filename,next);
-  console.log(`Applied ${rows.length} reviewed session timing(s); results, participation and original source dates retained.`);
+  console.log(`Applied ${activeRows.length} reviewed session timing(s); results, participation and original source dates retained.`);
 }
 function restorePublishedEditorial(baselineSha,ids,{root=ROOT}={}){
   assert(/^[a-f0-9]{40}$/.test(baselineSha),'A full previously verified published SHA is required');
@@ -266,6 +335,8 @@ function restorePublishedEditorial(baselineSha,ids,{root=ROOT}={}){
     for(const id of ids){
       const old=previous.events.find(event=>event.id===id),current=doc.events.find(event=>event.id===id);
       assert(old&&current,`${id}: fixture must exist in both snapshots (${file})`);
+      const retirement=retirementFor([...previous.events,...doc.events]);
+      assert(!retirement.isRetired(current),`${id}: withdrawn editorial cannot be restored (${file})`);
       assert(old.editorialNarrative?.sourceIds?.length&&Number.isFinite(Date.parse(old.editorialNarrative.researchedAt)),`${id}: reviewed baseline is required`);
       const next=retainNewerReviewedEditorial(old,structuredClone(current));
       assert(JSON.stringify(next.editorialNarrative)===JSON.stringify(old.editorialNarrative)||Date.parse(current.editorialNarrative?.researchedAt)>=Date.parse(old.editorialNarrative.researchedAt),`${id}: changed sporting facts prevent restoring an older preview (${file})`);
