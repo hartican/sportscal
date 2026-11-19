@@ -28,7 +28,6 @@ jobs:
       TARGET_SHA: ${{ matrix.sha }}
       TARGET_TREE: ${{ matrix.tree }}
       NODE_IMAGE: docker.io/library/node@sha256:6b9d4ea31e614e29f364bf75758458731eb1e105b80c99667438dd6b3fe262e0
-      EVIDENCE: ${{ runner.temp }}/global-adapter-evidence
     steps:
       - name: Check out the exact target
         uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5.0.1
@@ -42,6 +41,8 @@ jobs:
       - name: Prepare pinned Node and Git image
         run: docker pull --platform linux/amd64 "$NODE_IMAGE"
       - name: Verify isolated execution and expected outcome
+        env:
+          EVIDENCE: ${{ runner.temp }}/global-adapter-evidence
         shell: bash
         run: |
           python3 -I - <<'PY'
@@ -368,6 +369,6 @@ jobs:
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
           name: global-adapter-${{ matrix.control }}-attempt-${{ github.run_attempt }}
-          path: ${{ env.EVIDENCE }}/
+          path: ${{ runner.temp }}/global-adapter-evidence/
           if-no-files-found: error
           retention-days: 7
